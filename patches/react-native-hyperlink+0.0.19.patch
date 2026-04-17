@@ -1,0 +1,11 @@
+--- dist/index.js.bak	2026-04-14 08:01:09
++++ dist/index.js	2026-04-17 10:50:55
+@@ -170,7 +170,7 @@
+ Hyperlink.propTypes = {
+   linkDefault: _propTypes["default"].bool,
+   linkify: _propTypes["default"].object,
+-  linkStyle: textPropTypes.style,
++  linkStyle: _propTypes["default"].any,
+   linkText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].func]),
+   onPress: _propTypes["default"].func,
+   onLongPress: _propTypes["default"].func,

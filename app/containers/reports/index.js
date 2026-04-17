@@ -5,7 +5,7 @@ import type { Report, ReportsList } from 'types/reports.types';
 import { connect } from 'react-redux';
 import { getNextStep } from 'helpers/forms';
 import { showExportReportsSuccessfulNotification } from 'redux-modules/app';
-import { deleteReport, setAsUploaded, uploadReport } from 'redux-modules/reports';
+import { deleteReport, setAsUploaded } from 'redux-modules/reports';
 
 import Reports from 'components/reports';
 import { trackSharedContent } from 'helpers/analytics';
@@ -80,12 +80,9 @@ function mapDispatchToProps(dispatch: Dispatch, ownProps: OwnProps) {
     exportReportsAsBundle: async (ids: Array<string>) => {
       const outputPath = await dispatch(exportBundleFromRedux({ reportIds: ids }));
       trackSharedContent('report');
-      return await shareBundle(outputPath);
-    },
-    uploadReports: (ids: Array<string>) => {
-      for (const id of ids) {
-        dispatch(uploadReport(id));
-      }
+      const result = await shareBundle(outputPath);
+      dispatch(setAsUploaded(ids));
+      return result;
     },
     completeReports: (ids: Array<string>) => {
       dispatch(setAsUploaded(ids));

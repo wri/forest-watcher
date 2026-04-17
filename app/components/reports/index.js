@@ -43,9 +43,8 @@ type Props = {|
   +appLanguage: string,
   +getLastStep: string => ?number,
   +showExportReportsSuccessfulNotification: () => void,
-  deleteReport: () => void,
-  completeReports: (ids: Array<string>) => void,
-  uploadReports: (ids: Array<string>) => void
+  deleteReport: (reportName: string) => void,
+  completeReports: (ids: Array<string>) => void
 |};
 
 type State = {|
@@ -331,7 +330,7 @@ class Reports extends PureComponent<Props, State> {
     }
   }
 
-  showExportReportsSuccessfulNotificationIfRequired = (res: ShareOpenResult) => {
+  showExportReportsSuccessfulNotificationIfRequired = (res: any) => {
     if (res.success) {
       this.props.showExportReportsSuccessfulNotification();
     }

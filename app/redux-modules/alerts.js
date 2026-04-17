@@ -9,7 +9,7 @@ import Config from 'react-native-config';
 import { LOGOUT_REQUEST } from 'redux-modules/user';
 import { RETRY_SYNC } from 'redux-modules/shared';
 import { PERSIST_REHYDRATE } from '@redux-offline/redux-offline/lib/constants';
-import storeAlertsFromCSV from 'helpers/alert-store/storeAlertsFromCSV';
+import storeAlertsFromCSV from 'helpers/alert-store/storeAlertsFromCsv';
 import deleteAlerts from 'helpers/alert-store/deleteAlerts';
 import { decreaseAppSynced } from './app';
 
