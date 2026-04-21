@@ -35,10 +35,6 @@ const mapStateToProps = (state: State, ownProps: OwnProps) => {
   };
   const answer = answers.find(a => a.questionName === question.name) || defaultAnswer;
   const nextStep = getNextStep({ currentQuestion: questionIndex, questions, answers });
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
   const questionAnswered = isQuestionAnswered(answer, question);
   const text =
     questionAnswered || !question.required
