@@ -9,7 +9,7 @@ import Share from 'react-native-share';
  * @param {string} path
  * @param {?string} mimeType
  */
-export default async function shareFile(path: string, mimeType?: string): Promise<void> {
+export default async function shareFile(path: string, mimeType?: string): Promise<{success: boolean}> {
   const res = await Share.open({
     saveToFiles: true,
     url: `file://${path}`,

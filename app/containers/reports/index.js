@@ -81,7 +81,9 @@ function mapDispatchToProps(dispatch: Dispatch, ownProps: OwnProps) {
       const outputPath = await dispatch(exportBundleFromRedux({ reportIds: ids }));
       trackSharedContent('report');
       const result = await shareBundle(outputPath);
-      dispatch(setAsUploaded(ids));
+      if (result?.success) {
+        dispatch(setAsUploaded(ids));
+      }
       return result;
     },
     completeReports: (ids: Array<string>) => {
