@@ -43,8 +43,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
       // https://3sidedcube.atlassian.net/browse/SP-3072 
       // This is correct. 
       // Although, if we change our mind and do want to upload the reports here, we need to add the uploadReports action somewhere in this flow.
-      await shareBundle(outputPath);
-      dispatch(setAsUploadedAll());
+      const result = await shareBundle(outputPath);
+      if (result?.success) {
+        dispatch(setAsUploadedAll());
+      }
       return outputPath;
     }
   };
