@@ -1,6 +1,6 @@
 import { Platform, UIManager } from 'react-native';
 import { Navigation } from 'react-native-navigation';
-import App from './app/main';
+import App from './app/main.tsx';
 import { disableAnalytics } from 'helpers/analytics';
 
 global.Buffer = global.Buffer || require('buffer').Buffer;
