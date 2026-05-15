@@ -14,8 +14,17 @@ const {
 const config = {
   resolver: {
     blockList: [
-      // Prevent Metro from bundling the old React Native version inside react-native-mbtiles' own node_modules
-      new RegExp(path.resolve(__dirname, 'react-native-mbtiles', 'node_modules').replace(/\//g, '[\\/]') + '[\\/].*')
+      // react-native-mbtiles is a local `file:` dependency that ships with its
+      // own node_modules containing an old react-native (which requires the
+      // long-removed `create-react-class`). Block both locations:
+      //   1. The workspace source dir (react-native-mbtiles/node_modules/...)
+      //   2. The yarn-installed copy    (node_modules/react-native-mbtiles/node_modules/...)
+      new RegExp(
+        path.resolve(__dirname, 'react-native-mbtiles', 'node_modules').replace(/\//g, '[\\/]') + '[\\/].*'
+      ),
+      new RegExp(
+        path.resolve(__dirname, 'node_modules', 'react-native-mbtiles', 'node_modules').replace(/\//g, '[\\/]') + '[\\/].*'
+      )
     ]
   }
 };

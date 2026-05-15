@@ -1,6 +1,8 @@
 package com.forestwatcher
 
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import com.google.android.gms.common.GoogleApiAvailability
@@ -13,8 +15,37 @@ class MainActivity : NavigationActivity(), ProviderInstaller.ProviderInstallList
     private var retryProviderInstall = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Rewrite ACTION_SEND intents before super so RN Linking.getInitialURL() can read the URI.
+        // When sharing via the Files app or other apps, the URI is in EXTRA_STREAM rather than
+        // Intent.getData(), which is what RN's Linking module reads.
+        intent?.let { rewriteSendIntentAsView(it) }
         super.onCreate(savedInstanceState)
         ProviderInstaller.installIfNeededAsync(this, this)
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        intent?.let { rewriteSendIntentAsView(it) }
+        super.onNewIntent(intent)
+    }
+
+    /**
+     * For ACTION_SEND intents (e.g. "Share" from Files app), the file URI is placed in
+     * EXTRA_STREAM rather than Intent.getData(). React Native's Linking module only reads
+     * Intent.getData(), so we rewrite the intent to ACTION_VIEW with the URI as data.
+     */
+    private fun rewriteSendIntentAsView(intent: Intent) {
+        if (intent.action == Intent.ACTION_SEND) {
+            val uri: Uri? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                intent.getParcelableExtra(Intent.EXTRA_STREAM, Uri::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                intent.getParcelableExtra(Intent.EXTRA_STREAM)
+            }
+            if (uri != null) {
+                intent.data = uri
+                intent.action = Intent.ACTION_VIEW
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

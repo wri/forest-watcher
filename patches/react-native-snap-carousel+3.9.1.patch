@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-native-snap-carousel/src/carousel/Carousel.js b/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
-index dae71a3..e089453 100644
+index dae71a3..dc4b147 100644
 --- a/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
 +++ b/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
 @@ -1,6 +1,7 @@
@@ -7,7 +7,7 @@ index dae71a3..e089453 100644
 -import { Animated, Easing, FlatList, I18nManager, Platform, ScrollView, View, ViewPropTypes } from 'react-native';
 +import { Animated, Easing, FlatList, I18nManager, Platform, ScrollView, View } from 'react-native';
  import PropTypes from 'prop-types';
-+import ViewPropTypes from 'deprecated-react-native-prop-types';
++import { ViewPropTypes } from 'deprecated-react-native-prop-types';
  import shallowCompare from 'react-addons-shallow-compare';
  import {
      defaultScrollInterpolator,

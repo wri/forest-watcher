@@ -261,7 +261,7 @@ class Answers extends PureComponent<Props> {
               {regularAnswers.map(result => (
                 <AnswerComponent
                   questionId={result.question.Id}
-                  key={result.question.Id}
+                  key={result.question.name}
                   answers={result.answer.value}
                   question={result.question.label}
                   childAnswer={result.answer.child?.value}

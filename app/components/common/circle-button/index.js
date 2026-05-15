@@ -5,9 +5,9 @@ import { Image, TouchableHighlight } from 'react-native';
 import Theme from 'config/theme';
 import styles from './styles';
 
-function ButtonCircle(props) {
+function ButtonCircle({ disabled = false, shouldFillContainer = false, ...props }) {
   function onButtonPress() {
-    if (!props.disabled) {
+    if (!disabled) {
       props.onPress?.();
     }
   }
@@ -29,7 +29,7 @@ function ButtonCircle(props) {
   if (props.gray) {
     underlayColor = Theme.background.gray;
   }
-  if (props.disabled) {
+  if (disabled) {
     underlayColor = Theme.colors.veryLightPinkTwo;
   }
 
@@ -40,11 +40,11 @@ function ButtonCircle(props) {
       onPress={onButtonPress}
       activeOpacity={0.8}
       underlayColor={underlayColor}
-      disabled={props.disabled ?? false}
+      disabled={disabled}
     >
       {props.icon && (
         <Image
-          style={[props.shouldFillContainer ? Theme.largeIcon : Theme.icon, props.iconStyle ?? '']}
+          style={[shouldFillContainer ? Theme.largeIcon : Theme.icon, props.iconStyle ?? '']}
           source={props.icon}
         />
       )}
@@ -52,18 +52,13 @@ function ButtonCircle(props) {
   );
 }
 
-ButtonCircle.defaultProps = {
-  disabled: false,
-  shouldFillContainer: false
-};
-
 ButtonCircle.propTypes = {
   shouldFillContainer: PropTypes.bool,
   red: PropTypes.bool,
   light: PropTypes.bool,
-  style: PropTypes.node,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.number]),
   icon: PropTypes.number,
-  iconStyle: PropTypes.node,
+  iconStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.number]),
   disabled: PropTypes.bool,
   onLayout: PropTypes.func,
   onPress: PropTypes.func.isRequired,

@@ -4,22 +4,17 @@ import PropTypes from 'prop-types';
 
 import Theme from 'config/theme';
 
-function CustomSwitch(props) {
+function CustomSwitch({ value, onValueChange, colorOn = Theme.colors.turtleGreen, colorOff = Theme.colors.veryLightPink }) {
   return (
     <Switch
       ios_backgroundColor={Theme.colors.veryLightPink}
-      value={props.value}
-      onValueChange={props.onValueChange}
+      value={value}
+      onValueChange={onValueChange}
       trackColor={Theme.colors.veryLightPink}
-      thumbColor={Platform.OS === 'android' ? (props.value ? props.colorOn : props.colorOff) : null}
+      thumbColor={Platform.OS === 'android' ? (value ? colorOn : colorOff) : null}
     />
   );
 }
-
-CustomSwitch.defaultProps = {
-  colorOff: Theme.colors.veryLightPink,
-  colorOn: Theme.colors.turtleGreen
-};
 
 CustomSwitch.propTypes = {
   value: PropTypes.bool,

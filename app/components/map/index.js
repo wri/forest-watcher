@@ -317,10 +317,12 @@ class MapComponent extends Component<Props, State> {
   };
 
   handleBackPress = debounceUI(() => {
-    // Dismiss the map walkthrough modal in case it is showing.
-    Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
-      console.info('3SC', 'Cannot dismiss map walkthrough: ', err)
-    );
+    // Dismiss the map walkthrough modal if it is showing (only possible when mapWalkthroughSeen is false).
+    if (!this.props.mapWalkthroughSeen) {
+      Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
+        console.info('3SC', 'Cannot dismiss map walkthrough: ', err)
+      );
+    }
     this.dismissInfoBanner();
     if (this.isRouteTracking()) {
       if (this.state.routeTrackingDialogState) {
@@ -719,7 +721,7 @@ class MapComponent extends Component<Props, State> {
     return (
       <MapboxGL.UserLocation
         onUpdate={location => this.updateHeading(location?.coords?.heading, true)}
-        renderMode="custom"
+        renderMode="normal"
       >
         <MapboxGL.SymbolLayer id="userLocation" style={userLocationStyle} layerIndex={MAP_LAYER_INDEXES.userLocation} />
       </MapboxGL.UserLocation>

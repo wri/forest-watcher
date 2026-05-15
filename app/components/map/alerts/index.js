@@ -29,6 +29,8 @@ type State = {|
 export default class Alerts extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.firesCategoryRef = React.createRef();
+    this.deforestationCategoryRef = React.createRef();
     this.state = {
       /*
        * The alerts highlighted by any directly bordering selected alerts
@@ -42,12 +44,12 @@ export default class Alerts extends Component<Props, State> {
   highlightAlerts() {
     const { selectedAlerts } = this.props;
     let highlightedAlerts = [];
-    if (this.refs.firesCategory) {
-      highlightedAlerts = highlightedAlerts.concat(this.refs.firesCategory.getHighlightedAlerts(selectedAlerts));
+    if (this.firesCategoryRef.current) {
+      highlightedAlerts = highlightedAlerts.concat(this.firesCategoryRef.current.getHighlightedAlerts(selectedAlerts));
     }
-    if (this.refs.deforestationCategory) {
+    if (this.deforestationCategoryRef.current) {
       highlightedAlerts = highlightedAlerts.concat(
-        this.refs.deforestationCategory.getHighlightedAlerts(selectedAlerts)
+        this.deforestationCategoryRef.current.getHighlightedAlerts(selectedAlerts)
       );
     }
     // Need to use the highlighted alerts array to fetch the cross category
@@ -56,14 +58,14 @@ export default class Alerts extends Component<Props, State> {
     let connectedAlerts = [];
     const highlightedAndSelectedAlerts = highlightedAlerts.concat(selectedAlerts);
 
-    if (this.refs.firesCategory) {
+    if (this.firesCategoryRef.current) {
       connectedAlerts = connectedAlerts.concat(
-        this.refs.firesCategory.getHighlightedAlerts(highlightedAndSelectedAlerts)
+        this.firesCategoryRef.current.getHighlightedAlerts(highlightedAndSelectedAlerts)
       );
     }
-    if (this.refs.deforestationCategory) {
+    if (this.deforestationCategoryRef.current) {
       connectedAlerts = connectedAlerts.concat(
-        this.refs.deforestationCategory.getHighlightedAlerts(highlightedAndSelectedAlerts)
+        this.deforestationCategoryRef.current.getHighlightedAlerts(highlightedAndSelectedAlerts)
       );
     }
 
@@ -126,7 +128,7 @@ export default class Alerts extends Component<Props, State> {
           selectedAlerts={this.props.selectedAlerts}
           highlightedAlerts={this.state.highlightedAlerts}
           preSelectedAlerts={this.props.preSelectedAlerts}
-          ref={'firesCategory'}
+          ref={this.firesCategoryRef}
         />
         <AlertDatasetCategory
           activeSlugs={this.props.alertLayerSettings.deforestation.activeSlugs}
@@ -139,7 +141,7 @@ export default class Alerts extends Component<Props, State> {
           selectedAlerts={this.props.selectedAlerts}
           highlightedAlerts={this.state.highlightedAlerts}
           preSelectedAlerts={this.props.preSelectedAlerts}
-          ref={'deforestationCategory'}
+          ref={this.deforestationCategoryRef}
         />
       </View>
     );

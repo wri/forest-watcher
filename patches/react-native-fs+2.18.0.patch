@@ -1,5 +1,20 @@
+diff --git a/node_modules/react-native-fs/FS.common.js b/node_modules/react-native-fs/FS.common.js
+index 62b7ba73..c9dcacfe 100755
+--- a/node_modules/react-native-fs/FS.common.js
++++ b/node_modules/react-native-fs/FS.common.js
+@@ -11,7 +11,9 @@ var RNFSManager = require('react-native').NativeModules.RNFSManager;
+ 
+ var NativeEventEmitter = require('react-native').NativeEventEmitter;
+ 
+-var RNFS_NativeEventEmitter = new NativeEventEmitter(RNFSManager);
++var RNFS_NativeEventEmitter = new NativeEventEmitter(
++  RNFSManager && RNFSManager.addListener && RNFSManager.removeListeners ? RNFSManager : null
++);
+ 
+ var base64 = require('base-64');
+ var utf8 = require('utf8');
 diff --git a/node_modules/react-native-fs/android/src/main/java/com/rnfs/RNFSManager.java b/node_modules/react-native-fs/android/src/main/java/com/rnfs/RNFSManager.java
-index 7aab307..02bb2f0 100755
+index 7aab307a..02bb2f0f 100755
 --- a/node_modules/react-native-fs/android/src/main/java/com/rnfs/RNFSManager.java
 +++ b/node_modules/react-native-fs/android/src/main/java/com/rnfs/RNFSManager.java
 @@ -73,6 +73,10 @@ public class RNFSManager extends ReactContextBaseJavaModule {

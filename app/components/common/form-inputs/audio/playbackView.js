@@ -15,6 +15,9 @@ interface Props {
 }
 
 export const PlayBackView = (props: Props): React$Element<any> => {
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [localValue, setLocalValue] = React.useState(0);
+
   return (
     <View
       style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: 33, paddingHorizontal: 24 }}
@@ -45,11 +48,21 @@ export const PlayBackView = (props: Props): React$Element<any> => {
           maximumValue={props.playSpec.currentDurationSec}
           minimumValue={0}
           style={{ marginHorizontal: 12 }}
-          value={props.playSpec.currentPositionSec}
+          value={isDragging ? localValue : props.playSpec.currentPositionSec}
           thumbTintColor={'#94BE43'}
           minimumTrackTintColor="#94BE43"
           maximumTrackTintColor="#E3ECC6"
-          onValueChange={props.onSeek}
+          onSlidingStart={value => {
+            setIsDragging(true);
+            setLocalValue(value);
+          }}
+          onValueChange={value => {
+            if (isDragging) setLocalValue(value);
+          }}
+          onSlidingComplete={value => {
+            setIsDragging(false);
+            props.onSeek(value);
+          }}
         />
         <Text>{props.playSpec.duration}</Text>
       </View>
