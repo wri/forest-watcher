@@ -7,7 +7,7 @@ Description of patches created with the `patch-package` library.
 | `@mauron85/react-native-background-geolocation`   | v0.6.3        | —        | Android: AndroidX migration, minSdkVersion alignment, modern permissions library |
 | `@react-native-mapbox-gl/maps`                    | v8.6.0-beta.0 | 01/05/26 | Android/JS: String refs migrated to `React.createRef()`; removed unsupported `renderMode="custom"`; fixed `ViewPropTypes` named import. Regenerated 2026-05-01. |
 | `react-native-app-auth`                           | v6.4.3        | —        | Android: OAuth redirect URI handling |
-| `react-native-audio-recorder-player`              | v3.6.12       | —        | Android: Fix pause/resume detection |
+| `react-native-audio-recorder-player`              | v3.6.12       | —        | Android: fixed paused-state detection (`startPlayer`), added `OnSeekCompleteListener` to resume playback after async `seekTo` on API 26+, and updated seek promise result message |
 | `react-native-device-info`                        | v9.0.2        | —        | Android: Compatibility fix (see patch file for details) |
 | `react-native-fs`                                 | v2.18.0       | —        | Android: Ensure all API methods assume URI parameters are not percent-encoded consistently |
 | `react-native-hyperlink`                          | v0.0.19       | —        | Android/iOS: Older React Native compatibility fix |
