@@ -2,7 +2,7 @@
 
 ## Overview
 
-Forest Watcher is a **React Native 0.70** mobile app (Android & iOS) for monitoring forested areas. It integrates with the GFW (Global Forest Watch) API, Mapbox, Firebase, Sentry, and OAuth providers (Google, Facebook, Apple).
+Forest Watcher is a **React Native 0.76.x** mobile app (Android & iOS) for monitoring forested areas. It integrates with the GFW (Global Forest Watch) API, Mapbox, Firebase, Sentry, and OAuth providers (Google, Facebook, Apple).
 
 > **Note:** There is no web app in this repository. The `docs/web/` folder references a separate project.
 
@@ -74,8 +74,8 @@ The `package.json` scripts already wrap this, so you'll normally just use `yarn 
 
 1. Install [Android Studio](https://developer.android.com/studio).
 2. Through Android Studio SDK Manager install:
-   - **Android SDK Platform 30** (compileSdkVersion 30)
-   - **Android SDK Build-Tools 30.0.2**
+   - **Android SDK Platform 35** (compileSdkVersion 35, targetSdkVersion 35)
+   - **Android SDK Build-Tools 35.0.0**
    - **NDK 21.4.7075529** (required by native modules)
    - **CMake** (if prompted)
 3. Set environment variables in your shell profile (`~/.zshrc` or `~/.bashrc`):
@@ -145,6 +145,7 @@ DATASET_COUNTRIES=134caa0a-21f7-451d-a7fe-30db31a424aa
 # ── Google OAuth ─────────────────────────────────────────
 LOGIN_GOOGLE_CLIENT_ID=<your-google-oauth-client-id>
 LOGIN_GOOGLE_REDIRECT_SCHEMA=<your-google-redirect-schema>
+LOGIN_GOOGLE_REDIRECT_SCHEMA_DEBUG=<your-google-redirect-schema>.debug
 
 # ── Facebook OAuth ───────────────────────────────────────
 LOGIN_FACEBOOK_APP_ID=<your-facebook-app-id>
@@ -276,7 +277,7 @@ Key tech choices:
 - **Navigation:** `react-native-navigation` (Wix) — native navigation, not React Navigation
 - **State:** Redux + redux-saga + redux-offline
 - **Maps:** Mapbox GL Native (`@react-native-mapbox-gl/maps`)
-- **Database:** Realm 11
+- **Database:** Realm 12.13.2
 - **Auth:** OAuth via `react-native-app-auth` (Google), `react-native-fbsdk-next` (Facebook), `@invertase/react-native-apple-authentication` (Apple)
 - **Env config:** `react-native-config` reads `.env` / `.env.android` / `.env.ios`
 

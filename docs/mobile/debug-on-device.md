@@ -59,11 +59,11 @@ yarn android:sideload:tunnel
 ```
 
 The tunnel step (`adb reverse`) must be re-run each time you replug the cable or restart ADB.  
-If more than one device is connected, the scripts auto-pick the first non-emulator entry. For multiple physical devices, pass the serial explicitly:
+The scripts ignore emulator serials and target a physical device only. If multiple physical devices are connected, set `SERIAL` explicitly:
 
 ```bash
-adb -s <SERIAL> reverse tcp:8081 tcp:8081
-adb -s <SERIAL> install -r android/app/build/outputs/apk/debug/<apk-name>.apk
+SERIAL=<SERIAL> yarn android:sideload:install
+SERIAL=<SERIAL> yarn android:sideload:tunnel
 ```
 
 The dev build installs as `com.forestwatcher.debug` and coexists with the production app. Start Metro before launching it:

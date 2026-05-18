@@ -82,6 +82,8 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 apply from: new File(["node", "--print", "require.resolve('@sentry/react-native/package.json')"].execute().text.trim(), "../sentry.gradle")
+def googleRedirectScheme = project.env.get("LOGIN_GOOGLE_REDIRECT_SCHEMA")
+def googleRedirectSchemeDebug = project.env.get("LOGIN_GOOGLE_REDIRECT_SCHEMA_DEBUG") ?: "${googleRedirectScheme}.debug"
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -98,7 +100,7 @@ android {
         resValue "string", "build_config_package", "com.forestwatcher"
         archivesBaseName = "$applicationId-v$versionName-$versionCode"
         manifestPlaceholders = [
-            'appAuthRedirectScheme': project.env.get("LOGIN_GOOGLE_REDIRECT_SCHEMA")
+            'appAuthRedirectScheme': googleRedirectScheme
         ]
     }
     signingConfigs {
@@ -113,6 +115,9 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-dev"
+            manifestPlaceholders = [
+                'appAuthRedirectScheme': googleRedirectSchemeDebug
+            ]
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds

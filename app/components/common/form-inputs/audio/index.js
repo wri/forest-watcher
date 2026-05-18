@@ -293,9 +293,10 @@ export class AudioInput extends React.Component<Props, State> {
   };
 
   seekForward: () => Promise<void> = async () => {
+    const duration = this.state.playSpec.currentDurationSec;
     let newValue = this.state.playSpec.currentPositionSec + 10000;
-    if (newValue >= this.state.playSpec.currentDurationSec - 1000) {
-      newValue = this.state.playSpec.currentDurationSec - 1000;
+    if (duration > 0 && newValue >= duration - 1000) {
+      newValue = Math.max(duration - 1000, 0);
     }
     this.setSeeking(true);
     this.setState({
@@ -333,7 +334,14 @@ export class AudioInput extends React.Component<Props, State> {
   };
 
   seekTo: (value: number) => Promise<void> = async value => {
-    const target = value >= this.state.playSpec.currentDurationSec ? value - 100 : value;
+    const duration = this.state.playSpec.currentDurationSec;
+    let target = value;
+    if (duration > 0 && value >= duration) {
+      target = Math.max(duration - 100, 0);
+    }
+    if (target < 0) {
+      target = 0;
+    }
     this.setSeeking(true);
     this.setState({
       playSpec: {
