@@ -14,7 +14,7 @@
     "transifex:push": "node transifex/transifex-push.js",
     "transifex:pull": "node transifex/transifex-pull.js",
     "transifex:override": "node transifex/transifex-override",
-    "android": "react-native run-android",
+    "android": "react-native run-android --appIdSuffix debug",
     "android-clean": "cd android/ && ./gradlew clean && cd ..",
     "android:sideload:build": "cd android && ./gradlew assembleDebug",
     "android:sideload:tunnel": "SERIALS=$(adb devices | awk '$2==\"device\" && $1 !~ /^emulator-/{print $1}'); COUNT=$(echo \"$SERIALS\" | sed '/^$/d' | wc -l | tr -d ' '); if [ \"$COUNT\" -eq 0 ]; then echo 'No physical Android device found. Connect a device or set SERIAL=<device-id>.'; exit 1; fi; if [ \"$COUNT\" -gt 1 ] && [ -z \"$SERIAL\" ]; then echo 'Multiple physical devices detected. Set SERIAL=<device-id>.'; echo \"$SERIALS\"; exit 1; fi; TARGET=${SERIAL:-$(echo \"$SERIALS\" | head -n 1)}; adb -s \"$TARGET\" reverse tcp:8081 tcp:8081",
