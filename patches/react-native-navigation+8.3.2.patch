@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/react/modal/ModalContentLayout.kt b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/react/modal/ModalContentLayout.kt
+index 1d877a9..1054c4f 100644
+--- a/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/react/modal/ModalContentLayout.kt
++++ b/node_modules/react-native-navigation/lib/android/app/src/main/java/com/reactnativenavigation/react/modal/ModalContentLayout.kt
+@@ -16,10 +16,7 @@ class ModalContentLayout(context: Context?) : ReactViewGroup(context), RootView{
+ 
+     private val mJSTouchDispatcher = JSTouchDispatcher(this)
+ 
+-    override fun onChildStartedNativeGesture(child: View, androidEvent: MotionEvent) {
+-        mJSTouchDispatcher.onChildStartedNativeGesture(androidEvent, this.getEventDispatcher())
+-    }
+-    override fun onChildStartedNativeGesture(androidEvent: MotionEvent) {
++    override fun onChildStartedNativeGesture(child: View?, androidEvent: MotionEvent) {
+         mJSTouchDispatcher.onChildStartedNativeGesture(androidEvent, this.getEventDispatcher())
+     }
+     override fun onChildEndedNativeGesture(child: View, androidEvent: MotionEvent) {
+@@ -31,7 +28,7 @@ class ModalContentLayout(context: Context?) : ReactViewGroup(context), RootView{
+         return UIManagerHelper.getEventDispatcher(reactContext, UIManagerType.FABRIC) ?: throw IllegalStateException("EventDispatcher for Fabric UI Manager is not found")
+     }
+ 
+-    override fun handleException(t: Throwable?) {
++    override fun handleException(t: Throwable) {
+         getReactContext().handleException(RuntimeException(t))
+     }
+ 

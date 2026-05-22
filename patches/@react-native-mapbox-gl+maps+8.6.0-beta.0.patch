@@ -1,3 +1,14 @@
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/results.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/transformed/classes/classes_dex/classes.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..1cf4595
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/2f2a40aafa5ee88ebda31029a6e34321/transformed/classes/classes_dex/classes.dex differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/results.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/results.bin
 new file mode 100644
 index 0000000..7ed749e
@@ -7,712 +18,535 @@ index 0000000..7ed749e
 +o/bundleLibRuntimeToDirDebug
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/BuildConfig.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/BuildConfig.dex
 new file mode 100644
-index 0000000..8c81925
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/BuildConfig.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/RCTMGLPackage.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/RCTMGLPackage.dex
 new file mode 100644
-index 0000000..ac0fa5c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/RCTMGLPackage.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEvent.dex
 new file mode 100644
-index 0000000..22bd39c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex
 new file mode 100644
-index 0000000..78678bd
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractMapFeature.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractMapFeature.dex
 new file mode 100644
-index 0000000..e31b16d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractMapFeature.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerView.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerView.dex
 new file mode 100644
-index 0000000..5c61ec3
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerView.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerViewManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerViewManager.dex
 new file mode 100644
-index 0000000..1ed084f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/MarkerViewManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCallout.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCallout.dex
 new file mode 100644
-index 0000000..0593dc7
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCallout.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCalloutManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCalloutManager.dex
 new file mode 100644
-index 0000000..cd765d0
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLCalloutManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView$1.dex
 new file mode 100644
-index 0000000..0fafd0d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView.dex
 new file mode 100644
-index 0000000..0c61c7b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerView.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerViewManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerViewManager.dex
 new file mode 100644
-index 0000000..80061cc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLMarkerViewManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$1.dex
 new file mode 100644
-index 0000000..2baf336
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$2.dex
 new file mode 100644
-index 0000000..6686c79
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation.dex
 new file mode 100644
-index 0000000..b87028a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotation.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotationManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotationManager.dex
 new file mode 100644
-index 0000000..1598a8c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/annotation/RCTMGLPointAnnotationManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraStop.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraStop.dex
 new file mode 100644
-index 0000000..c4e86fe
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraStop.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem$1.dex
 new file mode 100644
-index 0000000..7d58ca6
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem.dex
 new file mode 100644
-index 0000000..c519599
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateItem.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue$OnCompleteAllListener.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue$OnCompleteAllListener.dex
 new file mode 100644
-index 0000000..60d748a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue$OnCompleteAllListener.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue.dex
 new file mode 100644
-index 0000000..db96caa
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/CameraUpdateQueue.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$1.dex
 new file mode 100644
-index 0000000..74dc84d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$2.dex
 new file mode 100644
-index 0000000..755e2b9
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$3.dex
 new file mode 100644
-index 0000000..332c395
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$4.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$4.dex
 new file mode 100644
-index 0000000..523dea4
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$4.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$5.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$5.dex
 new file mode 100644
-index 0000000..6a6e9e8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$5.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$6.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$6.dex
 new file mode 100644
-index 0000000..06eae7d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$6.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$7.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$7.dex
 new file mode 100644
-index 0000000..76a6ddb
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera$7.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera.dex
 new file mode 100644
-index 0000000..69ac7cf
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCamera.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCameraManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCameraManager.dex
 new file mode 100644
-index 0000000..0cf59a9
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/RCTMGLCameraManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode$Mode.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode$Mode.dex
 new file mode 100644
-index 0000000..c3ac3b6
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode$Mode.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode.dex
 new file mode 100644
-index 0000000..cf98508
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/camera/constants/CameraMode.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$1.dex
 new file mode 100644
-index 0000000..7f67542
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$2.dex
 new file mode 100644
-index 0000000..f514365
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages.dex
 new file mode 100644
-index 0000000..6ca232e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImages.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImagesManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImagesManager.dex
 new file mode 100644
-index 0000000..8a5d15a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/images/RCTMGLImagesManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/LocationComponentManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/LocationComponentManager.dex
 new file mode 100644
-index 0000000..40f865d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/LocationComponentManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocation.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocation.dex
 new file mode 100644
-index 0000000..bf51464
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocation.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocationManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocationManager.dex
 new file mode 100644
-index 0000000..c760699
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/location/RCTMGLNativeUserLocationManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/LayerSourceInfo.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/LayerSourceInfo.dex
 new file mode 100644
-index 0000000..9d03982
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/LayerSourceInfo.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapView.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapView.dex
 new file mode 100644
-index 0000000..d702cbc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapView.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapViewManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapViewManager.dex
 new file mode 100644
-index 0000000..3677cad
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLAndroidTextureMapViewManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$1.dex
 new file mode 100644
-index 0000000..0af7c3d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$10.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$10.dex
 new file mode 100644
-index 0000000..4598cc1
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$10.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$11.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$11.dex
 new file mode 100644
-index 0000000..dbb79ae
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$11.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$12.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$12.dex
 new file mode 100644
-index 0000000..ad60fd2
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$12.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$13.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$13.dex
 new file mode 100644
-index 0000000..6ac538b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$13.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$2.dex
 new file mode 100644
-index 0000000..22840d9
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$3.dex
 new file mode 100644
-index 0000000..f58c155
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$4.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$4.dex
 new file mode 100644
-index 0000000..955e19f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$4.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$5.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$5.dex
 new file mode 100644
-index 0000000..5ebaddd
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$5.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$6.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$6.dex
 new file mode 100644
-index 0000000..fa1d878
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$6.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$7.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$7.dex
 new file mode 100644
-index 0000000..b75e90c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$7.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$8.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$8.dex
 new file mode 100644
-index 0000000..9394605
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$8.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$9.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$9.dex
 new file mode 100644
-index 0000000..11eacb4
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$9.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$FoundLayerCallback.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$FoundLayerCallback.dex
 new file mode 100644
-index 0000000..0a8274e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView$FoundLayerCallback.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView.dex
 new file mode 100644
-index 0000000..2565c4e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapView.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode$1.dex
 new file mode 100644
-index 0000000..3d0bf1e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode.dex
 new file mode 100644
-index 0000000..60660bd
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager$MapShadowNode.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager.dex
 new file mode 100644
-index 0000000..298cc5e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/RCTMGLMapViewManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/helpers/CameraChangeTracker.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/helpers/CameraChangeTracker.dex
 new file mode 100644
-index 0000000..4344268
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/mapview/helpers/CameraChangeTracker.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyle.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyle.dex
 new file mode 100644
-index 0000000..27a4429
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyle.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$1.dex
 new file mode 100644
-index 0000000..9e224bc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$2.dex
 new file mode 100644
-index 0000000..02e0e36
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$3.dex
 new file mode 100644
-index 0000000..6268760
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$4.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$4.dex
 new file mode 100644
-index 0000000..5f09e41
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$4.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$5.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$5.dex
 new file mode 100644
-index 0000000..dc511f6
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory$5.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory.dex
 new file mode 100644
-index 0000000..658f71b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFactory.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser$StopConfig.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser$StopConfig.dex
 new file mode 100644
-index 0000000..37e7d6b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser$StopConfig.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.dex
 new file mode 100644
-index 0000000..24d4970
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleValue.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleValue.dex
 new file mode 100644
-index 0000000..2e9dfd8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/RCTMGLStyleValue.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$1.dex
 new file mode 100644
-index 0000000..c87a240
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$2.dex
 new file mode 100644
-index 0000000..a27ed7e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer.dex
 new file mode 100644
-index 0000000..ca86194
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayer.dex
 new file mode 100644
-index 0000000..adb7b6b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayerManager.dex
 new file mode 100644
-index 0000000..cc10c6b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLBackgroundLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayer.dex
 new file mode 100644
-index 0000000..cc4adbe
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayerManager.dex
 new file mode 100644
-index 0000000..94f5b69
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLCircleLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayer.dex
 new file mode 100644
-index 0000000..78b5a6b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayerManager.dex
 new file mode 100644
-index 0000000..4423b21
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillExtrusionLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayer.dex
 new file mode 100644
-index 0000000..03e3a0f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayerManager.dex
 new file mode 100644
-index 0000000..0ef96f3
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLFillLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayer.dex
 new file mode 100644
-index 0000000..cf8f181
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayerManager.dex
 new file mode 100644
-index 0000000..dbf1079
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLHeatmapLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayer.dex
 new file mode 100644
-index 0000000..98c3c04
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayerManager.dex
 new file mode 100644
-index 0000000..64b4f91
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLLineLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayer.dex
 new file mode 100644
-index 0000000..f175820
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayerManager.dex
 new file mode 100644
-index 0000000..8231f00
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLRasterLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayer.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayer.dex
 new file mode 100644
-index 0000000..330ad00
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayer.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayerManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayerManager.dex
 new file mode 100644
-index 0000000..7439e9b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/layers/RCTMGLSymbolLayerManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLight.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLight.dex
 new file mode 100644
-index 0000000..576f10a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLight.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLightManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLightManager.dex
 new file mode 100644
-index 0000000..f71e718
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/light/RCTMGLLightManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSource.dex
 new file mode 100644
-index 0000000..0ffbcc8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSourceManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSourceManager.dex
 new file mode 100644
-index 0000000..ab985a5
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLImageSourceManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSource.dex
 new file mode 100644
-index 0000000..90ce7ef
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSourceManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSourceManager.dex
 new file mode 100644
-index 0000000..5964538
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLRasterSourceManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource$1.dex
 new file mode 100644
-index 0000000..5f05eb5
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource.dex
 new file mode 100644
-index 0000000..e0c15ff
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSourceManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSourceManager.dex
 new file mode 100644
-index 0000000..44e9674
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLShapeSourceManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSource.dex
 new file mode 100644
-index 0000000..072762a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSourceManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSourceManager.dex
 new file mode 100644
-index 0000000..e1b4a3a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLTileSourceManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSource.dex
 new file mode 100644
-index 0000000..ec42ddc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSourceManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSourceManager.dex
 new file mode 100644
-index 0000000..a39152e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTMGLVectorSourceManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$1.dex
 new file mode 100644
-index 0000000..be9d192
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$OnPressEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$OnPressEvent.dex
 new file mode 100644
-index 0000000..91e21f2
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource$OnPressEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource.dex
 new file mode 100644
-index 0000000..bbf7fbc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/styles/sources/RCTSource.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AbstractEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AbstractEvent.dex
 new file mode 100644
-index 0000000..a21d364
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AbstractEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AndroidCallbackEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AndroidCallbackEvent.dex
 new file mode 100644
-index 0000000..2cd0d7d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/AndroidCallbackEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/EventEmitter.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/EventEmitter.dex
 new file mode 100644
-index 0000000..6222610
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/EventEmitter.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/FeatureClickEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/FeatureClickEvent.dex
 new file mode 100644
-index 0000000..ef46d67
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/FeatureClickEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/IEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/IEvent.dex
 new file mode 100644
-index 0000000..4dfb93f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/IEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/ImageMissingEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/ImageMissingEvent.dex
 new file mode 100644
-index 0000000..5fdc82d
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/ImageMissingEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/LocationEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/LocationEvent.dex
 new file mode 100644
-index 0000000..8436d6f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/LocationEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapChangeEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapChangeEvent.dex
 new file mode 100644
-index 0000000..2cd0507
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapChangeEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapClickEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapClickEvent.dex
 new file mode 100644
-index 0000000..58f26f4
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapClickEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapUserTrackingModeEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapUserTrackingModeEvent.dex
 new file mode 100644
-index 0000000..6c60ce8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/MapUserTrackingModeEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/OfflineEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/OfflineEvent.dex
 new file mode 100644
-index 0000000..69d54f1
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/OfflineEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationClickEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationClickEvent.dex
 new file mode 100644
-index 0000000..58643fc
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationClickEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationDragEvent.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationDragEvent.dex
 new file mode 100644
-index 0000000..3e7fea7
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/PointAnnotationDragEvent.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventKeys.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventKeys.dex
 new file mode 100644
-index 0000000..789cace
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventKeys.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventTypes.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventTypes.dex
 new file mode 100644
-index 0000000..df10f00
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/events/constants/EventTypes.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/http/CustomHeadersInterceptor.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/http/CustomHeadersInterceptor.dex
 new file mode 100644
-index 0000000..150621a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/http/CustomHeadersInterceptor.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager$OnUserLocationChange.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager$OnUserLocationChange.dex
 new file mode 100644
-index 0000000..cfe436a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager$OnUserLocationChange.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager.dex
 new file mode 100644
-index 0000000..f685854
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/LocationManager.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocation.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocation.dex
 new file mode 100644
-index 0000000..5d78999
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocation.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocationVerticalAlignment.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocationVerticalAlignment.dex
 new file mode 100644
-index 0000000..91e1cf7
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserLocationVerticalAlignment.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingMode.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingMode.dex
 new file mode 100644
-index 0000000..cee5a69
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingMode.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingState.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingState.dex
 new file mode 100644
-index 0000000..bc4a557
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/location/UserTrackingState.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$1.dex
 new file mode 100644
-index 0000000..f0adb44
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$2.dex
 new file mode 100644
-index 0000000..fbe627e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$3.dex
 new file mode 100644
-index 0000000..90c949c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule.dex
 new file mode 100644
-index 0000000..8fc381b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLocationModule.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging$1.dex
 new file mode 100644
-index 0000000..71a566f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging.dex
 new file mode 100644
-index 0000000..03a153a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLLogging.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$1.dex
 new file mode 100644
-index 0000000..46cff40
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$2.dex
 new file mode 100644
-index 0000000..eb47d16
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$3.dex
 new file mode 100644
-index 0000000..d2f3c06
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$4.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$4.dex
 new file mode 100644
-index 0000000..fd7d7e4
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$4.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$5.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$5.dex
 new file mode 100644
-index 0000000..9dcdcac
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule$5.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule.dex
 new file mode 100644
-index 0000000..c65975a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLModule.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$1.dex
 new file mode 100644
-index 0000000..b8cdbad
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10$1.dex
 new file mode 100644
-index 0000000..0809e73
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10.dex
 new file mode 100644
-index 0000000..b647640
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$10.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11$1.dex
 new file mode 100644
-index 0000000..ea7dcfd
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11.dex
 new file mode 100644
-index 0000000..252d02c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$11.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$12.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$12.dex
 new file mode 100644
-index 0000000..b9456fd
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$12.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$13.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$13.dex
 new file mode 100644
-index 0000000..3a5d5e7
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$13.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$14.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$14.dex
 new file mode 100644
-index 0000000..9511874
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$14.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$2.dex
 new file mode 100644
-index 0000000..1043e03
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$3.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$3.dex
 new file mode 100644
-index 0000000..4c9e012
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$3.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$4.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$4.dex
 new file mode 100644
-index 0000000..3c69d50
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$4.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$5.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$5.dex
 new file mode 100644
-index 0000000..5fb9034
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$5.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$6.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$6.dex
 new file mode 100644
-index 0000000..6c52cf8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$6.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7$1.dex
 new file mode 100644
-index 0000000..f9d9d73
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7.dex
 new file mode 100644
-index 0000000..24f5cfa
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$7.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$8.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$8.dex
 new file mode 100644
-index 0000000..75f9222
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$8.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9$1.dex
 new file mode 100644
-index 0000000..faa947e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9.dex
 new file mode 100644
-index 0000000..a0c306e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule$9.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule.dex
 new file mode 100644
-index 0000000..869acd8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLOfflineModule.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$1.dex
 new file mode 100644
-index 0000000..2ed18c2
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$2.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$2.dex
 new file mode 100644
-index 0000000..7f0ece8
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1.dex
 new file mode 100644
-index 0000000..757f43c
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule.dex
 new file mode 100644
-index 0000000..a767a0e
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/modules/RCTMGLSnapshotModule.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils$1.dex
 new file mode 100644
-index 0000000..22c36d5
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils.dex
 new file mode 100644
-index 0000000..697825b
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/BitmapUtils.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils$1.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils$1.dex
 new file mode 100644
-index 0000000..a961bf0
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils.dex
 new file mode 100644
-index 0000000..9792f9f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ConvertUtils.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask$OnAllImagesLoaded.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask$OnAllImagesLoaded.dex
 new file mode 100644
-index 0000000..aaffbe9
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask$OnAllImagesLoaded.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask.dex
 new file mode 100644
-index 0000000..449eb0f
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/DownloadMapImageTask.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ExpressionParser.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ExpressionParser.dex
 new file mode 100644
-index 0000000..9ca35fa
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ExpressionParser.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoJSONUtils.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoJSONUtils.dex
 new file mode 100644
-index 0000000..47d27d6
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoJSONUtils.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoViewport.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoViewport.dex
 new file mode 100644
-index 0000000..d0f0d9a
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/GeoViewport.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ImageEntry.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ImageEntry.dex
 new file mode 100644
-index 0000000..aea60d1
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ImageEntry.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ResourceUtils.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ResourceUtils.dex
 new file mode 100644
-index 0000000..16ae964
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/ResourceUtils.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SimpleEventCallback.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SimpleEventCallback.dex
 new file mode 100644
-index 0000000..e75e6b4
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SimpleEventCallback.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SphericalMercator.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SphericalMercator.dex
 new file mode 100644
-index 0000000..07d5f66
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SphericalMercator.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
 new file mode 100644
-index 0000000..2236aa2
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/8880ea8a301b2e5b7315a6b454cc1ead/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/e7a7801491211d39dbe03913fca71c98/results.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/e7a7801491211d39dbe03913fca71c98/results.bin
 new file mode 100644
 index 0000000..0d259dd
@@ -722,8 +556,7 @@ index 0000000..0d259dd
 +o/classes
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/e7a7801491211d39dbe03913fca71c98/transformed/classes/classes_dex/classes.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/e7a7801491211d39dbe03913fca71c98/transformed/classes/classes_dex/classes.dex
 new file mode 100644
-index 0000000..4391ba2
-Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/e7a7801491211d39dbe03913fca71c98/transformed/classes/classes_dex/classes.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/source/buildConfig/debug/com/mapbox/rctmgl/BuildConfig.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/source/buildConfig/debug/com/mapbox/rctmgl/BuildConfig.java
 new file mode 100644
 index 0000000..ea64509
@@ -742,7 +575,7 @@ index 0000000..ea64509
 +}
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
 new file mode 100644
-index 0000000..cda5a52
+index 0000000..d925b6a
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
 @@ -0,0 +1,10 @@
@@ -750,7 +583,7 @@ index 0000000..cda5a52
 +<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +    package="com.mapbox.rctmgl" >
 +
-+    <uses-sdk android:minSdkVersion="24" />
++    <uses-sdk android:minSdkVersion="26" />
 +
 +    <uses-permission android:name="android.permission.INTERNET" />
 +    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -804,18 +637,18 @@ index 0000000..9e26dfe
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
 new file mode 100644
-index 0000000..f9251f2
+index 0000000..e3a3d24
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
 new file mode 100644
-index 0000000..cbde056
+index 0000000..354f2bf
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
 new file mode 100644
-index 0000000..148d098
+index 0000000..d7e26aa
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
-@@ -0,0 +1,2372 @@
+@@ -0,0 +1,2396 @@
 +int anim abc_fade_in 0x0
 +int anim abc_fade_out 0x0
 +int anim abc_grow_fade_in_from_bottom 0x0
@@ -1328,6 +1161,8 @@ index 0000000..148d098
 +int color bright_foreground_material_light 0x0
 +int color button_material_dark 0x0
 +int color button_material_light 0x0
++int color call_notification_answer_color 0x0
++int color call_notification_decline_color 0x0
 +int color catalyst_logbox_background 0x0
 +int color catalyst_redbox_background 0x0
 +int color common_google_signin_btn_text_dark 0x0
@@ -1661,6 +1496,12 @@ index 0000000..148d098
 +int drawable empty_drawable 0x0
 +int drawable googleg_disabled_color_18 0x0
 +int drawable googleg_standard_color_18 0x0
++int drawable ic_call_answer 0x0
++int drawable ic_call_answer_low 0x0
++int drawable ic_call_answer_video 0x0
++int drawable ic_call_answer_video_low 0x0
++int drawable ic_call_decline 0x0
++int drawable ic_call_decline_low 0x0
 +int drawable ic_resume 0x0
 +int drawable mapbox_compass_icon 0x0
 +int drawable mapbox_info_bg_selector 0x0
@@ -1689,6 +1530,7 @@ index 0000000..148d098
 +int drawable notification_bg_normal 0x0
 +int drawable notification_bg_normal_pressed 0x0
 +int drawable notification_icon_background 0x0
++int drawable notification_oversize_large_icon_bg 0x0
 +int drawable notification_template_icon_bg 0x0
 +int drawable notification_template_icon_low_bg 0x0
 +int drawable notification_tile_bg 0x0
@@ -1768,6 +1610,7 @@ index 0000000..148d098
 +int id adjust_height 0x0
 +int id adjust_width 0x0
 +int id alertTitle 0x0
++int id alert_title 0x0
 +int id annotation_img 0x0
 +int id annotation_layout 0x0
 +int id annotation_view_container 0x0
@@ -1799,6 +1642,7 @@ index 0000000..148d098
 +int id default_activity_button 0x0
 +int id dialog_button 0x0
 +int id edit_query 0x0
++int id edit_text_id 0x0
 +int id end 0x0
 +int id end_padder 0x0
 +int id expand_activities_button 0x0
@@ -1814,6 +1658,7 @@ index 0000000..148d098
 +int id fps_text 0x0
 +int id fragment_container_view_tag 0x0
 +int id group_divider 0x0
++int id hide_ime_id 0x0
 +int id home 0x0
 +int id icon 0x0
 +int id icon_group 0x0
@@ -1848,6 +1693,7 @@ index 0000000..148d098
 +int id progress_horizontal 0x0
 +int id radio 0x0
 +int id react_test_id 0x0
++int id report_drawn 0x0
 +int id right 0x0
 +int id right_icon 0x0
 +int id right_side 0x0
@@ -1918,6 +1764,7 @@ index 0000000..148d098
 +int id uniform 0x0
 +int id up 0x0
 +int id use_hardware_layer 0x0
++int id view_clipped 0x0
 +int id view_tag_instance_handle 0x0
 +int id view_tag_native_id 0x0
 +int id view_tree_lifecycle_owner 0x0
@@ -1969,11 +1816,14 @@ index 0000000..148d098
 +int layout abc_search_view 0x0
 +int layout abc_select_dialog_material 0x0
 +int layout abc_tooltip 0x0
++int layout alert_title_layout 0x0
 +int layout annotation 0x0
 +int layout autofill_inline_suggestion 0x0
 +int layout custom_dialog 0x0
 +int layout dev_loading_view 0x0
 +int layout fps_view 0x0
++int layout ime_base_split_test_activity 0x0
++int layout ime_secondary_split_test_activity 0x0
 +int layout mapbox_attribution_list_item 0x0
 +int layout mapbox_infowindow_content 0x0
 +int layout mapbox_view_image_marker 0x0
@@ -2041,6 +1891,13 @@ index 0000000..148d098
 +int string abc_toolbar_collapse_description 0x0
 +int string alert_description 0x0
 +int string app_name 0x0
++int string call_notification_answer_action 0x0
++int string call_notification_answer_video_action 0x0
++int string call_notification_decline_action 0x0
++int string call_notification_hang_up_action 0x0
++int string call_notification_incoming_text 0x0
++int string call_notification_ongoing_text 0x0
++int string call_notification_screening_text 0x0
 +int string catalyst_change_bundle_location 0x0
 +int string catalyst_copy_button 0x0
 +int string catalyst_debug_connecting 0x0
@@ -3190,31 +3047,31 @@ index 0000000..148d098
 +int xml rn_dev_preferences 0x0
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable-xxhdpi-v4_red_marker.png.flat b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable-xxhdpi-v4_red_marker.png.flat
 new file mode 100644
-index 0000000..ba30219
+index 0000000..2217025
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable-xxhdpi-v4_red_marker.png.flat differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty.xml.flat b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty.xml.flat
 new file mode 100644
-index 0000000..ce08edd
+index 0000000..d6d310b
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty.xml.flat differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty_drawable.png.flat b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty_drawable.png.flat
 new file mode 100644
-index 0000000..3c6145f
+index 0000000..a4622f9
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/drawable_empty_drawable.png.flat differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/layout_annotation.xml.flat b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/layout_annotation.xml.flat
 new file mode 100644
-index 0000000..51dbdb0
+index 0000000..e7f86ef
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/layout_annotation.xml.flat differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
 new file mode 100644
-index 0000000..0aa41d8
+index 0000000..619cc8e
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
 @@ -0,0 +1,5 @@
-+#Tue Apr 28 15:48:20 AST 2026
-+com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable/empty_drawable.png=/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable/empty_drawable.png
-+com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable/empty.xml=/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable/empty.xml
-+com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable-xxhdpi/red_marker.png=/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable-xxhdpi-v4/red_marker.png
-+com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/layout/annotation.xml=/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/layout/annotation.xml
++#Fri May 22 09:10:06 PDT 2026
++com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable/empty_drawable.png=/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable/empty_drawable.png
++com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable/empty.xml=/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable/empty.xml
++com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/drawable-xxhdpi/red_marker.png=/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/drawable-xxhdpi-v4/red_marker.png
++com.mapbox.rctmgl.react-native-mapbox-gl_maps-main-6\:/layout/annotation.xml=/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/packaged_res/debug/packageDebugResources/layout/annotation.xml
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml
 new file mode 100644
 index 0000000..1b0b5d6
@@ -3228,12 +3085,12 @@ index 0000000..1b0b5d6
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/merger.xml
 new file mode 100644
-index 0000000..d5823e5
+index 0000000..dcdfe15
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/merger.xml
 @@ -0,0 +1,2 @@
 +<?xml version="1.0" encoding="utf-8"?>
-+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"><file name="empty" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty.xml" qualifiers="" type="drawable"/><file name="empty_drawable" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty_drawable.png" qualifiers="" type="drawable"/><file name="annotation" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/layout/annotation.xml" qualifiers="" type="layout"/><file path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">RCTMGL</string></file><file name="red_marker" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable-xxhdpi/red_marker.png" qualifiers="xxhdpi-v4" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"><file name="red_marker" path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable-xxhdpi/red_marker.png" qualifiers="xxhdpi-v4" type="drawable"/><file path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">RCTMGL</string></file><file name="annotation" path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/layout/annotation.xml" qualifiers="" type="layout"/><file name="empty_drawable" path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty_drawable.png" qualifiers="" type="drawable"/><file name="empty" path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty.xml" qualifiers="" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
 new file mode 100644
@@ -3246,21 +3103,21 @@ index 0000000..cd96840
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugShaders/merger.xml
 new file mode 100644
-index 0000000..eec4587
+index 0000000..5d66f52
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugShaders/merger.xml
 @@ -0,0 +1,2 @@
 +<?xml version="1.0" encoding="utf-8"?>
-+<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/shaders"/></dataSet></merger>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/shaders"/></dataSet></merger>
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/packageDebugAssets/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/packageDebugAssets/merger.xml
 new file mode 100644
-index 0000000..6fd4044
+index 0000000..652fa95
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/packageDebugAssets/merger.xml
 @@ -0,0 +1,2 @@
 +<?xml version="1.0" encoding="utf-8"?>
-+<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/shader_assets/debug/compileDebugShaders/out"/></dataSet></merger>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/shader_assets/debug/compileDebugShaders/out"/></dataSet></merger>
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/BuildConfig.class b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/BuildConfig.class
 new file mode 100644
@@ -3984,7 +3841,7 @@ index 0000000..826dbbd
 +string app_name
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
 new file mode 100644
-index 0000000..3716fef
+index 0000000..edf182a
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
 @@ -0,0 +1,14 @@
@@ -3992,19 +3849,19 @@ index 0000000..3716fef
 +2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +3    package="com.mapbox.rctmgl" >
 +4
-+5    <uses-sdk android:minSdkVersion="24" />
++5    <uses-sdk android:minSdkVersion="26" />
 +6
 +7    <uses-permission android:name="android.permission.INTERNET" />
-+7-->/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:5-67
-+7-->/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:22-64
++7-->/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:5-67
++7-->/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:22-64
 +8    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-+8-->/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:5-78
-+8-->/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:22-76
++8-->/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:5-78
++8-->/home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:22-76
 +9
 +10</manifest>
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
 new file mode 100644
-index 0000000..cda5a52
+index 0000000..d925b6a
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
 @@ -0,0 +1,10 @@
@@ -4012,7 +3869,7 @@ index 0000000..cda5a52
 +<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +    package="com.mapbox.rctmgl" >
 +
-+    <uses-sdk android:minSdkVersion="24" />
++    <uses-sdk android:minSdkVersion="26" />
 +
 +    <uses-permission android:name="android.permission.INTERNET" />
 +    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -4798,10 +4655,10 @@ index 0000000..ea2c044
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 new file mode 100644
-index 0000000..395fe29
+index 0000000..83b7dce
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
-@@ -0,0 +1,1762 @@
+@@ -0,0 +1,1786 @@
 +com.mapbox.rctmgl
 +anim abc_fade_in
 +anim abc_fade_out
@@ -5315,6 +5172,8 @@ index 0000000..395fe29
 +color bright_foreground_material_light
 +color button_material_dark
 +color button_material_light
++color call_notification_answer_color
++color call_notification_decline_color
 +color catalyst_logbox_background
 +color catalyst_redbox_background
 +color common_google_signin_btn_text_dark
@@ -5648,6 +5507,12 @@ index 0000000..395fe29
 +drawable empty_drawable
 +drawable googleg_disabled_color_18
 +drawable googleg_standard_color_18
++drawable ic_call_answer
++drawable ic_call_answer_low
++drawable ic_call_answer_video
++drawable ic_call_answer_video_low
++drawable ic_call_decline
++drawable ic_call_decline_low
 +drawable ic_resume
 +drawable mapbox_compass_icon
 +drawable mapbox_info_bg_selector
@@ -5676,6 +5541,7 @@ index 0000000..395fe29
 +drawable notification_bg_normal
 +drawable notification_bg_normal_pressed
 +drawable notification_icon_background
++drawable notification_oversize_large_icon_bg
 +drawable notification_template_icon_bg
 +drawable notification_template_icon_low_bg
 +drawable notification_tile_bg
@@ -5755,6 +5621,7 @@ index 0000000..395fe29
 +id adjust_height
 +id adjust_width
 +id alertTitle
++id alert_title
 +id annotation_img
 +id annotation_layout
 +id annotation_view_container
@@ -5786,6 +5653,7 @@ index 0000000..395fe29
 +id default_activity_button
 +id dialog_button
 +id edit_query
++id edit_text_id
 +id end
 +id end_padder
 +id expand_activities_button
@@ -5801,6 +5669,7 @@ index 0000000..395fe29
 +id fps_text
 +id fragment_container_view_tag
 +id group_divider
++id hide_ime_id
 +id home
 +id icon
 +id icon_group
@@ -5835,6 +5704,7 @@ index 0000000..395fe29
 +id progress_horizontal
 +id radio
 +id react_test_id
++id report_drawn
 +id right
 +id right_icon
 +id right_side
@@ -5905,6 +5775,7 @@ index 0000000..395fe29
 +id uniform
 +id up
 +id use_hardware_layer
++id view_clipped
 +id view_tag_instance_handle
 +id view_tag_native_id
 +id view_tree_lifecycle_owner
@@ -5956,11 +5827,14 @@ index 0000000..395fe29
 +layout abc_search_view
 +layout abc_select_dialog_material
 +layout abc_tooltip
++layout alert_title_layout
 +layout annotation
 +layout autofill_inline_suggestion
 +layout custom_dialog
 +layout dev_loading_view
 +layout fps_view
++layout ime_base_split_test_activity
++layout ime_secondary_split_test_activity
 +layout mapbox_attribution_list_item
 +layout mapbox_infowindow_content
 +layout mapbox_view_image_marker
@@ -6028,6 +5902,13 @@ index 0000000..395fe29
 +string abc_toolbar_collapse_description
 +string alert_description
 +string app_name
++string call_notification_answer_action
++string call_notification_answer_video_action
++string call_notification_decline_action
++string call_notification_hang_up_action
++string call_notification_incoming_text
++string call_notification_ongoing_text
++string call_notification_screening_text
 +string catalyst_change_bundle_location
 +string catalyst_copy_button
 +string catalyst_debug_connecting
@@ -6566,38 +6447,38 @@ index 0000000..395fe29
 +xml rn_dev_preferences
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt
 new file mode 100644
-index 0000000..3498e5b
+index 0000000..d2181d4
 --- /dev/null
 +++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt
 @@ -0,0 +1,25 @@
 +-- Merging decision tree log ---
 +manifest
-+ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:1-4:12
-+INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:1-4:12
++ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:1-4:12
++INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:1-4:12
 +	package
-+		ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:70-97
-+		INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
++		ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:70-97
++		INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
 +	xmlns:android
-+		ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:11-69
++		ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:1:11-69
 +uses-permission#android.permission.INTERNET
-+ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:5-67
++ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:5-67
 +	android:name
-+		ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:22-64
++		ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:2:22-64
 +uses-permission#android.permission.ACCESS_FINE_LOCATION
-+ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:5-78
++ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:5-78
 +	android:name
-+		ADDED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:22-76
++		ADDED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:22-76
 +uses-sdk
-+INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml reason: use-sdk injection requested
-+INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
-+INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
++INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
++INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
 +	android:targetSdkVersion
-+		INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
++		INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
 +	android:minSdkVersion
-+		INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
++		INJECTED from /home/kinshuk/wri/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
 new file mode 100644
-index 0000000..58ed0da
+index 0000000..e09741d
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.java
 index 3aa0522..d66f9ff 100644
@@ -6642,6 +6523,34 @@ index 5d4aa9f..7b7a6f2 100644
      }
    }
  }
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js
+index db8eac8..d38318f 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js
+@@ -4,10 +4,6 @@ class AbstractSource extends React.PureComponent {
+   setNativeProps(props) {
+     if (this._nativeRef) {
+       this._nativeRef.setNativeProps(props);
+-    } else {
+-      if (this.refs.nativeSource) {
+-        this.refs.nativeSource.setNativeProps(props);
+-      }
+     }
+   }
+ }
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js
+index e1cf1cf..4020a13 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js
+@@ -79,7 +79,7 @@ class BackgroundLayer extends AbstractLayer {
+     return (
+       <RCTMGLBackgroundLayer
+         testID="rctmglBackgroundLayer"
+-        ref="nativeLayer"
++        ref={this.nativeLayer}
+         {...this.baseProps}
+       />
+     );
 diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/Camera.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/Camera.js
 index 4dd55ea..d4087b9 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/Camera.js
@@ -6729,6 +6638,81 @@ index 1b414f3..0004e6a 100644
          {...this.baseProps}
        />
      );
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js
+index 8f581f5..4be1f43 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js
+@@ -83,7 +83,7 @@ class FillExtrusionLayer extends AbstractLayer {
+       ...this.baseProps,
+       sourceLayerID: this.props.sourceLayerID,
+     };
+-    return <RCTMGLFillExtrusionLayer ref="nativeLayer" {...props} />;
++    return <RCTMGLFillExtrusionLayer ref={this.nativeLayer} {...props} />;
+   }
+ }
+ 
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js
+index 8750b5e..1c45f34 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js
+@@ -83,7 +83,7 @@ class FillLayer extends AbstractLayer {
+       ...this.baseProps,
+       sourceLayerID: this.props.sourceLayerID,
+     };
+-    return <RCTMGLFillLayer ref="nativeLayer" {...props} />;
++    return <RCTMGLFillLayer ref={this.nativeLayer} {...props} />;
+   }
+ }
+ 
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js
+index 41e6e34..31d374d 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js
+@@ -84,7 +84,7 @@ class HeatmapLayer extends AbstractLayer {
+       ...this.baseProps,
+       sourceLayerID: this.props.sourceLayerID,
+     };
+-    return <RCTMGLHeatmapLayer ref="nativeLayer" {...props} />;
++    return <RCTMGLHeatmapLayer ref={this.nativeLayer} {...props} />;
+   }
+ }
+ 
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js
+index ae3eb94..0b79325 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js
+@@ -65,7 +65,7 @@ class ImageSource extends AbstractSource {
+     };
+ 
+     return (
+-      <RCTMGLImageSource ref="nativeSource" {...props}>
++      <RCTMGLImageSource ref={ref => { this._nativeRef = ref; }} {...props}>
+         {cloneReactChildrenWithProps(this.props.children, {
+           sourceID: this.props.id,
+         })}
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js
+index c7410c1..d127b7f 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js
+@@ -22,15 +22,15 @@ class Light extends AbstractLayer {
+   };
+ 
+   setNativeProps(props) {
+-    if (this.refs.nativeLight) {
+-      this.refs.nativeLight.setNativeProps(props);
++    if (this.nativeLayer.current) {
++      this.nativeLayer.current.setNativeProps(props);
+     }
+   }
+ 
+   render() {
+     return (
+       <RCTMGLLight
+-        ref="nativeLight"
++        ref={this.nativeLayer}
+         testID="rctmglLight"
+         {...this.props}
+         style={undefined}
 diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/LineLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/LineLayer.js
 index d53e545..959a0d5 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/LineLayer.js
@@ -6742,6 +6726,32 @@ index d53e545..959a0d5 100644
    }
  }
  
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js
+index 471908e..f718b2b 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js
+@@ -80,7 +80,7 @@ class RasterLayer extends AbstractLayer {
+       ...this.baseProps,
+       sourceLayerID: this.props.sourceLayerID,
+     };
+-    return <RCTMGLRasterLayer ref="nativeLayer" {...props} />;
++    return <RCTMGLRasterLayer ref={this.nativeLayer} {...props} />;
+   }
+ }
+ 
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js
+index 9186456..d35c012 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js
+@@ -107,7 +107,7 @@ class RasterSource extends AbstractSource {
+       attribution: this.props.attribution,
+     };
+     return (
+-      <RCTMGLRasterSource ref="nativeSource" {...props}>
++      <RCTMGLRasterSource ref={ref => { this._nativeRef = ref; }} {...props}>
+         {cloneReactChildrenWithProps(this.props.children, {
+           sourceID: this.props.id,
+         })}
 diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/SymbolLayer.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/SymbolLayer.js
 index d1a036a..984c610 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/SymbolLayer.js
@@ -6755,6 +6765,19 @@ index d1a036a..984c610 100644
          {this.props.children}
        </RCTMGLSymbolLayer>
      );
+diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js
+index 291b385..94b5239 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js
++++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js
+@@ -177,7 +177,7 @@ class VectorSource extends NativeBridgeComponent(AbstractSource) {
+       onAndroidCallback: isAndroid() ? this._onAndroidCallback : undefined,
+     };
+     return (
+-      <RCTMGLVectorSource ref="nativeSource" {...props}>
++      <RCTMGLVectorSource {...props}>
+         {cloneReactChildrenWithProps(this.props.children, {
+           sourceID: this.props.id,
+         })}
 diff --git a/node_modules/@react-native-mapbox-gl/maps/javascript/components/annotations/Annotation.js b/node_modules/@react-native-mapbox-gl/maps/javascript/components/annotations/Annotation.js
 index d8c6a47..4c85bac 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/annotations/Annotation.js
@@ -6794,125 +6817,3 @@ index bc3c28f..6f566d9 100644
  
  function getAndroidManagerInstance(module) {
    const haveViewManagerConfig =
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/AbstractSource.js
-@@ -4,10 +4,6 @@
-   setNativeProps(props) {
-     if (this._nativeRef) {
-       this._nativeRef.setNativeProps(props);
--    } else {
--      if (this.refs.nativeSource) {
--        this.refs.nativeSource.setNativeProps(props);
--      }
-     }
-   }
- }
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterSource.js
-@@ -107,7 +107,7 @@
-       attribution: this.props.attribution,
-     };
-     return (
--      <RCTMGLRasterSource ref="nativeSource" {...props}>
-+      <RCTMGLRasterSource ref={ref => { this._nativeRef = ref; }} {...props}>
-         {cloneReactChildrenWithProps(this.props.children, {
-           sourceID: this.props.id,
-         })}
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/ImageSource.js
-@@ -65,7 +65,7 @@
-     };
- 
-     return (
--      <RCTMGLImageSource ref="nativeSource" {...props}>
-+      <RCTMGLImageSource ref={ref => { this._nativeRef = ref; }} {...props}>
-         {cloneReactChildrenWithProps(this.props.children, {
-           sourceID: this.props.id,
-         })}
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/VectorSource.js
-@@ -177,7 +177,7 @@
-       onAndroidCallback: isAndroid() ? this._onAndroidCallback : undefined,
-     };
-     return (
--      <RCTMGLVectorSource ref="nativeSource" {...props}>
-+      <RCTMGLVectorSource {...props}>
-         {cloneReactChildrenWithProps(this.props.children, {
-           sourceID: this.props.id,
-         })}
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/RasterLayer.js
-@@ -80,7 +80,7 @@
-       ...this.baseProps,
-       sourceLayerID: this.props.sourceLayerID,
-     };
--    return <RCTMGLRasterLayer ref="nativeLayer" {...props} />;
-+    return <RCTMGLRasterLayer ref={this.nativeLayer} {...props} />;
-   }
- }
- 
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/HeatmapLayer.js
-@@ -84,7 +84,7 @@
-       ...this.baseProps,
-       sourceLayerID: this.props.sourceLayerID,
-     };
--    return <RCTMGLHeatmapLayer ref="nativeLayer" {...props} />;
-+    return <RCTMGLHeatmapLayer ref={this.nativeLayer} {...props} />;
-   }
- }
- 
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillLayer.js
-@@ -83,7 +83,7 @@
-       ...this.baseProps,
-       sourceLayerID: this.props.sourceLayerID,
-     };
--    return <RCTMGLFillLayer ref="nativeLayer" {...props} />;
-+    return <RCTMGLFillLayer ref={this.nativeLayer} {...props} />;
-   }
- }
- 
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/FillExtrusionLayer.js
-@@ -83,7 +83,7 @@
-       ...this.baseProps,
-       sourceLayerID: this.props.sourceLayerID,
-     };
--    return <RCTMGLFillExtrusionLayer ref="nativeLayer" {...props} />;
-+    return <RCTMGLFillExtrusionLayer ref={this.nativeLayer} {...props} />;
-   }
- }
- 
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/BackgroundLayer.js
-@@ -79,7 +79,7 @@
-     return (
-       <RCTMGLBackgroundLayer
-         testID="rctmglBackgroundLayer"
--        ref="nativeLayer"
-+        ref={this.nativeLayer}
-         {...this.baseProps}
-       />
-     );
---- a/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js
-+++ b/node_modules/@react-native-mapbox-gl/maps/javascript/components/Light.js
-@@ -22,15 +22,15 @@
-   };
- 
-   setNativeProps(props) {
--    if (this.refs.nativeLight) {
--      this.refs.nativeLight.setNativeProps(props);
-+    if (this.nativeLayer.current) {
-+      this.nativeLayer.current.setNativeProps(props);
-     }
-   }
- 
-   render() {
-     return (
-       <RCTMGLLight
--        ref="nativeLight"
-+        ref={this.nativeLayer}
-         testID="rctmglLight"
-         {...this.props}
-         style={undefined}

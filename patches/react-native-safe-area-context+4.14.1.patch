@@ -1,0 +1,62 @@
+diff --git a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
+index de6f685..ab7d734 100644
+--- a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
++++ b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
+@@ -5,15 +5,13 @@ import com.facebook.react.module.annotations.ReactModule
+ import com.facebook.react.uimanager.ThemedReactContext
+ import com.facebook.react.uimanager.UIManagerHelper
+ import com.facebook.react.uimanager.ViewGroupManager
+-import com.facebook.react.viewmanagers.RNCSafeAreaProviderManagerDelegate
++import com.facebook.react.uimanager.ViewManagerDelegate
+ import com.facebook.react.viewmanagers.RNCSafeAreaProviderManagerInterface
+ 
+ @ReactModule(name = SafeAreaProviderManager.REACT_CLASS)
+ class SafeAreaProviderManager :
+     ViewGroupManager<SafeAreaProvider>(), RNCSafeAreaProviderManagerInterface<SafeAreaProvider> {
+-  private val mDelegate = RNCSafeAreaProviderManagerDelegate(this)
+-
+-  override fun getDelegate() = mDelegate
++  override fun getDelegate(): ViewManagerDelegate<SafeAreaProvider>? = null
+ 
+   override fun getName() = REACT_CLASS
+ 
+diff --git a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
+index dd4ef6c..3401ddf 100644
+--- a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
++++ b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
+@@ -11,12 +11,13 @@ package com.facebook.react.viewmanagers;
+ 
+ import android.view.View;
+ import androidx.annotation.Nullable;
++import com.facebook.react.uimanager.BaseViewManager;
+ import com.facebook.react.uimanager.BaseViewManagerDelegate;
+-import com.facebook.react.uimanager.BaseViewManagerInterface;
++import com.facebook.react.uimanager.LayoutShadowNode;
+ 
+ public class RNCSafeAreaProviderManagerDelegate<
+         T extends View,
+-        U extends BaseViewManagerInterface<T> & RNCSafeAreaProviderManagerInterface<T>>
++  U extends BaseViewManager<T, ? extends LayoutShadowNode> & RNCSafeAreaProviderManagerInterface<T>>
+     extends BaseViewManagerDelegate<T, U> {
+   public RNCSafeAreaProviderManagerDelegate(U viewManager) {
+     super(viewManager);
+diff --git a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
+index de1686c..965f039 100644
+--- a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
++++ b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
+@@ -12,11 +12,13 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableMap;
++import com.facebook.react.uimanager.BaseViewManager;
+ import com.facebook.react.uimanager.BaseViewManagerDelegate;
+-import com.facebook.react.uimanager.BaseViewManagerInterface;
++import com.facebook.react.uimanager.LayoutShadowNode;
+ 
+ public class RNCSafeAreaViewManagerDelegate<
+-        T extends View, U extends BaseViewManagerInterface<T> & RNCSafeAreaViewManagerInterface<T>>
++  T extends View,
++  U extends BaseViewManager<T, ? extends LayoutShadowNode> & RNCSafeAreaViewManagerInterface<T>>
+     extends BaseViewManagerDelegate<T, U> {
+   public RNCSafeAreaViewManagerDelegate(U viewManager) {
+     super(viewManager);
