@@ -1,0 +1,6 @@
+<resources>
+    <!-- Override background-geolocation provider authority and account type for debug builds so they
+         do not conflict with the production package (com.forestwatcher) when both are installed. -->
+    <string name="mauron85_bgloc_content_authority">com.forestwatcher.debug.mauron85.bgloc.provider</string>
+    <string name="mauron85_bgloc_account_type">com.forestwatcher.debug.mauron85.bgloc.account</string>
+</resources>

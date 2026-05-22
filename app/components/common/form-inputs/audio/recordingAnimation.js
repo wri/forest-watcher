@@ -30,9 +30,17 @@ let animationState = 0;
 let savedValue = 0;
 
 // Adapated from https://github.com/n4kz/react-native-indicators/blob/master/src/components/bar-indicator/index.js
-const BarIndicator = (props: Props) => {
+const BarIndicator = ({
+  animating = true,
+  animationDuration = 1200,
+  animationEasing = Easing.linear,
+  color = 'rgb(0, 0, 0)',
+  count = 3,
+  hideAnimationDuration = 200,
+  interaction = true
+}: Props) => {
   const [progress] = useState<Animated.Value>(new Animated.Value(0));
-  const [hideAnimation] = useState<Animated.Value>(new Animated.Value(props.animating ? 1 : 0));
+  const [hideAnimation] = useState<Animated.Value>(new Animated.Value(animating ? 1 : 0));
 
   const styles = StyleSheet.create({
     container: {
@@ -45,7 +53,6 @@ const BarIndicator = (props: Props) => {
   });
 
   useEffect(() => {
-    const { animating } = props;
     animationState = 0;
 
     if (animating) {
@@ -54,8 +61,6 @@ const BarIndicator = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    const { animating } = props;
-
     if (animating === true) {
       resumeAnimation();
     } else {
@@ -64,10 +69,10 @@ const BarIndicator = (props: Props) => {
 
     Animated.timing(hideAnimation, {
       toValue: animating ? 1 : 0,
-      duration: props.hideAnimationDuration,
+      duration: hideAnimationDuration,
       useNativeDriver: true
     }).start();
-  }, [props.animating]);
+  }, [animating]);
 
   const outputRange = (base, index, count, samples) => {
     const range = Array.from(
@@ -85,7 +90,7 @@ const BarIndicator = (props: Props) => {
   };
 
   const renderComponent = (element, index) => {
-    const { color: backgroundColor, animationDuration, count } = props;
+    const backgroundColor = color;
 
     const frames = (60 * animationDuration) / 1000;
     let samples = 0;
@@ -138,7 +143,7 @@ const BarIndicator = (props: Props) => {
     };
 
     return (
-      <View style={containerStyle} {...{ key: index }}>
+      <View key={index} style={containerStyle}>
         <Animated.View style={topStyle} />
         <Animated.View style={bottomStyle} />
       </View>
@@ -146,8 +151,6 @@ const BarIndicator = (props: Props) => {
   };
 
   const startAnimation = () => {
-    const { interaction, animationEasing, animationDuration } = props;
-
     if (0 !== animationState) {
       return;
     }
@@ -179,8 +182,6 @@ const BarIndicator = (props: Props) => {
   };
 
   const saveAnimation = value => {
-    const { animating } = props;
-
     savedValue = value;
     animationState = 0;
 
@@ -190,8 +191,6 @@ const BarIndicator = (props: Props) => {
   };
 
   const resumeAnimation = () => {
-    const { interaction, animationDuration } = props;
-
     if (0 !== animationState) {
       return;
     }
@@ -214,17 +213,7 @@ const BarIndicator = (props: Props) => {
     animationState = 1;
   };
 
-  return <Animated.View style={styles.container}>{Array.from(new Array(props.count), renderComponent)}</Animated.View>;
-};
-
-BarIndicator.defaultProps = {
-  animating: true,
-  animationDuration: 1200,
-  animationEasing: Easing.linear,
-  color: 'rgb(0, 0, 0)',
-  count: 3,
-  hideAnimationDuration: 200,
-  interaction: true
+  return <Animated.View style={styles.container}>{Array.from(new Array(count), renderComponent)}</Animated.View>;
 };
 
 export default BarIndicator;

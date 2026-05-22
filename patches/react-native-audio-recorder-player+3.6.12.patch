@@ -11,3 +11,24 @@ index aafe3e2..9e43f36 100644
  
              if (isPaused) {
                  mediaPlayer!!.start()
+@@ -362,8 +362,19 @@ class RNAudioRecorderPlayerModule(private val reactContext: ReactApplicationCont
+             return
+         }
+ 
++        // On Android, MediaPlayer.seekTo() is asynchronous on API 26+. Without an
++        // OnSeekCompleteListener the player remains paused at the new position on
++        // devices that implement async seek (e.g. Samsung Android 15). Capture the
++        // playing state before the seek and resume explicitly once the seek is done.
++        val wasPlaying = mediaPlayer!!.isPlaying
++        mediaPlayer!!.setOnSeekCompleteListener { mp ->
++            if (wasPlaying) {
++                mp.start()
++            }
++            mp.setOnSeekCompleteListener(null)
++        }
+         mediaPlayer!!.seekTo(time.toInt())
+-        promise.resolve("pause player")
++        promise.resolve("seeked to ${time.toInt()}")
+     }
+ 
+     private fun sendEvent(reactContext: ReactContext,

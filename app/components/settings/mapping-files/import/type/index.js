@@ -199,9 +199,9 @@ class ImportMappingFileType extends PureComponent<Props, State> {
 
   renderFileTypeComponent = (fileType: string) => {
     return (
-      <View style={styles.fileTypeContainer}>
+      <View key={fileType} style={styles.fileTypeContainer}>
         <Image source={fileIcon} />
-        <Text style={styles.fileTypeText} key={fileType}>
+        <Text style={styles.fileTypeText}>
           .{fileType}
         </Text>
       </View>

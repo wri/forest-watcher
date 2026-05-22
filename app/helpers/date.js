@@ -59,11 +59,11 @@ export function formatInfoBannerDates(dates: Array<number>, types: Array<string>
  * @param date | string
  * @returns '2022-12-03' | undefined
  */
-export function getExplicitDate(date: Date | string): string {
-  const parsedDate = moment(date);
-  const validDateFormat = parsedDate.isValid();
-  // Date param
-  if (validDateFormat) return parsedDate.format('YYYY-MM-DD');
-  // Milliseconds param
+export function getExplicitDate(date: Date | string | number): string {
+  // If it's a number (Unix ms timestamp), pass directly to avoid moment's js-date fallback warning
+  if (typeof date === 'number') return moment(date).format('YYYY-MM-DD');
+  const parsedDate = moment(date, moment.ISO_8601, true);
+  if (parsedDate.isValid()) return parsedDate.format('YYYY-MM-DD');
+  // Fallback: try parsing as a millisecond string
   return moment(Number(date)).format('YYYY-MM-DD');
 }

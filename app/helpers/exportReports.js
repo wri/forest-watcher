@@ -48,7 +48,9 @@ export default async function exportReports(
     throw new Error('Only CSV exporting is handled right now!');
   }
 
-  if (Platform.OS === 'android') {
+  // WRITE_EXTERNAL_STORAGE is deprecated and has no effect on Android 10+ (API 29+).
+  // Scoped storage is used automatically on API 29+; request only for legacy devices.
+  if (Platform.OS === 'android' && Platform.Version < 29) {
     await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
   }
 

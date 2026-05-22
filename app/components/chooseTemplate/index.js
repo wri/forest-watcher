@@ -31,7 +31,23 @@ const listener = ({ buttonId, componentId }) => {
 };
 
 export const ChooseTemplate = (props: Props): React$Element<any> => {
-  if (props.templates && props.templates.length === 1) {
+  const isSingleTemplate = !!(props.templates && props.templates.length === 1);
+
+  // Must be called unconditionally — before any early return — to satisfy Rules of Hooks.
+  useEffect(() => {
+    const unsubscribe = Navigation.events().registerNavigationButtonPressedListener(listener, props.componentId);
+    return () => {
+      unsubscribe.remove();
+    };
+  }, []);
+
+  // When there is exactly one template, skip the selection screen and navigate directly.
+  // Navigation.push must live in an effect (never in the render body) to avoid crashing
+  // React Native Navigation when the component is mounted as a modal.
+  useEffect(() => {
+    if (!isSingleTemplate) {
+      return;
+    }
     props.createReport(
       {
         ...props.report,
@@ -45,15 +61,7 @@ export const ChooseTemplate = (props: Props): React$Element<any> => {
         passProps: { reportName: props.report.reportName, template: props.templates[0], isModal: true }
       }
     });
-    return null;
-  }
-
-  useEffect(() => {
-    const unsubscribe = Navigation.events().registerNavigationButtonPressedListener(listener, props.componentId);
-    return () => {
-      unsubscribe.remove();
-    };
-  }, []);
+  }, [isSingleTemplate]);
 
   /**
    * Row OnPress action and Icon
@@ -84,6 +92,10 @@ export const ChooseTemplate = (props: Props): React$Element<any> => {
         : [props.defaultTemplate],
     [props.templates]
   );
+
+  if (isSingleTemplate) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>

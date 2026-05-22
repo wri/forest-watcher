@@ -1,6 +1,12 @@
 import Config from 'react-native-config';
+import { Platform } from 'react-native';
 
 import { appleAuth } from '@invertase/react-native-apple-authentication';
+
+const googleRedirectScheme =
+  Platform.OS === 'android' && __DEV__
+    ? Config.LOGIN_GOOGLE_REDIRECT_SCHEMA_DEBUG || `${Config.LOGIN_GOOGLE_REDIRECT_SCHEMA}.debug`
+    : Config.LOGIN_GOOGLE_REDIRECT_SCHEMA;
 
 export default {
   apple: {
@@ -10,7 +16,7 @@ export default {
   google: {
     issuer: 'https://accounts.google.com',
     clientId: Config.LOGIN_GOOGLE_CLIENT_ID,
-    redirectUrl: `${Config.LOGIN_GOOGLE_REDIRECT_SCHEMA}:/oauth2redirect/google`,
+    redirectUrl: `${googleRedirectScheme}:/oauth2redirect/google`,
     scopes: ['openid', 'profile', 'email']
   },
   facebook: ['public_profile', 'email']

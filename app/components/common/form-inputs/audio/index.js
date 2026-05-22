@@ -80,6 +80,11 @@ export class AudioInput extends React.Component<Props, State> {
   path: any;
   keyboardShowSubscription: EventSubscription;
   keyboardHideSubscription: EventSubscription;
+  isSeeking: boolean = false;
+  seekingTimer: ?TimeoutID = null;
+  // Prevents multiple concurrent stopPlaying() calls when the native player
+  // fires several completion events before the first stopPlayer() resolves.
+  isStoppingPlayback: boolean = false;
 
   constructor(props: Props) {
     super(props);
@@ -114,17 +119,28 @@ export class AudioInput extends React.Component<Props, State> {
     // Android Permissions
     if (Platform.OS === 'android') {
       try {
-        const grants = await PermissionsAndroid.requestMultiple([
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-          PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
-        ]);
-        if (
-          (Platform.version >= 33 &&
-            (grants['android.permission.WRITE_EXTERNAL_STORAGE'] !== PermissionsAndroid.RESULTS.GRANTED ||
-              grants['android.permission.READ_EXTERNAL_STORAGE'] !== PermissionsAndroid.RESULTS.GRANTED)) ||
-          grants['android.permission.RECORD_AUDIO'] !== PermissionsAndroid.RESULTS.GRANTED
-        ) {
+        // WRITE/READ_EXTERNAL_STORAGE are deprecated on Android 10+ (API 29+) and
+        // will be auto-denied on Android 13+ (API 33+). Audio is stored in the
+        // app-private cache directory on API 29+, so storage permission is only
+        // needed on Android 8–9 (API 26–28).
+        const permissionsToRequest =
+          Platform.Version < 29
+            ? [
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+                PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
+              ]
+            : [PermissionsAndroid.PERMISSIONS.RECORD_AUDIO];
+
+        const grants = await PermissionsAndroid.requestMultiple(permissionsToRequest);
+
+        const storageGranted =
+          Platform.Version < 29
+            ? grants['android.permission.WRITE_EXTERNAL_STORAGE'] === PermissionsAndroid.RESULTS.GRANTED &&
+              grants['android.permission.READ_EXTERNAL_STORAGE'] === PermissionsAndroid.RESULTS.GRANTED
+            : true;
+
+        if (!storageGranted || grants['android.permission.RECORD_AUDIO'] !== PermissionsAndroid.RESULTS.GRANTED) {
           this.setState({ permitted: false });
           console.warn('All required permissions not granted');
           return;
@@ -192,6 +208,23 @@ export class AudioInput extends React.Component<Props, State> {
 
   addPlayListener: () => void = () => {
     this.audioRecorderPlayer.addPlayBackListener(e => {
+      // Completion must be checked BEFORE the isSeeking gate. On Samsung Android
+      // the OnCompletionListener fires currentPosition=0 (not duration), so we
+      // also rely on e.isFinished. If audio ends during a seek window, the
+      // isSeeking gate would otherwise suppress this event entirely — the native
+      // timer is already cancelled so no further events would ever arrive, leaving
+      // status stuck at 'RECORDING' and the pause button visible permanently.
+      const isCompleted = (e.duration > 0 && e.currentPosition >= e.duration) || e.isFinished === true;
+      if (isCompleted && !this.isStoppingPlayback) {
+        this.isStoppingPlayback = true;
+        this.stopPlaying();
+        return;
+      }
+
+      // Position updates are skipped while the user is dragging/seeking to
+      // prevent the slider from jumping back to the playback position.
+      if (this.isSeeking) return;
+
       const currentTime = this.audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)).substring(0, 5);
       this.setState({
         playSpec: {
@@ -201,14 +234,22 @@ export class AudioInput extends React.Component<Props, State> {
           duration: this.audioRecorderPlayer.mmssss(Math.floor(e.duration)).substring(0, 5)
         }
       });
-      if (e.currentPosition >= e.duration) {
-        this.setState({ status: 'STOPPED' });
-      }
     });
   };
 
   startPlaying: () => Promise<void> = async () => {
+    // Clear any stale stop guard so the listener works correctly on the new playback.
+    this.isStoppingPlayback = false;
     await this.audioRecorderPlayer.startPlayer(this.state.uri && toFileUri(this.state.uri));
+    // If the user sought while stopped, resume from the saved visual position.
+    // Guard: do NOT seek when savedPosition >= duration (audio ended at end) —
+    // that would cause the native player to complete immediately again.
+    const savedPosition = this.state.playSpec.currentPositionSec;
+    const knownDuration = this.state.playSpec.currentDurationSec;
+    const positionIsValid = savedPosition > 0 && (knownDuration === 0 || savedPosition < knownDuration);
+    if (positionIsValid) {
+      await this.audioRecorderPlayer.seekToPlayer(savedPosition);
+    }
     this.setState({ status: 'RECORDING' });
     this.addPlayListener();
   };
@@ -224,21 +265,40 @@ export class AudioInput extends React.Component<Props, State> {
   };
 
   stopPlaying: () => Promise<void> = async () => {
-    await this.audioRecorderPlayer.stopPlayer();
+    try {
+      await this.audioRecorderPlayer.stopPlayer();
+    } catch (e) {
+      // Player may have already been stopped and released by the native
+      // OnCompletionListener before this JS call arrives. Swallow the error
+      // so the JS state machine always resets cleanly regardless.
+    }
     this.audioRecorderPlayer.removePlayBackListener();
-    this.setState({ status: 'STOPPED' });
+    this.isStoppingPlayback = false;
+    // Reset position to 0 so the next press of Play starts from the beginning
+    // rather than seeking back to the end position and completing immediately.
+    this.setState(prevState => ({
+      status: 'STOPPED',
+      playSpec: { ...prevState.playSpec, currentPositionSec: 0, playTime: '00:00' }
+    }));
+  };
+
+  setSeeking: (value: boolean) => void = (value: boolean) => {
+    this.isSeeking = value;
+    if (value) {
+      if (this.seekingTimer) clearTimeout(this.seekingTimer);
+      this.seekingTimer = setTimeout(() => {
+        this.isSeeking = false;
+      }, 400);
+    }
   };
 
   seekForward: () => Promise<void> = async () => {
-    if (this.state.status === 'STOPPED') {
-      await this.startPlaying();
-      await this.pausePlaying();
-    }
+    const duration = this.state.playSpec.currentDurationSec;
     let newValue = this.state.playSpec.currentPositionSec + 10000;
-    if (newValue >= this.state.playSpec.currentDurationSec - 1000) {
-      newValue = this.state.playSpec.currentDurationSec - 1000;
+    if (duration > 0 && newValue >= duration - 1000) {
+      newValue = Math.max(duration - 1000, 0);
     }
-    await this.audioRecorderPlayer.seekToPlayer(newValue);
+    this.setSeeking(true);
     this.setState({
       playSpec: {
         ...this.state.playSpec,
@@ -246,18 +306,19 @@ export class AudioInput extends React.Component<Props, State> {
         playTime: this.audioRecorderPlayer.mmssss(Math.floor(newValue)).substring(0, 5)
       }
     });
+    // Only issue a native seek when the player is active; when STOPPED the
+    // saved position will be used by startPlaying() when Play is pressed.
+    if (this.state.status !== 'STOPPED' && this.state.status !== 'IDLE') {
+      await this.audioRecorderPlayer.seekToPlayer(newValue);
+    }
   };
 
   seekBackward: () => Promise<void> = async () => {
-    if (this.state.status === 'STOPPED') {
-      await this.startPlaying();
-      await this.pausePlaying();
-    }
     let newValue = this.state.playSpec.currentPositionSec - 10000;
     if (newValue < 0) {
       newValue = 0;
     }
-    await this.audioRecorderPlayer.seekToPlayer(newValue);
+    this.setSeeking(true);
     this.setState({
       playSpec: {
         ...this.state.playSpec,
@@ -265,17 +326,34 @@ export class AudioInput extends React.Component<Props, State> {
         playTime: this.audioRecorderPlayer.mmssss(Math.floor(newValue)).substring(0, 5)
       }
     });
+    // Only issue a native seek when the player is active; when STOPPED the
+    // saved position will be used by startPlaying() when Play is pressed.
+    if (this.state.status !== 'STOPPED' && this.state.status !== 'IDLE') {
+      await this.audioRecorderPlayer.seekToPlayer(newValue);
+    }
   };
 
   seekTo: (value: number) => Promise<void> = async value => {
-    if (this.state.status === 'STOPPED') {
-      await this.startPlaying();
-      await this.pausePlaying();
+    const duration = this.state.playSpec.currentDurationSec;
+    let target = value;
+    if (duration > 0 && value >= duration) {
+      target = Math.max(duration - 100, 0);
     }
-    if (value >= this.state.playSpec.currentDurationSec) {
-      await this.audioRecorderPlayer.seekToPlayer(value - 100);
-    } else {
-      await this.audioRecorderPlayer.seekToPlayer(value);
+    if (target < 0) {
+      target = 0;
+    }
+    this.setSeeking(true);
+    this.setState({
+      playSpec: {
+        ...this.state.playSpec,
+        currentPositionSec: target,
+        playTime: this.audioRecorderPlayer.mmssss(Math.floor(target)).substring(0, 5)
+      }
+    });
+    // Only issue a native seek when the player is active; when STOPPED the
+    // saved position will be used by startPlaying() when Play is pressed.
+    if (this.state.status !== 'STOPPED' && this.state.status !== 'IDLE') {
+      await this.audioRecorderPlayer.seekToPlayer(target);
     }
   };
 
@@ -359,6 +437,7 @@ export class AudioInput extends React.Component<Props, State> {
       : await this.pausePlaying();
 
   componentWillUnmount: () => void = () => {
+    if (this.seekingTimer) clearTimeout(this.seekingTimer);
     this.audioRecorderPlayer.stopPlayer();
     this.audioRecorderPlayer.stopRecorder();
     this.keyboardHideSubscription.remove();
