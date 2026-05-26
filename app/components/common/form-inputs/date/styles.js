@@ -22,5 +22,13 @@ export default StyleSheet.create({
     fontFamily: Theme.font,
     fontSize: 17,
     fontWeight: '400'
+  },
+  placeholderText: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: Theme.fontColors.placeholder,
+    fontFamily: Theme.font,
+    fontSize: 17,
+    fontWeight: '400'
   }
 });
