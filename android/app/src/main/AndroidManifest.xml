@@ -43,6 +43,7 @@
   <application
     android:name=".MainApplication"
     android:allowBackup="false"
+    android:extractNativeLibs="false"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/APP_NAME"
     android:theme="@style/AppTheme"
