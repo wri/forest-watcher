@@ -25,7 +25,13 @@ const config = {
       new RegExp(
         path.resolve(__dirname, 'node_modules', 'react-native-mbtiles', 'node_modules').replace(/\//g, '[\\/]') + '[\\/].*'
       )
-    ]
+    ],
+    // react-native/Libraries/Network/XHRInterceptor was removed as a private
+    // internal module in RN 0.73+. Reactotron's networking plugin still imports
+    // it directly; redirect to a no-op shim so the bundle resolves cleanly.
+    extraNodeModules: {
+      'react-native/Libraries/Network/XHRInterceptor': path.resolve(__dirname, 'app/shims/XHRInterceptor.js'),
+    },
   }
 };
 
