@@ -5,15 +5,22 @@ import offlineChain from 'redux-offline-chain';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 
-import Reactotron, { trackGlobalErrors, networking, openInEditor, asyncStorage } from 'reactotron-react-native'; // eslint-disable-line
-import sagaPlugin from 'reactotron-redux-saga'; // eslint-disable-line
-import { reactotronRedux } from 'reactotron-redux'; // eslint-disable-line
-
 import migrationEnhancer from './migrate';
 
 import { rootSaga } from 'sagas';
 
+// Reactotron is lazy-required inside __DEV__ blocks only, so its module-level
+// code (which accesses Platform.constants / TurboModuleRegistry) never runs
+// until after the native runtime is fully initialised.
+let Reactotron = null;
+
 if (__DEV__) {
+  const ReactotronLib = require('reactotron-react-native'); // eslint-disable-line
+  const { trackGlobalErrors, networking, openInEditor, asyncStorage } = ReactotronLib;
+  const sagaPlugin = require('reactotron-redux-saga').default; // eslint-disable-line
+  const { reactotronRedux } = require('reactotron-redux'); // eslint-disable-line
+
+  Reactotron = ReactotronLib.default;
   Reactotron.configure()
     .use(reactotronRedux())
     .use(sagaPlugin())
@@ -26,7 +33,7 @@ if (__DEV__) {
   window.tron = Reactotron; // eslint-disable-line
 }
 
-const sagaMonitor = __DEV__ && Reactotron.createSagaMonitor();
+const sagaMonitor = __DEV__ && Reactotron && Reactotron.createSagaMonitor();
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
 const authMiddleware =
@@ -49,7 +56,7 @@ function createAppStore(startApp) {
   });
   const middleware = applyMiddleware(...middlewareList, offlineMiddleware, offlineChain);
   const storeEnhancers = [enhanceStore, migrationEnhancer, middleware];
-  if (__DEV__) {
+  if (__DEV__ && Reactotron) {
     storeEnhancers.push(Reactotron.createEnhancer());
   }
   let composeEnhancers = compose;
