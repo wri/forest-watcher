@@ -17,7 +17,7 @@ let Reactotron = null;
 if (__DEV__) {
   const ReactotronLib = require('reactotron-react-native'); // eslint-disable-line
   const { trackGlobalErrors, networking, openInEditor, asyncStorage } = ReactotronLib;
-  const sagaPlugin = require('reactotron-redux-saga').default; // eslint-disable-line
+  const sagaPlugin = require('reactotron-redux-saga'); // eslint-disable-line — module is the function directly, no .default
   const { reactotronRedux } = require('reactotron-redux'); // eslint-disable-line
 
   Reactotron = ReactotronLib.default;
