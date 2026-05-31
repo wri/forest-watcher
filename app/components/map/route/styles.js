@@ -1,5 +1,4 @@
 import Theme from 'config/theme';
-import MapboxGL from '@react-native-mapbox-gl/maps';
 const routeDestinationMarker = require('assets/routeDestinationMarker.png');
 
 export const mapboxStyles = {
@@ -11,8 +10,8 @@ export const mapboxStyles = {
   },
   routeLineLayer: {
     lineColor: Theme.colors.white,
-    lineCap: MapboxGL.LineJoin.Round,
-    lineJoin: MapboxGL.LineJoin.Round,
+    lineCap: 'round',
+    lineJoin: 'round',
     lineWidth: 4
   },
   routeLineLayerSelected: {
@@ -20,8 +19,8 @@ export const mapboxStyles = {
   },
   routeLineShadow: {
     lineColor: Theme.colors.black,
-    lineCap: MapboxGL.LineJoin.Round,
-    lineJoin: MapboxGL.LineJoin.Round,
+    lineCap: 'round',
+    lineJoin: 'round',
     lineOpacity: 0.6,
     lineWidth: 20,
     lineBlur: 40

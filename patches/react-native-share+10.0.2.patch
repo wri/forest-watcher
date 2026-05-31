@@ -1,3 +1,16 @@
+diff --git a/node_modules/react-native-share/android/src/main/java/cl/json/RNSharePackage.java b/node_modules/react-native-share/android/src/main/java/cl/json/RNSharePackage.java
+index 073f0d4..1b75e2d 100644
+--- a/node_modules/react-native-share/android/src/main/java/cl/json/RNSharePackage.java
++++ b/node_modules/react-native-share/android/src/main/java/cl/json/RNSharePackage.java
+@@ -36,7 +36,7 @@ public class RNSharePackage extends TurboReactPackage {
+                             false, // needsEagerInit
+                             true, // hasConstants
+                             false, // isCxxModule
+-                            false // isTurboModule
++                            true // isTurboModule
+             ));
+             return moduleInfos;
+         };
 diff --git a/node_modules/react-native-share/android/src/main/java/cl/json/ShareFiles.java b/node_modules/react-native-share/android/src/main/java/cl/json/ShareFiles.java
 index b4b1744..101e6df 100644
 --- a/node_modules/react-native-share/android/src/main/java/cl/json/ShareFiles.java

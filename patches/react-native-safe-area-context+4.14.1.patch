@@ -1,13 +1,12 @@
 diff --git a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
-index de6f685..ab7d734 100644
+index de6f685..328e746 100644
 --- a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
 +++ b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt
-@@ -5,15 +5,13 @@ import com.facebook.react.module.annotations.ReactModule
+@@ -5,16 +5,11 @@ import com.facebook.react.module.annotations.ReactModule
  import com.facebook.react.uimanager.ThemedReactContext
  import com.facebook.react.uimanager.UIManagerHelper
  import com.facebook.react.uimanager.ViewGroupManager
 -import com.facebook.react.viewmanagers.RNCSafeAreaProviderManagerDelegate
-+import com.facebook.react.uimanager.ViewManagerDelegate
  import com.facebook.react.viewmanagers.RNCSafeAreaProviderManagerInterface
  
  @ReactModule(name = SafeAreaProviderManager.REACT_CLASS)
@@ -16,65 +15,30 @@ index de6f685..ab7d734 100644
 -  private val mDelegate = RNCSafeAreaProviderManagerDelegate(this)
 -
 -  override fun getDelegate() = mDelegate
-+  override fun getDelegate(): ViewManagerDelegate<SafeAreaProvider>? = null
- 
+-
    override fun getName() = REACT_CLASS
  
-diff --git a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
-index dd4ef6c..3401ddf 100644
---- a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
-+++ b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaProviderManagerDelegate.java
-@@ -11,12 +11,13 @@ package com.facebook.react.viewmanagers;
+   public override fun createViewInstance(context: ThemedReactContext) = SafeAreaProvider(context)
+diff --git a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.kt b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.kt
+index e45f210..ca44b8c 100644
+--- a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.kt
++++ b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewManager.kt
+@@ -5,7 +5,6 @@ import com.facebook.react.module.annotations.ReactModule
+ import com.facebook.react.uimanager.ReactStylesDiffMap
+ import com.facebook.react.uimanager.StateWrapper
+ import com.facebook.react.uimanager.ThemedReactContext
+-import com.facebook.react.uimanager.ViewManagerDelegate
+ import com.facebook.react.uimanager.annotations.ReactProp
+ import com.facebook.react.viewmanagers.RNCSafeAreaViewManagerInterface
+ import com.facebook.react.views.view.ReactViewGroup
+@@ -15,10 +14,6 @@ import com.facebook.react.views.view.ReactViewManager
+ class SafeAreaViewManager : ReactViewManager(), RNCSafeAreaViewManagerInterface<SafeAreaView> {
+   override fun getName() = REACT_CLASS
  
- import android.view.View;
- import androidx.annotation.Nullable;
-+import com.facebook.react.uimanager.BaseViewManager;
- import com.facebook.react.uimanager.BaseViewManagerDelegate;
--import com.facebook.react.uimanager.BaseViewManagerInterface;
-+import com.facebook.react.uimanager.LayoutShadowNode;
+-  // Make sure we're not using delegates for now since ReactViewGroupManager doesn't use one. If it
+-  // does in the future we will need a way to compose delegates together.
+-  override fun getDelegate(): ViewManagerDelegate<ReactViewGroup>? = null
+-
+   override fun createViewInstance(context: ThemedReactContext) = SafeAreaView(context)
  
- public class RNCSafeAreaProviderManagerDelegate<
-         T extends View,
--        U extends BaseViewManagerInterface<T> & RNCSafeAreaProviderManagerInterface<T>>
-+  U extends BaseViewManager<T, ? extends LayoutShadowNode> & RNCSafeAreaProviderManagerInterface<T>>
-     extends BaseViewManagerDelegate<T, U> {
-   public RNCSafeAreaProviderManagerDelegate(U viewManager) {
-     super(viewManager);
-diff --git a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
-index de1686c..965f039 100644
---- a/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
-+++ b/node_modules/react-native-safe-area-context/android/src/paper/java/com/facebook/react/viewmanagers/RNCSafeAreaViewManagerDelegate.java
-@@ -12,11 +12,13 @@ package com.facebook.react.viewmanagers;
- import android.view.View;
- import androidx.annotation.Nullable;
- import com.facebook.react.bridge.ReadableMap;
-+import com.facebook.react.uimanager.BaseViewManager;
- import com.facebook.react.uimanager.BaseViewManagerDelegate;
--import com.facebook.react.uimanager.BaseViewManagerInterface;
-+import com.facebook.react.uimanager.LayoutShadowNode;
- 
- public class RNCSafeAreaViewManagerDelegate<
--        T extends View, U extends BaseViewManagerInterface<T> & RNCSafeAreaViewManagerInterface<T>>
-+  T extends View,
-+  U extends BaseViewManager<T, ? extends LayoutShadowNode> & RNCSafeAreaViewManagerInterface<T>>
-     extends BaseViewManagerDelegate<T, U> {
-   public RNCSafeAreaViewManagerDelegate(U viewManager) {
-     super(viewManager);
-diff --git a/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp b/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
-index 1234567..abcdef0 100644
---- a/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
-+++ b/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
-@@ -16,11 +16,11 @@ extern const char RNCSafeAreaViewComponentName[] = "RNCSafeAreaView";
- inline Style::Length valueFromEdges(
-     Style::Length edge,
-     Style::Length axis,
-     Style::Length defaultValue) {
--  if (edge.unit() != Unit::Undefined) {
-+  if (edge.isDefined()) {
-     return edge;
-   }
--  if (axis.unit() != Unit::Undefined) {
-+  if (axis.isDefined()) {
-     return axis;
-   }
-   return defaultValue;
+   override fun createShadowNodeInstance() = SafeAreaViewShadowNode()
