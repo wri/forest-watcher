@@ -61,10 +61,10 @@ index de1686c..965f039 100644
    public RNCSafeAreaViewManagerDelegate(U viewManager) {
      super(viewManager);
 diff --git a/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp b/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
-index 1234567..abcdefg 100644
+index 1234567..abcdef0 100644
 --- a/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
 +++ b/node_modules/react-native-safe-area-context/common/cpp/react/renderer/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp
-@@ -16,9 +16,9 @@ extern const char RNCSafeAreaViewComponentName[] = "RNCSafeAreaView";
+@@ -16,11 +16,11 @@ extern const char RNCSafeAreaViewComponentName[] = "RNCSafeAreaView";
  inline Style::Length valueFromEdges(
      Style::Length edge,
      Style::Length axis,
