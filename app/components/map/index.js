@@ -161,6 +161,7 @@ class MapComponent extends Component<Props, State> {
   mapCamera: ?MapboxGL.Camera = null;
   map: ?MapboxGL.MapView = null;
   appStateSubscription: ?EventSubscription = null;
+  backHandlerSubscription: ?{ remove: () => void } = null;
 
   sidebarOpened: boolean;
 
@@ -201,7 +202,7 @@ class MapComponent extends Component<Props, State> {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
 
     trackScreenView('Map');
@@ -277,7 +278,7 @@ class MapComponent extends Component<Props, State> {
 
   componentWillUnmount() {
     this.appStateSubscription?.remove();
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription?.remove();
 
     // If we're currently tracking a location, don't stop watching for updates!
     if (!this.isRouteTracking()) {
