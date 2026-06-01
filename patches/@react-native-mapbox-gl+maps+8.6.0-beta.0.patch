@@ -782,6 +782,10 @@ index 0000000..67b2315
 +  "elementType": "File"
 +}
 \ No newline at end of file
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar
+new file mode 100644
+index 0000000..94fb5f8
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
 new file mode 100644
 index 0000000..1211b1e
@@ -802,6 +806,13 @@ index 0000000..9e26dfe
 @@ -0,0 +1 @@
 +{}
 \ No newline at end of file
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_zip/debug/extractDebugAnnotations/annotations.zip b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_zip/debug/extractDebugAnnotations/annotations.zip
+new file mode 100644
+index 0000000..f5443f4
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_zip/debug/extractDebugAnnotations/annotations.zip differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
 new file mode 100644
 index 0000000..fa743a0
@@ -3228,6 +3239,10 @@ diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/inte
 new file mode 100644
 index 0000000..51dbdb0
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compiled_local_resources/debug/compileDebugLibraryResources/out/layout_annotation.xml.flat differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug-mergeJavaRes/merge-state b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug-mergeJavaRes/merge-state
+new file mode 100644
+index 0000000..1c983fc
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug-mergeJavaRes/merge-state differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
 new file mode 100644
 index 0000000..154930b
@@ -3258,6 +3273,15 @@ index 0000000..d5823e5
 @@ -0,0 +1,2 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res"><file name="empty" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty.xml" qualifiers="" type="drawable"/><file name="empty_drawable" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable/empty_drawable.png" qualifiers="" type="drawable"/><file name="annotation" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/layout/annotation.xml" qualifiers="" type="layout"/><file path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">RCTMGL</string></file><file name="red_marker" path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/res/drawable-xxhdpi/red_marker.png" qualifiers="xxhdpi-v4" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..cd96840
+--- /dev/null
++++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/debug/jniLibs"/></dataSet></merger>
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/incremental/mergeDebugShaders/merger.xml
 new file mode 100644
@@ -4017,6 +4041,10 @@ index 0000000..647971d
 +8-->/Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml:3:22-76
 +9
 +10</manifest>
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-react-native-mapbox-gl_maps.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-react-native-mapbox-gl_maps.jar
+new file mode 100644
+index 0000000..15cb0ec
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-react-native-mapbox-gl_maps.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
 new file mode 100644
 index 0000000..d925b6a
@@ -6603,6 +6631,10 @@ index 0000000..83b7dce
 +styleable mapbox_LocationComponent mapbox_accuracyAlpha mapbox_accuracyAnimationEnabled mapbox_accuracyColor mapbox_backgroundDrawable mapbox_backgroundDrawableStale mapbox_backgroundStaleTintColor mapbox_backgroundTintColor mapbox_bearingDrawable mapbox_bearingTintColor mapbox_compassAnimationEnabled mapbox_elevation mapbox_enableStaleState mapbox_foregroundDrawable mapbox_foregroundDrawableStale mapbox_foregroundStaleTintColor mapbox_foregroundTintColor mapbox_gpsDrawable mapbox_iconPaddingBottom mapbox_iconPaddingLeft mapbox_iconPaddingRight mapbox_iconPaddingTop mapbox_layer_above mapbox_layer_below mapbox_maxZoomIconScale mapbox_minZoomIconScale mapbox_staleStateTimeout mapbox_trackingAnimationDurationMultiplier mapbox_trackingGesturesManagement mapbox_trackingInitialMoveThreshold mapbox_trackingMultiFingerMoveThreshold
 +styleable mapbox_MapView mapbox_apiBaseUri mapbox_apiBaseUrl mapbox_cameraBearing mapbox_cameraPitchMax mapbox_cameraPitchMin mapbox_cameraTargetLat mapbox_cameraTargetLng mapbox_cameraTilt mapbox_cameraZoom mapbox_cameraZoomMax mapbox_cameraZoomMin mapbox_cross_source_collisions mapbox_enableTilePrefetch mapbox_enableZMediaOverlay mapbox_foregroundLoadColor mapbox_localIdeographEnabled mapbox_localIdeographFontFamilies mapbox_localIdeographFontFamily mapbox_pixelRatio mapbox_prefetchZoomDelta mapbox_renderTextureMode mapbox_renderTextureTranslucentSurface mapbox_uiAttribution mapbox_uiAttributionGravity mapbox_uiAttributionMarginBottom mapbox_uiAttributionMarginLeft mapbox_uiAttributionMarginRight mapbox_uiAttributionMarginTop mapbox_uiAttributionTintColor mapbox_uiCompass mapbox_uiCompassDrawable mapbox_uiCompassFadeFacingNorth mapbox_uiCompassGravity mapbox_uiCompassMarginBottom mapbox_uiCompassMarginLeft mapbox_uiCompassMarginRight mapbox_uiCompassMarginTop mapbox_uiDoubleTapGestures mapbox_uiHorizontalScrollGestures mapbox_uiLogo mapbox_uiLogoGravity mapbox_uiLogoMarginBottom mapbox_uiLogoMarginLeft mapbox_uiLogoMarginRight mapbox_uiLogoMarginTop mapbox_uiQuickZoomGestures mapbox_uiRotateGestures mapbox_uiScrollGestures mapbox_uiTiltGestures mapbox_uiZoomGestures
 +xml rn_dev_preferences
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar
+new file mode 100644
+index 0000000..510196b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt
 new file mode 100644
 index 0000000..3498e5b
@@ -6638,6 +6670,37 @@ diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/
 new file mode 100644
 index 0000000..0cf8716
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java
+index e5c19ce..ff88fe5 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java
++++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java
+@@ -5,6 +5,7 @@ import android.view.ViewGroup;
+ import com.facebook.react.bridge.ReactApplicationContext;
+ import com.facebook.react.common.MapBuilder;
+ import com.facebook.react.uimanager.ThemedReactContext;
++import com.facebook.react.uimanager.UIManagerHelper;
+ import com.facebook.react.uimanager.UIManagerModule;
+ import com.facebook.react.uimanager.ViewGroupManager;
+ import com.facebook.react.uimanager.events.EventDispatcher;
+@@ -45,7 +46,17 @@ abstract public class AbstractEventEmitter<T extends ViewGroup> extends ViewGrou
+ 
+     @Override
+     protected void addEventEmitters(ThemedReactContext context, @Nonnull T view) {
+-        mEventDispatcher = context.getNativeModule(UIManagerModule.class).getEventDispatcher();
++        // In New Architecture (Fabric), UIManagerModule is not registered so
++        // getNativeModule(UIManagerModule.class) returns null. Use UIManagerHelper
++        // which works in both Fabric and Paper modes.
++        mEventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(context, view.getId());
++        if (mEventDispatcher == null) {
++            // Fallback for Paper / bridge mode
++            UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
++            if (uiManager != null) {
++                mEventDispatcher = uiManager.getEventDispatcher();
++            }
++        }
+     }
+ 
+     @Nullable
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.java
 index 3aa0522..d66f9ff 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/styles/RCTMGLStyleFunctionParser.java
