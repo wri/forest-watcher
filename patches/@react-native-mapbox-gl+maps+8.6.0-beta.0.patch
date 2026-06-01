@@ -19,7 +19,7 @@ index 0000000..a285f7b
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEvent.dex differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex
 new file mode 100644
-index 0000000..fca8589
+index 0000000..15dc614
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractEventEmitter.dex differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractMapFeature.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/components/AbstractMapFeature.dex
 new file mode 100644
@@ -711,7 +711,7 @@ index 0000000..3db0b3d
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/mapbox/rctmgl/utils/SphericalMercator.dex differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
 new file mode 100644
-index 0000000..2236aa2
+index 0000000..606f3d9
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/1cde137b1e14eb2771b277d45392be85/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/c77b5f6086aec15b7ba850db8876bec4/results.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/c77b5f6086aec15b7ba850db8876bec4/results.bin
 new file mode 100644
@@ -722,7 +722,7 @@ index 0000000..0d259dd
 +o/classes
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/c77b5f6086aec15b7ba850db8876bec4/transformed/classes/classes_dex/classes.dex b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/c77b5f6086aec15b7ba850db8876bec4/transformed/classes/classes_dex/classes.dex
 new file mode 100644
-index 0000000..4e821eb
+index 0000000..30bd020
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/.transforms/c77b5f6086aec15b7ba850db8876bec4/transformed/classes/classes_dex/classes.dex differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/source/buildConfig/debug/com/mapbox/rctmgl/BuildConfig.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/generated/source/buildConfig/debug/com/mapbox/rctmgl/BuildConfig.java
 new file mode 100644
@@ -784,7 +784,7 @@ index 0000000..67b2315
 \ No newline at end of file
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar
 new file mode 100644
-index 0000000..94fb5f8
+index 0000000..ccc2e8f
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
 new file mode 100644
@@ -815,7 +815,7 @@ index 0000000..f5443f4
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/annotations_zip/debug/extractDebugAnnotations/annotations.zip differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
 new file mode 100644
-index 0000000..fa743a0
+index 0000000..5eb4e36
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
 new file mode 100644
@@ -3315,7 +3315,7 @@ index 0000000..8bfaaf6
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractEvent.class differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractEventEmitter.class b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractEventEmitter.class
 new file mode 100644
-index 0000000..4cc8903
+index 0000000..72df0ce
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractEventEmitter.class differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractMapFeature.class b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/mapbox/rctmgl/components/AbstractMapFeature.class
 new file mode 100644
@@ -4145,7 +4145,7 @@ index 0000000..8bfaaf6
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractEvent.class differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractEventEmitter.class b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractEventEmitter.class
 new file mode 100644
-index 0000000..4cc8903
+index 0000000..72df0ce
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractEventEmitter.class differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractMapFeature.class b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/components/AbstractMapFeature.class
 new file mode 100644
@@ -4837,7 +4837,7 @@ index 0000000..d3b7401
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/mapbox/rctmgl/utils/SphericalMercator.class differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar
 new file mode 100644
-index 0000000..982522a
+index 0000000..495cf96
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 new file mode 100644
@@ -6633,7 +6633,7 @@ index 0000000..83b7dce
 +xml rn_dev_preferences
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar
 new file mode 100644
-index 0000000..510196b
+index 0000000..82ee3bf
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/aar/react-native-mapbox-gl_maps-debug.aar differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/outputs/logs/manifest-merger-debug-report.txt
 new file mode 100644
@@ -6666,10 +6666,428 @@ index 0000000..3498e5b
 +		INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
 +	android:minSdkVersion
 +		INJECTED from /Users/richardblondet/Projects/wri.org/forest-watcher/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/AndroidManifest.xml
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractEventEmitter.class.uniqueId60 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractEventEmitter.class.uniqueId60
+new file mode 100644
+index 0000000..4cc8903
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractEventEmitter.class.uniqueId60 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractMapFeature.class.uniqueId92 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractMapFeature.class.uniqueId92
+new file mode 100644
+index 0000000..5dcd9e2
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/AbstractMapFeature.class.uniqueId92 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraStop.class.uniqueId77 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraStop.class.uniqueId77
+new file mode 100644
+index 0000000..deddc78
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraStop.class.uniqueId77 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue$OnCompleteAllListener.class.uniqueId97 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue$OnCompleteAllListener.class.uniqueId97
+new file mode 100644
+index 0000000..1d90a3b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue$OnCompleteAllListener.class.uniqueId97 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue.class.uniqueId63 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue.class.uniqueId63
+new file mode 100644
+index 0000000..ef3c256
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/CameraUpdateQueue.class.uniqueId63 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/FeatureClickEvent.class.uniqueId83 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/FeatureClickEvent.class.uniqueId83
+new file mode 100644
+index 0000000..16358c6
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/FeatureClickEvent.class.uniqueId83 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationComponentManager.class.uniqueId82 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationComponentManager.class.uniqueId82
+new file mode 100644
+index 0000000..12226ba
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationComponentManager.class.uniqueId82 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationEvent.class.uniqueId1 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationEvent.class.uniqueId1
+new file mode 100644
+index 0000000..dff91ca
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/LocationEvent.class.uniqueId1 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationClickEvent.class.uniqueId34 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationClickEvent.class.uniqueId34
+new file mode 100644
+index 0000000..8fe7023
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationClickEvent.class.uniqueId34 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationDragEvent.class.uniqueId36 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationDragEvent.class.uniqueId36
+new file mode 100644
+index 0000000..8ab6575
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/PointAnnotationDragEvent.class.uniqueId36 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$1.class.uniqueId11 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$1.class.uniqueId11
+new file mode 100644
+index 0000000..5bd1e5b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$1.class.uniqueId11 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$2.class.uniqueId72 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$2.class.uniqueId72
+new file mode 100644
+index 0000000..fa5b4f3
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer$2.class.uniqueId72 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer.class.uniqueId59 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer.class.uniqueId59
+new file mode 100644
+index 0000000..d6fa831
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTLayer.class.uniqueId59 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapView.class.uniqueId55 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapView.class.uniqueId55
+new file mode 100644
+index 0000000..a87c414
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapView.class.uniqueId55 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapViewManager.class.uniqueId48 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapViewManager.class.uniqueId48
+new file mode 100644
+index 0000000..ee0d2d7
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLAndroidTextureMapViewManager.class.uniqueId48 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayer.class.uniqueId91 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayer.class.uniqueId91
+new file mode 100644
+index 0000000..10edaf6
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayer.class.uniqueId91 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayerManager.class.uniqueId16 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayerManager.class.uniqueId16
+new file mode 100644
+index 0000000..f7fef7a
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLBackgroundLayerManager.class.uniqueId16 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$1.class.uniqueId31 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$1.class.uniqueId31
+new file mode 100644
+index 0000000..1e912ee
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$1.class.uniqueId31 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$2.class.uniqueId52 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$2.class.uniqueId52
+new file mode 100644
+index 0000000..5de007e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$2.class.uniqueId52 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$3.class.uniqueId89 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$3.class.uniqueId89
+new file mode 100644
+index 0000000..e8974c2
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$3.class.uniqueId89 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$4.class.uniqueId84 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$4.class.uniqueId84
+new file mode 100644
+index 0000000..55adf23
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$4.class.uniqueId84 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$5.class.uniqueId67 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$5.class.uniqueId67
+new file mode 100644
+index 0000000..e35eab3
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$5.class.uniqueId67 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$6.class.uniqueId9 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$6.class.uniqueId9
+new file mode 100644
+index 0000000..66d9530
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$6.class.uniqueId9 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$7.class.uniqueId21 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$7.class.uniqueId21
+new file mode 100644
+index 0000000..20417d4
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera$7.class.uniqueId21 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera.class.uniqueId62 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera.class.uniqueId62
+new file mode 100644
+index 0000000..ca9f0f1
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCamera.class.uniqueId62 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCameraManager.class.uniqueId17 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCameraManager.class.uniqueId17
+new file mode 100644
+index 0000000..f1f4e4a
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCameraManager.class.uniqueId17 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayer.class.uniqueId70 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayer.class.uniqueId70
+new file mode 100644
+index 0000000..1b68edf
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayer.class.uniqueId70 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayerManager.class.uniqueId68 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayerManager.class.uniqueId68
+new file mode 100644
+index 0000000..2c69771
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLCircleLayerManager.class.uniqueId68 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayer.class.uniqueId40 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayer.class.uniqueId40
+new file mode 100644
+index 0000000..b8c3ab6
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayer.class.uniqueId40 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayerManager.class.uniqueId64 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayerManager.class.uniqueId64
+new file mode 100644
+index 0000000..f374ee2
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillExtrusionLayerManager.class.uniqueId64 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayer.class.uniqueId25 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayer.class.uniqueId25
+new file mode 100644
+index 0000000..edb0c88
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayer.class.uniqueId25 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayerManager.class.uniqueId57 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayerManager.class.uniqueId57
+new file mode 100644
+index 0000000..193bf39
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLFillLayerManager.class.uniqueId57 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayer.class.uniqueId35 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayer.class.uniqueId35
+new file mode 100644
+index 0000000..e2ae5dd
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayer.class.uniqueId35 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayerManager.class.uniqueId86 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayerManager.class.uniqueId86
+new file mode 100644
+index 0000000..f7ceb13
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLHeatmapLayerManager.class.uniqueId86 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSource.class.uniqueId6 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSource.class.uniqueId6
+new file mode 100644
+index 0000000..0976e47
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSource.class.uniqueId6 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSourceManager.class.uniqueId3 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSourceManager.class.uniqueId3
+new file mode 100644
+index 0000000..73d10ab
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImageSourceManager.class.uniqueId3 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$1.class.uniqueId61 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$1.class.uniqueId61
+new file mode 100644
+index 0000000..a0cb21b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$1.class.uniqueId61 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$2.class.uniqueId20 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$2.class.uniqueId20
+new file mode 100644
+index 0000000..edfe52f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages$2.class.uniqueId20 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages.class.uniqueId14 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages.class.uniqueId14
+new file mode 100644
+index 0000000..a5ca659
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImages.class.uniqueId14 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImagesManager.class.uniqueId44 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImagesManager.class.uniqueId44
+new file mode 100644
+index 0000000..c3ce06b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLImagesManager.class.uniqueId44 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLight.class.uniqueId81 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLight.class.uniqueId81
+new file mode 100644
+index 0000000..ffde7a5
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLight.class.uniqueId81 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLightManager.class.uniqueId0 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLightManager.class.uniqueId0
+new file mode 100644
+index 0000000..9918e6e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLightManager.class.uniqueId0 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayer.class.uniqueId4 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayer.class.uniqueId4
+new file mode 100644
+index 0000000..1b1550f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayer.class.uniqueId4 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayerManager.class.uniqueId18 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayerManager.class.uniqueId18
+new file mode 100644
+index 0000000..13d87ef
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLineLayerManager.class.uniqueId18 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$1.class.uniqueId78 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$1.class.uniqueId78
+new file mode 100644
+index 0000000..d012cd4
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$1.class.uniqueId78 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$2.class.uniqueId5 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$2.class.uniqueId5
+new file mode 100644
+index 0000000..87e9dfc
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$2.class.uniqueId5 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$3.class.uniqueId76 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$3.class.uniqueId76
+new file mode 100644
+index 0000000..89f5db0
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule$3.class.uniqueId76 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule.class.uniqueId96 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule.class.uniqueId96
+new file mode 100644
+index 0000000..4e5eb3e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLLocationModule.class.uniqueId96 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$1.class.uniqueId38 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$1.class.uniqueId38
+new file mode 100644
+index 0000000..7b012f9
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$1.class.uniqueId38 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$10.class.uniqueId54 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$10.class.uniqueId54
+new file mode 100644
+index 0000000..8df7dbb
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$10.class.uniqueId54 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$11.class.uniqueId87 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$11.class.uniqueId87
+new file mode 100644
+index 0000000..ba02fda
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$11.class.uniqueId87 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$12.class.uniqueId19 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$12.class.uniqueId19
+new file mode 100644
+index 0000000..f9ffb25
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$12.class.uniqueId19 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$13.class.uniqueId39 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$13.class.uniqueId39
+new file mode 100644
+index 0000000..b003dd5
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$13.class.uniqueId39 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$2.class.uniqueId28 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$2.class.uniqueId28
+new file mode 100644
+index 0000000..d54f5cc
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$2.class.uniqueId28 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$3.class.uniqueId71 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$3.class.uniqueId71
+new file mode 100644
+index 0000000..e5ffc36
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$3.class.uniqueId71 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$4.class.uniqueId7 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$4.class.uniqueId7
+new file mode 100644
+index 0000000..a92e7de
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$4.class.uniqueId7 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$5.class.uniqueId79 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$5.class.uniqueId79
+new file mode 100644
+index 0000000..c8cf73f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$5.class.uniqueId79 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$6.class.uniqueId65 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$6.class.uniqueId65
+new file mode 100644
+index 0000000..83fc62c
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$6.class.uniqueId65 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$7.class.uniqueId10 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$7.class.uniqueId10
+new file mode 100644
+index 0000000..9494a3c
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$7.class.uniqueId10 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$8.class.uniqueId43 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$8.class.uniqueId43
+new file mode 100644
+index 0000000..31ea930
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$8.class.uniqueId43 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$9.class.uniqueId26 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$9.class.uniqueId26
+new file mode 100644
+index 0000000..ce3ebfe
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$9.class.uniqueId26 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$FoundLayerCallback.class.uniqueId42 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$FoundLayerCallback.class.uniqueId42
+new file mode 100644
+index 0000000..5b02761
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView$FoundLayerCallback.class.uniqueId42 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView.class.uniqueId45 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView.class.uniqueId45
+new file mode 100644
+index 0000000..3e03383
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapView.class.uniqueId45 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode$1.class.uniqueId53 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode$1.class.uniqueId53
+new file mode 100644
+index 0000000..0b6d45e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode$1.class.uniqueId53 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode.class.uniqueId47 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode.class.uniqueId47
+new file mode 100644
+index 0000000..4d27ef6
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager$MapShadowNode.class.uniqueId47 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager.class.uniqueId33 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager.class.uniqueId33
+new file mode 100644
+index 0000000..771ccb9
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMapViewManager.class.uniqueId33 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView$1.class.uniqueId22 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView$1.class.uniqueId22
+new file mode 100644
+index 0000000..d1e5065
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView$1.class.uniqueId22 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView.class.uniqueId2 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView.class.uniqueId2
+new file mode 100644
+index 0000000..36b7cfc
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerView.class.uniqueId2 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerViewManager.class.uniqueId24 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerViewManager.class.uniqueId24
+new file mode 100644
+index 0000000..d208925
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLMarkerViewManager.class.uniqueId24 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$1.class.uniqueId94 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$1.class.uniqueId94
+new file mode 100644
+index 0000000..9cb6f2f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$1.class.uniqueId94 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$2.class.uniqueId15 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$2.class.uniqueId15
+new file mode 100644
+index 0000000..d2d1145
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$2.class.uniqueId15 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$3.class.uniqueId29 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$3.class.uniqueId29
+new file mode 100644
+index 0000000..cc9dae0
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$3.class.uniqueId29 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$4.class.uniqueId50 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$4.class.uniqueId50
+new file mode 100644
+index 0000000..eb8c7d9
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$4.class.uniqueId50 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$5.class.uniqueId12 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$5.class.uniqueId12
+new file mode 100644
+index 0000000..e8df047
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule$5.class.uniqueId12 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule.class.uniqueId88 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule.class.uniqueId88
+new file mode 100644
+index 0000000..6dc5006
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLModule.class.uniqueId88 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocation.class.uniqueId90 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocation.class.uniqueId90
+new file mode 100644
+index 0000000..094d55e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocation.class.uniqueId90 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocationManager.class.uniqueId95 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocationManager.class.uniqueId95
+new file mode 100644
+index 0000000..8737404
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLNativeUserLocationManager.class.uniqueId95 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPackage.class.uniqueId23 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPackage.class.uniqueId23
+new file mode 100644
+index 0000000..a344181
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPackage.class.uniqueId23 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$1.class.uniqueId27 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$1.class.uniqueId27
+new file mode 100644
+index 0000000..bc0ac8e
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$1.class.uniqueId27 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$2.class.uniqueId74 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$2.class.uniqueId74
+new file mode 100644
+index 0000000..37ac59b
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation$2.class.uniqueId74 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation.class.uniqueId13 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation.class.uniqueId13
+new file mode 100644
+index 0000000..5f29585
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotation.class.uniqueId13 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotationManager.class.uniqueId37 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotationManager.class.uniqueId37
+new file mode 100644
+index 0000000..0bbd0bb
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLPointAnnotationManager.class.uniqueId37 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayer.class.uniqueId30 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayer.class.uniqueId30
+new file mode 100644
+index 0000000..f42032f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayer.class.uniqueId30 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayerManager.class.uniqueId85 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayerManager.class.uniqueId85
+new file mode 100644
+index 0000000..711911d
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterLayerManager.class.uniqueId85 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSource.class.uniqueId75 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSource.class.uniqueId75
+new file mode 100644
+index 0000000..547d5c2
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSource.class.uniqueId75 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSourceManager.class.uniqueId32 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSourceManager.class.uniqueId32
+new file mode 100644
+index 0000000..00d3f64
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLRasterSourceManager.class.uniqueId32 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource$1.class.uniqueId58 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource$1.class.uniqueId58
+new file mode 100644
+index 0000000..1b02186
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource$1.class.uniqueId58 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource.class.uniqueId41 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource.class.uniqueId41
+new file mode 100644
+index 0000000..51f1045
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSource.class.uniqueId41 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSourceManager.class.uniqueId98 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSourceManager.class.uniqueId98
+new file mode 100644
+index 0000000..17739a7
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLShapeSourceManager.class.uniqueId98 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayer.class.uniqueId93 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayer.class.uniqueId93
+new file mode 100644
+index 0000000..8d0980f
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayer.class.uniqueId93 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayerManager.class.uniqueId8 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayerManager.class.uniqueId8
+new file mode 100644
+index 0000000..877a1b1
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLSymbolLayerManager.class.uniqueId8 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSource.class.uniqueId56 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSource.class.uniqueId56
+new file mode 100644
+index 0000000..4bc97d0
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSource.class.uniqueId56 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSourceManager.class.uniqueId51 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSourceManager.class.uniqueId51
+new file mode 100644
+index 0000000..ac68af7
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLTileSourceManager.class.uniqueId51 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSource.class.uniqueId49 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSource.class.uniqueId49
+new file mode 100644
+index 0000000..15a42f4
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSource.class.uniqueId49 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSourceManager.class.uniqueId46 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSourceManager.class.uniqueId46
+new file mode 100644
+index 0000000..707fb42
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTMGLVectorSourceManager.class.uniqueId46 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$1.class.uniqueId69 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$1.class.uniqueId69
+new file mode 100644
+index 0000000..59a3dd8
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$1.class.uniqueId69 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$OnPressEvent.class.uniqueId73 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$OnPressEvent.class.uniqueId73
+new file mode 100644
+index 0000000..bf24a9d
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource$OnPressEvent.class.uniqueId73 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource.class.uniqueId66 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource.class.uniqueId66
+new file mode 100644
+index 0000000..555d9b8
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/RCTSource.class.uniqueId66 differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/SimpleEventCallback.class.uniqueId80 b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/SimpleEventCallback.class.uniqueId80
+new file mode 100644
+index 0000000..eb6388a
+Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/compileTransaction/stash-dir/SimpleEventCallback.class.uniqueId80 differ
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
 new file mode 100644
-index 0000000..0cf8716
+index 0000000..941033b
 Binary files /dev/null and b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEvent.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEvent.java
+index cf2d103..24d290b 100644
+--- a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEvent.java
++++ b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEvent.java
+@@ -23,6 +23,17 @@ public class AbstractEvent extends Event<AbstractEvent> {
+         return mEventName;
+     }
+ 
++    /**
++     * Override getEventData so that dispatchModern() (used by Fabric/New Architecture)
++     * receives the payload. The base Event.dispatchModern() calls getEventData(), so
++     * without this override the payload was null in New Architecture mode.
++     */
++    @Override
++    @Nullable
++    protected WritableMap getEventData() {
++        return mEvent;
++    }
++
+     @Override
+     public void dispatch(RCTEventEmitter rctEventEmitter) {
+         rctEventEmitter.receiveEvent(getViewTag(), getEventName(), mEvent);
 diff --git a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java b/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java
 index e5c19ce..ff88fe5 100644
 --- a/node_modules/@react-native-mapbox-gl/maps/android/rctmgl/src/main/java/com/mapbox/rctmgl/components/AbstractEventEmitter.java
