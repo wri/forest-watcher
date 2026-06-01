@@ -28,7 +28,7 @@ export class DetectNetworkPing {
     // Get URL based on current attempt number.
     const url = DetectNetworkPing.urlList[urlIndex % DetectNetworkPing.urlList.length];
 
-    // Attempt fetch with a 1s timeout.
+    // Attempt fetch with a short timeout.
     return checkConnectivity(url).then(connected => {
       // If we've got a connection, update the redux state.
       if (connected) {
@@ -36,18 +36,15 @@ export class DetectNetworkPing {
         return;
       }
 
-      // There was an error, so at this point we should state the device is offline.
-      if (urlIndex === 0) {
-        dispatch({ ...connection, online: false });
-      }
-
       if (urlIndex < DetectNetworkPing.urlList.length - 1) {
-        // Recall this function, incrementing the urlIndex so we try the next URL.
+        // Try the next URL before deciding we're offline.
         this.pingToDetectNetwork(dispatch, urlIndex + 1)(connection);
         return;
       } else {
-        // If every URL has failed, fail the request and stop attempting.
-        dispatch({ ...connection, online: false });
+        // All URLs failed. NetInfo already confirmed a network interface is up
+        // (connection.online === true), so trust that rather than blocking the
+        // offline queue indefinitely. Servers may legitimately reject HEAD.
+        dispatch({ ...connection, online: true });
         return;
       }
     });
