@@ -130,6 +130,7 @@ type State = {
   locationError: ?number,
   mapCameraBounds: any,
   mapCenterCoords: ?[number, number],
+  currentZoom: number,
   animatedPosition: any,
   infoBannerShowing: boolean,
   // feature(s) that the user has just tapped on
@@ -185,6 +186,7 @@ class MapComponent extends Component<Props, State> {
       locationError: null,
       mapCameraBounds: this.getMapCameraBounds(),
       mapCenterCoords: null,
+      currentZoom: 10,
       animatedPosition: new Animated.Value(DISMISSED_INFO_BANNER_POSTIION),
       infoBannerShowing: false,
       tappedOnFeatures: [],
@@ -449,11 +451,12 @@ class MapComponent extends Component<Props, State> {
     });
   });
 
-  onRegionDidChange = async () => {
-    if (this.map) {
-      const mapCenterCoords = await this.map.getCenter();
-      this.setState({ mapCenterCoords, dragging: false });
-    }
+  onRegionDidChange = (feature: any) => {
+    const currentZoom = feature?.properties?.zoomLevel ?? this.state.currentZoom;
+    // geometry.coordinates is the map center — use it directly to avoid
+    // this.map.getCenter() which hangs in New Architecture (Fabric).
+    const mapCenterCoords = feature?.geometry?.coordinates ?? this.state.mapCenterCoords;
+    this.setState({ mapCenterCoords, currentZoom, dragging: false });
   };
 
   showBottomDialog = debounceUI((isExiting = false) => {
@@ -806,7 +809,7 @@ class MapComponent extends Component<Props, State> {
     });
   };
 
-  onClusterPress = async (clusterFeature: Feature<Geometry, any>) => {
+  onClusterPress = (clusterFeature: Feature<Geometry, any>) => {
     this.dismissInfoBanner();
 
     let coords: ?Position = null;
@@ -821,15 +824,15 @@ class MapComponent extends Component<Props, State> {
       }
     }
 
-    if (coords && this.map) {
-      const zoom = await this.map.getZoom();
-      if (this.mapCamera) {
-        this.mapCamera.setCamera({
-          centerCoordinate: coords,
-          zoomLevel: zoom + 3,
-          animationDuration: 2000
-        });
-      }
+    if (coords && this.mapCamera) {
+      // Use zoom tracked from onRegionDidChange to avoid await this.map.getZoom()
+      // which hangs in New Architecture (Fabric) because dispatchViewManagerCommand
+      // callbacks are never fired on the old bridge path.
+      this.mapCamera.setCamera({
+        centerCoordinate: coords,
+        zoomLevel: this.state.currentZoom + 3,
+        animationDuration: 2000
+      });
     }
   };
 
