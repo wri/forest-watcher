@@ -93,7 +93,7 @@ export default function reducer(state: ReportsState = initialState, action: Repo
     case IMPORT_TEMPLATE: {
       const templateId = action.payload.Id;
       if (state.templates[templateId] && !state.templates[templateId].isImported) {
-        console.warn('3SC', `Ignore already existing template with ID ${templateId}`);
+        console.warn('WRI', `Ignore already existing template with ID ${templateId}`);
         return state;
       }
       return {
@@ -124,7 +124,7 @@ export default function reducer(state: ReportsState = initialState, action: Repo
       const reportId = reportToImport.reportName;
 
       if (state.list[reportId] && !state.list[reportId].isImported) {
-        console.warn('3SC', `Ignore already existing report with ID ${reportId}`);
+        console.warn('WRI', `Ignore already existing report with ID ${reportId}`);
         return state;
       }
 
@@ -308,7 +308,7 @@ export function migrateReportAttachmentsFromV1ToV2(): Thunk<Promise<void>> {
           updatedAnswer.value = REPORT_BLOB_IMAGE_ATTACHMENT_PRESENT;
         } catch (err) {
           updatedAnswer.value = null;
-          console.warn('3SC', `Could not migrate report attachment from ${sourceUri}`);
+          console.warn('WRI', `Could not migrate report attachment from ${sourceUri}`);
         } finally {
           dispatch(setReportAnswer(report.reportName, updatedAnswer, true));
         }
@@ -353,7 +353,7 @@ export function uploadReport(reportName: string) {
 
     const isConnected = shouldBeConnected(state);
     if (!isConnected) {
-      console.warn('3SC', 'Not attempting to upload report while offline');
+      console.warn('WRI', 'Not attempting to upload report while offline');
       dispatch(
         saveReport(reportName, {
           ...report,

@@ -106,7 +106,7 @@ export default function reducer(state: AreasState = initialState, action: AreasA
           areaToSave.reportTemplate = convertAreaTemplates(areaToSave.reportTemplate);
           data = [...data, areaToSave];
         } else {
-          console.warn('3SC', `Ignore already existing area with ID ${areaToSave.id}`);
+          console.warn('WRI', `Ignore already existing area with ID ${areaToSave.id}`);
         }
       }
       return { ...state, data, synced: true, syncing: false, refreshing: false };

@@ -67,7 +67,7 @@ export default class MBTilesSource extends PureComponent<Props, State> {
 
     ReactNativeMBTiles.prepare(this.props.basemapId, this.props.basemapPath, (error, metadata) => {
       if (!metadata) {
-        console.warn('3SC', 'No metadata for the selected basemap');
+        console.warn('WRI', 'No metadata for the selected basemap');
         return;
       }
 

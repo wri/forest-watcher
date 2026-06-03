@@ -160,7 +160,7 @@ class ImportMappingFileType extends PureComponent<Props, State> {
         try {
           await RNFS.unlink(tempUri);
         } catch (err) {
-          console.warn('3SC', 'RNFS unlink error: ', err);
+          console.warn('WRI', 'RNFS unlink error: ', err);
         }
       }
     }

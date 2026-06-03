@@ -286,7 +286,7 @@ export function emailLogin(email: string, password: string): Thunk<Promise<void>
       if (!(response?.ok && response?.status === 200)) {
         const responseJson = await response.json();
         const errorMessage = responseJson?.errors?.[0]?.detail ?? i18n.t('login.emailLogin.loginError');
-        console.warn('3SC', 'API Error logging in using email: ', errorMessage);
+        console.warn('WRI', 'API Error logging in using email: ', errorMessage);
         dispatch({
           type: SET_EMAIL_LOGIN_ERROR,
           payload: errorMessage
@@ -304,7 +304,7 @@ export function emailLogin(email: string, password: string): Thunk<Promise<void>
         }
       });
     } catch (error) {
-      console.warn('3SC', 'Error trying to log in using email: ', error);
+      console.warn('WRI', 'Error trying to log in using email: ', error);
       dispatch({ type: SET_LOGIN_STATUS, payload: false });
       dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: error.toString() });
     } finally {

@@ -68,7 +68,7 @@ function migrate(oldRealm, newRealm) {
       break;
     }
     default: {
-      console.warn('3SC', 'Unhandled Realm migration');
+      console.warn('WRI', 'Unhandled Realm migration');
       break;
     }
   }

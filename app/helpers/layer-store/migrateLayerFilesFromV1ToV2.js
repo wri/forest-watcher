@@ -12,7 +12,7 @@ const RNFS = require('react-native-fs');
 export default async function migrateLayerFilesFromV1ToV2() {
   const v1AreaDirs = await findV1AreaDirectories();
   const v1TileFiles = await findV1TileFiles(v1AreaDirs);
-  console.warn('3SC', 'Migrate layer files from v1', v1TileFiles.length);
+  console.warn('WRI', 'Migrate layer files from v1', v1TileFiles.length);
   await storeLayerFiles(v1TileFiles, 'move');
   deleteV1AreaDirectories(v1AreaDirs);
 }
@@ -23,7 +23,7 @@ const deleteV1AreaDirectories = async (paths: Array<string>): Promise<void> => {
     try {
       await RNFS.unlink(path);
     } catch (err) {
-      console.warn('3SC', `Could not delete ${path}`);
+      console.warn('WRI', `Could not delete ${path}`);
     }
   }
 };

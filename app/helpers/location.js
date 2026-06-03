@@ -296,7 +296,7 @@ export async function startTrackingLocation(requiredPermission: number) {
       emitLocationUpdate(initialLocationUpdate);
     }
   } catch (err) {
-    console.warn('3SC', 'Unexpected failure prior to starting geolocation tracking... continuing...', err);
+    console.warn('WRI', 'Unexpected failure prior to starting geolocation tracking... continuing...', err);
     Sentry.captureException(err);
   }
 

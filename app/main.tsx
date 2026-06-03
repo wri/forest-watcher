@@ -75,7 +75,7 @@ export default class App {
           screen = 'ForestWatcher.Home';
         }
       } catch (error) {
-        console.warn('3SC', 'Error getting credential state', error);
+        console.warn('WRI', 'Error getting credential state', error);
       }
     }
 
@@ -92,7 +92,7 @@ export default class App {
         });
       }
     } catch (err) {
-      console.warn('3SC', 'Could not migrate files', err);
+      console.warn('WRI', 'Could not migrate files', err);
       Sentry.captureException(err);
     }
   }

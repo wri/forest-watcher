@@ -71,7 +71,7 @@ export default function reducer(state: RouteState = initialState, action: RouteA
             previousRoutes: [...state.previousRoutes, routeToImport]
           };
         } else {
-          console.warn('3SC', `Ignore already existing route with ID ${routeToImport.id}`);
+          console.warn('WRI', `Ignore already existing route with ID ${routeToImport.id}`);
         }
       }
       return state;

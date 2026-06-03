@@ -323,7 +323,7 @@ class MapComponent extends Component<Props, State> {
     // Dismiss the map walkthrough modal if it is showing (only possible when mapWalkthroughSeen is false).
     if (!this.props.mapWalkthroughSeen) {
       Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
-        console.info('3SC', 'Cannot dismiss map walkthrough: ', err)
+        console.info('WRI', 'Cannot dismiss map walkthrough: ', err)
       );
     }
     this.dismissInfoBanner();
@@ -348,7 +348,7 @@ class MapComponent extends Component<Props, State> {
       startTrackingHeading();
     } catch (err) {
       // continue without tracking heading...
-      console.warn('3SC', 'Could not start tracking heading...', err);
+      console.warn('WRI', 'Could not start tracking heading...', err);
       Sentry.captureException(err);
     }
 
@@ -367,7 +367,7 @@ class MapComponent extends Component<Props, State> {
     try {
       await startTrackingLocation(requestedPermission);
     } catch (err) {
-      console.warn('3SC', 'Could not start tracking location...', err);
+      console.warn('WRI', 'Could not start tracking location...', err);
       this.onLocationUpdateError(err);
       Sentry.captureException(err);
       throw err;
@@ -603,14 +603,14 @@ class MapComponent extends Component<Props, State> {
     const { userLocation, customReporting, mapCenterCoords, selectedAlerts, selectedReports } = this.state;
 
     if (!area) {
-      console.warn('3SC', 'Cannot create a report without an area');
+      console.warn('WRI', 'Cannot create a report without an area');
       return;
     }
 
     let latLng = [];
     if (customReporting) {
       if (!mapCenterCoords) {
-        console.warn('3SC', 'Cannot create a custom report without map center coords');
+        console.warn('WRI', 'Cannot create a custom report without map center coords');
         return;
       }
 
@@ -634,7 +634,7 @@ class MapComponent extends Component<Props, State> {
       ];
     } else if (this.isRouteTracking()) {
       if (!userLocation) {
-        console.warn('3SC', 'Cannot create a route tracking report without user location');
+        console.warn('WRI', 'Cannot create a route tracking report without user location');
         return;
       }
       latLng = [
@@ -644,7 +644,7 @@ class MapComponent extends Component<Props, State> {
         }
       ];
     } else {
-      console.warn('3SC', 'Cannot create a report without a report location');
+      console.warn('WRI', 'Cannot create a report without a report location');
       return;
     }
 
