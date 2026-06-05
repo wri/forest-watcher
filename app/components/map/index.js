@@ -456,7 +456,13 @@ class MapComponent extends Component<Props, State> {
     // geometry.coordinates is the map center — use it directly to avoid
     // this.map.getCenter() which hangs in New Architecture (Fabric).
     const mapCenterCoords = feature?.geometry?.coordinates ?? this.state.mapCenterCoords;
-    this.setState({ mapCenterCoords, currentZoom, dragging: false });
+    // Clear the initial camera bounds only once (when first non-null) so the
+    // Camera does not re-animate on every subsequent pan/zoom.
+    const newState: any = { mapCenterCoords, currentZoom, dragging: false };
+    if (this.state.mapCameraBounds !== null) {
+      newState.mapCameraBounds = null;
+    }
+    this.setState(newState);
   };
 
   showBottomDialog = debounceUI((isExiting = false) => {
@@ -825,12 +831,14 @@ class MapComponent extends Component<Props, State> {
     }
 
     if (coords && this.mapCamera) {
-      // Use zoom tracked from onRegionDidChange to avoid await this.map.getZoom()
-      // which hangs in New Architecture (Fabric) because dispatchViewManagerCommand
-      // callbacks are never fired on the old bridge path.
+      // Zoom +3 levels from current position (same as original behaviour).
+      // this.state.currentZoom is kept in sync by onRegionDidChange reading
+      // properties.zoomLevel from the event payload — avoids await this.map.getZoom()
+      // which hangs in New Architecture (Fabric).
+      const targetZoom = this.state.currentZoom + 3;
       this.mapCamera.setCamera({
         centerCoordinate: coords,
-        zoomLevel: this.state.currentZoom + 3,
+        zoomLevel: targetZoom,
         animationDuration: 2000
       });
     }
