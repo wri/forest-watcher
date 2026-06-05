@@ -20,25 +20,25 @@ export async function migrateFilesFromV1ToV2(dispatch: Dispatch) {
   // Even if one migration fails, we will attempt the other, so keep track of any errors
   let error = null;
 
-  console.warn('3SC', 'Migrate files to v2');
+  console.warn('WRI', 'Migrate files to v2');
   try {
     await dispatch(migrateReportAttachmentsFromV1ToV2());
   } catch (err) {
-    console.warn('3SC', 'Could not migrate report attachments', err);
+    console.warn('WRI', 'Could not migrate report attachments', err);
     error = err;
   }
 
   try {
     await migrateLayerFilesFromV1ToV2();
   } catch (err) {
-    console.warn('3SC', 'Could not migrate layer files', err);
+    console.warn('WRI', 'Could not migrate layer files', err);
     error = err;
   }
 
   if (error) {
     throw error;
   }
-  console.warn('3SC', 'Migrated files to v2');
+  console.warn('WRI', 'Migrated files to v2');
 }
 
 /**
@@ -180,7 +180,7 @@ export const migrateRouteStateFromV1ToV2 = (
 const manifest = {
   // $FlowFixMe
   2: (state: State): State => {
-    console.warn('3SC', 'Migrate Redux state to v2');
+    console.warn('WRI', 'Migrate Redux state to v2');
     return {
       ...state,
       alerts: {
@@ -217,7 +217,7 @@ const manifest = {
     };
   },
   3: (state: State): State => {
-    console.warn('3SC', 'Migrate Redux state to v3');
+    console.warn('WRI', 'Migrate Redux state to v3');
     const { app, layerSettings } = state;
     // Only set welcomeSeenVersion if the user has actually seen it!
     if (app.hasSeenWelcomeScreen) {
@@ -247,7 +247,7 @@ const migrationEnhancer = createMigration(
     return state.app.reduxVersion;
   },
   (state: State, version: number): State => {
-    console.warn('3SC', `Migrated Redux state to v${version}`);
+    console.warn('WRI', `Migrated Redux state to v${version}`);
     return { ...state, app: { ...state.app, reduxVersion: version } };
   }
 );

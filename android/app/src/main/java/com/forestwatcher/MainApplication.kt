@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.reactnativenavigation.NavigationApplication;
@@ -44,10 +43,9 @@ class MainApplication : NavigationApplication() {
   override fun onCreate() {
     super.onCreate()
     // SoLoader.init(this, OpenSourceMergedSoMapping)
-    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
-      load()
-    }
+    // Note: DefaultNewArchitectureEntryPoint.load() is called by
+    // NavigationApplication.super.onCreate() in RNN v8 when newArchEnabled=true.
+    // Calling it again here would crash with "Feature flags cannot be overridden more than once".
 
     // Fix for GFW-791
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

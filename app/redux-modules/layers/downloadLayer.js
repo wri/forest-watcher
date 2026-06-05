@@ -251,7 +251,7 @@ async function downloadLayerForRegion(
 
     if (pack) {
       // offline pack with with this id already exists.
-      console.info('3SC', 'Error: offline pack with with this id already exists');
+      console.info('WRI', 'Error: offline pack with with this id already exists');
       dispatch({
         type: IMPORT_LAYER_PROGRESS,
         payload: { id: dataId, progress: 100, layerId }

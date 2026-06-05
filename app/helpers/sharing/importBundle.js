@@ -57,7 +57,7 @@ export function checkBundleCompatibility(version: number) {
     }
     // For past versions we can either (i) migrate or (ii) fail
     // Handle those decisions for each past version here
-    console.warn('3SC', 'Processing bundle created using an old format. We should explicitly handle this.');
+    console.warn('WRI', 'Processing bundle created using an old format. We should explicitly handle this.');
   }
 }
 

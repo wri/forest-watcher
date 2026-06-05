@@ -48,8 +48,17 @@ export default class MultipleItems extends PureComponent<Props, null> {
     }
   }
 
+  backHandlerSubscription: ?{ remove: () => void } = null;
+
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', () => Navigation.dismissModal(this.props.componentId));
+    this.backHandlerSubscription = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => Navigation.dismissModal(this.props.componentId)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandlerSubscription?.remove();
   }
 
   /**

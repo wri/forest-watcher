@@ -35,7 +35,7 @@ export default async function importKMZFile(file: File & { uri: string }, fileNa
       RNFS.unlink(tempZipPath);
       RNFS.unlink(tempPath);
     } catch (err) {
-      console.warn('3SC', 'RNFS unlink error: ', err);
+      console.warn('WRI', 'RNFS unlink error: ', err);
     }
   }
 }

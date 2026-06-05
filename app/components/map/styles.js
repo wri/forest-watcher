@@ -97,8 +97,8 @@ export const mapboxStyles = {
   },
   areaOutline: {
     lineColor: Theme.colors.turtleGreen,
-    lineCap: MapboxGL.LineJoin.Round,
-    lineJoin: MapboxGL.LineJoin.Round,
+    lineCap: 'round',
+    lineJoin: 'round',
     lineWidth: 3,
     lineOpacity: 0.8
   }

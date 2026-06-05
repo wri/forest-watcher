@@ -67,7 +67,7 @@ export default class RouteMarkers extends PureComponent<Props, State> {
   fetchRouteLocations = () => {
     getValidLocations((locations, error: ?GFWLocationError) => {
       if (error) {
-        console.warn('3SC', 'route', `fetchRouteLocations returned an error ${error}`);
+        console.warn('WRI', 'route', `fetchRouteLocations returned an error ${error}`);
         return;
       }
 

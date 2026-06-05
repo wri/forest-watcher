@@ -130,6 +130,7 @@ type State = {
   locationError: ?number,
   mapCameraBounds: any,
   mapCenterCoords: ?[number, number],
+  currentZoom: number,
   animatedPosition: any,
   infoBannerShowing: boolean,
   // feature(s) that the user has just tapped on
@@ -161,6 +162,7 @@ class MapComponent extends Component<Props, State> {
   mapCamera: ?MapboxGL.Camera = null;
   map: ?MapboxGL.MapView = null;
   appStateSubscription: ?EventSubscription = null;
+  backHandlerSubscription: ?{ remove: () => void } = null;
 
   sidebarOpened: boolean;
 
@@ -184,6 +186,7 @@ class MapComponent extends Component<Props, State> {
       locationError: null,
       mapCameraBounds: this.getMapCameraBounds(),
       mapCenterCoords: null,
+      currentZoom: 10,
       animatedPosition: new Animated.Value(DISMISSED_INFO_BANNER_POSTIION),
       infoBannerShowing: false,
       tappedOnFeatures: [],
@@ -201,7 +204,7 @@ class MapComponent extends Component<Props, State> {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
 
     trackScreenView('Map');
@@ -277,7 +280,7 @@ class MapComponent extends Component<Props, State> {
 
   componentWillUnmount() {
     this.appStateSubscription?.remove();
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription?.remove();
 
     // If we're currently tracking a location, don't stop watching for updates!
     if (!this.isRouteTracking()) {
@@ -320,7 +323,7 @@ class MapComponent extends Component<Props, State> {
     // Dismiss the map walkthrough modal if it is showing (only possible when mapWalkthroughSeen is false).
     if (!this.props.mapWalkthroughSeen) {
       Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
-        console.info('3SC', 'Cannot dismiss map walkthrough: ', err)
+        console.info('WRI', 'Cannot dismiss map walkthrough: ', err)
       );
     }
     this.dismissInfoBanner();
@@ -345,7 +348,7 @@ class MapComponent extends Component<Props, State> {
       startTrackingHeading();
     } catch (err) {
       // continue without tracking heading...
-      console.warn('3SC', 'Could not start tracking heading...', err);
+      console.warn('WRI', 'Could not start tracking heading...', err);
       Sentry.captureException(err);
     }
 
@@ -364,7 +367,7 @@ class MapComponent extends Component<Props, State> {
     try {
       await startTrackingLocation(requestedPermission);
     } catch (err) {
-      console.warn('3SC', 'Could not start tracking location...', err);
+      console.warn('WRI', 'Could not start tracking location...', err);
       this.onLocationUpdateError(err);
       Sentry.captureException(err);
       throw err;
@@ -448,11 +451,18 @@ class MapComponent extends Component<Props, State> {
     });
   });
 
-  onRegionDidChange = async () => {
-    if (this.map) {
-      const mapCenterCoords = await this.map.getCenter();
-      this.setState({ mapCenterCoords, dragging: false });
+  onRegionDidChange = (feature: any) => {
+    const currentZoom = feature?.properties?.zoomLevel ?? this.state.currentZoom;
+    // geometry.coordinates is the map center — use it directly to avoid
+    // this.map.getCenter() which hangs in New Architecture (Fabric).
+    const mapCenterCoords = feature?.geometry?.coordinates ?? this.state.mapCenterCoords;
+    // Clear the initial camera bounds only once (when first non-null) so the
+    // Camera does not re-animate on every subsequent pan/zoom.
+    const newState: any = { mapCenterCoords, currentZoom, dragging: false };
+    if (this.state.mapCameraBounds !== null) {
+      newState.mapCameraBounds = null;
     }
+    this.setState(newState);
   };
 
   showBottomDialog = debounceUI((isExiting = false) => {
@@ -599,14 +609,14 @@ class MapComponent extends Component<Props, State> {
     const { userLocation, customReporting, mapCenterCoords, selectedAlerts, selectedReports } = this.state;
 
     if (!area) {
-      console.warn('3SC', 'Cannot create a report without an area');
+      console.warn('WRI', 'Cannot create a report without an area');
       return;
     }
 
     let latLng = [];
     if (customReporting) {
       if (!mapCenterCoords) {
-        console.warn('3SC', 'Cannot create a custom report without map center coords');
+        console.warn('WRI', 'Cannot create a custom report without map center coords');
         return;
       }
 
@@ -630,7 +640,7 @@ class MapComponent extends Component<Props, State> {
       ];
     } else if (this.isRouteTracking()) {
       if (!userLocation) {
-        console.warn('3SC', 'Cannot create a route tracking report without user location');
+        console.warn('WRI', 'Cannot create a route tracking report without user location');
         return;
       }
       latLng = [
@@ -640,7 +650,7 @@ class MapComponent extends Component<Props, State> {
         }
       ];
     } else {
-      console.warn('3SC', 'Cannot create a report without a report location');
+      console.warn('WRI', 'Cannot create a report without a report location');
       return;
     }
 
@@ -805,7 +815,7 @@ class MapComponent extends Component<Props, State> {
     });
   };
 
-  onClusterPress = async (clusterFeature: Feature<Geometry, any>) => {
+  onClusterPress = (clusterFeature: Feature<Geometry, any>) => {
     this.dismissInfoBanner();
 
     let coords: ?Position = null;
@@ -820,15 +830,17 @@ class MapComponent extends Component<Props, State> {
       }
     }
 
-    if (coords && this.map) {
-      const zoom = await this.map.getZoom();
-      if (this.mapCamera) {
-        this.mapCamera.setCamera({
-          centerCoordinate: coords,
-          zoomLevel: zoom + 3,
-          animationDuration: 2000
-        });
-      }
+    if (coords && this.mapCamera) {
+      // Zoom +3 levels from current position (same as original behaviour).
+      // this.state.currentZoom is kept in sync by onRegionDidChange reading
+      // properties.zoomLevel from the event payload — avoids await this.map.getZoom()
+      // which hangs in New Architecture (Fabric).
+      const targetZoom = this.state.currentZoom + 3;
+      this.mapCamera.setCamera({
+        centerCoordinate: coords,
+        zoomLevel: targetZoom,
+        animationDuration: 2000
+      });
     }
   };
 

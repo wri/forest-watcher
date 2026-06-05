@@ -20,7 +20,7 @@ export async function storeReportFiles(files: Array<ReportFile>, outputPath: str
       const destinationUri = pathForReportFile(file, outputPath);
       await copyFileWithReplacement(sourceUri, destinationUri);
     } catch (err) {
-      console.warn('3SC', `Failed to store report attachment (${file.reportName}, ${file.questionName})`, err);
+      console.warn('WRI', `Failed to store report attachment (${file.reportName}, ${file.questionName})`, err);
     }
   }
 }
