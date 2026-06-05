@@ -32,7 +32,7 @@ llvm_readelf=""
 if [[ -n "$ndk_root" ]]; then
   # Support different host prebuilts (linux, darwin x86_64/arm64, windows).
   # llvm-readelf may be provided as a symlink in some NDK packages.
-  llvm_readelf="$(find "$ndk_root/toolchains/llvm/prebuilt" \( -type f -o -type l \) -name llvm-readelf 2>/dev/null | sort | head -n 1)"
+  llvm_readelf="$(find "$ndk_root/toolchains/llvm/prebuilt" \( -type f -o -type l \) \( -name llvm-readelf -o -name llvm-readelf.exe \) 2>/dev/null | sort | head -n 1)"
 fi
 
 if [[ -z "$zipalign_bin" || ! -x "$zipalign_bin" ]]; then

@@ -6,7 +6,7 @@ import { View, Text, Platform, Pressable } from 'react-native';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import DatePicker from 'react-native-datepicker';
 import i18n from 'i18next';
-import Moment from 'moment';
+import moment from 'moment';
 
 import styles from '../styles';
 import dateStyles from './styles';
@@ -30,7 +30,7 @@ function DateInput(props: Props) {
   }
 
   function handleAndroidPress() {
-    const initialDate = props.answer.value ? Moment(props.answer.value, dateFormat).toDate() : new Date();
+    const initialDate = props.answer.value ? moment(props.answer.value, dateFormat).toDate() : new Date();
 
     DateTimePickerAndroid.open({
       value: initialDate,
@@ -47,7 +47,7 @@ function DateInput(props: Props) {
 
             const nextDate = new Date(selectedDate);
             nextDate.setHours(selectedTime.getHours(), selectedTime.getMinutes(), 0, 0);
-            handleChange(Moment(nextDate).format(dateFormat));
+            handleChange(moment(nextDate).format(dateFormat));
           }
         });
       }

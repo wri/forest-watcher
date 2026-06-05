@@ -10,7 +10,6 @@ const XHRInterceptor = {
   setOpenCallback: () => {},
   setRequestHeaderCallback: () => {},
   setHeaderReceivedCallback: () => {},
-  setHeaderReceivedCallback: () => {},
   enableInterception: () => {},
   disableInterception: () => {},
   isInterceptorEnabled: false,
