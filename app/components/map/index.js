@@ -831,15 +831,24 @@ class MapComponent extends Component<Props, State> {
     }
 
     if (coords && this.mapCamera) {
-      // Zoom +3 levels from current position (same as original behaviour).
+      // Zoom +3 levels from current position.
       // this.state.currentZoom is kept in sync by onRegionDidChange reading
       // properties.zoomLevel from the event payload — avoids await this.map.getZoom()
       // which hangs in New Architecture (Fabric).
       const targetZoom = this.state.currentZoom + 3;
-      this.mapCamera.setCamera({
-        centerCoordinate: coords,
-        zoomLevel: targetZoom,
-        animationDuration: 2000
+
+      // Clear mapCameraBounds BEFORE animating. If bounds is still set on the
+      // Camera component when setCamera fires, onRegionDidChange (debounced at
+      // 500ms) will setState({mapCameraBounds: null}) mid-animation, causing
+      // Camera's componentDidUpdate to call setNativeProps({maxZoomLevel}) which
+      // interrupts the animation and leaves the map frozen mid-flight.
+      const camera = this.mapCamera;
+      this.setState({ mapCameraBounds: null }, () => {
+        camera.setCamera({
+          centerCoordinate: coords,
+          zoomLevel: targetZoom,
+          animationDuration: 500
+        });
       });
     }
   };
