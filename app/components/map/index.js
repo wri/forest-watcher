@@ -832,18 +832,18 @@ class MapComponent extends Component<Props, State> {
 
     if (coords && this.mapCamera) {
       // Zoom +3 levels from current position.
-      // this.state.currentZoom is kept in sync by onRegionDidChange reading
-      // properties.zoomLevel from the event payload — avoids await this.map.getZoom()
-      // which hangs in New Architecture (Fabric).
+      // this.state.currentZoom is kept in sync by onRegionDidChange. We also
+      // update it optimistically here so repeated cluster taps accumulate zoom
+      // correctly on devices where onRegionDidChange is debounced or delayed
+      // in New Architecture (Fabric).
       const targetZoom = this.state.currentZoom + 3;
-
-      // Clear mapCameraBounds BEFORE animating. If bounds is still set on the
-      // Camera component when setCamera fires, onRegionDidChange (debounced at
-      // 500ms) will setState({mapCameraBounds: null}) mid-animation, causing
-      // Camera's componentDidUpdate to call setNativeProps({maxZoomLevel}) which
-      // interrupts the animation and leaves the map frozen mid-flight.
       const camera = this.mapCamera;
-      this.setState({ mapCameraBounds: null }, () => {
+
+      // Clear mapCameraBounds BEFORE animating so Camera does not try to
+      // re-apply the initial area bounds during or after the animation.
+      // Also update currentZoom optimistically so the next cluster tap
+      // increments from the correct level.
+      this.setState({ mapCameraBounds: null, currentZoom: targetZoom }, () => {
         camera.setCamera({
           centerCoordinate: coords,
           zoomLevel: targetZoom,
