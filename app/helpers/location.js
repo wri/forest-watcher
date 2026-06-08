@@ -101,10 +101,20 @@ export async function checkLocationStatus(): Promise<ServiceStatus> {
   return await new Promise((resolve, reject) => {
     BackgroundGeolocation.checkStatus(
       (isRunning, locationServicesEnabled, authorizationStatus) => {
-        resolve(isRunning, locationServicesEnabled, authorizationStatus);
+        resolve({
+          isRunning,
+          locationServicesEnabled,
+          authorization: authorizationStatus
+        });
       },
       err => {
-        resolve(false, false, GFWLocationUnauthorized);
+        console.warn('WRI', 'Background geolocation status check failed', err);
+        Sentry.captureException(err);
+        resolve({
+          isRunning: false,
+          locationServicesEnabled: false,
+          authorization: GFWLocationUnauthorized
+        });
       }
     );
   });
@@ -146,7 +156,7 @@ async function getCurrentLocation(): Promise<Location> {
         resolve(location);
       },
       (code, message) => {
-        reject(new FWError({ code, message }));
+        reject(new FWError({ code, message: message || `Location lookup failed (${code})` }));
       },
       {
         timeout: 10000, // ten seconds
