@@ -831,25 +831,24 @@ class MapComponent extends Component<Props, State> {
     }
 
     if (coords && this.mapCamera) {
-      // Zoom +3 levels from current position.
-      // this.state.currentZoom is kept in sync by onRegionDidChange. We also
-      // update it optimistically here so repeated cluster taps accumulate zoom
-      // correctly on devices where onRegionDidChange is debounced or delayed
-      // in New Architecture (Fabric).
-      const targetZoom = this.state.currentZoom + 3;
       const camera = this.mapCamera;
 
-      // Clear mapCameraBounds BEFORE animating so Camera does not try to
-      // re-apply the initial area bounds during or after the animation.
-      // Also update currentZoom optimistically so the next cluster tap
-      // increments from the correct level.
-      this.setState({ mapCameraBounds: null, currentZoom: targetZoom }, () => {
-        camera.setCamera({
-          centerCoordinate: coords,
-          zoomLevel: targetZoom,
-          animationDuration: 500
-        });
-      });
+      // Use functional setState so targetZoom is derived from the latest queued
+      // state value. If the user taps clusters rapidly, React may batch updates
+      // and this.state.currentZoom could still be the pre-animation value;
+      // prevState.currentZoom always reflects the most recently enqueued value.
+      // The setState callback fires after the new state is committed, so
+      // this.state.currentZoom in the callback is already the incremented value.
+      this.setState(
+        prevState => ({ mapCameraBounds: null, currentZoom: prevState.currentZoom + 3 }),
+        () => {
+          camera.setCamera({
+            centerCoordinate: coords,
+            zoomLevel: this.state.currentZoom,
+            animationDuration: 500
+          });
+        }
+      );
     }
   };
 
