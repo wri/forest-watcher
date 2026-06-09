@@ -100,11 +100,20 @@ export function showAppSettings() {
 export async function checkLocationStatus(): Promise<ServiceStatus> {
   return await new Promise((resolve, reject) => {
     BackgroundGeolocation.checkStatus(
-      (isRunning, locationServicesEnabled, authorizationStatus) => {
+      (statusOrIsRunning, legacyLocationServicesEnabled, legacyAuthorizationStatus) => {
+        const status =
+          statusOrIsRunning && typeof statusOrIsRunning === 'object'
+            ? statusOrIsRunning
+            : {
+                isRunning: statusOrIsRunning,
+                locationServicesEnabled: legacyLocationServicesEnabled,
+                authorization: legacyAuthorizationStatus
+              };
+
         resolve({
-          isRunning,
-          locationServicesEnabled,
-          authorization: authorizationStatus
+          isRunning: Boolean(status.isRunning),
+          locationServicesEnabled: Boolean(status.locationServicesEnabled),
+          authorization: status.authorization
         });
       },
       err => {
