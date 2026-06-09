@@ -831,16 +831,24 @@ class MapComponent extends Component<Props, State> {
     }
 
     if (coords && this.mapCamera) {
-      // Zoom +3 levels from current position (same as original behaviour).
-      // this.state.currentZoom is kept in sync by onRegionDidChange reading
-      // properties.zoomLevel from the event payload — avoids await this.map.getZoom()
-      // which hangs in New Architecture (Fabric).
-      const targetZoom = this.state.currentZoom + 3;
-      this.mapCamera.setCamera({
-        centerCoordinate: coords,
-        zoomLevel: targetZoom,
-        animationDuration: 2000
-      });
+      const camera = this.mapCamera;
+
+      // Use functional setState so targetZoom is derived from the latest queued
+      // state value. If the user taps clusters rapidly, React may batch updates
+      // and this.state.currentZoom could still be the pre-animation value;
+      // prevState.currentZoom always reflects the most recently enqueued value.
+      // The setState callback fires after the new state is committed, so
+      // this.state.currentZoom in the callback is already the incremented value.
+      this.setState(
+        prevState => ({ mapCameraBounds: null, currentZoom: prevState.currentZoom + 3 }),
+        () => {
+          camera.setCamera({
+            centerCoordinate: coords,
+            zoomLevel: this.state.currentZoom,
+            animationDuration: 500
+          });
+        }
+      );
     }
   };
 
