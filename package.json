@@ -1,6 +1,6 @@
 {
   "name": "ForestWatcher",
-  "version": "3.3.2",
+  "version": "3.3.4",
   "private": true,
   "scripts": {
     "start": "react-native start",
