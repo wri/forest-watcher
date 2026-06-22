@@ -129,9 +129,17 @@ target 'ForestWatcher' do
     # Xcode 26 marks netinet6/in6.h as a private module header. The include is
     # redundant since netinet/in.h already provides IPv6 types on Apple platforms.
     # Patch all .m files in Pods and node_modules that use it.
-    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select { |f|
-      File.read(f).include?("#import <netinet6/in6.h>")
-    }
+    # Use line-by-line scanning with early exit to avoid loading every file into memory.
+    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select do |f|
+      has_import = false
+      File.foreach(f) do |line|
+        if line.include?("#import <netinet6/in6.h>")
+          has_import = true
+          break
+        end
+      end
+      has_import
+    end
     reachability_nm = File.expand_path("../node_modules/@mauron85/react-native-background-geolocation/ios/common/BackgroundGeolocation/Reachability.m", __dir__)
     files_to_patch << reachability_nm if File.exist?(reachability_nm) && File.read(reachability_nm).include?("#import <netinet6/in6.h>")
     files_to_patch.each do |f|
@@ -193,13 +201,6 @@ target 'ForestWatcher' do
     rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
     if File.exist?(rnn_app_delegate_h)
       content = File.read(rnn_app_delegate_h)
-      old_endif = '#endif'
-      new_endif = <<~PATCH
-        #else
-        // Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root
-        #import <RCTAppDelegate.h>
-        #endif
-      PATCH
       old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
       new_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#else\n// Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root\n#import <RCTAppDelegate.h>\n#endif"
       if content.include?(old_block)
@@ -216,20 +217,24 @@ target 'ForestWatcher' do
     # Under Xcode 26, FRAMEWORK_SEARCH_PATHS alone doesn't resolve angle-bracket includes
     # that use the path INSIDE the framework — those need the framework's Headers/ dir
     # explicitly in HEADER_SEARCH_PATHS.
-    # Strategy: mirror React-RuntimeApple's full FRAMEWORK_SEARCH_PATHS into RNN, then
-    # for every ${PODS_CONFIGURATION_BUILD_DIR}/Foo entry, find Foo*.framework/Headers
-    # under that build dir and add it to HEADER_SEARCH_PATHS too.
+    # Strategy: mirror React-RuntimeApple's full FRAMEWORK_SEARCH_PATHS and
+    # HEADER_SEARCH_PATHS into RNN, then append framework Headers paths derived
+    # from the Pods project (portable across developers and CI).
+    framework_header_entries = installer.pods_project.targets.filter_map do |target|
+      next unless target.respond_to?(:product_reference)
+      product_ref = target.product_reference
+      next unless product_ref && product_ref.path && product_ref.path.end_with?(".framework")
+      next unless target.name.start_with?("React-")
+
+      "\"${PODS_CONFIGURATION_BUILD_DIR}/#{target.name}/#{product_ref.path}/Headers\""
+    end.uniq
+
     ["Debug", "Release"].each do |config_name|
       rnn_xcconfig = "#{installer.sandbox.root}/Target Support Files/ReactNativeNavigation/ReactNativeNavigation.#{config_name.downcase}.xcconfig"
       rta_xcconfig = "#{installer.sandbox.root}/Target Support Files/React-RuntimeApple/React-RuntimeApple.#{config_name.downcase}.xcconfig"
       next unless File.exist?(rnn_xcconfig)
 
       rnn = File.read(rnn_xcconfig)
-      pods_config_build_dir = "#{installer.sandbox.root}/../build/Build/Products/#{config_name}-iphoneos"
-      # Fallback: use the sandbox root sibling build dir pattern CocoaPods uses
-      # The actual PODS_CONFIGURATION_BUILD_DIR is evaluated by Xcode, so we enumerate
-      # the built frameworks from DerivedData if available.
-      derived_data_products = Dir.glob("/Users/richardblondet/Library/Developer/Xcode/DerivedData/ForestWatcher-*/Build/Products/#{config_name}-iphoneos").first
 
       # 1. Add React-RuntimeApple to FRAMEWORK_SEARCH_PATHS
       rta_fsp = '"${PODS_CONFIGURATION_BUILD_DIR}/React-RuntimeApple"'
@@ -255,27 +260,11 @@ target 'ForestWatcher' do
         end
       end
 
-      # 3. For each React framework in PODS_CONFIGURATION_BUILD_DIR, find its actual
-      #    .framework/Headers directory from DerivedData and add it to HEADER_SEARCH_PATHS.
-      #    This resolves angle-bracket includes like <react/renderer/...> that live inside
-      #    framework Headers dirs — which FRAMEWORK_SEARCH_PATHS alone does not expose.
-      if derived_data_products
-        Dir.glob("#{derived_data_products}/React-*/**.framework/Headers").each do |headers_dir|
-          # Build the xcconfig variable equivalent path
-          framework_bundle = File.basename(File.dirname(headers_dir))      # e.g. React_Fabric.framework
-          pod_name = File.basename(File.dirname(File.dirname(headers_dir))) # e.g. React-Fabric
-          hsp_entry = "\"${PODS_CONFIGURATION_BUILD_DIR}/#{pod_name}/#{framework_bundle}/Headers\""
-          next if rnn.include?(hsp_entry)
-          rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{hsp_entry}" }
-        end
-        # Also handle non-React- prefixed frameworks used by jsinspector chain
-        ["jsinspector/jsinspector_modern.framework/Headers",
-         "jsinspectortracing/jsinspector_moderntracing.framework/Headers"].each do |suffix|
-          pod_name = suffix.split("/").first
-          fw_path = "\"${PODS_CONFIGURATION_BUILD_DIR}/React-#{suffix}\""
-          next if rnn.include?(fw_path)
-          rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{fw_path}" }
-        end
+      # 3. Add framework Headers dirs derived from Pod targets to keep this patch
+      #    portable across local machines and CI (no absolute paths).
+      framework_header_entries.each do |hsp_entry|
+        next if rnn.include?(hsp_entry)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{hsp_entry}" }
       end
 
       # 4. Folly and its dependencies (needed when jsinspector headers pull in folly/dynamic.h)
