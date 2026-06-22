@@ -15,7 +15,7 @@ end
 node_require('react-native/scripts/react_native_pods.rb')
 node_require('react-native-permissions/scripts/setup.rb')
 
-platform :ios, '15.5'
+platform :ios, '16.0'
 prepare_react_native_project!
 
 setup_permissions([
@@ -88,20 +88,10 @@ target 'ForestWatcher' do
       :mac_catalyst_enabled => false
     )
 
-    
-
-    # Fix for M1 macs loading mapbox dylib as x86
-    projects = installer.aggregate_targets
-    .map{ |t| t.user_project }
-    .uniq{ |p| p.path }
-    .push(installer.pods_project)
-    
-    projects.each do |project|
-      project.build_configurations.each do |config|
-        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
-      end
-      project.save()
-    end
+    # NOTE: The legacy 'Fix for M1 macs loading mapbox dylib as x86' workaround
+    # (EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64) has been removed.
+    # That setting blocked arm64 simulator builds on Apple Silicon with Xcode 26+.
+    # Requires: upgrade @react-native-mapbox-gl/maps → @rnmapbox/maps (see FW-30 blocker).
 
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
@@ -133,6 +123,169 @@ target 'ForestWatcher' do
       if target.name == 'Mapbox-iOS-SDK'
         `xcrun -sdk iphoneos bitcode_strip -r Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox -o Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox`
       end
+
+    end
+
+    # Xcode 26 marks netinet6/in6.h as a private module header. The include is
+    # redundant since netinet/in.h already provides IPv6 types on Apple platforms.
+    # Patch all .m files in Pods and node_modules that use it.
+    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select { |f|
+      File.read(f).include?("#import <netinet6/in6.h>")
+    }
+    reachability_nm = File.expand_path("../node_modules/@mauron85/react-native-background-geolocation/ios/common/BackgroundGeolocation/Reachability.m", __dir__)
+    files_to_patch << reachability_nm if File.exist?(reachability_nm) && File.read(reachability_nm).include?("#import <netinet6/in6.h>")
+    files_to_patch.each do |f|
+      content = File.read(f)
+      File.chmod(0644, f)
+      File.write(f, content.sub("#import <netinet6/in6.h>\n", ""))
+      Pod::UI.puts "Patched #{File.basename(f)}: removed private <netinet6/in6.h> import"
+    end
+    # but Xcode 26 Apple Clang rejects fmt's FMT_COMPILE_STRING consteval constructors.
+    # Patch base.h to disable consteval for all Apple Clang versions.
+    fmt_base_h = "#{installer.sandbox.root}/fmt/include/fmt/base.h"
+    if File.exist?(fmt_base_h)
+      content = File.read(fmt_base_h)
+      old_guard = "#elif defined(__apple_build_version__) && __apple_build_version__ < 14000029L\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang < 14."
+      new_guard = "#elif defined(__apple_build_version__)\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang (all versions, incl. Xcode 26)"
+      if content.include?(old_guard)
+        File.chmod(0644, fmt_base_h)
+        File.write(fmt_base_h, content.sub(old_guard, new_guard))
+        Pod::UI.puts "Patched fmt/base.h: disabled consteval for all Apple Clang"
+      end
+    end
+
+    # Xcode 26 no longer maps dashes to underscores in framework module lookups.
+    # react-native-navigation uses <React-RuntimeApple/...> but the framework is React_RuntimeApple.
+    rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
+    Dir.glob("#{rnn_ios_dir}/**/*.{h,m,mm}").each do |f|
+      content = File.read(f)
+      if content.include?("React-RuntimeApple")
+        File.chmod(0644, f)
+        File.write(f, content.gsub("React-RuntimeApple", "React_RuntimeApple"))
+        Pod::UI.puts "Patched #{File.basename(f)}: React-RuntimeApple -> React_RuntimeApple"
+      end
+    end
+
+    # StackControllerDelegate.mm uses _eventEmitter.bridge in the #else (old arch) path,
+    # but RNNEventEmitter no longer exposes a .bridge property in RN 0.79.
+    # Fix: use [ReactNativeNavigation getBridge] which is the canonical bridge accessor.
+    stack_delegate = "#{rnn_ios_dir}/StackControllerDelegate.mm"
+    if File.exist?(stack_delegate)
+      content = File.read(stack_delegate)
+      old_import = '#import "StackControllerDelegate.h"'
+      new_import = '#import "StackControllerDelegate.h"' + "\n" + '#import "ReactNativeNavigation.h"'
+      if content.include?(old_import) && !content.include?('#import "ReactNativeNavigation.h"')
+        content = content.sub(old_import, new_import)
+      end
+      if content.include?("_eventEmitter.bridge")
+        File.chmod(0644, stack_delegate)
+        File.write(stack_delegate, content
+          .sub(old_import, new_import)
+          .gsub("_eventEmitter.bridge", "[ReactNativeNavigation getBridge]"))
+        Pod::UI.puts "Patched StackControllerDelegate.mm: _eventEmitter.bridge -> [ReactNativeNavigation getBridge]"
+      end
+    end
+
+    # RNNAppDelegate.h uses #if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)
+    # and #elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>).
+    # Under Xcode 26, neither resolves (the framework is accessed without path prefix).
+    # Add a direct #else fallback: #import <RCTAppDelegate.h>
+    rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
+    if File.exist?(rnn_app_delegate_h)
+      content = File.read(rnn_app_delegate_h)
+      old_endif = '#endif'
+      new_endif = <<~PATCH
+        #else
+        // Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root
+        #import <RCTAppDelegate.h>
+        #endif
+      PATCH
+      old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
+      new_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#else\n// Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root\n#import <RCTAppDelegate.h>\n#endif"
+      if content.include?(old_block)
+        File.chmod(0644, rnn_app_delegate_h)
+        File.write(rnn_app_delegate_h, content.sub(old_block, new_block))
+        Pod::UI.puts "Patched RNNAppDelegate.h: added #else <RCTAppDelegate.h> fallback"
+      end
+    end
+
+    # ReactNativeNavigation imports <React_RuntimeApple/ReactCommon/RCTHost.h> which
+    # transitively pulls in many other React Native framework headers using angle-bracket
+    # paths like <react/renderer/...> and <jsinspector-modern/...>.
+    # These headers live inside various framework's Headers/ subdirectories.
+    # Under Xcode 26, FRAMEWORK_SEARCH_PATHS alone doesn't resolve angle-bracket includes
+    # that use the path INSIDE the framework — those need the framework's Headers/ dir
+    # explicitly in HEADER_SEARCH_PATHS.
+    # Strategy: mirror React-RuntimeApple's full FRAMEWORK_SEARCH_PATHS into RNN, then
+    # for every ${PODS_CONFIGURATION_BUILD_DIR}/Foo entry, find Foo*.framework/Headers
+    # under that build dir and add it to HEADER_SEARCH_PATHS too.
+    ["Debug", "Release"].each do |config_name|
+      rnn_xcconfig = "#{installer.sandbox.root}/Target Support Files/ReactNativeNavigation/ReactNativeNavigation.#{config_name.downcase}.xcconfig"
+      rta_xcconfig = "#{installer.sandbox.root}/Target Support Files/React-RuntimeApple/React-RuntimeApple.#{config_name.downcase}.xcconfig"
+      next unless File.exist?(rnn_xcconfig)
+
+      rnn = File.read(rnn_xcconfig)
+      pods_config_build_dir = "#{installer.sandbox.root}/../build/Build/Products/#{config_name}-iphoneos"
+      # Fallback: use the sandbox root sibling build dir pattern CocoaPods uses
+      # The actual PODS_CONFIGURATION_BUILD_DIR is evaluated by Xcode, so we enumerate
+      # the built frameworks from DerivedData if available.
+      derived_data_products = Dir.glob("/Users/richardblondet/Library/Developer/Xcode/DerivedData/ForestWatcher-*/Build/Products/#{config_name}-iphoneos").first
+
+      # 1. Add React-RuntimeApple to FRAMEWORK_SEARCH_PATHS
+      rta_fsp = '"${PODS_CONFIGURATION_BUILD_DIR}/React-RuntimeApple"'
+      unless rnn.include?(rta_fsp)
+        rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{rta_fsp}" }
+        Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: added React-RuntimeApple to FRAMEWORK_SEARCH_PATHS"
+      end
+
+      # 2. Mirror all FRAMEWORK_SEARCH_PATHS and HEADER_SEARCH_PATHS from React-RuntimeApple's xcconfig
+      if File.exist?(rta_xcconfig)
+        rta_content = File.read(rta_xcconfig)
+        if (fsp_line = rta_content[/^FRAMEWORK_SEARCH_PATHS = .*/])
+          fsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+        if (hsp_line = rta_content[/^HEADER_SEARCH_PATHS = .*/])
+          hsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+      end
+
+      # 3. For each React framework in PODS_CONFIGURATION_BUILD_DIR, find its actual
+      #    .framework/Headers directory from DerivedData and add it to HEADER_SEARCH_PATHS.
+      #    This resolves angle-bracket includes like <react/renderer/...> that live inside
+      #    framework Headers dirs — which FRAMEWORK_SEARCH_PATHS alone does not expose.
+      if derived_data_products
+        Dir.glob("#{derived_data_products}/React-*/**.framework/Headers").each do |headers_dir|
+          # Build the xcconfig variable equivalent path
+          framework_bundle = File.basename(File.dirname(headers_dir))      # e.g. React_Fabric.framework
+          pod_name = File.basename(File.dirname(File.dirname(headers_dir))) # e.g. React-Fabric
+          hsp_entry = "\"${PODS_CONFIGURATION_BUILD_DIR}/#{pod_name}/#{framework_bundle}/Headers\""
+          next if rnn.include?(hsp_entry)
+          rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{hsp_entry}" }
+        end
+        # Also handle non-React- prefixed frameworks used by jsinspector chain
+        ["jsinspector/jsinspector_modern.framework/Headers",
+         "jsinspectortracing/jsinspector_moderntracing.framework/Headers"].each do |suffix|
+          pod_name = suffix.split("/").first
+          fw_path = "\"${PODS_CONFIGURATION_BUILD_DIR}/React-#{suffix}\""
+          next if rnn.include?(fw_path)
+          rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{fw_path}" }
+        end
+      end
+
+      # 4. Folly and its dependencies (needed when jsinspector headers pull in folly/dynamic.h)
+      ['"$(PODS_ROOT)/DoubleConversion"', '"$(PODS_ROOT)/fast_float/include"', '"$(PODS_ROOT)/fmt/include"'].each do |e|
+        next if rnn.include?(e)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{e}" }
+      end
+
+      File.write(rnn_xcconfig, rnn)
+      Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: mirrored React-RuntimeApple search paths"
     end
   end
 end
