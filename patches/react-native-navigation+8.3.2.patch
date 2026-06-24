@@ -23,3 +23,238 @@ index 1d877a9..1054c4f 100644
          getReactContext().handleException(RuntimeException(t))
      }
  
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.h b/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.h
+index b395f9f..927dd11 100644
+--- a/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.h
++++ b/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.h
+@@ -1,8 +1,4 @@
+ #import "RNNComponentView.h"
+-#import <React_RuntimeApple/ReactCommon/RCTHost.h>
+-#import <React/RCTSurfacePresenterStub.h>
+-#import <React/RCTFabricSurface.h>
+-#import <React/RCTSurfacePresenter.h>
+ 
+ @interface RNNReactButtonView : RNNComponentView
+ 
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.mm b/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.mm
+index cb4cfd4..0baed52 100644
+--- a/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.mm
++++ b/node_modules/react-native-navigation/lib/ios/RNNReactButtonView.mm
+@@ -2,6 +2,7 @@
+ 
+ @implementation RNNReactButtonView
+ 
++#ifdef RCT_NEW_ARCH_ENABLED
+ - (instancetype)initWithHost:(RCTHost *)host
+                   moduleName:(NSString *)moduleName
+            initialProperties:(NSDictionary *)initialProperties
+@@ -21,6 +22,7 @@
+         [self sizeToFit];
+     }
+ }
++#endif
+ 
+ - (NSString *)componentType {
+ 	return ComponentTypeButton;
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.h b/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.h
+index 1e2c44b..3a56084 100644
+--- a/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.h
++++ b/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.h
+@@ -4,7 +4,7 @@
+ @class RCTHost;
+ @class RCTBridge;
+ 
+-@interface RNNEventEmitter : NSObject
++@interface RNNEventEmitter : RCTEventEmitter
+ 
+ - (void)setHost:(RCTHost *)host;
+ @property(nonatomic, strong, readonly) RCTHost *host;
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.mm b/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.mm
+--- a/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.mm
++++ b/node_modules/react-native-navigation/lib/ios/RNNEventEmitter.mm
+@@ -1,10 +1,31 @@
+ #import "RNNEventEmitter.h"
+ #import "RNNUtils.h"
+-#import "RNNTurboEventEmitter.h"
++#ifdef RCT_NEW_ARCH_ENABLED
++#import "TurboModules/RNNTurboEventEmitter.h"
+ #import <React_RuntimeApple/ReactCommon/RCTHost.h>
++#endif
+ 
+-@implementation RNNEventEmitter { }
++static NSString *const RNNAppLaunchedEvent = @"RNN.AppLaunched";
++static NSString *const RNNCommandCompletedEvent = @"RNN.CommandCompleted";
++static NSString *const RNNBottomTabSelectedEvent = @"RNN.BottomTabSelected";
++static NSString *const RNNBottomTabLongPressedEvent = @"RNN.BottomTabLongPressed";
++static NSString *const RNNComponentWillAppearEvent = @"RNN.ComponentWillAppear";
++static NSString *const RNNComponentDidAppearEvent = @"RNN.ComponentDidAppear";
++static NSString *const RNNComponentDidDisappearEvent = @"RNN.ComponentDidDisappear";
++static NSString *const RNNNavigationButtonPressedEvent = @"RNN.NavigationButtonPressed";
++static NSString *const RNNModalDismissedEvent = @"RNN.ModalDismissed";
++static NSString *const RNNModalAttemptedToDismissEvent = @"RNN.ModalAttemptedToDismiss";
++static NSString *const RNNSearchBarUpdatedEvent = @"RNN.SearchBarUpdated";
++static NSString *const RNNSearchBarCancelPressedEvent = @"RNN.SearchBarCancelPressed";
++static NSString *const RNNPreviewCompletedEvent = @"RNN.PreviewCompleted";
++static NSString *const RNNScreenPoppedEvent = @"RNN.ScreenPopped";
++static NSString *const RNNBottomTabPressedEvent = @"RNN.BottomTabPressed";
+ 
++@implementation RNNEventEmitter {
++  NSInteger _appLaunchedListenerCount;
++  BOOL _appLaunchedEventDeferred;
++}
++
+ - (void)setHost:(RCTHost *)host {
+   if (_host != nil) {
+     return;
+@@ -12,10 +33,41 @@
+   _host = host;
+ }
+ 
++- (NSArray<NSString *> *)supportedEvents {
++  return @[
++    RNNAppLaunchedEvent,
++    RNNCommandCompletedEvent,
++    RNNBottomTabSelectedEvent,
++    RNNBottomTabLongPressedEvent,
++    RNNBottomTabPressedEvent,
++    RNNComponentWillAppearEvent,
++    RNNComponentDidAppearEvent,
++    RNNComponentDidDisappearEvent,
++    RNNNavigationButtonPressedEvent,
++    RNNModalDismissedEvent,
++    RNNModalAttemptedToDismissEvent,
++    RNNSearchBarUpdatedEvent,
++    RNNSearchBarCancelPressedEvent,
++    RNNPreviewCompletedEvent,
++    RNNScreenPoppedEvent
++  ];
++}
++
++- (void)addListener:(NSString *)eventName {
++  [super addListener:eventName];
++  if ([eventName isEqualToString:RNNAppLaunchedEvent]) {
++    _appLaunchedListenerCount++;
++    if (_appLaunchedEventDeferred) {
++      _appLaunchedEventDeferred = NO;
++      [self sendEventWithName:RNNAppLaunchedEvent body:nil];
++    }
++  }
++}
++
+ #pragma mark public
+ 
+ - (void)sendOnAppLaunched {
+-    [self send:AppLaunched body:nil];
++    [self send:RNNAppLaunchedEvent body:nil];
+ }
+ 
+ - (void)sendComponentWillAppear:(NSString *)componentId
+@@ -119,6 +171,7 @@
+ #pragma mark private
+ 
+ - (void)send:(NSString *)eventName body:(id)body {
++#ifdef RCT_NEW_ARCH_ENABLED
+   if (_host == nil) {
+     return;
+   }
+@@ -129,6 +182,14 @@
+   }
+   
+   [_eventEmitter send:eventName body:body];
++#else
++  if ([eventName isEqualToString:RNNAppLaunchedEvent] && _appLaunchedListenerCount == 0) {
++    _appLaunchedEventDeferred = YES;
++    return;
++  }
++
++  [self sendEventWithName:eventName body:body];
++#endif
+ }
+ 
+ @end
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNBridgeEventEmitter.mm b/node_modules/react-native-navigation/lib/ios/RNNBridgeEventEmitter.mm
+index 49e0187..cc71800 100644
+--- a/node_modules/react-native-navigation/lib/ios/RNNBridgeEventEmitter.mm
++++ b/node_modules/react-native-navigation/lib/ios/RNNBridgeEventEmitter.mm
+@@ -2,4 +2,6 @@
+ 
+ @implementation RNNBridgeEventEmitter {}
+ 
++RCT_EXPORT_MODULE(RNNTurboEventEmitter)
++
+ @end
+diff --git a/node_modules/react-native-navigation/lib/ios/RNNAppDelegate.mm b/node_modules/react-native-navigation/lib/ios/RNNAppDelegate.mm
+--- a/node_modules/react-native-navigation/lib/ios/RNNAppDelegate.mm
++++ b/node_modules/react-native-navigation/lib/ios/RNNAppDelegate.mm
+@@ -1,5 +1,6 @@
+ #import "RNNAppDelegate.h"
+ 
++#ifdef RCT_NEW_ARCH_ENABLED
+ #import <ReactNativeNavigation/ReactNativeNavigation.h>
+ #import <react/featureflags/ReactNativeFeatureFlags.h>
+ #import <react/featureflags/ReactNativeFeatureFlagsDefaults.h>
+@@ -111,3 +112,10 @@
+ }
+ 
+ @end
++#else
++
++@implementation RNNAppDelegate
++
++@end
++
++#endif
+diff --git a/node_modules/react-native-navigation/lib/ios/AnimatedTextView.mm b/node_modules/react-native-navigation/lib/ios/AnimatedTextView.mm
+--- a/node_modules/react-native-navigation/lib/ios/AnimatedTextView.mm
++++ b/node_modules/react-native-navigation/lib/ios/AnimatedTextView.mm
+@@ -10,7 +10,6 @@
+ @implementation AnimatedTextView {
+     NSTextContainer *_fromTextContainer;
+     CGSize _fromSize;
+-    facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;
+ }
+ 
+ - (instancetype)initElement:(UIView *)element
+diff --git a/node_modules/react-native-navigation/lib/ios/AnimatedReactView.mm b/node_modules/react-native-navigation/lib/ios/AnimatedReactView.mm
+--- a/node_modules/react-native-navigation/lib/ios/AnimatedReactView.mm
++++ b/node_modules/react-native-navigation/lib/ios/AnimatedReactView.mm
+@@ -2,8 +2,13 @@
+ #import "UIView+Utils.h"
+ #import <React/UIView+React.h>
+ 
++#ifdef RCT_NEW_ARCH_ENABLED
+ #import <React/RCTImageComponentView.h>
+ #import <React/RCTParagraphComponentView.h>
++#else
++#import <React/RCTImageView.h>
++#import <React/RCTTextView.h>
++#endif
+ 
+ @implementation AnimatedReactView {
+     UIView *_originalParent;
+@@ -29,7 +34,11 @@
+     _toElement.hidden = YES;
+     _fromColor = element.backgroundColor;
+     _zIndex = toElement.reactZIndex;
+-    if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
++#ifdef RCT_NEW_ARCH_ENABLED
++	if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
++#else
++    if ([element isKindOfClass:[RCTImageView class]] || [element isKindOfClass:[RCTTextView class]]) {
++#endif
+ 		[self hijackReactElement:element];
+ 	}
+ 
+diff --git a/node_modules/react-native-navigation/lib/ios/SharedElementAnimator.mm b/node_modules/react-native-navigation/lib/ios/SharedElementAnimator.mm
+--- a/node_modules/react-native-navigation/lib/ios/SharedElementAnimator.mm
++++ b/node_modules/react-native-navigation/lib/ios/SharedElementAnimator.mm
+@@ -5,7 +5,9 @@
+ #import "RNNElementFinder.h"
+ #import "SharedElementTransition.h"
+ #import "UIViewController+LayoutProtocol.h"
++#ifdef RCT_NEW_ARCH_ENABLED
+ #import <React/RCTImageComponentView.h>
++#endif
+ 
+ @implementation SharedElementAnimator {
+ 	NSArray<SharedElementTransitionOptions *> *_sharedElementTransitions;

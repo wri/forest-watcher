@@ -2,8 +2,8 @@
 
 **Ticket**: FW-30 (Phase D)  
 **Target**: Xcode 26 + iOS 26 / iPadOS 26 SDK  
-**Last Updated**: 2026-06-22  
-**Current Status**: BLOCKED AT BUILD STAGE (ReactNativeNavigation compile errors)
+**Last Updated**: 2026-06-24  
+**Current Status**: BLOCKED AT SIMULATOR LINK STAGE (legacy `Mapbox.framework`)
 
 ---
 
@@ -12,7 +12,8 @@
 - [x] Xcode 26 installed and selected for CLI builds
 - [x] `pod install` runs successfully with current Podfile patches
 - [x] `xcodebuild` execution path validated (build attempts running on iOS 26.5 SDK)
-- [ ] iOS build completes successfully (currently blocked in `react-native-navigation`)
+- [x] `react-native-navigation` compile stage passes with current FW-30 patch set
+- [ ] iOS build completes successfully (currently blocked at simulator link in `Mapbox.framework`)
 - [ ] `@react-native-mapbox-gl/maps` upgraded to `@rnmapbox/maps` (tracked, not completed)
 
 ---
@@ -21,22 +22,26 @@
 
 | Configuration | Target | Architecture | Expected Result | Actual Result |
 |---|---|---|---|---|
-| Debug | iOS 26 Simulator (arm64) | arm64 | ✅ Build succeeds | ⛔ Blocked by upstream iOS compile errors before matrix execution |
-| Debug | iOS 26 Device (generic) | arm64 | ✅ Build succeeds | ⛔ Fails in `RNNReactButtonView.mm` |
-| Release | iOS 26 Device | arm64 | ✅ Archive succeeds | ⬜ Not attempted (blocked by Debug compile failure) |
+| Debug | iOS 26 Simulator (arm64) | arm64 | ✅ Build succeeds | ⛔ Compile passes; linker fails in legacy `Mapbox.framework` (`built for 'iOS'`) |
+| Debug | iOS 26 Device (generic) | arm64 | ✅ Build succeeds | ⬜ Not re-run after RNN/AppDelegate fixes; still pending once current linker path is settled |
+| Release | iOS 26 Device | arm64 | ✅ Archive succeeds | ⬜ Not attempted (blocked by unresolved Debug build gates) |
 | Release | TestFlight | arm64 | ✅ Upload succeeds | ⬜ Not attempted (blocked by build readiness) |
 
 ---
 
 ## Active Build Error Snapshot
 
-Current blocking errors from `/tmp/xcode-build.log`:
-- `RNNReactButtonView.mm: expected a type`
-- `RNNReactButtonView.mm: no visible @interface for 'RNNComponentView' declares selector ...`
-- `RNNReactButtonView.mm: cannot initialize parameter of type 'id<RCTSurfacePresenterObserver>' ...`
-- `RNNReactButtonView.mm: property 'surface' not found on object of type 'RNNReactButtonView *'`
+Current blocking error from `ios/buildlogs/fw30-sim-build.log` after the 2026-06-24 simulator build:
+- `ld: building for 'iOS-simulator', but linking in dylib .../Mapbox.framework/Mapbox built for 'iOS'`
 
-Interpretation: ReactNativeNavigation iOS source compatibility issue with current RN/Xcode combination is preventing all downstream matrix execution.
+Interpretation: the current FW-30 patch set gets the app past the earlier ReactNativeNavigation compile failures, but the arm64 simulator build now stops at the legacy Mapbox dynamic framework link step.
+
+### Resolved in this cycle
+
+- `RNNReactButtonView.mm` old-arch compile mismatch
+- `RNNEventEmitter` old-arch event-emitter fallback
+- `RNNAppDelegate` bridgeless/new-arch compile isolation
+- App bootstrap alignment in `ios/ForestWatcher/AppDelegate.mm`
 
 ---
 
@@ -112,6 +117,6 @@ Interpretation: ReactNativeNavigation iOS source compatibility issue with curren
 
 | Blocker | Impact | Workaround Path |
 |---|---|---|
-| ReactNativeNavigation iOS compile mismatch (`RNNReactButtonView.mm`) | Blocks all runtime and functional tests | Patch/fork/upgrade RNN for RN 0.79 + Xcode 26 compatibility |
-| Legacy Mapbox dependency line | Known medium/large risk for full iOS 26 readiness | Migrate to `@rnmapbox/maps` in dedicated scope |
+| Legacy Mapbox simulator linkage (`Mapbox.framework`) | Blocks arm64 simulator runtime and all simulator matrix execution | Validate a narrow simulator workaround or migrate to `@rnmapbox/maps` in dedicated scope |
+| Generic device build gate not yet re-run after FW-30 RNN fixes | Device-side matrix execution still unverified | Re-run `xcodebuild -destination "generic/platform=iOS" CODE_SIGNING_ALLOWED=NO build` after deciding the Mapbox path |
 | Signing/TestFlight setup | Blocks distribution validation after local build passes | Configure provisioning/certificates and run archive/upload |
