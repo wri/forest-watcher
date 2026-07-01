@@ -5,7 +5,13 @@
 #import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
 #import "AppAuth.h"
 #import <Firebase.h>
+#if __has_include("../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h")
+#import "../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h"
+#elif __has_include(<ReactNativeNavigation/ReactNativeNavigation.h>)
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
+#else
+#import <ReactNativeNavigation/ReactNativeNavigation-umbrella.h>
+#endif
 #import <React/RCTLinkingManager.h>
 
 #import <AuthenticationServices/AuthenticationServices.h>
@@ -18,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.moduleName = @"ForestWatcher";
+  self.automaticallyLoadReactNativeWindow = NO;
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
@@ -32,8 +39,8 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
 
-  // Launching the React Native JS app!
-  [ReactNativeNavigation bootstrapWithDelegate:self launchOptions:launchOptions];
+  self.bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  [ReactNativeNavigation bootstrapWithBridge:self.bridge];
 
   return YES;
 }

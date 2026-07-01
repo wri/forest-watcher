@@ -15,7 +15,7 @@ end
 node_require('react-native/scripts/react_native_pods.rb')
 node_require('react-native-permissions/scripts/setup.rb')
 
-platform :ios, '15.5'
+platform :ios, '16.0'
 prepare_react_native_project!
 
 setup_permissions([
@@ -88,20 +88,9 @@ target 'ForestWatcher' do
       :mac_catalyst_enabled => false
     )
 
-    
-
-    # Fix for M1 macs loading mapbox dylib as x86
-    projects = installer.aggregate_targets
-    .map{ |t| t.user_project }
-    .uniq{ |p| p.path }
-    .push(installer.pods_project)
-    
-    projects.each do |project|
-      project.build_configurations.each do |config|
-        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
-      end
-      project.save()
-    end
+    # Simulator workaround for legacy Mapbox 5.x dynamic framework:
+    # the shipped binary is device-only for arm64-simulator, so linking fails with
+    #
 
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
@@ -133,6 +122,698 @@ target 'ForestWatcher' do
       if target.name == 'Mapbox-iOS-SDK'
         `xcrun -sdk iphoneos bitcode_strip -r Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox -o Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox`
       end
+
+    end
+
+    # Xcode 26 marks netinet6/in6.h as a private module header. The include is
+    # redundant since netinet/in.h already provides IPv6 types on Apple platforms.
+    # Patch all .m files in Pods and node_modules that use it.
+    # Use line-by-line scanning with early exit to avoid loading every file into memory.
+    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select do |f|
+      has_import = false
+      File.foreach(f) do |line|
+        if line.include?("#import <netinet6/in6.h>")
+          has_import = true
+          break
+        end
+      end
+      has_import
+    end
+    reachability_nm = File.expand_path("../node_modules/@mauron85/react-native-background-geolocation/ios/common/BackgroundGeolocation/Reachability.m", __dir__)
+    files_to_patch << reachability_nm if File.exist?(reachability_nm) && File.read(reachability_nm).include?("#import <netinet6/in6.h>")
+    files_to_patch.each do |f|
+      content = File.read(f)
+      File.chmod(0644, f)
+      File.write(f, content.sub("#import <netinet6/in6.h>\n", ""))
+      Pod::UI.puts "Patched #{File.basename(f)}: removed private <netinet6/in6.h> import"
+    end
+    # but Xcode 26 Apple Clang rejects fmt's FMT_COMPILE_STRING consteval constructors.
+    # Patch base.h to disable consteval for all Apple Clang versions.
+    fmt_base_h = "#{installer.sandbox.root}/fmt/include/fmt/base.h"
+    if File.exist?(fmt_base_h)
+      content = File.read(fmt_base_h)
+      old_guard = "#elif defined(__apple_build_version__) && __apple_build_version__ < 14000029L\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang < 14."
+      new_guard = "#elif defined(__apple_build_version__)\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang (all versions, incl. Xcode 26)"
+      if content.include?(old_guard)
+        File.chmod(0644, fmt_base_h)
+        File.write(fmt_base_h, content.sub(old_guard, new_guard))
+        Pod::UI.puts "Patched fmt/base.h: disabled consteval for all Apple Clang"
+      end
+    end
+
+    # Xcode 26 no longer maps dashes to underscores in framework module lookups.
+    # react-native-navigation uses <React-RuntimeApple/...> but the framework is React_RuntimeApple.
+    rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
+    Dir.glob("#{rnn_ios_dir}/**/*.{h,m,mm}").each do |f|
+      content = File.read(f)
+      if content.include?("React-RuntimeApple")
+        File.chmod(0644, f)
+        File.write(f, content.gsub("React-RuntimeApple", "React_RuntimeApple"))
+        Pod::UI.puts "Patched #{File.basename(f)}: React-RuntimeApple -> React_RuntimeApple"
+      end
+    end
+
+    # StackControllerDelegate.mm uses _eventEmitter.bridge in the #else (old arch) path,
+    # but RNNEventEmitter no longer exposes a .bridge property in RN 0.79.
+    # Fix: use [ReactNativeNavigation getBridge] which is the canonical bridge accessor.
+    stack_delegate = "#{rnn_ios_dir}/StackControllerDelegate.mm"
+    if File.exist?(stack_delegate)
+      content = File.read(stack_delegate)
+      old_import = '#import "StackControllerDelegate.h"'
+      new_import = '#import "StackControllerDelegate.h"' + "\n" + '#import "ReactNativeNavigation.h"'
+      if content.include?(old_import) && !content.include?('#import "ReactNativeNavigation.h"')
+        content = content.sub(old_import, new_import)
+      end
+      if content.include?("_eventEmitter.bridge")
+        File.chmod(0644, stack_delegate)
+        File.write(stack_delegate, content
+          .sub(old_import, new_import)
+          .gsub("_eventEmitter.bridge", "[ReactNativeNavigation getBridge]"))
+        Pod::UI.puts "Patched StackControllerDelegate.mm: _eventEmitter.bridge -> [ReactNativeNavigation getBridge]"
+      end
+    end
+
+    # RNNAppDelegate.h uses #if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)
+    # and #elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>).
+    # Under Xcode 26, neither resolves (the framework is accessed without path prefix).
+    # Add a direct #else fallback: #import <RCTAppDelegate.h>
+    rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
+    if File.exist?(rnn_app_delegate_h)
+      content = File.read(rnn_app_delegate_h)
+      old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
+      new_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#else\n// Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root\n#import <RCTAppDelegate.h>\n#endif"
+      if content.include?(old_block)
+        File.chmod(0644, rnn_app_delegate_h)
+        File.write(rnn_app_delegate_h, content.sub(old_block, new_block))
+        Pod::UI.puts "Patched RNNAppDelegate.h: added #else <RCTAppDelegate.h> fallback"
+      end
+    end
+
+    # ReactNativeNavigation imports <React_RuntimeApple/ReactCommon/RCTHost.h> which
+    # transitively pulls in many other React Native framework headers using angle-bracket
+    # paths like <react/renderer/...> and <jsinspector-modern/...>.
+    # These headers live inside various framework's Headers/ subdirectories.
+    # Under Xcode 26, FRAMEWORK_SEARCH_PATHS alone doesn't resolve angle-bracket includes
+    # that use the path INSIDE the framework — those need the framework's Headers/ dir
+    # explicitly in HEADER_SEARCH_PATHS.
+    # Strategy: mirror React-RuntimeApple's full FRAMEWORK_SEARCH_PATHS and
+    # HEADER_SEARCH_PATHS into RNN, then append framework Headers paths derived
+    # from the Pods project (portable across developers and CI).
+    framework_header_entries = installer.pods_project.targets.filter_map do |target|
+      next unless target.respond_to?(:product_reference)
+      product_ref = target.product_reference
+      next unless product_ref && product_ref.path && product_ref.path.end_with?(".framework")
+      next unless target.name.start_with?("React-")
+
+      "\"${PODS_CONFIGURATION_BUILD_DIR}/#{target.name}/#{product_ref.path}/Headers\""
+    end.uniq
+
+    ["Debug", "Release"].each do |config_name|
+      rnn_xcconfig = "#{installer.sandbox.root}/Target Support Files/ReactNativeNavigation/ReactNativeNavigation.#{config_name.downcase}.xcconfig"
+      rta_xcconfig = "#{installer.sandbox.root}/Target Support Files/React-RuntimeApple/React-RuntimeApple.#{config_name.downcase}.xcconfig"
+      next unless File.exist?(rnn_xcconfig)
+
+      rnn = File.read(rnn_xcconfig)
+
+      # 1. Add React-RuntimeApple to FRAMEWORK_SEARCH_PATHS
+      rta_fsp = '"${PODS_CONFIGURATION_BUILD_DIR}/React-RuntimeApple"'
+      unless rnn.include?(rta_fsp)
+        rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{rta_fsp}" }
+        Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: added React-RuntimeApple to FRAMEWORK_SEARCH_PATHS"
+      end
+
+      # 2. Mirror all FRAMEWORK_SEARCH_PATHS and HEADER_SEARCH_PATHS from React-RuntimeApple's xcconfig
+      if File.exist?(rta_xcconfig)
+        rta_content = File.read(rta_xcconfig)
+        if (fsp_line = rta_content[/^FRAMEWORK_SEARCH_PATHS = .*/])
+          fsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+        if (hsp_line = rta_content[/^HEADER_SEARCH_PATHS = .*/])
+          hsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+      end
+
+      # 3. Add framework Headers dirs derived from Pod targets to keep this patch
+      #    portable across local machines and CI (no absolute paths).
+      framework_header_entries.each do |hsp_entry|
+        next if rnn.include?(hsp_entry)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{hsp_entry}" }
+      end
+
+      # 4. Folly and its dependencies (needed when jsinspector headers pull in folly/dynamic.h)
+      ['"$(PODS_ROOT)/DoubleConversion"', '"$(PODS_ROOT)/fast_float/include"', '"$(PODS_ROOT)/fmt/include"'].each do |e|
+        next if rnn.include?(e)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{e}" }
+      end
+
+      File.write(rnn_xcconfig, rnn)
+      Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: mirrored React-RuntimeApple search paths"
+    end
+
+    # Xcode 26 Apple Clang currently fails on fmt's consteval usage.
+    # Patch fmt/base.h to disable consteval for Apple Clang toolchains.
+    fmt_base_h = "#{installer.sandbox.root}/fmt/include/fmt/base.h"
+    if File.exist?(fmt_base_h)
+      content = File.read(fmt_base_h)
+      old_guard = "#elif defined(__apple_build_version__) && __apple_build_version__ < 14000029L\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang < 14."
+      new_guard = "#elif defined(__apple_build_version__)\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang (all versions, incl. Xcode 26)"
+      if content.include?(old_guard)
+        File.chmod(0644, fmt_base_h)
+        File.write(fmt_base_h, content.sub(old_guard, new_guard))
+        Pod::UI.puts "Patched fmt/base.h: disabled consteval for all Apple Clang"
+      end
+    end
+
+    # Xcode 26 marks netinet6/in6.h as a private module header.
+    # The include is redundant because netinet/in.h already provides IPv6 types.
+    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select do |f|
+      has_import = false
+      File.foreach(f) do |line|
+        if line.include?("#import <netinet6/in6.h>")
+          has_import = true
+          break
+        end
+      end
+      has_import
+    end
+    reachability_nm = File.expand_path("../node_modules/@mauron85/react-native-background-geolocation/ios/common/BackgroundGeolocation/Reachability.m", __dir__)
+    if File.exist?(reachability_nm)
+      has_import = false
+      File.foreach(reachability_nm) do |line|
+        if line.include?("#import <netinet6/in6.h>")
+          has_import = true
+          break
+        end
+      end
+      files_to_patch << reachability_nm if has_import
+    end
+    files_to_patch.each do |f|
+      content = File.read(f)
+      File.chmod(0644, f)
+      File.write(f, content.sub("#import <netinet6/in6.h>\n", ""))
+      Pod::UI.puts "Patched #{File.basename(f)}: removed private <netinet6/in6.h> import"
+    end
+
+    # Xcode 26 no longer maps dashes to underscores in framework module lookups.
+    # react-native-navigation uses <React-RuntimeApple/...> but framework is React_RuntimeApple.
+    rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
+    Dir.glob("#{rnn_ios_dir}/**/*.{h,m,mm}").each do |f|
+      content = File.read(f)
+      if content.include?("React-RuntimeApple")
+        File.chmod(0644, f)
+        File.write(f, content.gsub("React-RuntimeApple", "React_RuntimeApple"))
+        Pod::UI.puts "Patched #{File.basename(f)}: React-RuntimeApple -> React_RuntimeApple"
+      end
+    end
+
+    # StackControllerDelegate old-arch path references _eventEmitter.bridge, which is not
+    # exposed in this RN/RNN combination. Use ReactNativeNavigation bridge accessor.
+    stack_delegate = "#{rnn_ios_dir}/StackControllerDelegate.mm"
+    if File.exist?(stack_delegate)
+      content = File.read(stack_delegate)
+      old_import = '#import "StackControllerDelegate.h"'
+      new_import = '#import "StackControllerDelegate.h"' + "\n" + '#import "ReactNativeNavigation.h"'
+      if content.include?(old_import) && !content.include?('#import "ReactNativeNavigation.h"')
+        content = content.sub(old_import, new_import)
+      end
+      if content.include?("_eventEmitter.bridge")
+        File.chmod(0644, stack_delegate)
+        File.write(stack_delegate, content
+          .sub(old_import, new_import)
+          .gsub("_eventEmitter.bridge", "[ReactNativeNavigation getBridge]"))
+        Pod::UI.puts "Patched StackControllerDelegate.mm: _eventEmitter.bridge -> [ReactNativeNavigation getBridge]"
+      end
+    end
+
+    # RNNAppDelegate.h fallback import for Xcode 26 framework header resolution.
+    rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
+    if File.exist?(rnn_app_delegate_h)
+      content = File.read(rnn_app_delegate_h)
+      old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
+      new_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#else\n// Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root\n#import <RCTAppDelegate.h>\n#endif"
+      if content.include?(old_block)
+        File.chmod(0644, rnn_app_delegate_h)
+        File.write(rnn_app_delegate_h, content.sub(old_block, new_block))
+        Pod::UI.puts "Patched RNNAppDelegate.h: added #else <RCTAppDelegate.h> fallback"
+      end
+    end
+
+    # AnimatedReactView references Fabric component classes without compile guards.
+    # In old architecture builds these classes are unavailable and fail compilation.
+    animated_react_view_mm = "#{rnn_ios_dir}/AnimatedReactView.mm"
+    if File.exist?(animated_react_view_mm)
+      content = File.read(animated_react_view_mm)
+      pattern = /(^\s*)if \(\[element isKindOfClass:\[RCTImageComponentView class\]\] \|\| \[element isKindOfClass:\[RCTParagraphComponentView class\]\]\) \{\n\s*\[self hijackReactElement:element\];\n\s*\}/m
+      if content.match?(pattern)
+        new_snippet = <<~NEW
+        #ifdef RCT_NEW_ARCH_ENABLED
+            if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
+                [self hijackReactElement:element];
+            }
+        #endif
+        NEW
+        File.chmod(0644, animated_react_view_mm)
+        File.write(animated_react_view_mm, content.sub(pattern, new_snippet.strip))
+        Pod::UI.puts "Patched AnimatedReactView.mm: guarded Fabric component class checks"
+      end
+    end
+
+    # AnimatedTextView keeps a facebook::react state member outside architecture guards.
+    # Guard it for old-arch builds where react C++ symbols are unavailable.
+    animated_text_view_mm = "#{rnn_ios_dir}/AnimatedTextView.mm"
+    if File.exist?(animated_text_view_mm)
+      content = File.read(animated_text_view_mm)
+      pattern = /^\s*facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;$/
+      if content.match?(pattern)
+        new_line = <<~NEW
+        #ifdef RCT_NEW_ARCH_ENABLED
+            facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;
+        #endif
+        NEW
+        File.chmod(0644, animated_text_view_mm)
+        File.write(animated_text_view_mm, content.sub(pattern, new_line.strip))
+        Pod::UI.puts "Patched AnimatedTextView.mm: guarded facebook::react state member"
+      end
+    end
+
+      # RNNReactButtonView in this RNN version assumes new-arch host APIs.
+      # Add old-arch fallback implementation so it compiles when RCT_NEW_ARCH_ENABLED=0.
+      rnn_react_button_view_mm = "#{rnn_ios_dir}/RNNReactButtonView.mm"
+      if File.exist?(rnn_react_button_view_mm)
+        content = File.read(rnn_react_button_view_mm)
+        if content.include?("initWithHost:")
+        replacement = <<~MM
+        #import "RNNReactButtonView.h"
+        #import "ReactNativeNavigation.h"
+
+        #ifndef RCT_NEW_ARCH_ENABLED
+        typedef NSInteger RCTSurfaceSizeMeasureMode;
+        #endif
+
+        @implementation RNNReactButtonView
+
+        #ifdef RCT_NEW_ARCH_ENABLED
+        - (instancetype)initWithHost:(RCTHost *)host
+                  moduleName:(NSString *)moduleName
+               initialProperties:(NSDictionary *)initialProperties
+                eventEmitter:(RNNEventEmitter *)eventEmitter
+               sizeMeasureMode:(RCTSurfaceSizeMeasureMode)sizeMeasureMode
+             reactViewReadyBlock:(RNNReactViewReadyCompletionBlock)reactViewReadyBlock {
+          self = [super initWithHost:host
+                  moduleName:moduleName
+               initialProperties:initialProperties
+                  eventEmitter:eventEmitter
+                 sizeMeasureMode:sizeMeasureMode
+               reactViewReadyBlock:reactViewReadyBlock];
+          [host.surfacePresenter addObserver:self];
+          self.backgroundColor = UIColor.clearColor;
+          return self;
+        }
+
+        - (void)didMountComponentsWithRootTag:(NSInteger)rootTag {
+          if (self.surface.rootTag == rootTag) {
+            [super didMountComponentsWithRootTag:rootTag];
+            [self sizeToFit];
+          }
+        }
+        #else
+        - (instancetype)initWithHost:(RCTHost *)host
+                  moduleName:(NSString *)moduleName
+               initialProperties:(NSDictionary *)initialProperties
+                eventEmitter:(RNNEventEmitter *)eventEmitter
+               sizeMeasureMode:(RCTSurfaceSizeMeasureMode)sizeMeasureMode
+             reactViewReadyBlock:(RNNReactViewReadyCompletionBlock)reactViewReadyBlock {
+          RCTBridge *bridge = [ReactNativeNavigation getBridge];
+          self = [super initWithBridge:bridge
+                    moduleName:moduleName
+                 initialProperties:initialProperties
+                  eventEmitter:eventEmitter
+               reactViewReadyBlock:reactViewReadyBlock];
+          self.backgroundColor = UIColor.clearColor;
+          return self;
+        }
+        #endif
+
+        - (NSString *)componentType {
+          return ComponentTypeButton;
+        }
+
+        @end
+        MM
+        File.chmod(0644, rnn_react_button_view_mm)
+        File.write(rnn_react_button_view_mm, replacement)
+        Pod::UI.puts "Patched RNNReactButtonView.mm: added old-arch fallback implementation"
+        end
+      end
+
+      # RNNEventEmitter currently assumes new-arch-only symbols/imports in this version.
+      # Replace with a dual-path implementation that works for both bridge and host modes.
+      rnn_event_emitter_h = "#{rnn_ios_dir}/RNNEventEmitter.h"
+      if File.exist?(rnn_event_emitter_h)
+        replacement_h = <<~H
+        #import <Foundation/Foundation.h>
+        #import <React/RCTEventEmitter.h>
+
+        @class RCTHost;
+        @class RCTBridge;
+
+        #ifdef RCT_NEW_ARCH_ENABLED
+        @interface RNNEventEmitter : NSObject
+        #else
+        @interface RNNEventEmitter : RCTEventEmitter
+        #endif
+
+        - (void)setHost:(RCTHost *)host;
+        @property(nonatomic, strong, readonly) RCTHost *host;
+
+        - (void)sendOnAppLaunched;
+
+        - (void)sendComponentWillAppear:(NSString *)componentId
+                          componentName:(NSString *)componentName
+                          componentType:(NSString *)componentType;
+
+        - (void)sendComponentDidAppear:(NSString *)componentId
+                         componentName:(NSString *)componentName
+                         componentType:(NSString *)componentType;
+
+        - (void)sendComponentDidDisappear:(NSString *)componentId
+                            componentName:(NSString *)componentName
+                            componentType:(NSString *)componentType;
+
+        - (void)sendOnNavigationButtonPressed:(NSString *)componentId buttonId:(NSString *)buttonId;
+
+        - (void)sendBottomTabSelected:(NSNumber *)selectedTabIndex
+                           unselected:(NSNumber *)unselectedTabIndex;
+
+        - (void)sendBottomTabLongPressed:(NSNumber *)selectedTabIndex;
+
+        - (void)sendOnNavigationCommandCompletion:(NSString *)commandName commandId:(NSString *)commandId;
+
+        - (void)sendOnSearchBarUpdated:(NSString *)componentId
+                                  text:(NSString *)text
+                             isFocused:(BOOL)isFocused;
+
+        - (void)sendOnSearchBarCancelPressed:(NSString *)componentId;
+
+        - (void)sendOnPreviewCompleted:(NSString *)componentId
+                    previewComponentId:(NSString *)previewComponentId;
+
+        - (void)sendModalsDismissedEvent:(NSString *)componentId
+                 numberOfModalsDismissed:(NSNumber *)modalsDismissed;
+
+        - (void)sendModalAttemptedToDismissEvent:(NSString *)componentId;
+
+        - (void)sendScreenPoppedEvent:(NSString *)componentId;
+
+        - (void)sendBottomTabPressed:(NSNumber *)tabIndex;
+
+        @end
+        H
+        File.chmod(0644, rnn_event_emitter_h)
+        File.write(rnn_event_emitter_h, replacement_h)
+        Pod::UI.puts "Patched RNNEventEmitter.h: added bridge/new-arch compatible interface"
+      end
+
+      rnn_event_emitter_mm = "#{rnn_ios_dir}/RNNEventEmitter.mm"
+      if File.exist?(rnn_event_emitter_mm)
+        replacement_mm = <<~MM
+        #import "RNNEventEmitter.h"
+        #import "RNNUtils.h"
+        #ifdef RCT_NEW_ARCH_ENABLED
+        #import "TurboModules/RNNTurboEventEmitter.h"
+        #import <React_RuntimeApple/ReactCommon/RCTHost.h>
+        #else
+        static NSString *const AppLaunched = @"RNN.AppLaunched";
+        static NSString *const CommandCompleted = @"RNN.CommandCompleted";
+        static NSString *const BottomTabSelected = @"RNN.BottomTabSelected";
+        static NSString *const BottomTabLongPressed = @"RNN.BottomTabLongPressed";
+        static NSString *const ComponentWillAppear = @"RNN.ComponentWillAppear";
+        static NSString *const ComponentDidAppear = @"RNN.ComponentDidAppear";
+        static NSString *const ComponentDidDisappear = @"RNN.ComponentDidDisappear";
+        static NSString *const NavigationButtonPressed = @"RNN.NavigationButtonPressed";
+        static NSString *const ModalDismissed = @"RNN.ModalDismissed";
+        static NSString *const ModalAttemptedToDismiss = @"RNN.ModalAttemptedToDismiss";
+        static NSString *const SearchBarUpdated = @"RNN.SearchBarUpdated";
+        static NSString *const SearchBarCancelPressed = @"RNN.SearchBarCancelPressed";
+        static NSString *const PreviewCompleted = @"RNN.PreviewCompleted";
+        static NSString *const ScreenPopped = @"RNN.ScreenPopped";
+        static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
+        #endif
+
+        @implementation RNNEventEmitter { }
+
+        - (void)setHost:(RCTHost *)host {
+          if (_host != nil) {
+            return;
+          }
+          _host = host;
+        }
+
+        #pragma mark public
+
+        - (void)sendOnAppLaunched {
+            [self send:AppLaunched body:nil];
+        }
+
+        - (void)sendComponentWillAppear:(NSString *)componentId
+                          componentName:(NSString *)componentName
+                          componentType:(NSString *)componentType {
+            [self send:ComponentWillAppear
+                  body:@{
+                      @"componentId" : componentId,
+                      @"componentName" : componentName,
+                      @"componentType" : componentType
+                  }];
+        }
+
+        - (void)sendComponentDidAppear:(NSString *)componentId
+                         componentName:(NSString *)componentName
+                         componentType:(NSString *)componentType {
+            [self send:ComponentDidAppear
+                  body:@{
+                      @"componentId" : componentId,
+                      @"componentName" : componentName,
+                      @"componentType" : componentType
+                  }];
+        }
+
+        - (void)sendComponentDidDisappear:(NSString *)componentId
+                            componentName:(NSString *)componentName
+                            componentType:(NSString *)componentType {
+            [self send:ComponentDidDisappear
+                  body:@{
+                      @"componentId" : componentId,
+                      @"componentName" : componentName,
+                      @"componentType" : componentType
+                  }];
+        }
+
+        - (void)sendOnNavigationButtonPressed:(NSString *)componentId buttonId:(NSString *)buttonId {
+            [self send:NavigationButtonPressed
+                  body:@{@"componentId" : componentId, @"buttonId" : buttonId}];
+        }
+
+        - (void)sendBottomTabSelected:(NSNumber *)selectedTabIndex
+                           unselected:(NSNumber *)unselectedTabIndex {
+            [self
+                send:BottomTabSelected
+                body:@{ @"selectedTabIndex" : selectedTabIndex, @"unselectedTabIndex" : unselectedTabIndex }];
+        }
+
+        - (void)sendBottomTabLongPressed:(NSNumber *)selectedTabIndex {
+            [self send:BottomTabLongPressed body:@{ @"selectedTabIndex" : selectedTabIndex }];
+        }
+
+        - (void)sendBottomTabPressed:(NSNumber *)tabIndex {
+            [self send:BottomTabPressed body:@{ @"tabIndex" : tabIndex }];
+        }
+
+        - (void)sendOnNavigationCommandCompletion:(NSString *)commandName commandId:(NSString *)commandId {
+            [self send:CommandCompleted
+                  body:@{
+                      @"commandId" : commandId,
+                      @"commandName" : commandName,
+                      @"completionTime" : [RNNUtils getCurrentTimestamp]
+                  }];
+        }
+
+        - (void)sendOnSearchBarUpdated:(NSString *)componentId
+                                  text:(NSString *)text
+                             isFocused:(BOOL)isFocused {
+            [self send:SearchBarUpdated
+                  body:@{ @"componentId" : componentId, @"text" : text, @"isFocused" : @(isFocused) }];
+        }
+
+        - (void)sendOnSearchBarCancelPressed:(NSString *)componentId {
+            [self send:SearchBarCancelPressed body:@{ @"componentId" : componentId }];
+        }
+
+        - (void)sendOnPreviewCompleted:(NSString *)componentId
+                    previewComponentId:(NSString *)previewComponentId {
+            [self send:PreviewCompleted
+                  body:@{ @"componentId" : componentId, @"previewComponentId" : previewComponentId }];
+        }
+
+        - (void)sendModalsDismissedEvent:(NSString *)componentId
+                 numberOfModalsDismissed:(NSNumber *)modalsDismissed {
+            if (componentId) {
+                [self send:ModalDismissed
+                      body:@{ @"componentId" : componentId, @"modalsDismissed" : modalsDismissed }];
+            }
+        }
+
+        - (void)sendModalAttemptedToDismissEvent:(NSString *)componentId {
+            [self send:ModalAttemptedToDismiss
+                  body:@{
+                      @"componentId" : componentId,
+                  }];
+        }
+
+        - (void)sendScreenPoppedEvent:(NSString *)componentId {
+            [self send:ScreenPopped body:@{ @"componentId" : componentId }];
+        }
+
+        #pragma mark private
+
+        - (void)send:(NSString *)eventName body:(id)body {
+        #ifdef RCT_NEW_ARCH_ENABLED
+          if (_host == nil) {
+            return;
+          }
+
+          RNNTurboEventEmitter *_eventEmitter = [[_host moduleRegistry] moduleForName:"RNNTurboEventEmitter"];
+          if (_eventEmitter == nil) {
+            return;
+          }
+
+          [_eventEmitter send:eventName body:body];
+        #else
+          [self sendEventWithName:eventName body:body];
+        #endif
+        }
+
+        #ifndef RCT_NEW_ARCH_ENABLED
+        RCT_EXPORT_MODULE();
+
+        - (NSArray<NSString *> *)supportedEvents {
+          return @[
+            AppLaunched, CommandCompleted, BottomTabSelected, BottomTabLongPressed, BottomTabPressed,
+            ComponentWillAppear, ComponentDidAppear, ComponentDidDisappear, NavigationButtonPressed,
+            ModalDismissed, SearchBarUpdated, SearchBarCancelPressed, PreviewCompleted, ScreenPopped,
+            ModalAttemptedToDismiss
+          ];
+        }
+        #endif
+
+        @end
+        MM
+        File.chmod(0644, rnn_event_emitter_mm)
+        File.write(rnn_event_emitter_mm, replacement_mm)
+        Pod::UI.puts "Patched RNNEventEmitter.mm: added bridge/new-arch compatible event dispatch"
+      end
+
+      rnn_app_delegate_mm = "#{rnn_ios_dir}/RNNAppDelegate.mm"
+      if File.exist?(rnn_app_delegate_mm)
+        replacement_app_delegate = <<~MM
+        #import "RNNAppDelegate.h"
+        #import <ReactNativeNavigation/ReactNativeNavigation.h>
+
+        @implementation RNNAppDelegate
+
+        - (BOOL)application:(UIApplication *)application
+            didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+          BOOL didFinish = [super application:application didFinishLaunchingWithOptions:launchOptions];
+
+          if (self.bridge != nil) {
+            [ReactNativeNavigation bootstrapWithBridge:self.bridge];
+          }
+
+          return didFinish;
+        }
+
+        @end
+        MM
+        File.chmod(0644, rnn_app_delegate_mm)
+        File.write(rnn_app_delegate_mm, replacement_app_delegate)
+        Pod::UI.puts "Patched RNNAppDelegate.mm: replaced with RN 0.79-compatible bootstrap implementation"
+      end
+
+    # Mirror React-RuntimeApple search paths into ReactNativeNavigation to satisfy
+    # transitive header includes under Xcode 26.
+    framework_header_entries = installer.pods_project.targets.filter_map do |target|
+      next unless target.respond_to?(:product_reference)
+      product_ref = target.product_reference
+      next unless product_ref && product_ref.path && product_ref.path.end_with?(".framework")
+      next unless target.name.start_with?("React-")
+      "\"${PODS_CONFIGURATION_BUILD_DIR}/#{target.name}/#{product_ref.path}/Headers\""
+    end.uniq
+
+    ["Debug", "Release"].each do |config_name|
+      rnn_xcconfig = "#{installer.sandbox.root}/Target Support Files/ReactNativeNavigation/ReactNativeNavigation.#{config_name.downcase}.xcconfig"
+      rta_xcconfig = "#{installer.sandbox.root}/Target Support Files/React-RuntimeApple/React-RuntimeApple.#{config_name.downcase}.xcconfig"
+      next unless File.exist?(rnn_xcconfig)
+
+      rnn = File.read(rnn_xcconfig)
+
+      rta_fsp = '"${PODS_CONFIGURATION_BUILD_DIR}/React-RuntimeApple"'
+      unless rnn.include?(rta_fsp)
+        rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{rta_fsp}" }
+        Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: added React-RuntimeApple to FRAMEWORK_SEARCH_PATHS"
+      end
+
+      if File.exist?(rta_xcconfig)
+        rta_content = File.read(rta_xcconfig)
+        if (fsp_line = rta_content[/^FRAMEWORK_SEARCH_PATHS = .*/])
+          fsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(FRAMEWORK_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+        if (hsp_line = rta_content[/^HEADER_SEARCH_PATHS = .*/])
+          hsp_line.scan(/"[^"]+"/).each do |entry|
+            next if rnn.include?(entry)
+            rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{entry}" }
+          end
+        end
+      end
+
+      framework_header_entries.each do |hsp_entry|
+        next if rnn.include?(hsp_entry)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{hsp_entry}" }
+      end
+
+      ['"$(PODS_ROOT)/DoubleConversion"', '"$(PODS_ROOT)/fast_float/include"', '"$(PODS_ROOT)/fmt/include"'].each do |e|
+        next if rnn.include?(e)
+        rnn = rnn.gsub(/^(HEADER_SEARCH_PATHS = .*)$/) { |m| "#{m} #{e}" }
+      end
+
+      File.write(rnn_xcconfig, rnn)
+      Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: mirrored React-RuntimeApple search paths"
+    end
+
+    # Legacy Mapbox 5.x dynamic framework is device-only for arm64-simulator.
+    # Force simulator builds to x86_64 at the project level to avoid arm64 linkage.
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+    end
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      end
+    end
+    installer.aggregate_targets.each do |aggregate_target|
+      aggregate_target.user_project.native_targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        end
+      end
+      aggregate_target.user_project.save
     end
   end
 end
