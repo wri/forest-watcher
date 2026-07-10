@@ -5,7 +5,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
 #import "AppAuth.h"
 #import <Firebase.h>
-#if __has_include("../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h")
+#if __has_include("../../node_modules/react-native-navigation/ios/ReactNativeNavigation.h")
+#import "../../node_modules/react-native-navigation/ios/ReactNativeNavigation.h"
+#elif __has_include("../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h")
 #import "../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h"
 #elif __has_include(<ReactNativeNavigation/ReactNativeNavigation.h>)
 #import <ReactNativeNavigation/ReactNativeNavigation.h>

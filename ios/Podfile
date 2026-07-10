@@ -103,6 +103,23 @@ target 'ForestWatcher' do
       end
     end
 
+    # RCTAppDelegate.h lives in the React-RCTAppDelegate framework, whose Headers/
+    # directory only exists in DerivedData after that pod is compiled.
+    # AppDelegate.h uses a flat #import <RCTAppDelegate.h>, so we need the source
+    # directory on HEADER_SEARCH_PATHS so it resolves before the framework is built.
+    rn_app_delegate_src = File.expand_path("../node_modules/react-native/Libraries/AppDelegate", __dir__)
+    installer.aggregate_targets.each do |aggregate_target|
+      next unless aggregate_target.name == "Pods-ForestWatcher"
+      aggregate_target.xcconfigs.each do |config_name, xcconfig|
+        xcconfig.attributes['HEADER_SEARCH_PATHS'] ||= "$(inherited)"
+        unless xcconfig.attributes['HEADER_SEARCH_PATHS'].include?(rn_app_delegate_src)
+          xcconfig.attributes['HEADER_SEARCH_PATHS'] += " \"#{rn_app_delegate_src}\""
+        end
+        xcconfig_path = aggregate_target.xcconfig_path(config_name)
+        xcconfig.save_as(Pathname.new(xcconfig_path))
+      end
+    end
+
     # installer.pods_project.targets.each do |target|
     #   # If the target's name is React or yoga, remove it from the project.
     #   # This means that the pods which don't correctly add header search paths still get their search paths,
@@ -164,7 +181,7 @@ target 'ForestWatcher' do
     # Xcode 26 no longer maps dashes to underscores in framework module lookups.
     # react-native-navigation uses <React-RuntimeApple/...> but the framework is React_RuntimeApple.
     rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
-    Dir.glob("#{rnn_ios_dir}/**/*.{h,m,mm}").each do |f|
+    Dir.glob("{#{rnn_ios_dir},#{File.expand_path('../node_modules/react-native-navigation/ios', __dir__)}}/**/*.{h,m,mm}").each do |f|
       content = File.read(f)
       if content.include?("React-RuntimeApple")
         File.chmod(0644, f)
@@ -177,7 +194,7 @@ target 'ForestWatcher' do
     # but RNNEventEmitter no longer exposes a .bridge property in RN 0.79.
     # Fix: use [ReactNativeNavigation getBridge] which is the canonical bridge accessor.
     stack_delegate = "#{rnn_ios_dir}/StackControllerDelegate.mm"
-    if File.exist?(stack_delegate)
+    if stack_delegate && File.exist?(stack_delegate)
       content = File.read(stack_delegate)
       old_import = '#import "StackControllerDelegate.h"'
       new_import = '#import "StackControllerDelegate.h"' + "\n" + '#import "ReactNativeNavigation.h"'
@@ -198,7 +215,7 @@ target 'ForestWatcher' do
     # Under Xcode 26, neither resolves (the framework is accessed without path prefix).
     # Add a direct #else fallback: #import <RCTAppDelegate.h>
     rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
-    if File.exist?(rnn_app_delegate_h)
+    if rnn_app_delegate_h && File.exist?(rnn_app_delegate_h)
       content = File.read(rnn_app_delegate_h)
       old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
       new_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#else\n// Xcode 26 fallback: import RCTAppDelegate.h directly from framework Headers root\n#import <RCTAppDelegate.h>\n#endif"
@@ -323,7 +340,7 @@ target 'ForestWatcher' do
     # Xcode 26 no longer maps dashes to underscores in framework module lookups.
     # react-native-navigation uses <React-RuntimeApple/...> but framework is React_RuntimeApple.
     rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
-    Dir.glob("#{rnn_ios_dir}/**/*.{h,m,mm}").each do |f|
+    Dir.glob("{#{rnn_ios_dir},#{File.expand_path('../node_modules/react-native-navigation/ios', __dir__)}}/**/*.{h,m,mm}").each do |f|
       content = File.read(f)
       if content.include?("React-RuntimeApple")
         File.chmod(0644, f)
@@ -332,9 +349,11 @@ target 'ForestWatcher' do
       end
     end
 
+    rnn_ios_root = File.expand_path("../node_modules/react-native-navigation/ios", __dir__)
+
     # StackControllerDelegate old-arch path references _eventEmitter.bridge, which is not
     # exposed in this RN/RNN combination. Use ReactNativeNavigation bridge accessor.
-    stack_delegate = "#{rnn_ios_dir}/StackControllerDelegate.mm"
+    stack_delegate = ["#{rnn_ios_dir}/StackControllerDelegate.mm", "#{rnn_ios_root}/StackControllerDelegate.mm"].find { |p| File.exist?(p) }
     if File.exist?(stack_delegate)
       content = File.read(stack_delegate)
       old_import = '#import "StackControllerDelegate.h"'
@@ -352,7 +371,7 @@ target 'ForestWatcher' do
     end
 
     # RNNAppDelegate.h fallback import for Xcode 26 framework header resolution.
-    rnn_app_delegate_h = "#{rnn_ios_dir}/RNNAppDelegate.h"
+    rnn_app_delegate_h = ["#{rnn_ios_dir}/RNNAppDelegate.h", "#{rnn_ios_root}/RNNAppDelegate.h"].find { |p| File.exist?(p) }
     if File.exist?(rnn_app_delegate_h)
       content = File.read(rnn_app_delegate_h)
       old_block = "#if __has_include(<React-RCTAppDelegate/RCTAppDelegate.h>)\n#import <React-RCTAppDelegate/RCTAppDelegate.h>\n#elif __has_include(<React_RCTAppDelegate/RCTAppDelegate.h>)\n// for importing the header from framework, the dash will be transformed to underscore\n#import <React_RCTAppDelegate/RCTAppDelegate.h>\n#endif"
