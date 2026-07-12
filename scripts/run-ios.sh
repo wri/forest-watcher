@@ -2,6 +2,35 @@
 
 set -euo pipefail
 
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT_DIR"
+
+if [ ! -e .env ]; then
+  if [ -f .env.ios ]; then
+    ln -s .env.ios .env
+    echo "Linked .env -> .env.ios for iOS config."
+  else
+    echo "Missing .env. Create it from .env.sample or add .env.ios before running iOS."
+    exit 1
+  fi
+fi
+
+if ! grep -Eq '^API_AUTH=.+' .env; then
+  echo "Missing API_AUTH in .env. Fill in the auth endpoint before running iOS."
+  exit 1
+fi
+
+if [ -f .env.ios ]; then
+  printf '.env.ios\n' > /tmp/envfile
+else
+  printf '.env\n' > /tmp/envfile
+fi
+
+export BUILD_DIR="$ROOT_DIR/ios/build"
+mkdir -p "$BUILD_DIR"
+ruby node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb "$ROOT_DIR" "$ROOT_DIR/ios/tmp.xcconfig"
+ruby node_modules/react-native-config/ios/ReactNativeConfig/BuildDotenvConfig.rb "$ROOT_DIR" "$ROOT_DIR/node_modules/react-native-config/ios/ReactNativeConfig"
+
 NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo "0")"
 if [ "$NODE_MAJOR" -gt 22 ]; then
   echo "Warning: Node $NODE_MAJOR may be incompatible with this React Native iOS toolchain."

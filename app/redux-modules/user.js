@@ -111,6 +111,14 @@ function parseJwt(token) {
   return decoded;
 }
 
+function getEmailLoginTransportError(apiAuth: ?string) {
+  if (!apiAuth) {
+    return 'Login service is not configured in the installed iOS app. Rebuild the app after updating .env or .env.ios.';
+  }
+
+  return 'Could not reach the login service. Check the logged request URL and rebuild the iOS app if you recently changed .env or .env.ios.';
+}
+
 // Action Creators
 export function getUser(): UserAction {
   return {
@@ -273,15 +281,26 @@ export function facebookLogin() {
 
 export function emailLogin(email: string, password: string): Thunk<Promise<void>> {
   return async (dispatch: Dispatch) => {
+    const apiAuth = Config.API_AUTH?.trim?.();
+    const url = apiAuth ? `${apiAuth.replace(/\/$/, '')}/auth/login` : null;
+
     try {
       dispatch({ type: SET_LOGIN_LOADING, payload: true });
       dispatch({ type: CLEAR_EMAIL_LOGIN_ERROR });
-      const url = `${Config.API_AUTH}/auth/login`;
+
+      if (!url) {
+        const errorMessage = getEmailLoginTransportError(apiAuth);
+        dispatch({ type: SET_LOGIN_STATUS, payload: false });
+        dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: errorMessage });
+        return;
+      }
+
       const fetchConfig = {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({ email, password })
       };
+
       const response = await fetch(url, fetchConfig);
       if (!(response?.ok && response?.status === 200)) {
         const responseJson = await response.json();
@@ -305,8 +324,13 @@ export function emailLogin(email: string, password: string): Thunk<Promise<void>
       });
     } catch (error) {
       console.warn('WRI', 'Error trying to log in using email: ', error);
+
+      const errorMessage = error instanceof TypeError && /Network request failed/i.test(error.message)
+        ? getEmailLoginTransportError(apiAuth)
+        : error.toString();
+
       dispatch({ type: SET_LOGIN_STATUS, payload: false });
-      dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: error.toString() });
+      dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: errorMessage });
     } finally {
       dispatch({ type: SET_LOGIN_LOADING, payload: false });
     }

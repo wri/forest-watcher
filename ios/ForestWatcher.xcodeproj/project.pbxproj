@@ -67,8 +67,10 @@
 		B12581D22406D01B00137B30 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		B17B84DC24758B9E00D8F381 /* SecurityScopedResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScopedResourcesManager.swift; sourceTree = "<group>"; };
 		B1E4BA0123E2DCEB00A7BC85 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D6AC7A8D8E894C96B5B5B27B /* ForestWatcher.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ForestWatcher.debug.xcconfig; sourceTree = "<group>"; };
 		CAFB70042B754C0B001C6F64 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ForestWatcher/AppDelegate.mm; sourceTree = "<group>"; };
 		EE3C9C09E97D64DEBAE19035 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = ForestWatcher/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F25C4E6DB4CE460E80B6D1E3 /* ForestWatcher.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ForestWatcher.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				B1E4BA0123E2DCEB00A7BC85 /* Config.xcconfig */,
+				D6AC7A8D8E894C96B5B5B27B /* ForestWatcher.debug.xcconfig */,
 				13B07FAE1A68108700A75B9A /* ForestWatcher */,
+				F25C4E6DB4CE460E80B6D1E3 /* ForestWatcher.release.xcconfig */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				45A6AD05F54FD09326DA9BF6 /* Frameworks */,
@@ -476,7 +480,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AEFDD39DD916316FE8DFA26 /* Pods-ForestWatcher.debug.xcconfig */;
+			baseConfigurationReference = D6AC7A8D8E894C96B5B5B27B /* ForestWatcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_WARNINGS = NO;
@@ -611,7 +615,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A95F226EEB746D1F350E0F20 /* Pods-ForestWatcher.release.xcconfig */;
+			baseConfigurationReference = F25C4E6DB4CE460E80B6D1E3 /* ForestWatcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_WARNINGS = NO;
