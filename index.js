@@ -13,11 +13,26 @@ if (Platform.OS === 'android') {
 disableAnalytics(__DEV__);
 
 const app = new App();
+let hasSetupStarted = false;
+
+const startAppSetup = () => {
+  if (hasSetupStarted) {
+    return;
+  }
+  hasSetupStarted = true;
+  app.setupApp();
+};
+
+// Kick startup immediately once JS bundle is evaluated.
+startAppSetup();
 
 // We'll setup the app whenever RNN tells us the app has safely launched
 // See https://wix.github.io/react-native-navigation/#/docs/app-launch
 Navigation.events().registerAppLaunchedListener(() => {
-  app.setupApp();
+  startAppSetup();
 });
+
+// Fallback for old-architecture startup where app launched events may be swallowed.
+setTimeout(startAppSetup, 1200);
 
 export default app;

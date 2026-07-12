@@ -385,11 +385,11 @@ target 'ForestWatcher' do
 
     # AnimatedReactView references Fabric component classes without compile guards.
     # In old architecture builds these classes are unavailable and fail compilation.
-    animated_react_view_mm = "#{rnn_ios_dir}/AnimatedReactView.mm"
-    if File.exist?(animated_react_view_mm)
+    animated_react_view_mm = ["#{rnn_ios_dir}/AnimatedReactView.mm", "#{rnn_ios_root}/AnimatedReactView.mm"].find { |p| File.exist?(p) }
+    if animated_react_view_mm && File.exist?(animated_react_view_mm)
       content = File.read(animated_react_view_mm)
       pattern = /(^\s*)if \(\[element isKindOfClass:\[RCTImageComponentView class\]\] \|\| \[element isKindOfClass:\[RCTParagraphComponentView class\]\]\) \{\n\s*\[self hijackReactElement:element\];\n\s*\}/m
-      if content.match?(pattern)
+      if content.match?(pattern) && !content.include?("#ifdef RCT_NEW_ARCH_ENABLED")
         new_snippet = <<~NEW
         #ifdef RCT_NEW_ARCH_ENABLED
             if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
@@ -405,11 +405,11 @@ target 'ForestWatcher' do
 
     # AnimatedTextView keeps a facebook::react state member outside architecture guards.
     # Guard it for old-arch builds where react C++ symbols are unavailable.
-    animated_text_view_mm = "#{rnn_ios_dir}/AnimatedTextView.mm"
-    if File.exist?(animated_text_view_mm)
+    animated_text_view_mm = ["#{rnn_ios_dir}/AnimatedTextView.mm", "#{rnn_ios_root}/AnimatedTextView.mm"].find { |p| File.exist?(p) }
+    if animated_text_view_mm && File.exist?(animated_text_view_mm)
       content = File.read(animated_text_view_mm)
       pattern = /^\s*facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;$/
-      if content.match?(pattern)
+      if content.match?(pattern) && !content.include?("ParagraphShadowNode::ConcreteState::Shared _state;\n#endif")
         new_line = <<~NEW
         #ifdef RCT_NEW_ARCH_ENABLED
             facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;
@@ -493,8 +493,8 @@ target 'ForestWatcher' do
 
       # RNNEventEmitter currently assumes new-arch-only symbols/imports in this version.
       # Replace with a dual-path implementation that works for both bridge and host modes.
-      rnn_event_emitter_h = "#{rnn_ios_dir}/RNNEventEmitter.h"
-      if File.exist?(rnn_event_emitter_h)
+      rnn_event_emitter_h = ["#{rnn_ios_dir}/RNNEventEmitter.h", "#{rnn_ios_root}/RNNEventEmitter.h"].find { |p| File.exist?(p) }
+      if rnn_event_emitter_h && File.exist?(rnn_event_emitter_h)
         replacement_h = <<~H
         #import <Foundation/Foundation.h>
         #import <React/RCTEventEmitter.h>
@@ -559,8 +559,8 @@ target 'ForestWatcher' do
         Pod::UI.puts "Patched RNNEventEmitter.h: added bridge/new-arch compatible interface"
       end
 
-      rnn_event_emitter_mm = "#{rnn_ios_dir}/RNNEventEmitter.mm"
-      if File.exist?(rnn_event_emitter_mm)
+      rnn_event_emitter_mm = ["#{rnn_ios_dir}/RNNEventEmitter.mm", "#{rnn_ios_root}/RNNEventEmitter.mm"].find { |p| File.exist?(p) }
+      if rnn_event_emitter_mm && File.exist?(rnn_event_emitter_mm)
         replacement_mm = <<~MM
         #import "RNNEventEmitter.h"
         #import "RNNUtils.h"
@@ -583,6 +583,9 @@ target 'ForestWatcher' do
         static NSString *const PreviewCompleted = @"RNN.PreviewCompleted";
         static NSString *const ScreenPopped = @"RNN.ScreenPopped";
         static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
+
+        static NSInteger appLaunchedListenerCount = 0;
+        static BOOL appLaunchedEventDeferred = NO;
         #endif
 
         @implementation RNNEventEmitter { }
@@ -713,12 +716,39 @@ target 'ForestWatcher' do
 
           [_eventEmitter send:eventName body:body];
         #else
+          if ([eventName isEqualToString:AppLaunched] && appLaunchedListenerCount == 0) {
+            appLaunchedEventDeferred = YES;
+            return;
+          }
+
           [self sendEventWithName:eventName body:body];
         #endif
         }
 
         #ifndef RCT_NEW_ARCH_ENABLED
-        RCT_EXPORT_MODULE();
+        RCT_EXPORT_MODULE(RNNTurboEventEmitter);
+
+        - (void)addListener:(NSString *)eventName {
+          [super addListener:eventName];
+
+          if ([eventName isEqualToString:AppLaunched]) {
+            appLaunchedListenerCount += 1;
+            if (appLaunchedEventDeferred) {
+              appLaunchedEventDeferred = NO;
+              [self sendEventWithName:AppLaunched body:nil];
+            }
+          }
+        }
+
+        - (void)removeListeners:(double)count {
+          [super removeListeners:count];
+          if (appLaunchedListenerCount > 0) {
+            appLaunchedListenerCount -= (NSInteger)count;
+            if (appLaunchedListenerCount < 0) {
+              appLaunchedListenerCount = 0;
+            }
+          }
+        }
 
         - (NSArray<NSString *> *)supportedEvents {
           return @[
@@ -735,32 +765,6 @@ target 'ForestWatcher' do
         File.chmod(0644, rnn_event_emitter_mm)
         File.write(rnn_event_emitter_mm, replacement_mm)
         Pod::UI.puts "Patched RNNEventEmitter.mm: added bridge/new-arch compatible event dispatch"
-      end
-
-      rnn_app_delegate_mm = "#{rnn_ios_dir}/RNNAppDelegate.mm"
-      if File.exist?(rnn_app_delegate_mm)
-        replacement_app_delegate = <<~MM
-        #import "RNNAppDelegate.h"
-        #import <ReactNativeNavigation/ReactNativeNavigation.h>
-
-        @implementation RNNAppDelegate
-
-        - (BOOL)application:(UIApplication *)application
-            didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-          BOOL didFinish = [super application:application didFinishLaunchingWithOptions:launchOptions];
-
-          if (self.bridge != nil) {
-            [ReactNativeNavigation bootstrapWithBridge:self.bridge];
-          }
-
-          return didFinish;
-        }
-
-        @end
-        MM
-        File.chmod(0644, rnn_app_delegate_mm)
-        File.write(rnn_app_delegate_mm, replacement_app_delegate)
-        Pod::UI.puts "Patched RNNAppDelegate.mm: replaced with RN 0.79-compatible bootstrap implementation"
       end
 
     # Mirror React-RuntimeApple search paths into ReactNativeNavigation to satisfy
@@ -824,6 +828,9 @@ target 'ForestWatcher' do
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        # Xcode 26 tightened module header checks and fails several RN/RNN pods
+        # with non-modular include diagnostics. Allow these includes for pod targets.
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
       end
     end
     installer.aggregate_targets.each do |aggregate_target|

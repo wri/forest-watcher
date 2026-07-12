@@ -28,6 +28,9 @@ import { logout } from 'redux-modules/user';
 import * as Sentry from '@sentry/react-native';
 
 type AppStore = ReturnType<typeof createStore>;
+const BRIDGE_NOT_READY_PATTERN = /Bridge not yet loaded/i;
+const NAVIGATION_STARTUP_RETRY_ATTEMPTS = 40;
+const NAVIGATION_STARTUP_RETRY_DELAY_MS = 250;
 
 // Disable ios warnings
 // console.disableYellowBox = true;
@@ -39,10 +42,12 @@ type AppStore = ReturnType<typeof createStore>;
 export default class App {
   private store: AppStore | null;
   private currentAppState: string;
+  private hasBootstrappedStore: boolean;
 
   constructor() {
     this.store = null;
     this.currentAppState = 'background';
+    this.hasBootstrappedStore = false;
     // onCredentialRevoked isn't reliably called, so we also check in `launchRoot` and `_handleAppStateChange` and log the
     // user out there if necessary
     if (appleAuth.isSupported) {
@@ -54,34 +59,44 @@ export default class App {
   async launchRoot() {
     setI18nConfig();
 
-    await Navigation.setDefaultOptions(Theme.navigator.styles as any);
+    // Prevent a known startup deadlock where RNN keeps the splash screen
+    // visible while waiting for first render on certain RN/RNN combinations.
+    await this.runNavigationStartupCommandWithRetry(() =>
+      Navigation.setDefaultOptions({
+        animations: {
+          setRoot: {
+            waitForRender: false
+          }
+        }
+      } as any)
+    );
+
+    await this.runNavigationStartupCommandWithRetry(() => Navigation.setDefaultOptions(Theme.navigator.styles as any));
 
     const state = this.store.getState();
     let screen = 'ForestWatcher.Home';
     if (state.user.loggedIn && state.app.synced) {
       screen = 'ForestWatcher.Dashboard';
     }
-    // If we're logged in with Apple Login
+
+    this.setupMapbox();
+    await this.runNavigationStartupCommandWithRetry(() => launchAppRoot(screen));
+    await this._handleAppStateChange('active');
+
+    // Don't block initial UI on Apple credential checks; verify after root is visible.
     if (state.user.loggedIn && state.user.socialNetwork === 'apple' && state.user.userId && appleAuth.isSupported) {
       try {
         // using try-catch for error when user does not sign in to icloud
         // Issue: https://github.com/invertase/react-native-apple-authentication/issues/89
-
-        // Check credential state
         const credentialState = await appleAuth.getCredentialStateForUser(state.user.userId);
-        // If we're not authorized, then log the user out!
         if (credentialState !== appleAuth.State.AUTHORIZED) {
           this.store.dispatch(logout('apple'));
-          screen = 'ForestWatcher.Home';
+          await this.runNavigationStartupCommandWithRetry(() => launchAppRoot('ForestWatcher.Home'));
         }
       } catch (error) {
         console.warn('WRI', 'Error getting credential state', error);
       }
     }
-
-    this.setupMapbox();
-    await launchAppRoot(screen);
-    await this._handleAppStateChange('active');
 
     try {
       const hasMigratedFiles = state.app.hasMigratedV1Files;
@@ -94,6 +109,25 @@ export default class App {
     } catch (err) {
       console.warn('WRI', 'Could not migrate files', err);
       Sentry.captureException(err);
+    }
+  }
+
+  async runNavigationStartupCommandWithRetry(command: () => Promise<any> | any) {
+    for (let attempt = 1; attempt <= NAVIGATION_STARTUP_RETRY_ATTEMPTS; attempt += 1) {
+      try {
+        await command();
+        return;
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        const bridgeNotReady = BRIDGE_NOT_READY_PATTERN.test(message);
+        const isLastAttempt = attempt === NAVIGATION_STARTUP_RETRY_ATTEMPTS;
+
+        if (!bridgeNotReady || isLastAttempt) {
+          throw err;
+        }
+
+        await new Promise(resolve => setTimeout(resolve, NAVIGATION_STARTUP_RETRY_DELAY_MS));
+      }
     }
   }
 
@@ -213,13 +247,42 @@ export default class App {
     }
 
     const store = createStore(async () => {
+      await this.bootstrapStoreAndLaunch(store);
+    });
+
+    // Some older persistence paths can stall before persistCallback runs.
+    // Continue startup after a short grace period so splash cannot hang forever.
+    setTimeout(() => {
+      this.bootstrapStoreAndLaunch(store);
+    }, 4000);
+  }
+
+  bootstrapStoreAndLaunch = async (store: AppStore) => {
+    if (this.hasBootstrappedStore) {
+      return;
+    }
+
+    try {
+      this.hasBootstrappedStore = true;
       this.store = store;
       registerScreens(store, Provider);
+
+      // Render a root as early as possible so startup side effects cannot
+      // leave the native splash controller on screen.
+      await this.launchRoot();
+
       initialiseLocationFramework();
       createStore.runSagas();
-      await this.launchRoot();
-    });
-  }
+    } catch (err) {
+      try {
+        await this.runNavigationStartupCommandWithRetry(() => launchAppRoot('ForestWatcher.Login'));
+      } catch (fallbackErr) {
+        console.warn('WRI', 'fallback root launch failed', fallbackErr);
+      }
+
+      throw err;
+    }
+  };
 
   setupMapbox = () => {
     MapboxGL.setAccessToken(Config.MAPBOX_TOKEN);

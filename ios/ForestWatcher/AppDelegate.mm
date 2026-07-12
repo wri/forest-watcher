@@ -21,6 +21,10 @@
 
 #import "ForestWatcher-Swift.h"
 
+@interface AppDelegate ()
+@property(nonatomic, strong) RCTBridge *fwBridge;
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -41,8 +45,10 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
 
-  self.bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-  [ReactNativeNavigation bootstrapWithBridge:self.bridge];
+  self.fwBridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
+  [ReactNativeNavigation bootstrapWithBridge:self.fwBridge];
+  [self.window makeKeyAndVisible];
 
   return YES;
 }
