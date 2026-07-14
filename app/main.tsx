@@ -28,7 +28,6 @@ import { logout } from 'redux-modules/user';
 import * as Sentry from '@sentry/react-native';
 
 type AppStore = ReturnType<typeof createStore>;
-const BRIDGE_NOT_READY_PATTERN = /Bridge not yet loaded/i;
 const NAVIGATION_STARTUP_RETRY_ATTEMPTS = 40;
 const NAVIGATION_STARTUP_RETRY_DELAY_MS = 250;
 
@@ -43,11 +42,17 @@ export default class App {
   private store: AppStore | null;
   private currentAppState: string;
   private hasBootstrappedStore: boolean;
+  private hasRegisteredScreens: boolean;
+  private navigationReady: boolean;
+  private pendingLaunchRoot: boolean;
 
   constructor() {
     this.store = null;
     this.currentAppState = 'background';
     this.hasBootstrappedStore = false;
+    this.hasRegisteredScreens = false;
+    this.navigationReady = false;
+    this.pendingLaunchRoot = false;
     // onCredentialRevoked isn't reliably called, so we also check in `launchRoot` and `_handleAppStateChange` and log the
     // user out there if necessary
     if (appleAuth.isSupported) {
@@ -55,6 +60,19 @@ export default class App {
     }
     AppState.addEventListener('change', this._handleAppStateChange);
   }
+
+  onNavigationReady = () => {
+    this.navigationReady = true;
+
+    if (!this.pendingLaunchRoot || !this.store) {
+      return;
+    }
+
+    this.pendingLaunchRoot = false;
+    this.launchRoot().catch(err => {
+      console.warn('WRI', 'launchRoot after navigation-ready failed', err);
+    });
+  };
 
   async launchRoot() {
     setI18nConfig();
@@ -75,7 +93,9 @@ export default class App {
 
     const state = this.store.getState();
     let screen = 'ForestWatcher.Home';
-    if (state.user.loggedIn && state.app.synced) {
+    if (!state.user.loggedIn) {
+      screen = 'ForestWatcher.Login';
+    } else if (state.app.synced) {
       screen = 'ForestWatcher.Dashboard';
     }
 
@@ -118,11 +138,9 @@ export default class App {
         await command();
         return;
       } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        const bridgeNotReady = BRIDGE_NOT_READY_PATTERN.test(message);
         const isLastAttempt = attempt === NAVIGATION_STARTUP_RETRY_ATTEMPTS;
 
-        if (!bridgeNotReady || isLastAttempt) {
+        if (isLastAttempt) {
           throw err;
         }
 
@@ -238,7 +256,11 @@ export default class App {
   async setupApp() {
     // If we've already setup the app then store will be non-null, and we just need to launch a UI root
     if (this.store) {
-      this.launchRoot();
+      if (this.navigationReady) {
+        this.launchRoot();
+      } else {
+        this.pendingLaunchRoot = true;
+      }
       return;
     }
 
@@ -249,6 +271,21 @@ export default class App {
     const store = createStore(async () => {
       await this.bootstrapStoreAndLaunch(store);
     });
+
+    // Register screens early; actual root launch is deferred until RNN signals
+    // app-launched to avoid Bridge-not-loaded startup errors.
+    if (!this.hasRegisteredScreens) {
+      this.hasRegisteredScreens = true;
+      this.store = store;
+      registerScreens(store, Provider);
+      if (this.navigationReady) {
+        this.launchRoot().catch(err => {
+          console.warn('WRI', 'initial root launch failed', err);
+        });
+      } else {
+        this.pendingLaunchRoot = true;
+      }
+    }
 
     // Some older persistence paths can stall before persistCallback runs.
     // Continue startup after a short grace period so splash cannot hang forever.
@@ -265,19 +302,26 @@ export default class App {
     try {
       this.hasBootstrappedStore = true;
       this.store = store;
-      registerScreens(store, Provider);
 
       // Render a root as early as possible so startup side effects cannot
       // leave the native splash controller on screen.
-      await this.launchRoot();
+      if (this.navigationReady) {
+        await this.launchRoot();
+      } else {
+        this.pendingLaunchRoot = true;
+      }
 
       initialiseLocationFramework();
       createStore.runSagas();
     } catch (err) {
-      try {
-        await this.runNavigationStartupCommandWithRetry(() => launchAppRoot('ForestWatcher.Login'));
-      } catch (fallbackErr) {
-        console.warn('WRI', 'fallback root launch failed', fallbackErr);
+      if (this.navigationReady) {
+        try {
+          await this.runNavigationStartupCommandWithRetry(() => launchAppRoot('ForestWatcher.Login'));
+        } catch (fallbackErr) {
+          console.warn('WRI', 'fallback root launch failed', fallbackErr);
+        }
+      } else {
+        this.pendingLaunchRoot = true;
       }
 
       throw err;

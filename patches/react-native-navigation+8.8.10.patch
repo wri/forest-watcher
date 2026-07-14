@@ -1,0 +1,43 @@
+diff --git a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
+index c98b443..0ff3035 100644
+--- a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
++++ b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
+@@ -1,12 +1,15 @@
+-import { TurboModule, TurboModuleRegistry, NativeModule } from 'react-native';
++import { TurboModule, TurboModuleRegistry, NativeModule, NativeModules } from 'react-native';
+ 
+ export interface Spec extends TurboModule {
+   addListener: (eventType: string) => void;
+   removeListeners: (count: number) => void;
+ }
+ 
+ let eventEmitter: Spec | null;
+-eventEmitter = TurboModuleRegistry.get<Spec>('RNNTurboEventEmitter');
++eventEmitter =
++  TurboModuleRegistry.get<Spec>('RNNTurboEventEmitter') ||
++  (NativeModules as any).RNNTurboEventEmitter ||
++  (NativeModules as any).RNNEventEmitter;
+ 
+ 
+ export default eventEmitter as NativeModule;
+diff --git a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
+index c5e0fd4..f9f8e3b 100644
+--- a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
++++ b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
+@@ -1,4 +1,4 @@
+-import { TurboModule, TurboModuleRegistry } from 'react-native';
++import { TurboModule, TurboModuleRegistry, NativeModules } from 'react-native';
+ import { UnsafeObject, Double } from 'react-native/Libraries/Types/CodegenTypes';
+ 
+ export interface Spec extends TurboModule {
+@@ -44,6 +44,9 @@ export interface Spec extends TurboModule {
+   getLaunchArgs(commandId: string): Promise<Array<string>>;
+ }
+ 
+-const commands = TurboModuleRegistry.get<Spec>('RNNTurboModule')!;
++const commands =
++  TurboModuleRegistry.get<Spec>('RNNTurboModule') ||
++  (NativeModules as any).RNNTurboModule ||
++  (NativeModules as any).RNNBridgeModule;
+ 
+ export default commands;
