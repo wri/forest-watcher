@@ -23,8 +23,8 @@ class MainActivity : NavigationActivity(), ProviderInstaller.ProviderInstallList
         ProviderInstaller.installIfNeededAsync(this, this)
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        intent?.let { rewriteSendIntentAsView(it) }
+    override fun onNewIntent(intent: Intent) {
+        rewriteSendIntentAsView(intent)
         super.onNewIntent(intent)
     }
 
