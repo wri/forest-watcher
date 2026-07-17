@@ -149,7 +149,7 @@
     "jest-environment-node": "^29.7.0",
     "metro-react-native-babel-preset": "^0.77.0",
     "node-fetch": "2.3.0",
-    "patch-package": "6.5.0",
+    "patch-package": "^8.0.1",
     "postinstall-prepare": "1.0.1",
     "prettier": "^2.4.1",
     "react-test-renderer": "19.0.0",

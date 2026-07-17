@@ -573,7 +573,7 @@ diff --git a/node_modules/react-native-navigation/lib/module/adapters/NativeRNNT
 index 74b264e..4f1d4d8 100644
 --- a/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js
 +++ b/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js
-@@ -1,6 +1,32 @@
+@@ -1,6 +1,31 @@
  "use strict";
  
 -import { TurboModuleRegistry } from 'react-native';
@@ -590,7 +590,6 @@ index 74b264e..4f1d4d8 100644
 +    console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
 +    _commands =
 +      TurboModuleRegistry.get('RNNTurboModule') ||
-+      TurboModuleRegistry.get('RNNBridgeModule') ||
 +      NativeModules.RNNTurboModule ||
 +      NativeModules.RNNBridgeModule ||
 +      NativeModules.RNNCommandsModule ||
@@ -642,7 +641,7 @@ index 1942edc..9887f2f 100644
  import { UnsafeObject, Double } from 'react-native/Libraries/Types/CodegenTypes';
  
  export interface Spec extends TurboModule {
-@@ -44,6 +44,36 @@ export interface Spec extends TurboModule {
+@@ -44,6 +44,35 @@ export interface Spec extends TurboModule {
    getLaunchArgs(commandId: string): Promise<Array<string>>;
  }
  
@@ -656,7 +655,6 @@ index 1942edc..9887f2f 100644
 +    console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
 +    _commands =
 +      TurboModuleRegistry.get<Spec>('RNNTurboModule') ||
-+      TurboModuleRegistry.get<Spec>('RNNBridgeModule' as any) ||
 +      (NativeModules as any).RNNTurboModule ||
 +      (NativeModules as any).RNNBridgeModule ||
 +      (NativeModules as any).RNNCommandsModule ||
