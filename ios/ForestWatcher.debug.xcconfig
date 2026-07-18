@@ -1,4 +1,2 @@
 #include? "Pods/Target Support Files/Pods-ForestWatcher/Pods-ForestWatcher.debug.xcconfig"
 #include? "Config.xcconfig"
-// Legacy Mapbox 5.x doesn't ship arm64 simulator slices; force x86_64 for simulator builds
-EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64

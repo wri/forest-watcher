@@ -75,11 +75,11 @@ target 'ForestWatcher' do
   )
 
   pre_install do |installer|
-    $RNMBGL.pre_install(installer)
+    $RNMapboxMaps.pre_install(installer)
   end
 
   post_install do |installer|
-    $RNMBGL.post_install(installer)
+    $RNMapboxMaps.post_install(installer)
     
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
@@ -134,14 +134,6 @@ target 'ForestWatcher' do
     #   end
     # end   
     
-    # Strip bitcode from Mapbox frameworks because Xcode 16.0.1 is not able to compile them
-    installer.pods_project.targets.each do |target|
-      if target.name == 'Mapbox-iOS-SDK'
-        `xcrun -sdk iphoneos bitcode_strip -r Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox -o Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox`
-      end
-
-    end
-
     # Xcode 26 Apple Clang currently fails on fmt's consteval usage.
     # Patch fmt/base.h to disable consteval for Apple Clang toolchains.
     fmt_base_h = "#{installer.sandbox.root}/fmt/include/fmt/base.h"
@@ -158,10 +150,11 @@ target 'ForestWatcher' do
 
     # Xcode 26 marks netinet6/in6.h as a private module header.
     # The include is redundant because netinet/in.h already provides IPv6 types.
-    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.m").select do |f|
+    private_ipv6_header = /^\s*#\s*(?:import|include)\s*<netinet6\/in6\.h>\s*$/
+    files_to_patch = Dir.glob("#{installer.sandbox.root}/**/*.{h,m,mm,c,cc,cpp}").select do |f|
       has_import = false
       File.foreach(f) do |line|
-        if line.include?("#import <netinet6/in6.h>")
+        if line.match?(private_ipv6_header)
           has_import = true
           break
         end
@@ -172,7 +165,7 @@ target 'ForestWatcher' do
     if File.exist?(reachability_nm)
       has_import = false
       File.foreach(reachability_nm) do |line|
-        if line.include?("#import <netinet6/in6.h>")
+        if line.match?(private_ipv6_header)
           has_import = true
           break
         end
@@ -181,24 +174,29 @@ target 'ForestWatcher' do
     end
     files_to_patch.each do |f|
       content = File.read(f)
+      next unless content.match?(private_ipv6_header)
       File.chmod(0644, f)
-      File.write(f, content.sub("#import <netinet6/in6.h>\n", ""))
-      Pod::UI.puts "Patched #{File.basename(f)}: removed private <netinet6/in6.h> import"
+      File.write(f, content.gsub(private_ipv6_header, "").gsub(/\n{3,}/, "\n\n"))
+      Pod::UI.puts "Patched #{File.basename(f)}: removed private <netinet6/in6.h> include"
     end
 
-    # Xcode 26 no longer maps dashes to underscores in framework module lookups.
-    # react-native-navigation uses <React-RuntimeApple/...> but framework is React_RuntimeApple.
-    rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
-    Dir.glob("{#{rnn_ios_dir},#{File.expand_path('../node_modules/react-native-navigation/ios', __dir__)}}/**/*.{h,m,mm}").each do |f|
-      content = File.read(f)
-      if content.include?("React-RuntimeApple")
-        File.chmod(0644, f)
-        File.write(f, content.gsub("React-RuntimeApple", "React_RuntimeApple"))
-        Pod::UI.puts "Patched #{File.basename(f)}: React-RuntimeApple -> React_RuntimeApple"
+    # NOTE: Keep react-native-navigation source rewrites disabled by default.
+    # They overlap with patch-package patches and can make `yarn install`
+    # fail later because patch-package no longer finds clean source files.
+    if ENV['FW_ENABLE_PODFILE_RNN_SOURCE_PATCHES'] == '1'
+      # Xcode 26 no longer maps dashes to underscores in framework module lookups.
+      # react-native-navigation uses <React-RuntimeApple/...> but framework is React_RuntimeApple.
+      rnn_ios_dir = File.expand_path("../node_modules/react-native-navigation/lib/ios", __dir__)
+      Dir.glob("{#{rnn_ios_dir},#{File.expand_path('../node_modules/react-native-navigation/ios', __dir__)}}/**/*.{h,m,mm}").each do |f|
+        content = File.read(f)
+        if content.include?("React-RuntimeApple")
+          File.chmod(0644, f)
+          File.write(f, content.gsub("React-RuntimeApple", "React_RuntimeApple"))
+          Pod::UI.puts "Patched #{File.basename(f)}: React-RuntimeApple -> React_RuntimeApple"
+        end
       end
-    end
 
-    rnn_ios_root = File.expand_path("../node_modules/react-native-navigation/ios", __dir__)
+      rnn_ios_root = File.expand_path("../node_modules/react-native-navigation/ios", __dir__)
 
     # StackControllerDelegate old-arch path references _eventEmitter.bridge, which is not
     # exposed in this RN/RNN combination. Use ReactNativeNavigation bridge accessor.
@@ -644,6 +642,8 @@ target 'ForestWatcher' do
         Pod::UI.puts "Patched RNNEventEmitter.mm: added bridge/new-arch compatible event dispatch"
       end
 
+    end
+
     # Mirror React-RuntimeApple search paths into ReactNativeNavigation to satisfy
     # transitive header includes under Xcode 26.
     framework_header_entries = installer.pods_project.targets.filter_map do |target|
@@ -697,14 +697,14 @@ target 'ForestWatcher' do
       Pod::UI.puts "Patched ReactNativeNavigation.#{config_name.downcase}.xcconfig: mirrored React-RuntimeApple search paths"
     end
 
-    # Legacy Mapbox 5.x dynamic framework is device-only for arm64-simulator.
-    # Force simulator builds to x86_64 at the project level to avoid arm64 linkage.
+    # Keep simulator arch settings open so modern arm64-only runtimes (iOS 26.x)
+    # remain eligible when selected by run-ios.
     installer.pods_project.build_configurations.each do |config|
-      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      config.build_settings.delete('EXCLUDED_ARCHS[sdk=iphonesimulator*]')
     end
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
-        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+        config.build_settings.delete('EXCLUDED_ARCHS[sdk=iphonesimulator*]')
         # Xcode 26 tightened module header checks and fails several RN/RNN pods
         # with non-modular include diagnostics. Allow these includes for pod targets.
         config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
@@ -713,7 +713,7 @@ target 'ForestWatcher' do
     installer.aggregate_targets.each do |aggregate_target|
       aggregate_target.user_project.native_targets.each do |target|
         target.build_configurations.each do |config|
-          config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+          config.build_settings.delete('EXCLUDED_ARCHS[sdk=iphonesimulator*]')
         end
       end
       aggregate_target.user_project.save

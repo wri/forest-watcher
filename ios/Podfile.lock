@@ -118,9 +118,14 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - Mapbox-iOS-SDK (5.9.0):
-    - MapboxMobileEvents (= 0.10.2)
-  - MapboxMobileEvents (0.10.2)
+  - MapboxCommon (24.16.6):
+    - Turf (= 4.0.0)
+  - MapboxCoreMaps (11.16.6):
+    - MapboxCommon (= 24.16.6)
+  - MapboxMaps (11.16.6):
+    - MapboxCommon (= 24.16.6)
+    - MapboxCoreMaps (= 11.16.6)
+    - Turf (= 4.0.0)
   - nanopb (3.30910.0):
     - nanopb/decode (= 3.30910.0)
     - nanopb/encode (= 3.30910.0)
@@ -1505,20 +1510,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-mapbox-gl (8.6.0-beta.0):
-    - Mapbox-iOS-SDK (~> 5.9.0)
-    - React
-    - React-Core
-    - react-native-mapbox-gl/DynamicLibrary (= 8.6.0-beta.0)
-    - react-native-mapbox-gl/StaticLibraryFixer (= 8.6.0-beta.0)
-  - react-native-mapbox-gl/DynamicLibrary (8.6.0-beta.0):
-    - Mapbox-iOS-SDK (~> 5.9.0)
-    - React
-    - React-Core
-  - react-native-mapbox-gl/StaticLibraryFixer (8.6.0-beta.0):
-    - Mapbox-iOS-SDK (~> 5.9.0)
-    - React
-    - React-Core
   - react-native-mbtiles (0.0.1):
     - GCDWebServer (~> 3.0)
     - GzipSwift (= 5.1.1)
@@ -1928,6 +1919,17 @@ PODS:
     - React
   - RNLocalize (1.3.3):
     - React
+  - rnmapbox-maps (10.2.10):
+    - MapboxMaps (~> 11.16.2)
+    - React
+    - React-Core
+    - rnmapbox-maps/DynamicLibrary (= 10.2.10)
+    - Turf
+  - rnmapbox-maps/DynamicLibrary (10.2.10):
+    - MapboxMaps (~> 11.16.2)
+    - React
+    - React-Core
+    - Turf
   - RNPermissions (4.1.5):
     - React-Core
   - RNSentry (6.10.0):
@@ -1972,6 +1974,7 @@ PODS:
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
   - SSZipArchive (2.5.5)
+  - Turf (4.0.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2026,7 +2029,6 @@ DEPENDENCIES:
   - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
-  - "react-native-mapbox-gl (from `../node_modules/@react-native-mapbox-gl/maps`)"
   - react-native-mbtiles (from `../node_modules/react-native-mbtiles`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area (from `../node_modules/react-native-safe-area`)
@@ -2076,6 +2078,7 @@ DEPENDENCIES:
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - RNFS (from `../node_modules/react-native-fs`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - "rnmapbox-maps (from `../node_modules/@rnmapbox/maps`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNShare (from `../node_modules/react-native-share`)
@@ -2103,14 +2106,16 @@ SPEC REPOS:
     - GzipSwift
     - HMSegmentedControl
     - lottie-ios
-    - Mapbox-iOS-SDK
-    - MapboxMobileEvents
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
     - nanopb
     - PromisesObjC
     - Sentry
     - SocketRocket
     - SQLite.swift
     - SSZipArchive
+    - Turf
 
 EXTERNAL SOURCES:
   "@mauron85_react-native-background-geolocation":
@@ -2210,8 +2215,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-get-random-values"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
-  react-native-mapbox-gl:
-    :path: "../node_modules/@react-native-mapbox-gl/maps"
   react-native-mbtiles:
     :path: "../node_modules/react-native-mbtiles"
   react-native-netinfo:
@@ -2310,6 +2313,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  rnmapbox-maps:
+    :path: "../node_modules/@rnmapbox/maps"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNSentry:
@@ -2351,8 +2356,9 @@ SPEC CHECKSUMS:
   HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
   lottie-react-native: 8a5f8ebb892591f8f753d89d41c7753101308147
-  Mapbox-iOS-SDK: a5915700ec84bc1a7f8b3e746d474789e35b7956
-  MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
+  MapboxCommon: 10cbf74edb23c9abcfe2424899d804f288a47334
+  MapboxCoreMaps: f19680d20681797067268284b2292349de861730
+  MapboxMaps: 04c7bf46d66265ad0f4b98484a251777a926c423
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
@@ -2394,7 +2400,6 @@ SPEC CHECKSUMS:
   react-native-fbsdk-next: cb197ee2c9a258b81a2f37631a3c707555b17d93
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-image-picker: 74d08745b55340b4ff87e9bd0e079f2e23a44599
-  react-native-mapbox-gl: dd4934224b43e8e8172e4ea10b911783941a4e83
   react-native-mbtiles: 16436b4055d54d3c944018c259ee5091c3feb5b8
   react-native-netinfo: 387c95161b1971d0b2acd61f5ecf394c8fd3fb95
   react-native-safe-area: ef18e77a00dc8ff473724853508264599cf215b8
@@ -2444,6 +2449,7 @@ SPEC CHECKSUMS:
   RNFBApp: 72b96921c64702d51eca9f3ed579c1777efd0d7e
   RNFS: 4f02bbb5c95d71bade3d36a1b6514305ccefc4c9
   RNLocalize: 6fedc0e3591b20cf19c5f3d0ad3e199f28234b17
+  rnmapbox-maps: 67efa02ac3939b9d45e10ad67e3b972f24f3d253
   RNPermissions: 1e120efb537b9a414e110116bef1616c2dee792e
   RNSentry: bc37d53501dac574f0a3bf93db7a4b50a5395e58
   RNShare: 01c717e457489779d16293d2afef36995aadd001
@@ -2453,8 +2459,9 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
+  Turf: c9eb11a65d96af58cac523460fd40fec5061b081
   Yoga: df4e6df930f6d93d6647c10c61d4d6fe5a694805
 
-PODFILE CHECKSUM: 09587edcc0f6a25f6f5f520b51efdfdb5ecb6aee
+PODFILE CHECKSUM: a4bf347fdf39924d26c3909a39b950699235e900
 
 COCOAPODS: 1.17.0

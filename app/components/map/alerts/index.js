@@ -7,7 +7,7 @@ import type { AlertFeatureProperties, Coordinates, MapboxFeaturePressEvent } fro
 import React, { Component } from 'react';
 
 import { View } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import AlertDatasetCategory from 'components/map/alerts/dataset-category';
 import type { AssignmentLocation } from 'types/assignments.types';
 

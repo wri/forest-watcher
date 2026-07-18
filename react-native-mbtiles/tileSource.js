@@ -1,7 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import { AppState, Platform } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import ReactNativeMBTiles from './nativeModule.js';
 import type { MBTileBasemapMetadata } from './types';

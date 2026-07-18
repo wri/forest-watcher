@@ -16,7 +16,7 @@ import {
 } from 'helpers/location';
 import { isValidLatLng } from 'helpers/validation/location';
 import throttle from 'lodash/throttle';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { feature, lineString, point } from '@turf/helpers';
 import { MAP_LAYER_INDEXES } from 'config/constants';
 

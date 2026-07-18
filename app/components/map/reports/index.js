@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { View, Platform } from 'react-native';
 import Theme from 'config/theme';
 import { mapboxStyles } from './styles';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import i18n from 'i18next';
 import moment from 'moment';
 import { type Feature, type Point, featureCollection, point } from '@turf/helpers';

@@ -47,7 +47,7 @@ import Theme from 'config/theme';
 import i18n from 'i18next';
 import styles, { mapboxStyles } from './styles';
 import { Navigation, NavigationButtonPressedEvent } from 'react-native-navigation';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { MBTilesSource } from 'react-native-mbtiles';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 
@@ -733,7 +733,7 @@ class MapComponent extends Component<Props, State> {
         onUpdate={location => this.updateHeading(location?.coords?.heading, true)}
         renderMode="normal"
       >
-        <MapboxGL.SymbolLayer id="userLocation" style={userLocationStyle} layerIndex={MAP_LAYER_INDEXES.userLocation} />
+        <MapboxGL.SymbolLayer id="userLocation" style={userLocationStyle} />
       </MapboxGL.UserLocation>
     );
   };

@@ -6,7 +6,7 @@ import i18n from 'i18next';
 import LottieView from 'lottie-react-native';
 import ActionButton from 'components/common/action-button';
 import styles from './styles';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 const rangerAnimation = require('assets/animations/ranger.json');
 const loadedAnimation = require('assets/animations/check.json');
@@ -110,7 +110,7 @@ class Sync extends Component<Props> {
         {/*
          * The Mapbox native Android SDK crashes if the following steps are performed:
          * (i) Install fresh version of app and log into an account with an area
-         * (ii) If running in dev mode, disable Live Reload / Fast Reload (see https://github.com/nitaliano/react-native-mapbox-gl/issues/1016#issuecomment-362048325)
+         * (ii) If running in dev mode, disable Live Reload / Fast Reload
          * (iii) Download the area offline (which uses Mapbox.OfflineManager)
          * (iv) Once finished, enable airplane mode, and open the area map. Crash!
          *

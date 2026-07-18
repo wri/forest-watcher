@@ -19,7 +19,7 @@ import {
 } from 'helpers/location';
 import { discardActiveRoute } from 'redux-modules/routes';
 import Config from 'react-native-config';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { trackRouteFlowEvent } from 'helpers/analytics';
 import { launchAppRoot } from 'screens/common';
 import { migrateFilesFromV1ToV2 } from './migrate';
