@@ -331,7 +331,10 @@ export default class App {
   setupMapbox = () => {
     MapboxGL.setAccessToken(Config.MAPBOX_TOKEN);
     if (Platform.OS === 'android') {
-      NativeModules.FWMapbox.installOfflineModeInterceptor(this.store.getState().app.offlineMode);
+      NativeModules.FWMapbox.installOfflineModeInterceptor(
+        this.store.getState().app.offlineMode,
+        Config.MAPBOX_TOKEN
+      );
     }
   };
 }
