@@ -583,17 +583,23 @@ index 74b264e..4f1d4d8 100644
 +function getCommands() {
 +  if (!_commands) {
 +    const allKeys = Object.keys(NativeModules);
-+    console.warn('[RNN-DEBUG] NativeModules total keys:', allKeys.length);
-+    console.warn('[RNN-DEBUG] NativeModules first 10:', JSON.stringify(allKeys.slice(0, 10)));
++    if (__DEV__) {
++      console.warn('[RNN-DEBUG] NativeModules total keys:', allKeys.length);
++      console.warn('[RNN-DEBUG] NativeModules first 10:', JSON.stringify(allKeys.slice(0, 10)));
++    }
 +    const rnnKeys = allKeys.filter(k => k.toLowerCase().includes('rnn') || k.toLowerCase().includes('navigation'));
-+    console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
++    if (__DEV__) {
++      console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
++    }
 +    _commands =
 +      TurboModuleRegistry.get('RNNTurboModule') ||
 +      NativeModules.RNNTurboModule ||
 +      NativeModules.RNNBridgeModule ||
 +      NativeModules.RNNCommandsModule ||
 +      (rnnKeys.length > 0 ? NativeModules[rnnKeys[0]] : null);
-+    console.warn('[RNN-DEBUG] resolved commands:', _commands ? 'found' : 'null');
++    if (__DEV__) {
++      console.warn('[RNN-DEBUG] resolved commands:', _commands ? 'found' : 'null');
++    }
 +  }
 +  return _commands;
 +}
