@@ -534,7 +534,6 @@ index a8941d3..266c461 100644
 @@ -1,4 +1,6 @@
  #import "StackControllerDelegate.h"
 +#import "ReactNativeNavigation.h"
-+#import "ReactNativeNavigation.h"
  #import "ScreenAnimationController.h"
  #import "ScreenReversedAnimationController.h"
  #import "UIViewController+LayoutProtocol.h"
