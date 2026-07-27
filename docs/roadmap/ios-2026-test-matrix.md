@@ -3,7 +3,7 @@
 **Ticket**: FW-30 (Phase D)  
 **Target**: Xcode 26 + iOS 26 / iPadOS 26 SDK  
 **Last Updated**: 2026-06-24  
-**Current Status**: BLOCKED AT SIMULATOR LINK STAGE (legacy `Mapbox.framework`)
+**Current Status**: SIMULATOR BUILD UNBLOCKED AFTER RNMAPBOX MIGRATION
 
 ---
 
@@ -13,8 +13,8 @@
 - [x] `pod install` runs successfully with current Podfile patches
 - [x] `xcodebuild` execution path validated (build attempts running on iOS 26.5 SDK)
 - [x] `react-native-navigation` compile stage passes with current FW-30 patch set
-- [ ] iOS build completes successfully (currently blocked at simulator link in `Mapbox.framework`)
-- [ ] `@react-native-mapbox-gl/maps` upgraded to `@rnmapbox/maps` (tracked, not completed)
+- [x] iOS build completes successfully on simulator (iPhone 17 Pro, iOS 26.5)
+- [x] Legacy React Native Mapbox package upgraded to `@rnmapbox/maps`
 
 ---
 
@@ -22,7 +22,7 @@
 
 | Configuration | Target | Architecture | Expected Result | Actual Result |
 |---|---|---|---|---|
-| Debug | iOS 26 Simulator (arm64) | arm64 | ✅ Build succeeds | ⛔ Compile passes; linker fails in legacy `Mapbox.framework` (`built for 'iOS'`) |
+| Debug | iOS 26 Simulator (arm64) | arm64 | ✅ Build succeeds | ✅ Build + launch verified on iPhone 17 Pro (iOS 26.5) after rnmapbox migration |
 | Debug | iOS 26 Device (generic) | arm64 | ✅ Build succeeds | ⬜ Not re-run after RNN/AppDelegate fixes; still pending once current linker path is settled |
 | Release | iOS 26 Device | arm64 | ✅ Archive succeeds | ⬜ Not attempted (blocked by unresolved Debug build gates) |
 | Release | TestFlight | arm64 | ✅ Upload succeeds | ⬜ Not attempted (blocked by build readiness) |
@@ -31,10 +31,10 @@
 
 ## Active Build Error Snapshot
 
-Current blocking error from `ios/buildlogs/fw30-sim-build.log` after the 2026-06-24 simulator build:
+Previous blocking error from `ios/buildlogs/fw30-sim-build.log` after the 2026-06-24 simulator build:
 - `ld: building for 'iOS-simulator', but linking in dylib .../Mapbox.framework/Mapbox built for 'iOS'`
 
-Interpretation: the current FW-30 patch set gets the app past the earlier ReactNativeNavigation compile failures, but the arm64 simulator build now stops at the legacy Mapbox dynamic framework link step.
+Interpretation (resolved): this was caused by the legacy Mapbox dynamic framework line used by the previous React Native Mapbox package. Migration to `@rnmapbox/maps` removed that linker blocker.
 
 ### Resolved in this cycle
 

@@ -1,6 +1,6 @@
 import Theme from 'config/theme';
 import { Platform, StyleSheet } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 const CoordinateTextDefault = {
   fontFamily: Theme.font,

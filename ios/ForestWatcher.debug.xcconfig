@@ -1,0 +1,2 @@
+#include? "Pods/Target Support Files/Pods-ForestWatcher/Pods-ForestWatcher.debug.xcconfig"
+#include? "Config.xcconfig"

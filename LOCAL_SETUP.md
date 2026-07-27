@@ -276,7 +276,7 @@ app/
 Key tech choices:
 - **Navigation:** `react-native-navigation` (Wix) — native navigation, not React Navigation
 - **State:** Redux + redux-saga + redux-offline
-- **Maps:** Mapbox GL Native (`@react-native-mapbox-gl/maps`)
+- **Maps:** Mapbox Maps SDK (`@rnmapbox/maps`)
 - **Database:** Realm 12.13.2
 - **Auth:** OAuth via `react-native-app-auth` (Google), `react-native-fbsdk-next` (Facebook), `@invertase/react-native-apple-authentication` (Apple)
 - **Env config:** `react-native-config` reads `.env` / `.env.android` / `.env.ios`

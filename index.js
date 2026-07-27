@@ -13,11 +13,57 @@ if (Platform.OS === 'android') {
 disableAnalytics(__DEV__);
 
 const app = new App();
+let hasSetupCompleted = false;
+let setupInFlight = false;
+let hasNavigationLaunchSignal = false;
+
+const startAppSetup = async () => {
+  if (hasSetupCompleted || setupInFlight) {
+    return;
+  }
+
+  setupInFlight = true;
+  try {
+    await app.setupApp();
+    hasSetupCompleted = true;
+  } catch (err) {
+    // Keep retries enabled for app-launched/time-based fallbacks.
+    console.warn('WRI', 'setupApp failed, will retry', err);
+  } finally {
+    setupInFlight = false;
+  }
+};
+
+const onNavigationReady = () => {
+  if (hasNavigationLaunchSignal) {
+    return;
+  }
+
+  hasNavigationLaunchSignal = true;
+  if (typeof app.onNavigationReady === 'function') {
+    app.onNavigationReady();
+  }
+  startAppSetup();
+};
 
 // We'll setup the app whenever RNN tells us the app has safely launched
 // See https://wix.github.io/react-native-navigation/#/docs/app-launch
-Navigation.events().registerAppLaunchedListener(() => {
-  app.setupApp();
-});
+try {
+  Navigation.events().registerAppLaunchedListener(() => {
+    onNavigationReady();
+  });
+} catch (err) {
+  // Keep startup alive even if events emitter wiring fails.
+  console.warn('WRI', 'registerAppLaunchedListener failed; using delayed startup fallback', err);
+}
+
+// Fallback for edge-cases where app launched events are swallowed.
+// Keep this intentionally late to avoid triggering Bridge-not-loaded redboxes.
+setTimeout(() => {
+  if (!hasNavigationLaunchSignal) {
+    console.warn('WRI', 'onAppLaunched signal not observed; using delayed fallback');
+    onNavigationReady();
+  }
+}, 8000);
 
 export default app;

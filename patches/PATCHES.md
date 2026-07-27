@@ -5,7 +5,6 @@ Description of patches created with the `patch-package` library.
 | Library Name (asc)                                | Version       | Date     | Patch Description |
 | ------------------------------------------------- | ------------- | -------- | ----------------- |
 | `@mauron85/react-native-background-geolocation`   | v0.6.3        | —        | Android: AndroidX migration, minSdkVersion alignment, modern permissions library |
-| `@react-native-mapbox-gl/maps`                    | v8.6.0-beta.0 | 22/05/26 | Android/JS: String refs migrated to `React.createRef()`; source refs normalized; fixed `ViewPropTypes` named import; patch regenerated without build artifacts during RN 0.79 migration. |
 | `lottie-react-native`                            | v6.7.2        | 22/05/26 | Android: RN 0.79 Kotlin nullability compatibility for text filters and color filters |
 | `react-native-app-auth`                           | v6.4.3        | —        | Android: OAuth redirect URI handling |
 | `react-native-audio-recorder-player`              | v3.6.12       | —        | Android: fixed paused-state detection (`startPlayer`), added `OnSeekCompleteListener` to resume playback after async `seekTo` on API 26+, and updated seek promise result message |

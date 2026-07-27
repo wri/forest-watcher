@@ -5,7 +5,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
 #import "AppAuth.h"
 #import <Firebase.h>
-#if __has_include("../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h")
+#if __has_include("../../node_modules/react-native-navigation/ios/ReactNativeNavigation.h")
+#import "../../node_modules/react-native-navigation/ios/ReactNativeNavigation.h"
+#elif __has_include("../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h")
 #import "../../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.h"
 #elif __has_include(<ReactNativeNavigation/ReactNativeNavigation.h>)
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
@@ -18,6 +20,10 @@
 #import <SafariServices/SafariServices.h>
 
 #import "ForestWatcher-Swift.h"
+
+@interface AppDelegate ()
+@property(nonatomic, strong) RCTBridge *fwBridge;
+@end
 
 @implementation AppDelegate
 
@@ -39,8 +45,10 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
 
-  self.bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-  [ReactNativeNavigation bootstrapWithBridge:self.bridge];
+  self.fwBridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
+  [ReactNativeNavigation bootstrapWithBridge:self.fwBridge];
+  [self.window makeKeyAndVisible];
 
   return YES;
 }

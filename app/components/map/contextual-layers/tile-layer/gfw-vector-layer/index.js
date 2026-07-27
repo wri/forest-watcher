@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import type { VectorMapLayer } from 'types/layers.types';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import _ from 'lodash';
 import { MAP_LAYER_INDEXES } from 'config/constants';

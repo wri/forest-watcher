@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "echo &quot;.env&quot; &gt; /tmp/envfile&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "if [ -f &quot;${SRCROOT}/../.env.ios&quot; ]; then&#10;  echo &quot;.env.ios&quot; &gt; /tmp/envfile&#10;else&#10;  echo &quot;.env&quot; &gt; /tmp/envfile&#10;fi&#10;export BUILD_DIR=&quot;${SRCROOT}/build&quot;&#10;mkdir -p &quot;${BUILD_DIR}&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildDotenvConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -102,7 +102,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "echo &quot;.env&quot; &gt; /tmp/envfile&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "if [ -f &quot;${SRCROOT}/../.env.ios&quot; ]; then&#10;  echo &quot;.env.ios&quot; &gt; /tmp/envfile&#10;else&#10;  echo &quot;.env&quot; &gt; /tmp/envfile&#10;fi&#10;export BUILD_DIR=&quot;${SRCROOT}/build&quot;&#10;mkdir -p &quot;${BUILD_DIR}&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildDotenvConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -165,7 +165,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "if [ -f &quot;${SRCROOT}/../.env.ios&quot; ]; then&#10;  echo &quot;.env.ios&quot; &gt; /tmp/envfile&#10;else&#10;  echo &quot;.env&quot; &gt; /tmp/envfile&#10;fi&#10;export BUILD_DIR=&quot;${SRCROOT}/build&quot;&#10;mkdir -p &quot;${BUILD_DIR}&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildDotenvConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

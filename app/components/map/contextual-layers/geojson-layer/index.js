@@ -2,7 +2,7 @@
 import type { Layer } from 'types/layers.types';
 
 import React, { Component } from 'react';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import { mapboxStyles } from './styles';
 import queryLayerFiles from 'helpers/layer-store/queryLayerFiles';

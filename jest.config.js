@@ -30,7 +30,7 @@ module.exports = {
     '^.+\\.jsx?$': ['babel-jest', { presets: ['module:@react-native/babel-preset'] }]
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|@react-native|@react-native-community|@react-native-firebase|@react-native-mapbox-gl|@tmcw/togeojson|@xmldom/xmldom|rn-fetch-blob|react-native-fs|react-native-zip-archive)/)'
+    'node_modules/(?!(react-native|@react-native|@react-native-community|@react-native-firebase|@rnmapbox|@tmcw/togeojson|@xmldom/xmldom|rn-fetch-blob|react-native-fs|react-native-zip-archive)/)'
   ],
   setupFiles: ['<rootDir>/jest.setup.js'],
   collectCoverageFrom: ['app/**/*.{ts,tsx}', '!app/**/*.d.ts', '!app/**/__tests__/**'],

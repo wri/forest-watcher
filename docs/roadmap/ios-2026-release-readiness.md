@@ -47,10 +47,10 @@
 - **State**: the generic device debug build was not re-run after the current RNN/AppDelegate fixes.
 - **Impact**: even though compile failures moved forward, device-side readiness remains unverified until `generic/platform=iOS` is rerun.
 
-### Blocker 3: Legacy Mapbox stack migration (known major scope)
-- **Current dependency**: `@react-native-mapbox-gl/maps 8.6.0-beta.0` / old Mapbox iOS SDK line
-- **Impact**: still a known high-risk path for long-term iOS 26 readiness and simulator/device parity.
-- **Follow-up**: dedicated migration to `@rnmapbox/maps` remains required but is outside this immediate compile blocker.
+### Blocker 3: Map stack follow-up after migration
+- **Current dependency**: `@rnmapbox/maps 10.2.10`
+- **Impact**: simulator linker blocker from legacy `Mapbox.framework` is resolved; old-architecture deprecation remains a future maintenance risk.
+- **Follow-up**: plan New Architecture migration before adopting rnmapbox 10.3+.
 
 ### Blocker 4: App Store and signing pipeline actions
 - Provisioning/TestFlight steps remain pending once build blocker is resolved.

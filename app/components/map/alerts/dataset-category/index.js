@@ -5,7 +5,7 @@ import type { AlertFeatureProperties, Coordinates, MapboxFeaturePressEvent } fro
 import React, { PureComponent } from 'react';
 
 import { mapboxStyles } from './styles';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { type FeatureCollection, type Point, featureCollection, point } from '@turf/helpers';
 import i18n from 'i18next';
 import _ from 'lodash';

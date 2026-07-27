@@ -6,7 +6,7 @@ import BackgroundGeolocation from '@mauron85/react-native-background-geolocation
 
 import i18n from 'i18next';
 import Theme from 'config/theme';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import type { Layer, ContextualLayerRenderSpec } from 'types/layers.types';
 
@@ -34,11 +34,11 @@ export const MAPS = {
 export const MAP_LAYER_INDEXES = {
   basemap: 1,
   contextualLayer: 5,
-  areaOutline: 100,
-  routes: 105,
-  alerts: 150,
-  reports: 180,
-  userLocation: 200
+  areaOutline: 20,
+  routes: 25,
+  alerts: 30,
+  reports: 35,
+  userLocation: 40
 };
 
 export type IconSize = {

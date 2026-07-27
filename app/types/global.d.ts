@@ -3,7 +3,7 @@ declare module 'react-native-config' {
   export default Config;
 }
 
-declare module '@react-native-mapbox-gl/maps' {
+declare module '@rnmapbox/maps' {
   const MapboxGL: any;
   export default MapboxGL;
 }

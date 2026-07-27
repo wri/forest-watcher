@@ -2,7 +2,7 @@
 import type { ContextualLayerRenderSpec, Layer, LayersCacheStatus } from 'types/layers.types';
 
 import React, { Component } from 'react';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import { GFW_CONTEXTUAL_LAYERS_METADATA, MAP_LAYER_INDEXES } from 'config/constants';
 
