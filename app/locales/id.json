@@ -755,7 +755,7 @@
         "subTitle": "Untuk melihat lokasi Anda di peta",
         "title": "Aktifkan Izin Lokasi",
         "bullet1": "Tetap atur lokasi persis ke \"nyala\" untuk memastikan posisi Anda tetap akurat. Atur akses ke \"izinkan saat menggunakan aplikasi\".",
-        "bullet2": "Data lokasi latar belakang dikumpulkan untuk memungkinkan pelacakan peta dan rute, bahkan saat aplikasi ditutup atau tidak digunakan.",
+        "bullet2": "Data lokasi latar belakang dikumpulkan untuk memungkinkan pelacakan peta dan rute, bahkan saat aplikasi ditutup atau tidak digunakan, sehingga rute patroli Anda sepenuhnya tercatat saat berada di lapangan.",
         "bullet3": "Jika Anda ingin mengubah keputusan, preferensi ini dapat diubah pada pengaturan aplikasi Anda. Menolak perizinan ini akan membatasi pengalaman aplikasi Anda.",
         "bullet4_10": "Untuk mengaktifkan lokasi latar belakang, pilih \"izinkan sepanjang waktu\"",
         "bullet4_11": "Untuk memungkinkan lokasi latar belakang, pilih pengaturan perizinan aplikasi dan untuk perizinan lokasi, pilih \"izinkan sepanjang waktu\""

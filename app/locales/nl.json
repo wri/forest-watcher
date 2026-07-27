@@ -755,7 +755,7 @@
         "subTitle": "Om U lokatie te zien op de kaart",
         "title": "Schakel lokatie toestemming aan",
         "bullet1": "Houd exacte locatie ingesteld op 'aan' om ervoor te zorgen dat uw positie nauwkeurig blijft. Stel toegang in op 'toestaan tijdens gebruik van de app'.",
-        "bullet2": "Achtergrondgegevens worden verzameld om kaart- en routetracking mogelijk te maken, zelfs wanneer de app gesloten is of niet gebruikt wordt.",
+        "bullet2": "Achtergrondgegevens worden verzameld om kaart- en routetracking mogelijk te maken, zelfs wanneer de app gesloten is of niet gebruikt wordt, zodat uw patrouilleroute volledig wordt vastgelegd terwijl u in het veld bent.",
         "bullet3": "Mocht u van gedachten veranderen, dan kunt u deze voorkeur wijzigen bij app-instellingen. Deze toestemming uitschakelen zal uw app-ervaring beperken.",
         "bullet4_10": "Selecteer 'altijd toestaan' om achtergrondlocatie in te schakelen",
         "bullet4_11": "Om achtergrondlocatie in te schakelen: ga naar de toestemmingsinstellingen van de app en selecteer 'altijd toestaan' bij locatietoestemming"
