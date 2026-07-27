@@ -2,7 +2,7 @@ diff --git a/node_modules/react-native-navigation/ios/AnimatedReactView.mm b/nod
 index 05ecdce..339194f 100644
 --- a/node_modules/react-native-navigation/ios/AnimatedReactView.mm
 +++ b/node_modules/react-native-navigation/ios/AnimatedReactView.mm
-@@ -31,9 +31,11 @@ - (instancetype)initElement:(UIView *)element
+@@ -31,9 +31,11 @@
      _toElement.hidden = YES;
      _fromColor = element.backgroundColor;
      _zIndex = toElement.reactZIndex;
@@ -36,7 +36,7 @@ diff --git a/node_modules/react-native-navigation/ios/RNNAppDelegate.mm b/node_m
 index da6914a..78fe6ca 100644
 --- a/node_modules/react-native-navigation/ios/RNNAppDelegate.mm
 +++ b/node_modules/react-native-navigation/ios/RNNAppDelegate.mm
-@@ -90,7 +90,11 @@ - (BOOL)application:(UIApplication *)application
+@@ -90,7 +90,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      [ReactNativeNavigation bootstrapWithHost:self.rootViewFactory.reactHost];
  #else
      self.reactNativeFactory = [[RCTReactNativeFactory alloc] initWithDelegate:self.reactNativeDelegate];
@@ -48,7 +48,7 @@ index da6914a..78fe6ca 100644
      
      RCTAppSetupPrepareApp(application, YES);
      RCTEnableTurboModuleInterop(YES);
-@@ -98,7 +102,11 @@ - (BOOL)application:(UIApplication *)application
+@@ -98,7 +102,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
      self.reactNativeFactory.rootViewFactory.reactHost = [self.reactNativeFactory.rootViewFactory createReactHost:launchOptions];
      
@@ -77,7 +77,7 @@ index 2008014..e2163da 100644
  - (void)setHost:(RCTHost *)host;
  @property(nonatomic, strong, readonly) RCTHost *host;
 diff --git a/node_modules/react-native-navigation/ios/RNNEventEmitter.mm b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
-index fe03a35..06084c7 100644
+index fe03a35..eccd3c6 100644
 --- a/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
 +++ b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
 @@ -1,7 +1,28 @@
@@ -111,7 +111,7 @@ index fe03a35..06084c7 100644
  
  @implementation RNNEventEmitter { }
  
-@@ -60,15 +81,15 @@ - (void)sendBottomTabSelected:(NSNumber *)selectedTabIndex
+@@ -60,15 +81,15 @@
                     unselected:(NSNumber *)unselectedTabIndex {
      [self
          send:BottomTabSelected
@@ -130,7 +130,7 @@ index fe03a35..06084c7 100644
  }
  
  - (void)sendOnNavigationCommandCompletion:(NSString *)commandName commandId:(NSString *)commandId {
-@@ -84,24 +105,24 @@ - (void)sendOnSearchBarUpdated:(NSString *)componentId
+@@ -84,24 +105,24 @@
                            text:(NSString *)text
                       isFocused:(BOOL)isFocused {
      [self send:SearchBarUpdated
@@ -159,7 +159,7 @@ index fe03a35..06084c7 100644
      }
  }
  
-@@ -113,12 +134,13 @@ - (void)sendModalAttemptedToDismissEvent:(NSString *)componentId {
+@@ -113,12 +134,13 @@
  }
  
  - (void)sendScreenPoppedEvent:(NSString *)componentId {
@@ -174,9 +174,9 @@ index fe03a35..06084c7 100644
    if (_host == nil) {
      return;
    }
-@@ -129,6 +151,49 @@ - (void)send:(NSString *)eventName body:(id)body {
+@@ -129,6 +151,49 @@
    }
- 
+   
    [_eventEmitter send:eventName body:body];
 +#else
 +  if ([eventName isEqualToString:AppLaunched] && appLaunchedListenerCount == 0) {
@@ -224,6 +224,146 @@ index fe03a35..06084c7 100644
 +#endif
  
  @end
+diff --git a/node_modules/react-native-navigation/ios/RNNEventEmitter.mm.orig b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm.orig
+new file mode 100644
+index 0000000..fe03a35
+--- /dev/null
++++ b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm.orig
+@@ -0,0 +1,134 @@
++#import "RNNEventEmitter.h"
++#import "RNNUtils.h"
++#import "RNNTurboEventEmitter.h"
++#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++
++@implementation RNNEventEmitter { }
++
++- (void)setHost:(RCTHost *)host {
++  if (_host != nil) {
++    return;
++  }
++  _host = host;
++}
++
++#pragma mark public
++
++- (void)sendOnAppLaunched {
++    [self send:AppLaunched body:nil];
++}
++
++- (void)sendComponentWillAppear:(NSString *)componentId
++                  componentName:(NSString *)componentName
++                  componentType:(NSString *)componentType {
++    [self send:ComponentWillAppear
++          body:@{
++              @"componentId" : componentId,
++              @"componentName" : componentName,
++              @"componentType" : componentType
++          }];
++}
++
++- (void)sendComponentDidAppear:(NSString *)componentId
++                 componentName:(NSString *)componentName
++                 componentType:(NSString *)componentType {
++    [self send:ComponentDidAppear
++          body:@{
++              @"componentId" : componentId,
++              @"componentName" : componentName,
++              @"componentType" : componentType
++          }];
++}
++
++- (void)sendComponentDidDisappear:(NSString *)componentId
++                    componentName:(NSString *)componentName
++                    componentType:(NSString *)componentType {
++    [self send:ComponentDidDisappear
++          body:@{
++              @"componentId" : componentId,
++              @"componentName" : componentName,
++              @"componentType" : componentType
++          }];
++}
++
++- (void)sendOnNavigationButtonPressed:(NSString *)componentId buttonId:(NSString *)buttonId {
++    [self send:NavigationButtonPressed
++          body:@{@"componentId" : componentId, @"buttonId" : buttonId}];
++}
++
++- (void)sendBottomTabSelected:(NSNumber *)selectedTabIndex
++                   unselected:(NSNumber *)unselectedTabIndex {
++    [self
++        send:BottomTabSelected
++        body:@{@"selectedTabIndex" : selectedTabIndex, @"unselectedTabIndex" : unselectedTabIndex}];
++}
++
++- (void)sendBottomTabLongPressed:(NSNumber *)selectedTabIndex {
++    [self send:BottomTabLongPressed body:@{@"selectedTabIndex" : selectedTabIndex}];
++}
++
++- (void)sendBottomTabPressed:(NSNumber *)tabIndex {
++    [self send:BottomTabPressed body:@{@"tabIndex" : tabIndex}];
++}
++
++- (void)sendOnNavigationCommandCompletion:(NSString *)commandName commandId:(NSString *)commandId {
++    [self send:CommandCompleted
++          body:@{
++              @"commandId" : commandId,
++              @"commandName" : commandName,
++              @"completionTime" : [RNNUtils getCurrentTimestamp]
++          }];
++}
++
++- (void)sendOnSearchBarUpdated:(NSString *)componentId
++                          text:(NSString *)text
++                     isFocused:(BOOL)isFocused {
++    [self send:SearchBarUpdated
++          body:@{@"componentId" : componentId, @"text" : text, @"isFocused" : @(isFocused)}];
++}
++
++- (void)sendOnSearchBarCancelPressed:(NSString *)componentId {
++    [self send:SearchBarCancelPressed body:@{@"componentId" : componentId}];
++}
++
++- (void)sendOnPreviewCompleted:(NSString *)componentId
++            previewComponentId:(NSString *)previewComponentId {
++    [self send:PreviewCompleted
++          body:@{@"componentId" : componentId, @"previewComponentId" : previewComponentId}];
++}
++
++- (void)sendModalsDismissedEvent:(NSString *)componentId
++         numberOfModalsDismissed:(NSNumber *)modalsDismissed {
++    if (componentId) {
++        [self send:ModalDismissed
++              body:@{@"componentId" : componentId, @"modalsDismissed" : modalsDismissed}];
++    }
++}
++
++- (void)sendModalAttemptedToDismissEvent:(NSString *)componentId {
++    [self send:ModalAttemptedToDismiss
++          body:@{
++              @"componentId" : componentId,
++          }];
++}
++
++- (void)sendScreenPoppedEvent:(NSString *)componentId {
++    [self send:ScreenPopped body:@{@"componentId" : componentId}];
++}
++
++#pragma mark private
++
++- (void)send:(NSString *)eventName body:(id)body {
++  if (_host == nil) {
++    return;
++  }
++  
++  RNNTurboEventEmitter *_eventEmitter = [[_host moduleRegistry] moduleForName:"RNNTurboEventEmitter"];
++  if (_eventEmitter == nil) {
++    return;
++  }
++  
++  [_eventEmitter send:eventName body:body];
++}
++
++@end
 diff --git a/node_modules/react-native-navigation/ios/RNNReactButtonView.h b/node_modules/react-native-navigation/ios/RNNReactButtonView.h
 index 45103d9..0e6ced5 100644
 --- a/node_modules/react-native-navigation/ios/RNNReactButtonView.h
@@ -527,160 +667,3 @@ index 4d3c7f9..ee1189d 100644
  #import <React/RCTSurfacePresenterStub.h>
  #endif
  
-diff --git a/node_modules/react-native-navigation/ios/StackControllerDelegate.mm b/node_modules/react-native-navigation/ios/StackControllerDelegate.mm
-index a8941d3..266c461 100644
---- a/node_modules/react-native-navigation/ios/StackControllerDelegate.mm
-+++ b/node_modules/react-native-navigation/ios/StackControllerDelegate.mm
-@@ -1,4 +1,6 @@
- #import "StackControllerDelegate.h"
-+#import "ReactNativeNavigation.h"
- #import "ScreenAnimationController.h"
- #import "ScreenReversedAnimationController.h"
- #import "UIViewController+LayoutProtocol.h"
-@@ -103,7 +105,7 @@ - (BOOL)navigationController:(UINavigationController *)navigationController
-                    elementTransitions:screenTransition.elementTransitions
-              sharedElementTransitions:screenTransition.sharedElementTransitions
-                              duration:screenTransition.maxDuration
--                               bridge:_eventEmitter.bridge];
-+                               bridge:[ReactNativeNavigation getBridge]];
- #endif
-     } else if (operation == UINavigationControllerOperationPop &&
-                fromVCOptionsWithDefault.animations.pop.hasCustomAnimation) {
-@@ -121,7 +123,7 @@ - (BOOL)navigationController:(UINavigationController *)navigationController
-                    elementTransitions:screenTransition.elementTransitions
-              sharedElementTransitions:screenTransition.sharedElementTransitions
-                              duration:screenTransition.maxDuration
--                               bridge:_eventEmitter.bridge];
-+                               bridge:[ReactNativeNavigation getBridge]];
- #endif
-     } else {
-         return nil;
-diff --git a/node_modules/react-native-navigation/ios/TurboModules/RNNTurboManager.mm b/node_modules/react-native-navigation/ios/TurboModules/RNNTurboManager.mm
-index 1d74ac0..34a548f 100644
---- a/node_modules/react-native-navigation/ios/TurboModules/RNNTurboManager.mm
-+++ b/node_modules/react-native-navigation/ios/TurboModules/RNNTurboManager.mm
-@@ -9,7 +9,7 @@
- #import "RNNReactComponentRegistry.h"
- #import "RNNReactRootViewCreator.h"
- #import "RNNTurboCommandsHandler.h"
--#import <React-RuntimeApple/ReactCommon/RCTHost.h>
-+#import <React_RuntimeApple/ReactCommon/RCTHost.h>
- #import "RNNSplashScreenViewController.h"
- 
- @interface RNNTurboManager ()
-diff --git a/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js b/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js
-index 74b264e..4f1d4d8 100644
---- a/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js
-+++ b/node_modules/react-native-navigation/lib/module/adapters/NativeRNNTurboModule.js
-@@ -1,6 +1,31 @@
- "use strict";
- 
--import { TurboModuleRegistry } from 'react-native';
--const commands = TurboModuleRegistry.get('RNNTurboModule');
--export default commands;
-+import { TurboModuleRegistry, NativeModules } from 'react-native';
-+let _commands = null;
-+function getCommands() {
-+  if (!_commands) {
-+    const allKeys = Object.keys(NativeModules);
-+    if (__DEV__) {
-+      console.warn('[RNN-DEBUG] NativeModules total keys:', allKeys.length);
-+      console.warn('[RNN-DEBUG] NativeModules first 10:', JSON.stringify(allKeys.slice(0, 10)));
-+    }
-+    const rnnKeys = allKeys.filter(k => k.toLowerCase().includes('rnn') || k.toLowerCase().includes('navigation'));
-+    if (__DEV__) {
-+      console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
-+    }
-+    _commands =
-+      TurboModuleRegistry.get('RNNTurboModule') ||
-+      NativeModules.RNNTurboModule ||
-+      NativeModules.RNNBridgeModule ||
-+      NativeModules.RNNCommandsModule ||
-+      (rnnKeys.length > 0 ? NativeModules[rnnKeys[0]] : null);
-+    if (__DEV__) {
-+      console.warn('[RNN-DEBUG] resolved commands:', _commands ? 'found' : 'null');
-+    }
-+  }
-+  return _commands;
-+}
-+const commandsProxy = new Proxy({}, {
-+  get(_target, prop) {
-+    const mod = getCommands();
-+    if (!mod) return undefined;
-+    const val = mod[prop];
-+    return typeof val === 'function' ? val.bind(mod) : val;
-+  },
-+});
-+export default commandsProxy;
- //# sourceMappingURL=NativeRNNTurboModule.js.map
-\ No newline at end of file
-diff --git a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
-index aff8d90..08e69af 100644
---- a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
-+++ b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboEventEmitter.ts
-@@ -1,4 +1,4 @@
--import { TurboModule, TurboModuleRegistry, NativeModule } from 'react-native';
-+import { TurboModule, TurboModuleRegistry, NativeModule, NativeModules } from 'react-native';
- 
- export interface Spec extends TurboModule {
-   addListener: (eventType: string) => void;
-@@ -6,7 +6,10 @@ export interface Spec extends TurboModule {
- }
- 
- let eventEmitter: Spec | null;
--eventEmitter = TurboModuleRegistry.get<Spec>('RNNTurboEventEmitter');
-+eventEmitter =
-+  TurboModuleRegistry.get<Spec>('RNNTurboEventEmitter') ||
-+  (NativeModules as any).RNNTurboEventEmitter ||
-+  (NativeModules as any).RNNEventEmitter;
- 
- 
- export default eventEmitter as NativeModule;
-diff --git a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
-index 1942edc..9887f2f 100644
---- a/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
-+++ b/node_modules/react-native-navigation/src/adapters/NativeRNNTurboModule.ts
-@@ -1,4 +1,4 @@
--import { TurboModule, TurboModuleRegistry } from 'react-native';
-+import { TurboModule, TurboModuleRegistry, NativeModules } from 'react-native';
- import { UnsafeObject, Double } from 'react-native/Libraries/Types/CodegenTypes';
- 
- export interface Spec extends TurboModule {
-@@ -44,6 +44,35 @@ export interface Spec extends TurboModule {
-   getLaunchArgs(commandId: string): Promise<Array<string>>;
- }
- 
--const commands = TurboModuleRegistry.get<Spec>('RNNTurboModule')!;
-+let _commands: Spec | null = null;
-+
-+function getCommands(): Spec | null {
-+  if (!_commands) {
-+    const allKeys = Object.keys(NativeModules);
-+    const rnnKeys = allKeys.filter(k => k.toLowerCase().includes('rnn') || k.toLowerCase().includes('navigation'));
-+    console.warn('[RNN-DEBUG] NativeModules RNN keys:', JSON.stringify(rnnKeys));
-+    _commands =
-+      TurboModuleRegistry.get<Spec>('RNNTurboModule') ||
-+      (NativeModules as any).RNNTurboModule ||
-+      (NativeModules as any).RNNBridgeModule ||
-+      (NativeModules as any).RNNCommandsModule ||
-+      (rnnKeys.length > 0 ? (NativeModules as any)[rnnKeys[0]] : null);
-+    console.warn('[RNN-DEBUG] resolved commands:', _commands ? 'found' : 'null');
-+  }
-+  return _commands;
-+}
- 
--export default commands;
-+// Proxy so existing code using `commands.method()` still works,
-+// but resolution is deferred until the bridge is ready.
-+const commandsProxy = new Proxy({} as Spec, {
-+  get(_target, prop) {
-+    const mod = getCommands();
-+    if (!mod) {
-+      return undefined;
-+    }
-+    const val = (mod as any)[prop];
-+    return typeof val === 'function' ? val.bind(mod) : val;
-+  },
-+});
-+
-+export default commandsProxy;
