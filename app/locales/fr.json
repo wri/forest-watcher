@@ -755,7 +755,7 @@
         "subTitle": "Pour voir votre position sur la carte",
         "title": "Activer les autorisations de localisation",
         "bullet1": "Maintenez la localisation précise sur « activé » pour vous assurer que votre position reste exacte. Réglez l'accès sur « Autoriser pendant l'utilisation de l'application ».",
-        "bullet2": "Les données de localisation en arrière-plan sont recueillies pour permettre le suivi des cartes et des itinéraires, même lorsque l'application est fermée ou non utilisée.",
+        "bullet2": "Les données de localisation en arrière-plan sont recueillies pour permettre le suivi des cartes et des itinéraires, même lorsque l'application est fermée ou non utilisée, afin que votre itinéraire de patrouille soit entièrement enregistré lorsque vous êtes sur le terrain.",
         "bullet3": "Si vous décidez de changer d'avis, vous pouvez modifier cette préférence dans les paramètres de votre application. Refuser cette autorisation limitera votre expérience de l'application.",
         "bullet4_10": "Pour activer la localisation en arrière-plan, sélectionnez « Autoriser tout le temps ».",
         "bullet4_11": "Pour activer la localisation en arrière-plan, rendez-vous dans les paramètres d'autorisation de l'application et sélectionnez « Autoriser tout le temps » pour l'autorisation de localisation."
