@@ -95,8 +95,8 @@ android {
         applicationId "com.forestwatcher"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 812
-        versionName "3.3.4"
+        versionCode 814
+        versionName "3.3.5"
         resValue "string", "build_config_package", "com.forestwatcher"
         archivesBaseName = "$applicationId-v$versionName-$versionCode"
         manifestPlaceholders = [
