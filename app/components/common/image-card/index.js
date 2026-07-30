@@ -4,7 +4,7 @@ import { View, TouchableHighlight, Image } from 'react-native';
 import Theme from 'config/theme';
 import styles from './styles';
 
-const ImageCard = ({ id, name, uri, actions, width, height }) => {
+const ImageCard = ({ id, name, uri, actions, width = 128, height }) => {
   const computedHeight = actions ? height - 48 : height; // FIXME: 48 is the height of the actions bar
   return (
     <View style={styles.container}>
@@ -37,7 +37,4 @@ ImageCard.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-ImageCard.defaultProps = {
-  width: 128
-};
 export default ImageCard;

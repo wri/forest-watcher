@@ -1,7 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import { AppState, Platform } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import ReactNativeMBTiles from './nativeModule.js';
 import type { MBTileBasemapMetadata } from './types';
@@ -67,7 +67,7 @@ export default class MBTilesSource extends PureComponent<Props, State> {
 
     ReactNativeMBTiles.prepare(this.props.basemapId, this.props.basemapPath, (error, metadata) => {
       if (!metadata) {
-        console.warn('3SC', 'No metadata for the selected basemap');
+        console.warn('WRI', 'No metadata for the selected basemap');
         return;
       }
 

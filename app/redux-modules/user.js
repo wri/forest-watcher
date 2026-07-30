@@ -34,6 +34,7 @@ const initialState = {
   token: null,
   oAuthToken: null,
   socialNetwork: null,
+  socialEmail: null,
   logSuccess: true,
   synced: false,
   syncing: false,
@@ -61,7 +62,17 @@ export default function reducer(state: UserState = initialState, action: UserAct
     case SET_LOGIN_AUTH: {
       const { socialNetwork, loggedIn, token, oAuthToken } = action.payload;
       const userId = parseJwt(token).id;
-      return { ...state, socialNetwork, loggedIn, token, oAuthToken, userId, emailLoginError: null };
+      const email = parseJwt(token).email;
+      return {
+        ...state,
+        socialNetwork,
+        socialEmail: email,
+        loggedIn,
+        token,
+        oAuthToken,
+        userId,
+        emailLoginError: null
+      };
     }
     case SET_LOGIN_STATUS: {
       const logSuccess = action.payload;
@@ -98,6 +109,14 @@ export default function reducer(state: UserState = initialState, action: UserAct
 function parseJwt(token) {
   const decoded = jwt_decode(token);
   return decoded;
+}
+
+function getEmailLoginTransportError(apiAuth: ?string) {
+  if (!apiAuth) {
+    return 'Login service is not configured in the installed iOS app. Rebuild the app after updating .env or .env.ios.';
+  }
+
+  return 'Could not reach the login service. Check the logged request URL and rebuild the iOS app if you recently changed .env or .env.ios.';
 }
 
 // Action Creators
@@ -262,20 +281,31 @@ export function facebookLogin() {
 
 export function emailLogin(email: string, password: string): Thunk<Promise<void>> {
   return async (dispatch: Dispatch) => {
+    const apiAuth = Config.API_AUTH?.trim?.();
+    const url = apiAuth ? `${apiAuth.replace(/\/$/, '')}/auth/login` : null;
+
     try {
       dispatch({ type: SET_LOGIN_LOADING, payload: true });
       dispatch({ type: CLEAR_EMAIL_LOGIN_ERROR });
-      const url = `${Config.API_AUTH}/auth/login`;
+
+      if (!url) {
+        const errorMessage = getEmailLoginTransportError(apiAuth);
+        dispatch({ type: SET_LOGIN_STATUS, payload: false });
+        dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: errorMessage });
+        return;
+      }
+
       const fetchConfig = {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({ email, password })
       };
+
       const response = await fetch(url, fetchConfig);
       if (!(response?.ok && response?.status === 200)) {
         const responseJson = await response.json();
         const errorMessage = responseJson?.errors?.[0]?.detail ?? i18n.t('login.emailLogin.loginError');
-        console.warn('3SC', 'API Error logging in using email: ', errorMessage);
+        console.warn('WRI', 'API Error logging in using email: ', errorMessage);
         dispatch({
           type: SET_EMAIL_LOGIN_ERROR,
           payload: errorMessage
@@ -293,9 +323,14 @@ export function emailLogin(email: string, password: string): Thunk<Promise<void>
         }
       });
     } catch (error) {
-      console.warn('3SC', 'Error trying to log in using email: ', error);
+      console.warn('WRI', 'Error trying to log in using email: ', error);
+
+      const errorMessage = error instanceof TypeError && /Network request failed/i.test(error.message)
+        ? getEmailLoginTransportError(apiAuth)
+        : error.toString();
+
       dispatch({ type: SET_LOGIN_STATUS, payload: false });
-      dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: error.toString() });
+      dispatch({ type: SET_EMAIL_LOGIN_ERROR, payload: errorMessage });
     } finally {
       dispatch({ type: SET_LOGIN_LOADING, payload: false });
     }
@@ -321,8 +356,6 @@ export function setLoginAuth(details: { token: string, loggedIn: boolean, social
 export function logout(socialNetworkFallback: ?string): Thunk<Promise<void>> {
   return async (dispatch: Dispatch, state: GetState) => {
     const { oAuthToken: tokenToRevoke, socialNetwork } = state().user;
-    dispatch({ type: LOGOUT_REQUEST });
-    dispatch({ type: RESET_STATE });
 
     try {
       await deleteAllOfflinePacks();
@@ -346,5 +379,8 @@ export function logout(socialNetworkFallback: ?string): Thunk<Promise<void>> {
       console.error(e);
       dispatch({ type: SET_LOGIN_STATUS, payload: false });
     }
+
+    dispatch({ type: LOGOUT_REQUEST });
+    dispatch({ type: RESET_STATE });
   };
 }

@@ -1,0 +1,529 @@
+diff --git a/node_modules/react-native-navigation/ios/AnimatedReactView.mm b/node_modules/react-native-navigation/ios/AnimatedReactView.mm
+index 05ecdce..339194f 100644
+--- a/node_modules/react-native-navigation/ios/AnimatedReactView.mm
++++ b/node_modules/react-native-navigation/ios/AnimatedReactView.mm
+@@ -31,9 +31,11 @@
+     _toElement.hidden = YES;
+     _fromColor = element.backgroundColor;
+     _zIndex = toElement.reactZIndex;
+-	if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
+-		[self hijackReactElement:element];
+-	}
++#ifdef RCT_NEW_ARCH_ENABLED
++    if ([element isKindOfClass:[RCTImageComponentView class]] || [element isKindOfClass:[RCTParagraphComponentView class]]) {
++        [self hijackReactElement:element];
++    }
++#endif
+ 
+     return self;
+ }
+diff --git a/node_modules/react-native-navigation/ios/AnimatedTextView.mm b/node_modules/react-native-navigation/ios/AnimatedTextView.mm
+index 24b0572..45db808 100644
+--- a/node_modules/react-native-navigation/ios/AnimatedTextView.mm
++++ b/node_modules/react-native-navigation/ios/AnimatedTextView.mm
+@@ -9,7 +9,9 @@
+ 
+ @implementation AnimatedTextView {
+     NSTextContainer *_fromTextContainer;
+-	facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;
++#ifdef RCT_NEW_ARCH_ENABLED
++    facebook::react::ParagraphShadowNode::ConcreteState::Shared _state;
++#endif
+     CGSize _fromSize;
+ }
+ 
+diff --git a/node_modules/react-native-navigation/ios/RNNAppDelegate.mm b/node_modules/react-native-navigation/ios/RNNAppDelegate.mm
+index da6914a..78fe6ca 100644
+--- a/node_modules/react-native-navigation/ios/RNNAppDelegate.mm
++++ b/node_modules/react-native-navigation/ios/RNNAppDelegate.mm
+@@ -90,7 +90,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     [ReactNativeNavigation bootstrapWithHost:self.rootViewFactory.reactHost];
+ #else
+     self.reactNativeFactory = [[RCTReactNativeFactory alloc] initWithDelegate:self.reactNativeDelegate];
++#ifdef RCT_NEW_ARCH_ENABLED
++    #if __has_include(<ReactAppDependencyProvider/RCTAppDependencyProvider.h>)
+     self.reactNativeDelegate.dependencyProvider = [RCTAppDependencyProvider new];
++    #endif
++#endif
+     
+     RCTAppSetupPrepareApp(application, YES);
+     RCTEnableTurboModuleInterop(YES);
+@@ -98,7 +102,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     
+     self.reactNativeFactory.rootViewFactory.reactHost = [self.reactNativeFactory.rootViewFactory createReactHost:launchOptions];
+     
++#ifdef RCT_NEW_ARCH_ENABLED
+     [ReactNativeNavigation bootstrapWithHost:self.reactNativeFactory.rootViewFactory.reactHost];
++#else
++    [ReactNativeNavigation bootstrapWithBridge:self.reactNativeFactory.rootViewFactory.bridge ?: self.reactNativeFactory.bridge];
++#endif
+ #endif
+     
+     [self rnn_installDeepLinkObservers];
+diff --git a/node_modules/react-native-navigation/ios/RNNEventEmitter.h b/node_modules/react-native-navigation/ios/RNNEventEmitter.h
+index 2008014..e2163da 100644
+--- a/node_modules/react-native-navigation/ios/RNNEventEmitter.h
++++ b/node_modules/react-native-navigation/ios/RNNEventEmitter.h
+@@ -4,7 +4,11 @@
+ @class RCTHost;
+ @class RCTBridge;
+ 
++#ifdef RCT_NEW_ARCH_ENABLED
+ @interface RNNEventEmitter : NSObject
++#else
++@interface RNNEventEmitter : RCTEventEmitter
++#endif
+ 
+ - (void)setHost:(RCTHost *)host;
+ @property(nonatomic, strong, readonly) RCTHost *host;
+diff --git a/node_modules/react-native-navigation/ios/RNNEventEmitter.mm b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
+index fe03a35..eccd3c6 100644
+--- a/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
++++ b/node_modules/react-native-navigation/ios/RNNEventEmitter.mm
+@@ -1,7 +1,28 @@
+ #import "RNNEventEmitter.h"
+ #import "RNNUtils.h"
+-#import "RNNTurboEventEmitter.h"
+-#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++#ifdef RCT_NEW_ARCH_ENABLED
++#import "TurboModules/RNNTurboEventEmitter.h"
++#import <React_RuntimeApple/ReactCommon/RCTHost.h>
++#else
++static NSString *const AppLaunched = @"RNN.AppLaunched";
++static NSString *const CommandCompleted = @"RNN.CommandCompleted";
++static NSString *const BottomTabSelected = @"RNN.BottomTabSelected";
++static NSString *const BottomTabLongPressed = @"RNN.BottomTabLongPressed";
++static NSString *const ComponentWillAppear = @"RNN.ComponentWillAppear";
++static NSString *const ComponentDidAppear = @"RNN.ComponentDidAppear";
++static NSString *const ComponentDidDisappear = @"RNN.ComponentDidDisappear";
++static NSString *const NavigationButtonPressed = @"RNN.NavigationButtonPressed";
++static NSString *const ModalDismissed = @"RNN.ModalDismissed";
++static NSString *const ModalAttemptedToDismiss = @"RNN.ModalAttemptedToDismiss";
++static NSString *const SearchBarUpdated = @"RNN.SearchBarUpdated";
++static NSString *const SearchBarCancelPressed = @"RNN.SearchBarCancelPressed";
++static NSString *const PreviewCompleted = @"RNN.PreviewCompleted";
++static NSString *const ScreenPopped = @"RNN.ScreenPopped";
++static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
++
++static NSInteger appLaunchedListenerCount = 0;
++static BOOL appLaunchedEventDeferred = NO;
++#endif
+ 
+ @implementation RNNEventEmitter { }
+ 
+@@ -60,15 +81,15 @@
+                    unselected:(NSNumber *)unselectedTabIndex {
+     [self
+         send:BottomTabSelected
+-        body:@{@"selectedTabIndex" : selectedTabIndex, @"unselectedTabIndex" : unselectedTabIndex}];
++        body:@{ @"selectedTabIndex" : selectedTabIndex, @"unselectedTabIndex" : unselectedTabIndex }];
+ }
+ 
+ - (void)sendBottomTabLongPressed:(NSNumber *)selectedTabIndex {
+-    [self send:BottomTabLongPressed body:@{@"selectedTabIndex" : selectedTabIndex}];
++    [self send:BottomTabLongPressed body:@{ @"selectedTabIndex" : selectedTabIndex }];
+ }
+ 
+ - (void)sendBottomTabPressed:(NSNumber *)tabIndex {
+-    [self send:BottomTabPressed body:@{@"tabIndex" : tabIndex}];
++    [self send:BottomTabPressed body:@{ @"tabIndex" : tabIndex }];
+ }
+ 
+ - (void)sendOnNavigationCommandCompletion:(NSString *)commandName commandId:(NSString *)commandId {
+@@ -84,24 +105,24 @@
+                           text:(NSString *)text
+                      isFocused:(BOOL)isFocused {
+     [self send:SearchBarUpdated
+-          body:@{@"componentId" : componentId, @"text" : text, @"isFocused" : @(isFocused)}];
++          body:@{ @"componentId" : componentId, @"text" : text, @"isFocused" : @(isFocused) }];
+ }
+ 
+ - (void)sendOnSearchBarCancelPressed:(NSString *)componentId {
+-    [self send:SearchBarCancelPressed body:@{@"componentId" : componentId}];
++    [self send:SearchBarCancelPressed body:@{ @"componentId" : componentId }];
+ }
+ 
+ - (void)sendOnPreviewCompleted:(NSString *)componentId
+             previewComponentId:(NSString *)previewComponentId {
+     [self send:PreviewCompleted
+-          body:@{@"componentId" : componentId, @"previewComponentId" : previewComponentId}];
++          body:@{ @"componentId" : componentId, @"previewComponentId" : previewComponentId }];
+ }
+ 
+ - (void)sendModalsDismissedEvent:(NSString *)componentId
+          numberOfModalsDismissed:(NSNumber *)modalsDismissed {
+     if (componentId) {
+         [self send:ModalDismissed
+-              body:@{@"componentId" : componentId, @"modalsDismissed" : modalsDismissed}];
++              body:@{ @"componentId" : componentId, @"modalsDismissed" : modalsDismissed }];
+     }
+ }
+ 
+@@ -113,12 +134,13 @@
+ }
+ 
+ - (void)sendScreenPoppedEvent:(NSString *)componentId {
+-    [self send:ScreenPopped body:@{@"componentId" : componentId}];
++    [self send:ScreenPopped body:@{ @"componentId" : componentId }];
+ }
+ 
+ #pragma mark private
+ 
+ - (void)send:(NSString *)eventName body:(id)body {
++#ifdef RCT_NEW_ARCH_ENABLED
+   if (_host == nil) {
+     return;
+   }
+@@ -129,6 +151,49 @@
+   }
+   
+   [_eventEmitter send:eventName body:body];
++#else
++  if ([eventName isEqualToString:AppLaunched] && appLaunchedListenerCount == 0) {
++    appLaunchedEventDeferred = YES;
++    return;
++  }
++
++  [self sendEventWithName:eventName body:body];
++#endif
++}
++
++#ifndef RCT_NEW_ARCH_ENABLED
++RCT_EXPORT_MODULE(RNNTurboEventEmitter);
++
++- (void)addListener:(NSString *)eventName {
++  [super addListener:eventName];
++
++  if ([eventName isEqualToString:AppLaunched]) {
++    appLaunchedListenerCount += 1;
++    if (appLaunchedEventDeferred) {
++      appLaunchedEventDeferred = NO;
++      [self sendEventWithName:AppLaunched body:nil];
++    }
++  }
++}
++
++- (void)removeListeners:(double)count {
++  [super removeListeners:count];
++  if (appLaunchedListenerCount > 0) {
++    appLaunchedListenerCount -= (NSInteger)count;
++    if (appLaunchedListenerCount < 0) {
++      appLaunchedListenerCount = 0;
++    }
++  }
++}
++
++- (NSArray<NSString *> *)supportedEvents {
++  return @[
++    AppLaunched, CommandCompleted, BottomTabSelected, BottomTabLongPressed, BottomTabPressed,
++    ComponentWillAppear, ComponentDidAppear, ComponentDidDisappear, NavigationButtonPressed,
++    ModalDismissed, SearchBarUpdated, SearchBarCancelPressed, PreviewCompleted, ScreenPopped,
++    ModalAttemptedToDismiss
++  ];
+ }
++#endif
+ 
+ @end
+diff --git a/node_modules/react-native-navigation/ios/RNNReactButtonView.h b/node_modules/react-native-navigation/ios/RNNReactButtonView.h
+index 45103d9..0e6ced5 100644
+--- a/node_modules/react-native-navigation/ios/RNNReactButtonView.h
++++ b/node_modules/react-native-navigation/ios/RNNReactButtonView.h
+@@ -1,5 +1,5 @@
+ #import "RNNComponentView.h"
+-#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++#import <React_RuntimeApple/ReactCommon/RCTHost.h>
+ #import <React/RCTSurfacePresenterStub.h>
+ #import <React/RCTFabricSurface.h>
+ #import <React/RCTSurfacePresenter.h>
+diff --git a/node_modules/react-native-navigation/ios/RNNReactButtonView.mm b/node_modules/react-native-navigation/ios/RNNReactButtonView.mm
+index af802d3..94a4563 100644
+--- a/node_modules/react-native-navigation/ios/RNNReactButtonView.mm
++++ b/node_modules/react-native-navigation/ios/RNNReactButtonView.mm
+@@ -1,210 +1,56 @@
+ #import "RNNReactButtonView.h"
+-#import <React/RCTSurface.h>
++#import "ReactNativeNavigation.h"
+ 
+-static const CGFloat kMinBarButtonSlotSize = 44.0;
+-
+-@implementation RNNReactButtonView {
+-    NSLayoutConstraint *_widthConstraint;
+-    NSLayoutConstraint *_heightConstraint;
+-    BOOL _didCenterHorizontally;
+-    CGFloat _lastReportedWidth;
+-}
+-
+-- (instancetype)initWithHost:(RCTHost *)host
+-                  moduleName:(NSString *)moduleName
+-           initialProperties:(NSDictionary *)initialProperties
+-                eventEmitter:(RNNEventEmitter *)eventEmitter
+-             sizeMeasureMode:(RCTSurfaceSizeMeasureMode)sizeMeasureMode
+-         reactViewReadyBlock:(RNNReactViewReadyCompletionBlock)reactViewReadyBlock {
+-    self = [super initWithHost:host moduleName:moduleName initialProperties:initialProperties eventEmitter:eventEmitter sizeMeasureMode:convertToSurfaceSizeMeasureMode(RCTRootViewSizeFlexibilityWidthAndHeight) reactViewReadyBlock:reactViewReadyBlock];
+-    [host.surfacePresenter addObserver:self];
+-    self.backgroundColor = [UIColor clearColor];
+-
+-    if (@available(iOS 26.0, *)) {
+-        if (![self designRequiresCompatibility]) {
+-            self.sizeFlexibility = RCTRootViewSizeFlexibilityWidth;
+-            self.translatesAutoresizingMaskIntoConstraints = NO;
+-            _widthConstraint = [self.widthAnchor constraintEqualToConstant:0];
+-            _heightConstraint = [self.heightAnchor constraintEqualToConstant:kMinBarButtonSlotSize];
+-            _widthConstraint.priority = UILayoutPriorityDefaultHigh;
+-            _heightConstraint.priority = UILayoutPriorityDefaultHigh;
+-            _widthConstraint.active = YES;
+-            _heightConstraint.active = YES;
+-            _didCenterHorizontally = NO;
+-            self.delegate = self;
+-        }
+-    }
+-
+-    return self;
+-}
+-
+-- (BOOL)designRequiresCompatibility {
+-    static BOOL checked = NO;
+-    static BOOL result = NO;
+-    if (!checked) {
+-        checked = YES;
+-        result = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIDesignRequiresCompatibility"] boolValue];
+-    }
+-    return result;
+-}
+-
+-- (UIView *)surfaceHostView {
+-#ifdef RCT_NEW_ARCH_ENABLED
+-    UIView *surfaceView = (UIView *)self.surface.view;
+-    if (surfaceView != nil && surfaceView.superview == self) {
+-        return surfaceView;
+-    }
++#ifndef RCT_NEW_ARCH_ENABLED
++typedef NSInteger RCTSurfaceSizeMeasureMode;
+ #endif
+-    return self.subviews.firstObject;
+-}
+ 
+-- (void)accumulateLeafBoundsInContainer:(UIView *)container unionRect:(CGRect *)unionRect {
+-    for (UIView *subview in container.subviews) {
+-        if (subview.hidden || subview.alpha < 0.01) {
+-            continue;
+-        }
+-        if (subview.subviews.count == 0) {
+-            CGRect rect = [subview convertRect:subview.bounds toView:self];
+-            if (rect.size.width > 0 && rect.size.height > 0) {
+-                *unionRect = CGRectIsNull(*unionRect) ? rect : CGRectUnion(*unionRect, rect);
+-            }
+-        } else {
+-            [self accumulateLeafBoundsInContainer:subview unionRect:unionRect];
+-        }
+-    }
+-}
+-
+-- (CGRect)visibleLeafContentBounds {
+-    CGRect unionRect = CGRectNull;
+-    UIView *surfaceView = [self surfaceHostView];
+-    if (surfaceView) {
+-        [self accumulateLeafBoundsInContainer:surfaceView unionRect:&unionRect];
+-    }
+-    if (CGRectIsNull(unionRect)) {
+-        [self accumulateLeafBoundsInContainer:self unionRect:&unionRect];
+-    }
+-    return CGRectIsNull(unionRect) ? CGRectZero : unionRect;
+-}
++@implementation RNNReactButtonView
+ 
+-- (CGSize)measuredSurfaceContentSize {
+-    CGSize intrinsic = CGSizeZero;
+ #ifdef RCT_NEW_ARCH_ENABLED
+-    intrinsic = self.surface.intrinsicSize;
+-#else
+-    intrinsic = self.intrinsicContentSize;
+-#endif
+-    if (intrinsic.width <= 0 || intrinsic.height <= 0) {
+-        return CGSizeZero;
+-    }
+-
+-    CGFloat maxWidth = self.bounds.size.width > 0 ? self.bounds.size.width : CGFLOAT_MAX;
+-    CGSize fit = [self sizeThatFits:CGSizeMake(maxWidth, CGFLOAT_MAX)];
+-    if (fit.height > 0 && fit.height < intrinsic.height - 0.5) {
+-        intrinsic.height = fit.height;
+-    }
+-    return intrinsic;
+-}
+-
+-- (void)centerSurfaceContentIfNeeded {
+-    if (self.bounds.size.width <= 0 || self.bounds.size.height <= 0) {
+-        return;
+-    }
+-
+-    UIView *surfaceView = [self surfaceHostView];
+-    if (!surfaceView || surfaceView == self) {
+-        return;
+-    }
+-
+-    CGRect surfaceFrame = surfaceView.frame;
+-    if (surfaceFrame.size.width <= 0) {
+-        surfaceFrame.size.width = self.bounds.size.width;
+-    }
+-    if (surfaceFrame.size.height <= 0) {
+-        surfaceFrame.size.height = self.bounds.size.height;
+-    }
+-    surfaceView.frame = CGRectMake(0, 0, surfaceFrame.size.width, surfaceFrame.size.height);
+-
+-    CGRect contentBounds = [self visibleLeafContentBounds];
+-    if (!CGRectIsEmpty(contentBounds)) {
+-        CGFloat targetY = (self.bounds.size.height - contentBounds.size.height) / 2.0;
+-        CGFloat deltaY = targetY - contentBounds.origin.y;
+-        if (fabs(deltaY) > 0.5) {
+-            surfaceView.frame = CGRectOffset(surfaceView.frame, 0, deltaY);
+-        }
+-        return;
+-    }
+-
+-    CGSize contentSize = [self measuredSurfaceContentSize];
+-    if (contentSize.height > 0 && self.bounds.size.height > contentSize.height + 0.5) {
+-        CGFloat ty = (self.bounds.size.height - contentSize.height) / 2.0;
+-        surfaceView.frame = CGRectMake(0, ty, self.bounds.size.width, contentSize.height);
+-    }
+-}
+-
+-- (void)handleIntrinsicSizeChange:(CGSize)intrinsicSize {
+-    if (intrinsicSize.width <= 0 || intrinsicSize.height <= 0) {
+-        return;
+-    }
+-
+-    CGFloat width = MAX(intrinsicSize.width, kMinBarButtonSlotSize);
+-    if (_widthConstraint && _heightConstraint) {
+-        _widthConstraint.constant = width;
+-        _heightConstraint.constant = kMinBarButtonSlotSize;
+-    }
+-
+-    if (self.intrinsicSizeDidChangeHandler && width > kMinBarButtonSlotSize &&
+-        width > _lastReportedWidth) {
+-        _lastReportedWidth = width;
+-        self.intrinsicSizeDidChangeHandler(intrinsicSize);
+-    }
+-
+-    [self setNeedsLayout];
++- (instancetype)initWithHost:(RCTHost *)host
++          moduleName:(NSString *)moduleName
++       initialProperties:(NSDictionary *)initialProperties
++        eventEmitter:(RNNEventEmitter *)eventEmitter
++       sizeMeasureMode:(RCTSurfaceSizeMeasureMode)sizeMeasureMode
++     reactViewReadyBlock:(RNNReactViewReadyCompletionBlock)reactViewReadyBlock {
++  self = [super initWithHost:host
++          moduleName:moduleName
++       initialProperties:initialProperties
++          eventEmitter:eventEmitter
++         sizeMeasureMode:sizeMeasureMode
++       reactViewReadyBlock:reactViewReadyBlock];
++  [host.surfacePresenter addObserver:self];
++  self.backgroundColor = UIColor.clearColor;
++  return self;
+ }
+ 
+ - (void)didMountComponentsWithRootTag:(NSInteger)rootTag {
+-    if (self.surface.rootTag == rootTag) {
+-        [super didMountComponentsWithRootTag:rootTag];
+-        [self sizeToFit];
+-        [self setNeedsLayout];
+-    }
+-}
+-
+-#ifdef RCT_NEW_ARCH_ENABLED
+-- (void)surface:(RCTSurface *)surface didChangeIntrinsicSize:(CGSize)intrinsicSize {
+-    [self handleIntrinsicSizeChange:intrinsicSize];
++  if (self.surface.rootTag == rootTag) {
++    [super didMountComponentsWithRootTag:rootTag];
++    [self sizeToFit];
++  }
+ }
+ #else
+-- (void)rootViewDidChangeIntrinsicSize:(RCTRootView *)rootView {
+-    [self handleIntrinsicSizeChange:rootView.intrinsicContentSize];
+-    [rootView setNeedsUpdateConstraints];
+-    [rootView updateConstraintsIfNeeded];
++- (instancetype)initWithHost:(RCTHost *)host
++          moduleName:(NSString *)moduleName
++       initialProperties:(NSDictionary *)initialProperties
++        eventEmitter:(RNNEventEmitter *)eventEmitter
++       sizeMeasureMode:(RCTSurfaceSizeMeasureMode)sizeMeasureMode
++     reactViewReadyBlock:(RNNReactViewReadyCompletionBlock)reactViewReadyBlock {
++  RCTBridge *bridge = [ReactNativeNavigation getBridge];
++  self = [super initWithBridge:bridge
++            moduleName:moduleName
++         initialProperties:initialProperties
++          eventEmitter:eventEmitter
++       reactViewReadyBlock:reactViewReadyBlock];
++  self.backgroundColor = UIColor.clearColor;
++  return self;
+ }
+ #endif
+ 
+-- (void)layoutSubviews {
+-    [super layoutSubviews];
+-    if (@available(iOS 26.0, *)) {
+-        if ([self designRequiresCompatibility]) {
+-            return;
+-        }
+-
+-        [self centerSurfaceContentIfNeeded];
+-
+-        if (!_didCenterHorizontally && self.superview && self.frame.size.width > 0) {
+-            CGFloat wrapperWidth = self.superview.bounds.size.width;
+-            CGFloat selfWidth = self.frame.size.width;
+-            if (wrapperWidth > selfWidth + 0.5) {
+-                _didCenterHorizontally = YES;
+-                CGFloat tx = (wrapperWidth - selfWidth) / 2.0;
+-                CGAffineTransform transform = self.layer.affineTransform;
+-                self.layer.affineTransform = CGAffineTransformMakeTranslation(tx, transform.ty);
+-            }
+-        }
+-    }
+-}
+-
+ - (NSString *)componentType {
+-	return ComponentTypeButton;
++  return ComponentTypeButton;
+ }
+ 
+ @end
+diff --git a/node_modules/react-native-navigation/ios/RNNReactView.mm b/node_modules/react-native-navigation/ios/RNNReactView.mm
+index 099cb72..823f7cc 100644
+--- a/node_modules/react-native-navigation/ios/RNNReactView.mm
++++ b/node_modules/react-native-navigation/ios/RNNReactView.mm
+@@ -3,7 +3,7 @@
+ #import <React/RCTRootContentView.h>
+ 
+ #ifdef RCT_NEW_ARCH_ENABLED
+-#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++#import <React_RuntimeApple/ReactCommon/RCTHost.h>
+ #import <React/RCTFabricSurface.h>
+ #import <React/RCTSurfacePresenter.h>
+ 
+diff --git a/node_modules/react-native-navigation/ios/ReactNativeNavigation.h b/node_modules/react-native-navigation/ios/ReactNativeNavigation.h
+index 0c8f231..1a181b3 100644
+--- a/node_modules/react-native-navigation/ios/ReactNativeNavigation.h
++++ b/node_modules/react-native-navigation/ios/ReactNativeNavigation.h
+@@ -4,7 +4,7 @@
+ #import <UIKit/UIKit.h>
+ 
+ #ifdef RCT_NEW_ARCH_ENABLED
+-#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++#import <React_RuntimeApple/ReactCommon/RCTHost.h>
+ #import "RNNTurboManager.h"
+ #endif
+ 
+diff --git a/node_modules/react-native-navigation/ios/ScreenAnimationController.h b/node_modules/react-native-navigation/ios/ScreenAnimationController.h
+index 4d3c7f9..ee1189d 100644
+--- a/node_modules/react-native-navigation/ios/ScreenAnimationController.h
++++ b/node_modules/react-native-navigation/ios/ScreenAnimationController.h
+@@ -5,7 +5,7 @@
+ #import <React/RCTUIManagerUtils.h>
+ 
+ #ifdef RCT_NEW_ARCH_ENABLED
+-#import <React-RuntimeApple/ReactCommon/RCTHost.h>
++#import <React_RuntimeApple/ReactCommon/RCTHost.h>
+ #import <React/RCTSurfacePresenterStub.h>
+ #endif
+ 

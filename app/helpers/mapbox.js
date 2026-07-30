@@ -2,7 +2,7 @@
 import type { BBox2d } from '@turf/helpers';
 
 import Config from 'react-native-config';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 const MAPBOX_DOWNLOAD_COMPLETED_STATE = 2;
 
@@ -107,7 +107,10 @@ export const downloadOfflinePack = async (
 
   const { name, url, minZoom, maxZoom, bbox } = config;
 
-  const areaBounds = [[bbox[2], bbox[3]], [bbox[0], bbox[1]]];
+  const areaBounds = [
+    [bbox[2], bbox[3]],
+    [bbox[0], bbox[1]]
+  ];
 
   const downloadPackOptions = {
     name,

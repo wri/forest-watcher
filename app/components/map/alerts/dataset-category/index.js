@@ -5,7 +5,7 @@ import type { AlertFeatureProperties, Coordinates, MapboxFeaturePressEvent } fro
 import React, { PureComponent } from 'react';
 
 import { mapboxStyles } from './styles';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { type FeatureCollection, type Point, featureCollection, point } from '@turf/helpers';
 import i18n from 'i18next';
 import _ from 'lodash';
@@ -139,7 +139,11 @@ export default class AlertDatasetCategory extends PureComponent<Props, State> {
         specificAlerts: this.props.preSelectedAlerts?.find(x => x.alertType) && this.props.preSelectedAlerts
       });
 
-      const alertsIndex: AlertsIndex = kdbush(alertsFromDb, p => p.long, p => p.lat);
+      const alertsIndex: AlertsIndex = kdbush(
+        alertsFromDb,
+        p => p.long,
+        p => p.lat
+      );
       const updatedAlertState = this._createFeaturesForAlerts(alertsFromDb, alertsIndex);
       if (requestId !== this.activeRequestId) {
         return;

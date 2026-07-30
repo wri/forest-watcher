@@ -1,0 +1,22 @@
+diff --git a/node_modules/realm/binding/android/build.gradle b/node_modules/realm/binding/android/build.gradle
+index f26be70..2f1169c 100644
+--- a/node_modules/realm/binding/android/build.gradle
++++ b/node_modules/realm/binding/android/build.gradle
+@@ -45,6 +45,9 @@ def reactNativeArchitectures() {
+ 
+ android {
+     namespace 'io.realm.react'
++    if (rootProject.hasProperty('ndkVersion')) {
++        ndkVersion rootProject.ndkVersion
++    }
+     compileSdkVersion rootProject.hasProperty('compileSdkVersion') ? rootProject.compileSdkVersion : 28
+     buildToolsVersion rootProject.hasProperty('buildToolsVersion') ? rootProject.buildToolsVersion : '28.0.3'
+     buildFeatures {
+@@ -101,6 +104,7 @@ android {
+                 "**/libjsi.so",
+                 "**/libreactnativejni.so",
+                 "**/libturbomodulejsijni.so",
++                "**/libreactnative.so",
+         ]
+     }
+ }

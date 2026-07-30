@@ -21,6 +21,8 @@ function mapStateToProps(state: State) {
     version: state.app.version,
     isUnsafeLogout: isUnsafeLogout(state),
     user: state.user.data,
+    social: state.user.socialNetwork,
+    socialEmail: state.user.socialEmail,
     loggedIn: state.user.loggedIn,
     offlineMode: state.app.offlineMode
   };
@@ -37,15 +39,18 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     shareAppData: async (): Promise<string> => {
       const outputPath = await dispatch(exportWholeAppBundleFromRedux());
       trackSharedContent('bundle');
-      await shareBundle(outputPath);
-      dispatch(setAsUploadedAll());
+      
+      // https://3sidedcube.atlassian.net/browse/SP-3072 
+      // This is correct. 
+      // Although, if we change our mind and do want to upload the reports here, we need to add the uploadReports action somewhere in this flow.
+      const result = await shareBundle(outputPath);
+      if (result?.success) {
+        dispatch(setAsUploadedAll());
+      }
       return outputPath;
     }
   };
 };
 
 type PassedProps = ComponentProps<OwnProps, typeof mapStateToProps, typeof mapDispatchToProps>;
-export default connect<PassedProps, OwnProps, _, _, State, Dispatch>(
-  mapStateToProps,
-  mapDispatchToProps
-)(Settings);
+export default connect<PassedProps, OwnProps, _, _, State, Dispatch>(mapStateToProps, mapDispatchToProps)(Settings);

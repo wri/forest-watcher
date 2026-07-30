@@ -1,6 +1,5 @@
 import Theme from 'config/theme';
 import { StyleSheet, Platform } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
 
 export default StyleSheet.create({
   container: {
@@ -74,8 +73,8 @@ export const mapboxStyles = {
   },
   circleOutlineStyle: {
     lineColor: Theme.colors.turtleGreen,
-    lineCap: MapboxGL.LineJoin.Round,
-    lineJoin: MapboxGL.LineJoin.Round,
+    lineCap: 'round',
+    lineJoin: 'round',
     lineWidth: 3,
     lineOpacity: 0.8
   }

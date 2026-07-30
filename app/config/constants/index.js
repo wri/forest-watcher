@@ -6,7 +6,7 @@ import BackgroundGeolocation from '@mauron85/react-native-background-geolocation
 
 import i18n from 'i18next';
 import Theme from 'config/theme';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import type { Layer, ContextualLayerRenderSpec } from 'types/layers.types';
 
@@ -34,11 +34,11 @@ export const MAPS = {
 export const MAP_LAYER_INDEXES = {
   basemap: 1,
   contextualLayer: 5,
-  areaOutline: 100,
-  routes: 105,
-  alerts: 150,
-  reports: 180,
-  userLocation: 200
+  areaOutline: 20,
+  routes: 25,
+  alerts: 30,
+  reports: 35,
+  userLocation: 40
 };
 
 export type IconSize = {
@@ -55,8 +55,8 @@ export const MAP_DEFAULT_ICON_SIZE: IconSize = {
 // Detailed documentation & library defaults are available here: https://github.com/mauron85/react-native-background-geolocation#configureoptions-success-fail
 export const LOCATION_TRACKING = {
   locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
-  stationaryRadius: 50,
-  distanceFilter: 50,
+  stationaryRadius: 25,
+  distanceFilter: 25,
   startOnBoot: false,
   stopOnTerminate: false,
   interval: 10000,
@@ -821,8 +821,7 @@ export const GFW_CONTEXTUAL_LAYERS: Array<Layer> = [
     description:
       'Boundaries of forested areas allocated by governments to companies for harvesting timber and other wood products.',
     name: 'logging',
-    url:
-      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/aa3157cf3a5b0acc1f78b48899fb7a02:1548761157303/{z}/{x}/{y}.mvt',
+    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/aa3157cf3a5b0acc1f78b48899fb7a02:1548761157303/{z}/{x}/{y}.mvt',
     type: 'contextual_layer'
   },
   {
@@ -859,8 +858,7 @@ export const GFW_CONTEXTUAL_LAYERS: Array<Layer> = [
     id: '82229960-13c2-4810-84e7-bdd4812d4578',
     description: 'Wood fiber plantation areas',
     name: 'woodFiberConcessions',
-    url:
-      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/1805b7c9ae919f705548dfb470679f8a:1569405047170/{z}/{x}/{y}.mvt',
+    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/1805b7c9ae919f705548dfb470679f8a:1569405047170/{z}/{x}/{y}.mvt',
     type: 'contextual_layer'
   }
 ];

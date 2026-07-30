@@ -2,7 +2,7 @@
 import type { Layer } from 'types/layers.types';
 
 import React, { Component } from 'react';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 import { mapboxStyles } from './styles';
 import queryLayerFiles from 'helpers/layer-store/queryLayerFiles';
@@ -49,14 +49,14 @@ export default class GeoJSONContextualLayer extends Component<Props, State> {
     );
 
     if (layerFilesWithGeoJson.length === 0) {
-      console.warn('3SC', `Layer with ID ${layer.id} does not have any GeoJSON files in the layer store`);
+      console.warn('WRI', `Layer with ID ${layer.id} does not have any GeoJSON files in the layer store`);
       this.setState({
         geoJsonUri: null
       });
     } else {
       if (layerFilesWithGeoJson.length > 1) {
         console.warn(
-          '3SC',
+          'WRI',
           `Layer with ID ${layer.id} has multiple GeoJSON files in the layer store, but we will only display one`
         );
       }

@@ -47,7 +47,7 @@ import Theme from 'config/theme';
 import i18n from 'i18next';
 import styles, { mapboxStyles } from './styles';
 import { Navigation, NavigationButtonPressedEvent } from 'react-native-navigation';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { MBTilesSource } from 'react-native-mbtiles';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 
@@ -87,7 +87,7 @@ const ROUTE_TRACKING_BOTTOM_DIALOG_STATE_HIDDEN = 0;
 const ROUTE_TRACKING_BOTTOM_DIALOG_STATE_EXITING = 1;
 const ROUTE_TRACKING_BOTTOM_DIALOG_STATE_STOPPING = 2;
 
-const DISMISSED_INFO_BANNER_POSTIION = 300 + initialWindowMetrics.insets.bottom;
+const DISMISSED_INFO_BANNER_POSTIION = 300 + (initialWindowMetrics?.insets?.bottom || 0);
 
 const backgroundImage = require('assets/map_bg_gradient.png');
 
@@ -130,11 +130,13 @@ type State = {
   locationError: ?number,
   mapCameraBounds: any,
   mapCenterCoords: ?[number, number],
+  currentZoom: number,
   animatedPosition: any,
   infoBannerShowing: boolean,
   // feature(s) that the user has just tapped on
   tappedOnFeatures: $ReadOnlyArray<MapItemFeatureProperties>,
-  loading: boolean
+  loading: boolean,
+  topInset: number
 };
 
 class MapComponent extends Component<Props, State> {
@@ -160,6 +162,7 @@ class MapComponent extends Component<Props, State> {
   mapCamera: ?MapboxGL.Camera = null;
   map: ?MapboxGL.MapView = null;
   appStateSubscription: ?EventSubscription = null;
+  backHandlerSubscription: ?{ remove: () => void } = null;
 
   sidebarOpened: boolean;
 
@@ -183,10 +186,12 @@ class MapComponent extends Component<Props, State> {
       locationError: null,
       mapCameraBounds: this.getMapCameraBounds(),
       mapCenterCoords: null,
+      currentZoom: 10,
       animatedPosition: new Animated.Value(DISMISSED_INFO_BANNER_POSTIION),
       infoBannerShowing: false,
       tappedOnFeatures: [],
-      loading: false
+      loading: false,
+      topInset: 0
     };
   }
 
@@ -199,7 +204,7 @@ class MapComponent extends Component<Props, State> {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
 
     trackScreenView('Map');
@@ -227,6 +232,18 @@ class MapComponent extends Component<Props, State> {
           longitude: '' + this.props.preSelectedAlerts[0].lon
         }
       });
+    }
+
+    // set the top inset to the top inset of the initial window metrics if we're on iOS
+    // setting the value to state onmount because the value is not available in the constructor
+    // this is done automatically with useSafeAreaInsets hook in react-native-safe-area-context
+    if (Platform.OS === 'ios') {
+      const insets = initialWindowMetrics?.insets;
+      if (insets) {
+        this.setState({
+          topInset: insets.top
+        });
+      }
     }
   }
 
@@ -263,7 +280,7 @@ class MapComponent extends Component<Props, State> {
 
   componentWillUnmount() {
     this.appStateSubscription?.remove();
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandlerSubscription?.remove();
 
     // If we're currently tracking a location, don't stop watching for updates!
     if (!this.isRouteTracking()) {
@@ -303,10 +320,12 @@ class MapComponent extends Component<Props, State> {
   };
 
   handleBackPress = debounceUI(() => {
-    // Dismiss the map walkthrough modal in case it is showing.
-    Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
-      console.info('3SC', 'Cannot dismiss map walkthrough: ', err)
-    );
+    // Dismiss the map walkthrough modal if it is showing (only possible when mapWalkthroughSeen is false).
+    if (!this.props.mapWalkthroughSeen) {
+      Navigation.dismissModal('ForestWatcher.MapWalkthrough').catch(err =>
+        console.info('WRI', 'Cannot dismiss map walkthrough: ', err)
+      );
+    }
     this.dismissInfoBanner();
     if (this.isRouteTracking()) {
       if (this.state.routeTrackingDialogState) {
@@ -329,7 +348,7 @@ class MapComponent extends Component<Props, State> {
       startTrackingHeading();
     } catch (err) {
       // continue without tracking heading...
-      console.warn('3SC', 'Could not start tracking heading...', err);
+      console.warn('WRI', 'Could not start tracking heading...', err);
       Sentry.captureException(err);
     }
 
@@ -348,7 +367,7 @@ class MapComponent extends Component<Props, State> {
     try {
       await startTrackingLocation(requestedPermission);
     } catch (err) {
-      console.warn('3SC', 'Could not start tracking location...', err);
+      console.warn('WRI', 'Could not start tracking location...', err);
       this.onLocationUpdateError(err);
       Sentry.captureException(err);
       throw err;
@@ -432,11 +451,18 @@ class MapComponent extends Component<Props, State> {
     });
   });
 
-  onRegionDidChange = async () => {
-    if (this.map) {
-      const mapCenterCoords = await this.map.getCenter();
-      this.setState({ mapCenterCoords, dragging: false });
+  onRegionDidChange = (feature: any) => {
+    const currentZoom = feature?.properties?.zoomLevel ?? this.state.currentZoom;
+    // geometry.coordinates is the map center — use it directly to avoid
+    // this.map.getCenter() which hangs in New Architecture (Fabric).
+    const mapCenterCoords = feature?.geometry?.coordinates ?? this.state.mapCenterCoords;
+    // Clear the initial camera bounds only once (when first non-null) so the
+    // Camera does not re-animate on every subsequent pan/zoom.
+    const newState: any = { mapCenterCoords, currentZoom, dragging: false };
+    if (this.state.mapCameraBounds !== null) {
+      newState.mapCameraBounds = null;
     }
+    this.setState(newState);
   };
 
   showBottomDialog = debounceUI((isExiting = false) => {
@@ -583,14 +609,14 @@ class MapComponent extends Component<Props, State> {
     const { userLocation, customReporting, mapCenterCoords, selectedAlerts, selectedReports } = this.state;
 
     if (!area) {
-      console.warn('3SC', 'Cannot create a report without an area');
+      console.warn('WRI', 'Cannot create a report without an area');
       return;
     }
 
     let latLng = [];
     if (customReporting) {
       if (!mapCenterCoords) {
-        console.warn('3SC', 'Cannot create a custom report without map center coords');
+        console.warn('WRI', 'Cannot create a custom report without map center coords');
         return;
       }
 
@@ -614,7 +640,7 @@ class MapComponent extends Component<Props, State> {
       ];
     } else if (this.isRouteTracking()) {
       if (!userLocation) {
-        console.warn('3SC', 'Cannot create a route tracking report without user location');
+        console.warn('WRI', 'Cannot create a route tracking report without user location');
         return;
       }
       latLng = [
@@ -624,7 +650,7 @@ class MapComponent extends Component<Props, State> {
         }
       ];
     } else {
-      console.warn('3SC', 'Cannot create a report without a report location');
+      console.warn('WRI', 'Cannot create a report without a report location');
       return;
     }
 
@@ -705,9 +731,9 @@ class MapComponent extends Component<Props, State> {
     return (
       <MapboxGL.UserLocation
         onUpdate={location => this.updateHeading(location?.coords?.heading, true)}
-        renderMode="custom"
+        renderMode="normal"
       >
-        <MapboxGL.SymbolLayer id="userLocation" style={userLocationStyle} layerIndex={MAP_LAYER_INDEXES.userLocation} />
+        <MapboxGL.SymbolLayer id="userLocation" style={userLocationStyle} />
       </MapboxGL.UserLocation>
     );
   };
@@ -789,7 +815,7 @@ class MapComponent extends Component<Props, State> {
     });
   };
 
-  onClusterPress = async (clusterFeature: Feature<Geometry, any>) => {
+  onClusterPress = (clusterFeature: Feature<Geometry, any>) => {
     this.dismissInfoBanner();
 
     let coords: ?Position = null;
@@ -804,15 +830,25 @@ class MapComponent extends Component<Props, State> {
       }
     }
 
-    if (coords && this.map) {
-      const zoom = await this.map.getZoom();
-      if (this.mapCamera) {
-        this.mapCamera.setCamera({
-          centerCoordinate: coords,
-          zoomLevel: zoom + 3,
-          animationDuration: 2000
-        });
-      }
+    if (coords && this.mapCamera) {
+      const camera = this.mapCamera;
+
+      // Use functional setState so targetZoom is derived from the latest queued
+      // state value. If the user taps clusters rapidly, React may batch updates
+      // and this.state.currentZoom could still be the pre-animation value;
+      // prevState.currentZoom always reflects the most recently enqueued value.
+      // The setState callback fires after the new state is committed, so
+      // this.state.currentZoom in the callback is already the incremented value.
+      this.setState(
+        prevState => ({ mapCameraBounds: null, currentZoom: prevState.currentZoom + 3 }),
+        () => {
+          camera.setCamera({
+            centerCoordinate: coords,
+            zoomLevel: this.state.currentZoom,
+            animationDuration: 500
+          });
+        }
+      );
     }
   };
 
@@ -1009,7 +1045,7 @@ class MapComponent extends Component<Props, State> {
             <View
               style={[
                 styles.coordinateTextContainer,
-                { paddingTop: Platform.OS === 'ios' ? initialWindowMetrics.insets.top : 0 } // Status bar padding only on iOS because on Android
+                { paddingTop: Platform.OS === 'ios' ? this.state.topInset : 0 } // Status bar padding only on iOS because on Android
                 // the status bar is opaque and pushes the whole app down
               ]}
             >

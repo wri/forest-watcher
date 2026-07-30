@@ -11,70 +11,90 @@ const nextIconWhite = require('assets/next_white.png');
 // Feature ready to use icons but empty to remove old and unused ones
 const icons = {};
 
-function ActionButton(props) {
+function ActionButton({
+  compact = false,
+  disabled = false,
+  short = false,
+  buttonStyle,
+  light,
+  dark,
+  style,
+  left,
+  delete: deleteButton,
+  secondary,
+  error,
+  icon,
+  text,
+  onPress,
+  noIcon,
+  main,
+  monochrome,
+  textStyle,
+  transparent
+}) {
   function onButtonPress() {
-    if (!props.disabled) {
-      props.onPress?.();
+    if (!disabled) {
+      onPress?.();
     }
   }
   const containerStyles = [
     styles.container,
-    props.monochrome ? styles.light : '',
-    props.left ? styles.left : '',
-    props.dark ? styles.dark : '',
-    props.light ? styles.light : '',
-    props.disabled ? styles.disabled : '',
-    props.secondary && props.disabled ? styles.secondaryDisabled : '',
-    props.secondary && !props.disabled ? styles.secondary : '',
-    props.error ? styles.error : '',
-    props.delete ? styles.error : '',
-    props.transparent ? styles.transparent : '',
-    props.style
+    monochrome ? styles.light : '',
+    left ? styles.left : '',
+    dark ? styles.dark : '',
+    light ? styles.light : '',
+    disabled ? styles.disabled : '',
+    secondary && disabled ? styles.secondaryDisabled : '',
+    secondary && !disabled ? styles.secondary : '',
+    error ? styles.error : '',
+    deleteButton ? styles.error : '',
+    transparent ? styles.transparent : '',
+    style
   ];
 
   const btnStyles = [
     styles.button,
-    props.compact ? styles.compact : '',
-    props.light ? styles.buttonLight : '',
-    props.short ? styles.short : '',
-    !props.left && (props.disabled || props.delete || props.noIcon) ? styles.buttonNoIcon : '',
-    props.buttonStyle || ''
+    compact ? styles.compact : '',
+    light ? styles.buttonLight : '',
+    short ? styles.short : '',
+    !left && (disabled || deleteButton || noIcon) ? styles.buttonNoIcon : '',
+    buttonStyle || ''
   ];
 
   const textStyles = [
     styles.buttonText,
-    props.main ? styles.buttonTextMain : '',
-    props.monochrome ? styles.buttonTextMonochrome : '',
-    props.light ? styles.buttonTextLight : '',
-    props.dark ? styles.buttonTextLight : '',
-    props.left ? styles.buttonTextLeft : '',
-    props.disabled ? styles.buttonTextDisabled : '',
-    props.error ? styles.buttonTextError : '',
-    props.delete ? styles.buttonTextError : '',
-    props.secondary && !props.disabled ? styles.buttonTextSecondary : '',
-    props.secondary && props.disabled ? styles.buttonTextDisabled : '',
-    props.transparent
-      ? { color: props.delete ? Theme.colors.carnation : props.light || props.dark ? '' : Theme.background.secondary }
+    main ? styles.buttonTextMain : '',
+    monochrome ? styles.buttonTextMonochrome : '',
+    light ? styles.buttonTextLight : '',
+    dark ? styles.buttonTextLight : '',
+    left ? styles.buttonTextLeft : '',
+    disabled ? styles.buttonTextDisabled : '',
+    error ? styles.buttonTextError : '',
+    deleteButton ? styles.buttonTextError : '',
+    secondary && !disabled ? styles.buttonTextSecondary : '',
+    secondary && disabled ? styles.buttonTextDisabled : '',
+    transparent
+      ? { color: deleteButton ? Theme.colors.carnation : light || dark ? '' : Theme.background.secondary }
       : '',
-    props.compact ? styles.buttonTextCompact : '',
-    props.textStyle || ''
+    compact ? styles.buttonTextCompact : '',
+    textStyle || ''
   ];
 
-  const arrowIconStyles = [Theme.icon, props.short ? styles.shortIcon : ''];
+  const arrowIconStyles = [Theme.icon, short ? styles.shortIcon : ''];
 
   let arrowIcon = nextIconWhite;
   let underlayColor = Platform.select({ android: Theme.background.white, ios: Theme.background.secondary });
-  if (props.light || props.dark || props.secondary) {
+  if (light || dark || secondary) {
     underlayColor = Theme.background.white;
     arrowIcon = nextIcon;
   }
-  if (props.monochrome) {
+  if (monochrome) {
     arrowIcon = nextIcon;
   }
-  if (props.disabled) {
+  if (disabled) {
     underlayColor = Theme.colors.veryLightPinkTwo;
   }
-  if (props.error || props.delete) {
+  if (error || deleteButton) {
     underlayColor = Theme.colors.carnation;
   }
 
@@ -96,7 +116,7 @@ function ActionButton(props) {
       })}
       activeOpacity={0.8}
       underlayColor={underlayColor}
-      disabled={props.disabled}
+      disabled={disabled}
     >
       <View
         style={Platform.select({
@@ -104,13 +124,13 @@ function ActionButton(props) {
           ios: btnStyles
         })}
       >
-        {icons[props.icon] && (
+        {icons[icon] && (
           <View style={styles.iconContainer}>
-            <Image style={Theme.icon} source={icons[props.icon]} />
+            <Image style={Theme.icon} source={icons[icon]} />
           </View>
         )}
-        {props.text && <Text style={textStyles}>{props.text}</Text>}
-        {!(props.disabled || props.delete || props.noIcon) && (
+        {text && <Text style={textStyles}>{text}</Text>}
+        {!(disabled || deleteButton || noIcon) && (
           <View style={styles.iconContainer}>
             <Image style={arrowIconStyles} source={arrowIcon} />
           </View>
@@ -119,12 +139,6 @@ function ActionButton(props) {
     </Touchable>
   );
 }
-
-ActionButton.defaultProps = {
-  compact: false,
-  disabled: false,
-  short: false
-};
 
 ActionButton.propTypes = {
   buttonStyle: PropTypes.any,

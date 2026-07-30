@@ -7,7 +7,7 @@ import { Navigation } from 'react-native-navigation';
 import Theme from 'config/theme';
 import ActionButton from 'components/common/action-button';
 import i18n from 'i18next';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import debounceUI from 'helpers/debounceUI';
 import { trackScreenView } from 'helpers/analytics';
 import styles, { mapboxStyles } from './styles';

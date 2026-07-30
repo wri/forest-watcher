@@ -12,7 +12,7 @@ import i18n from 'i18next';
 import { trackScreenView } from 'helpers/analytics';
 import styles, { mapboxStyles } from './styles';
 import { coordsArrayToObject } from 'helpers/location';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import { getPolygonBoundingBox } from 'helpers/map';
 import ContextualLayers from 'containers/map/contextual-layers';
 import type { LayerSettings } from 'types/layerSettings.types';

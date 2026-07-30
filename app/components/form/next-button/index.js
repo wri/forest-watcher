@@ -7,24 +7,24 @@ import styles from './styles';
 
 const nextIconWhite = require('assets/next_white.png');
 
-function NextButton(props) {
+function NextButton({ disabled = false, transparent, style, onPress }) {
   function onButtonPress() {
-    if (!props.disabled) {
-      props.onPress();
+    if (!disabled) {
+      onPress();
     }
   }
   return (
     <TouchableHighlight
       style={[
         styles.container,
-        props.transparent ? styles.transparent : '',
-        props.disabled && styles.disabled,
-        props.style
+        transparent ? styles.transparent : '',
+        disabled && styles.disabled,
+        style
       ]}
-      disabled={props.disabled}
+      disabled={disabled}
       onPress={onButtonPress}
       activeOpacity={0.8}
-      underlayColor={props.transparent ? 'transparent' : Theme.background.secondary}
+      underlayColor={transparent ? 'transparent' : Theme.background.secondary}
     >
       <View style={styles.button}>
         <Image style={Theme.icon} source={nextIconWhite} />
@@ -33,12 +33,8 @@ function NextButton(props) {
   );
 }
 
-NextButton.defaultProps = {
-  disabled: false
-};
-
 NextButton.propTypes = {
-  style: PropTypes.node,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.number]),
   transparent: PropTypes.bool,
   disabled: PropTypes.bool,
   onPress: PropTypes.func.isRequired

@@ -1,6 +1,6 @@
 import Theme from 'config/theme';
 import { Platform, StyleSheet } from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 
 const CoordinateTextDefault = {
   fontFamily: Theme.font,
@@ -97,8 +97,8 @@ export const mapboxStyles = {
   },
   areaOutline: {
     lineColor: Theme.colors.turtleGreen,
-    lineCap: MapboxGL.LineJoin.Round,
-    lineJoin: MapboxGL.LineJoin.Round,
+    lineCap: 'round',
+    lineJoin: 'round',
     lineWidth: 3,
     lineOpacity: 0.8
   }

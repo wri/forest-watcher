@@ -121,10 +121,7 @@ class ImportMappingFileType extends PureComponent<Props, State> {
 
   verifyImportedFile = async (file: File) => {
     // $FlowFixMe
-    const fileExtension = file.name
-      .split('.')
-      ?.pop()
-      ?.toLowerCase();
+    const fileExtension = file.name.split('.')?.pop()?.toLowerCase();
 
     // First, ensure that this file is one of the supported file types.
     if (!this.acceptedFileTypes().includes(fileExtension)) {
@@ -163,7 +160,7 @@ class ImportMappingFileType extends PureComponent<Props, State> {
         try {
           await RNFS.unlink(tempUri);
         } catch (err) {
-          console.warn('3SC', 'RNFS unlink error: ', err);
+          console.warn('WRI', 'RNFS unlink error: ', err);
         }
       }
     }
@@ -202,9 +199,9 @@ class ImportMappingFileType extends PureComponent<Props, State> {
 
   renderFileTypeComponent = (fileType: string) => {
     return (
-      <View style={styles.fileTypeContainer}>
+      <View key={fileType} style={styles.fileTypeContainer}>
         <Image source={fileIcon} />
-        <Text style={styles.fileTypeText} key={fileType}>
+        <Text style={styles.fileTypeText}>
           .{fileType}
         </Text>
       </View>

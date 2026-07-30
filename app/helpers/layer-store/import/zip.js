@@ -55,7 +55,7 @@ export default async function importZipFile(file: File & { uri: string }, fileNa
       RNFS.unlink(tempZipPath.replace(/\.[^/.]+$/, ''));
       RNFS.unlink(tempZipPath);
     } catch (err) {
-      console.warn('3SC', 'RNFS unlink error: ', err);
+      console.warn('WRI', 'RNFS unlink error: ', err);
     }
   }
 }

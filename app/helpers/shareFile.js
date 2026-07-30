@@ -1,6 +1,6 @@
 // @flow
 
-import RNShare from 'react-native-share';
+import Share from 'react-native-share';
 
 /**
  * shareFile - given a path to a file on disk, opens a share modal to allow
@@ -9,11 +9,13 @@ import RNShare from 'react-native-share';
  * @param {string} path
  * @param {?string} mimeType
  */
-export default async function shareFile(path: string, mimeType?: string): Promise<void> {
-  await RNShare.open({
+export default async function shareFile(path: string, mimeType?: string): Promise<{success: boolean}> {
+  const res = await Share.open({
     saveToFiles: true,
     url: `file://${path}`,
     type: mimeType,
-    showAppsToView: true
-  }).catch(err => {}); // Ensures that the promise is resolved
+    showAppsToView: true,
+    failOnCancel: false
+  })
+  return res;
 }

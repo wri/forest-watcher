@@ -25,6 +25,7 @@ To generate this values follow the next steps:
 To set up Facebook authentication you'll need the following env vars:
 ```bash
 LOGIN_FACEBOOK_APP_ID=
+LOGIN_FACEBOOK_CLIENT_TOKEN=
 LOGIN_FACEBOOK_PROTOCOL_SCHEME=
 ```
 In order to generate this values follow the next steps:
@@ -40,3 +41,4 @@ In order to generate this values follow the next steps:
 6. Select Apple (same case, no need to add any code). Fill the following fields:
   - Bundle ID
   - In step 4 you'll find the env var values that you need (should be the same in Android and iOS).
+7. Get the **Client Token**: Go to Settings → Advanced → Security → Client Token (scroll down). Copy this value for `LOGIN_FACEBOOK_CLIENT_TOKEN`.

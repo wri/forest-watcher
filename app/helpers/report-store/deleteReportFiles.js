@@ -14,6 +14,6 @@ export default async function deleteReportFiles(query: ?ReportFileQuery): Promis
   try {
     await RNFetchBlob.fs.unlink(path);
   } catch (err) {
-    console.warn('3SC', `Could not delete report files in ${path}`, err);
+    console.warn('WRI', `Could not delete report files in ${path}`, err);
   }
 }

@@ -1,0 +1,34 @@
+diff --git a/node_modules/react-native-audio-recorder-player/android/src/main/java/com/dooboolab.audiorecorderplayer/RNAudioRecorderPlayerModule.kt b/node_modules/react-native-audio-recorder-player/android/src/main/java/com/dooboolab.audiorecorderplayer/RNAudioRecorderPlayerModule.kt
+index aafe3e2..9e43f36 100644
+--- a/node_modules/react-native-audio-recorder-player/android/src/main/java/com/dooboolab.audiorecorderplayer/RNAudioRecorderPlayerModule.kt
++++ b/node_modules/react-native-audio-recorder-player/android/src/main/java/com/dooboolab.audiorecorderplayer/RNAudioRecorderPlayerModule.kt
+@@ -226,7 +226,7 @@ class RNAudioRecorderPlayerModule(private val reactContext: ReactApplicationCont
+     @ReactMethod
+     fun startPlayer(path: String, httpHeaders: ReadableMap?, promise: Promise) {
+         if (mediaPlayer != null) {
+-            val isPaused = !mediaPlayer!!.isPlaying && mediaPlayer!!.currentPosition > 1
++            val isPaused = !mediaPlayer!!.isPlaying
+ 
+             if (isPaused) {
+                 mediaPlayer!!.start()
+@@ -362,8 +362,19 @@ class RNAudioRecorderPlayerModule(private val reactContext: ReactApplicationCont
+             return
+         }
+ 
++        // On Android, MediaPlayer.seekTo() is asynchronous on API 26+. Without an
++        // OnSeekCompleteListener the player remains paused at the new position on
++        // devices that implement async seek (e.g. Samsung Android 15). Capture the
++        // playing state before the seek and resume explicitly once the seek is done.
++        val wasPlaying = mediaPlayer!!.isPlaying
++        mediaPlayer!!.setOnSeekCompleteListener { mp ->
++            if (wasPlaying) {
++                mp.start()
++            }
++            mp.setOnSeekCompleteListener(null)
++        }
+         mediaPlayer!!.seekTo(time.toInt())
+-        promise.resolve("pause player")
++        promise.resolve("seeked to ${time.toInt()}")
+     }
+ 
+     private fun sendEvent(reactContext: ReactContext,

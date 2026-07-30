@@ -100,11 +100,30 @@ export function showAppSettings() {
 export async function checkLocationStatus(): Promise<ServiceStatus> {
   return await new Promise((resolve, reject) => {
     BackgroundGeolocation.checkStatus(
-      (isRunning, locationServicesEnabled, authorizationStatus) => {
-        resolve(isRunning, locationServicesEnabled, authorizationStatus);
+      (statusOrIsRunning, legacyLocationServicesEnabled, legacyAuthorizationStatus) => {
+        const status =
+          statusOrIsRunning && typeof statusOrIsRunning === 'object'
+            ? statusOrIsRunning
+            : {
+                isRunning: statusOrIsRunning,
+                locationServicesEnabled: legacyLocationServicesEnabled,
+                authorization: legacyAuthorizationStatus
+              };
+
+        resolve({
+          isRunning: Boolean(status.isRunning),
+          locationServicesEnabled: Boolean(status.locationServicesEnabled),
+          authorization: status.authorization
+        });
       },
       err => {
-        resolve(false, false, GFWLocationUnauthorized);
+        console.warn('WRI', 'Background geolocation status check failed', err);
+        Sentry.captureException(err);
+        resolve({
+          isRunning: false,
+          locationServicesEnabled: false,
+          authorization: GFWLocationUnauthorized
+        });
       }
     );
   });
@@ -146,7 +165,7 @@ async function getCurrentLocation(): Promise<Location> {
         resolve(location);
       },
       (code, message) => {
-        reject(new FWError({ code, message }));
+        reject(new FWError({ code, message: message || `Location lookup failed (${code})` }));
       },
       {
         timeout: 10000, // ten seconds
@@ -296,7 +315,7 @@ export async function startTrackingLocation(requiredPermission: number) {
       emitLocationUpdate(initialLocationUpdate);
     }
   } catch (err) {
-    console.warn('3SC', 'Unexpected failure prior to starting geolocation tracking... continuing...', err);
+    console.warn('WRI', 'Unexpected failure prior to starting geolocation tracking... continuing...', err);
     Sentry.captureException(err);
   }
 
@@ -391,7 +410,7 @@ export function removeDuplicateLocations<T: { latitude: number, longitude: numbe
     return null;
   }
 
-  _.reject(locations, function(location, i) {
+  _.reject(locations, function (location, i) {
     return (
       i > 0 && locations[i - 1].latitude === location.latitude && locations[i - 1].longitude === location.longitude
     );

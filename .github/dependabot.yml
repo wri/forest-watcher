@@ -1,0 +1,69 @@
+version: 2
+updates:
+  # JavaScript and React Native dependencies.
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 10
+    versioning-strategy: 'increase-if-necessary'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+    groups:
+      npm-minor-patch:
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # Ruby tooling used for CocoaPods and iOS build support.
+  - package-ecosystem: 'bundler'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 5
+    versioning-strategy: 'increase-if-necessary'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+    groups:
+      bundler-minor-patch:
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # Android Gradle dependencies and wrapper updates.
+  - package-ecosystem: 'gradle'
+    directory: '/android'
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 5
+    versioning-strategy: 'increase-if-necessary'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+    groups:
+      gradle-minor-patch:
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # iOS CocoaPods dependencies.
+  - package-ecosystem: 'cocoapods'
+    directory: '/ios'
+    schedule:
+      interval: 'monthly'
+    open-pull-requests-limit: 5
+    versioning-strategy: 'increase-if-necessary'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
+    groups:
+      cocoapods-minor-patch:
+        update-types:
+          - 'minor'
+          - 'patch'

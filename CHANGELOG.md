@@ -1,15 +1,5 @@
 # Forest Watcher Changelog
 
-## [v3.0.0]
-- Adds support for Teams
-  - Accepting or Declining invitations
-  - Leaving a team
-  - Seeing all areas from the team
-- Adds support for choosing a report template
-- Adds support for the new microservices and the v3 api endpoints
-- Adds support for deleting a user
-- Other bugfixes and improvements
-
 ## [v2.1.0]
 - Adds support for new GLAD-S2 and RADD deforestation alert types including:
     - New 2 week option for deforestation alerts shown on map
@@ -38,7 +28,7 @@
 - Fixed how Map Settings is used in Setup Area flow
 - Fixed report images occasionally not appearing
 - Fixed crashes when dealing with edge-case v1 data such as reports without names etc.
-- Upgraded `react-native-mapbox-gl` to v8.1.0 from v8.0.0 to address occasional Mapbox native library crashes
+- Upgraded legacy React Native Mapbox package to v8.1.0 from v8.0.0 to address occasional Mapbox native library crashes
 
 ## [v2.0.1] (Android-only)
 - Removed Map Settings toggle from Setup Area flow temporarily
