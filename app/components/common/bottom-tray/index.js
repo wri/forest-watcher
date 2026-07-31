@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component, type ElementConfig } from 'react';
+import React, { type ElementConfig } from 'react';
 import { View } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
