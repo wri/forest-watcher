@@ -1521,7 +1521,7 @@ PODS:
     - React
   - react-native-safe-area-context (4.14.1):
     - React-Core
-  - react-native-webview (13.16.1):
+  - react-native-webview (13.17.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1959,7 +1959,7 @@ PODS:
     - Yoga
   - RNShare (10.0.2):
     - React-Core
-  - RNSVG (15.15.4):
+  - RNSVG (15.15.5):
     - React-Core
   - RNZipArchive (7.0.1):
     - React-Core
@@ -2404,7 +2404,7 @@ SPEC CHECKSUMS:
   react-native-netinfo: 387c95161b1971d0b2acd61f5ecf394c8fd3fb95
   react-native-safe-area: ef18e77a00dc8ff473724853508264599cf215b8
   react-native-safe-area-context: 758e894ca5a9bd1868d2a9cfbca7326a2b6bf9dc
-  react-native-webview: d3eba75cc401adb2e6ab8e696727842b85ac8e89
+  react-native-webview: b055d2efd6ce86f9ed7bdc0c2e948e90d76815bb
   React-NativeModulesApple: 8ecbbc15f14a567821682d37b4b18896b1cc213b
   React-oscompat: faff1df234d57a7368b56e9642222dde9eb9f422
   React-perflogger: 59c434b6ab0741baa4cdc589ba4278889e3fae18
@@ -2453,7 +2453,7 @@ SPEC CHECKSUMS:
   RNPermissions: 1e120efb537b9a414e110116bef1616c2dee792e
   RNSentry: bc37d53501dac574f0a3bf93db7a4b50a5395e58
   RNShare: 01c717e457489779d16293d2afef36995aadd001
-  RNSVG: c8ba193e7bea6983ebdf544a6ee7b0f706c64559
+  RNSVG: c61e38e1c0c90ed982418ed696ec272b706995bb
   RNZipArchive: f4a5af907d1581e995c879e34799be35c6bc3e21
   Sentry: 1ca8405451040482877dcd344dfa3ef80b646631
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
