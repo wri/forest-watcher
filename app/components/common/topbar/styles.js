@@ -31,15 +31,15 @@ export default StyleSheet.create({
   },
   offlineTitle: {
     ...Theme.text,
-    fontSize: 16,
-    marginTop: 28,
-    lineHeight: 24
+    fontSize: 17,
+    marginTop: 15,
+    lineHeight: 22
   },
   offlineSubTitle: {
     ...Theme.text,
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 4,
     textAlign: 'center',
-    lineHeight: 16
+    lineHeight: 18
   }
 });
