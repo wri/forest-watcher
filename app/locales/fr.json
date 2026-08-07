@@ -730,7 +730,6 @@
         "biodiversitySignificance": "Importance de la biodiversité - 2016",
         "indonesiaForestArea": "Zone forestière en Indonésie",
         "landmarks": "Terres indigènes et communautaires",
-        "logging": "Concessions forestières gérées",
         "managedForests": "Forêts gérées",
         "mining": "Exploitation minière",
         "miningConcessions": "Concessions minières",
@@ -747,8 +746,7 @@
         "treeCoverLoss2020": "Perte de la couvert forestier (2020)",
         "treeCoverLoss2021": "Perte de la couvert forestier (2021)",
         "wdpa": "Zones protégées (tuiles vectorielles)",
-        "woodFiber": "Fibre de bois",
-        "woodFiberConcessions": "Concessions de fibre de bois par type - 2019"
+        "woodFiber": "Fibre de bois"
     },
     "locationPermissions": {
         "enablePermissions": "Activer les autorisations",

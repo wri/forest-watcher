@@ -730,7 +730,6 @@
         "biodiversitySignificance": "Signifikansi biodiversitas - 2016",
         "indonesiaForestArea": "Area hutan Indonesia",
         "landmarks": "Lahan Adat dan Masyarakat",
-        "logging": "Konsesi Hutan yang Dikelola",
         "managedForests": "Hutan Terkelola",
         "mining": "Pertambangan\n",
         "miningConcessions": "Konsesi pertambangan",
@@ -747,8 +746,7 @@
         "treeCoverLoss2020": "Kehilangan Tutupan Pohon (2020)",
         "treeCoverLoss2021": "Kehilangan Tutupan Pohon (2021)",
         "wdpa": "Area Dilindungi (Ubin Vektor)",
-        "woodFiber": "Serat kayu",
-        "woodFiberConcessions": "Konsesi serat kayu berdasarkan jenis - 2019"
+        "woodFiber": "Serat kayu"
     },
     "locationPermissions": {
         "enablePermissions": "Aktifkan Izin",
