@@ -800,14 +800,6 @@ export const GFW_CONTEXTUAL_LAYERS: Array<Layer> = [
     url: 'https://api.resourcewatch.org/v1/layer/c1c306a3-31b6-409a-acf0-2a8f09e28363/tile/gee/{z}/{x}/{y}',
     type: 'contextual_layer'
   },
-  /*{
-    id: 'f84af037-4e4f-41cf-a053-94a606071232',
-    description: 'Indicates the Indonesian government’s designation of legal forest area.',
-    name: 'indonesiaForestArea',
-    isGFW: true,
-    url:
-      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/875b5073c8d5640411d39d04a6c03e59:1529255267242/{z}/{x}/{y}.mvt'
-  },*/
   {
     id: 'caa9b9b7-5dec-4ad6-adbf-d7c2965c9371',
     description:
@@ -817,27 +809,12 @@ export const GFW_CONTEXTUAL_LAYERS: Array<Layer> = [
     type: 'contextual_layer'
   },
   {
-    id: '51aad76b-e884-44e0-82a4-d3b2f87a052d',
-    description:
-      'Boundaries of forested areas allocated by governments to companies for harvesting timber and other wood products.',
-    name: 'logging',
-    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/aa3157cf3a5b0acc1f78b48899fb7a02:1548761157303/{z}/{x}/{y}.mvt',
-    type: 'contextual_layer'
-  },
-  {
     id: 'fcd10026-e892-4fb8-8d79-8d76e3b94005',
     description: 'Mining Areas',
     name: 'miningConcessions',
     url: 'mapbox://resourcewatch.3259d78x',
     type: 'contextual_layer'
   },
-  /*{
-    id: '0911abc4-d861-4d7a-84d6-0fa07b51d7d8',
-    description: 'Oil palm areas',
-    name: 'oilPalmConcessions',
-    isGFW: true,
-    url: ''
-  },*/
   {
     id: 'e37f881b-ed2e-485b-b194-6a6829aaff2e',
     description: 'Legally protected areas by IUCN category. Updated monthly.',
@@ -845,22 +822,6 @@ export const GFW_CONTEXTUAL_LAYERS: Array<Layer> = [
     url: 'https://tiles.globalforestwatch.org/wdpa_protected_areas/v201909/mvt/{z}/{x}/{y}',
     type: 'contextual_layer'
   },
-  /*{
-    id: '5ce140d9-260b-4e42-8b15-bd62193a5955',
-    description:
-      'This data layer displays the concession boundaries of Roundtable on Sustainable Palm Oil (RSPO) member companies through December 2017, including both certified and non-certified concessions, as well as concessions where the certification status is unknown. The concession boundaries were provided to the RSPO by member companies.',
-    name: 'rspo',
-    isGFW: true,
-    url:
-      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/4cec6a801dc76cb77fbf5123efd7581f:1529255245810/{z}/{x}/{y}.mvt'
-  },*/
-  {
-    id: '82229960-13c2-4810-84e7-bdd4812d4578',
-    description: 'Wood fiber plantation areas',
-    name: 'woodFiberConcessions',
-    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/1805b7c9ae919f705548dfb470679f8a:1569405047170/{z}/{x}/{y}.mvt',
-    type: 'contextual_layer'
-  }
 ];
 
 export const DEFAULT_BASEMAP = GFW_BASEMAPS[0];
@@ -886,3 +847,46 @@ export default {
   datasets: DATASETS,
   layerMaxNameLength: LAYER_MAX_NAME_LENGTH
 };
+
+// Other previously used layers (prev. contained in GFW_CONTEXTUAL_LAYERS):
+/*
+  {
+    id: '0911abc4-d861-4d7a-84d6-0fa07b51d7d8',
+    description: 'Oil palm areas',
+    name: 'oilPalmConcessions',
+    isGFW: true,
+    url: ''
+  },
+  {
+    id: '5ce140d9-260b-4e42-8b15-bd62193a5955',
+    description:
+      'This data layer displays the concession boundaries of Roundtable on Sustainable Palm Oil (RSPO) member companies through December 2017, including both certified and non-certified concessions, as well as concessions where the certification status is unknown. The concession boundaries were provided to the RSPO by member companies.',
+    name: 'rspo',
+    isGFW: true,
+    url:
+      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/4cec6a801dc76cb77fbf5123efd7581f:1529255245810/{z}/{x}/{y}.mvt'
+  },
+  {
+    id: 'f84af037-4e4f-41cf-a053-94a606071232',
+    description: 'Indicates the Indonesian government’s designation of legal forest area.',
+    name: 'indonesiaForestArea',
+    isGFW: true,
+    url:
+      'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/875b5073c8d5640411d39d04a6c03e59:1529255267242/{z}/{x}/{y}.mvt'
+  },
+  {
+    id: '51aad76b-e884-44e0-82a4-d3b2f87a052d',
+    description:
+      'Boundaries of forested areas allocated by governments to companies for harvesting timber and other wood products.',
+    name: 'logging',
+    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/aa3157cf3a5b0acc1f78b48899fb7a02:1548761157303/{z}/{x}/{y}.mvt',
+    type: 'contextual_layer'
+  },
+  {
+    id: '82229960-13c2-4810-84e7-bdd4812d4578',
+    description: 'Wood fiber plantation areas',
+    name: 'woodFiberConcessions',
+    url: 'https://cartocdn-gusc-a.global.ssl.fastly.net/wri-01/api/v1/map/1805b7c9ae919f705548dfb470679f8a:1569405047170/{z}/{x}/{y}.mvt',
+    type: 'contextual_layer'
+  }
+*/
