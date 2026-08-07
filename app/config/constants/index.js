@@ -530,30 +530,6 @@ export const GFW_CONTEXTUAL_LAYERS_METADATA: { [string]: ContextualLayerRenderSp
       }
     ]
   },
-  '51aad76b-e884-44e0-82a4-d3b2f87a052d': {
-    isShareable: false,
-    maxZoom: 18,
-    tileFormat: 'vector',
-    vectorMapLayers: [
-      {
-        paint: {
-          'line-color': '#adadad',
-          'line-width': 0.3,
-          'line-opacity': 0.5
-        },
-        'source-layer': 'layer0',
-        type: 'line'
-      },
-      {
-        paint: {
-          'fill-opacity': 1,
-          'fill-color': '#8da0cb'
-        },
-        'source-layer': 'layer0',
-        type: 'fill'
-      }
-    ]
-  },
   'fcd10026-e892-4fb8-8d79-8d76e3b94005': {
     isShareable: true,
     maxZoom: 19,
@@ -759,30 +735,6 @@ export const GFW_CONTEXTUAL_LAYERS_METADATA: { [string]: ContextualLayerRenderSp
       }
     ]
   },
-  '82229960-13c2-4810-84e7-bdd4812d4578': {
-    isShareable: false,
-    tileFormat: 'vector',
-    vectorMapLayers: [
-      {
-        filter: ['all', ['==', 'source_typ', 'government']],
-        paint: {
-          'fill-color': '#8A2F1D',
-          'fill-opacity': 0.7
-        },
-        'source-layer': 'layer0',
-        type: 'fill'
-      },
-      {
-        filter: ['all', ['==', 'source_typ', 'private sector']],
-        paint: {
-          'fill-color': '#EB5B31',
-          'fill-opacity': 0.7
-        },
-        'source-layer': 'layer0',
-        type: 'fill'
-      }
-    ]
-  }
 };
 
 // These are hard-coded versions of data hosted in the layers API, you can use the `id` parameter to fetch
