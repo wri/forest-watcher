@@ -730,7 +730,6 @@
         "biodiversitySignificance": "Biodiversity significance - 2016",
         "indonesiaForestArea": "Indonesia forest area",
         "landmarks": "Indigenous and Community Lands",
-        "logging": "Managed Forest Concessions",
         "managedForests": "Managed Forest",
         "mining": "Mining",
         "miningConcessions": "Mining concessions",
@@ -747,8 +746,7 @@
         "treeCoverLoss2020": "Tree Cover Loss (2020)",
         "treeCoverLoss2021": "Tree Cover Loss (2021)",
         "wdpa": "Protected Areas (Vector Tiles)",
-        "woodFiber": "Wood fiber",
-        "woodFiberConcessions": "Wood fiber concessions by type - 2019"
+        "woodFiber": "Wood fiber"
     },
     "locationPermissions": {
         "enablePermissions": "Enable Permissions",
