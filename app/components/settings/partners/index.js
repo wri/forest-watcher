@@ -34,18 +34,6 @@ class Partners extends Component<{}> {
         functionOnPress: this.handleLink
       },
       {
-        text: '3 Sided Cube',
-        image: tscLogo,
-        url: 'https://3sidedcube.com/',
-        functionOnPress: this.handleLink
-      },
-      {
-        text: 'Vizzuality',
-        image: vizzualityLogo,
-        url: 'http://www.vizzuality.com/',
-        functionOnPress: this.handleLink
-      },
-      {
         text: 'The Jane Goodall Institute',
         image: jgiLogo,
         url: 'http://www.janegoodall.org/',
