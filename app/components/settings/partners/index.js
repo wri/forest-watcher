@@ -22,9 +22,9 @@ class Partners extends Component<{}> {
     super();
     this.partners = [
       {
-        text: 'Global Forest Watch',
+        text: 'Global Nature Watch',
         image: gfwLogo,
-        url: 'http://www.globalforestwatch.org/',
+        url: 'http://www.globalnaturewatch.org/',
         functionOnPress: this.handleLink
       },
       {
@@ -83,7 +83,7 @@ class Partners extends Component<{}> {
           <Text style={styles.partnerText}>{i18n.t('partners.description')}</Text>
           <Text
             style={styles.partnerText}
-            onPress={() => this.handleLink('http://www.globalforestwatch.org/about/the-gfw-partnership')}
+            onPress={() => this.handleLink('http://www.globalnaturewatch.org/about/the-gfw-partnership')}
           >
             {i18n.t('partners.listOfPartners')}
           </Text>

@@ -103,7 +103,7 @@
         "title": "Uw account verwijderen",
         "heading": "Gelieve te lezen alvorens verder te gaan",
         "body1": "Uw Forest Watcher-account wordt gedeeld met meerdere apps van het World Resource Institute (WRI). Hieronder vallen:",
-        "bullet1": "Forest Watcher\nGlobal Forest Watch (GFW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
+        "bullet1": "Forest Watcher\nGlobal Nature Watch (GNW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
         "body2": "Als u verdergaat, hebt u met dit account geen toegang meer tot deze apps. Als u ze in de toekomst wilt gebruiken, dient u zich opnieuw te registreren.\n\nBovendien wordt alle inhoud die aan dit account is gekoppeld (in alle apps) verwijderd. Dit omvat:",
         "bullet2": "Zones waarnaar uw belangstelling uitgaat\nRapporten\nRoutes\nContextuele lagen\nAbonnementen\nDatasets\nWidgets",
         "footer": "Ga voor een volledige lijst met soorten inhoud naar https://resource-watch.github.io/doc-api/concepts.html#core-resources",
@@ -255,9 +255,9 @@
             "oneAction": "Export %{count} lagen...",
             "successful": "Het exporteren van lagen is succesvol!"
         },
-        "gfw": "GFW Lagen",
+        "gfw": "GNW Lagen",
         "import": {
-            "addGFW": "Voeg Global Forest Watch Lagen toe",
+            "addGFW": "Voeg Global Nature Watch Lagen toe",
             "choose": "Kies een contextueel laagtype",
             "chooseAnother": "Kies een ander",
             "custom": "Aangepaste contextuele laag",
@@ -318,9 +318,9 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Forest Watcher is een mobiele applicatie die is ontworpen om eenvoudig en offline toegang te bieden tot gegevens over bosverandering van Global Forest Watch http://www.globalforestwatch.org/.",
-                                "text2": "Global Forest Watch (GFW) is een dynamisch online bosmonitoring- en waarschuwingssysteem dat mensen overal in staat stelt om bossen beter te beheren. GFW brengt satelliet technologie, cloud computing en open data samen om tijdig informatie over bossen aan gemeenschappen over de hele wereld te verstrekken.",
-                                "text3": "Forest Watcher brengt waardevolle informatie van GFW rechtstreeks in handen van mensen die bossen ter plekke controleren. Met Forest Watcher kan iedereen ontbossing en brandmeldingen op een mobiel apparaat bekijken, offline naar de locatie van de waarschuwing navigeren en informatie en foto's verzamelen over wat ze vinden.",
+                                "text1": "Forest Watcher is een mobiele applicatie die is ontworpen om eenvoudig en offline toegang te bieden tot gegevens over bosverandering van Global Nature Watch http://www.globalnaturewatch.org/.",
+                                "text2": "Global Nature Watch (GNW) is een dynamisch online bosmonitoring- en waarschuwingssysteem dat mensen overal in staat stelt om bossen beter te beheren. GNW brengt satelliet technologie, cloud computing en open data samen om tijdig informatie over bossen aan gemeenschappen over de hele wereld te verstrekken.",
+                                "text3": "Forest Watcher brengt waardevolle informatie van GNW rechtstreeks in handen van mensen die bossen ter plekke controleren. Met Forest Watcher kan iedereen ontbossing en brandmeldingen op een mobiel apparaat bekijken, offline naar de locatie van de waarschuwing navigeren en informatie en foto's verzamelen over wat ze vinden.",
                                 "text4": "Deze app biedt een betaalbare en gebruiksvriendelijke oplossing om: snel gebieden te identificeren voor patrouilles in het bos of veldonderzoek; verzamel bewijsmateriaal over bosveranderingen op locatie; verzamelde gegevens gebruiken om op bewijsmateriaal gebaseerde beslissingen over beheer en instandhouding te nemen; en remote sensing in het veld valideren.",
                                 "text5": "Met deze app kunnen gebruikers met name: "
                             },
@@ -345,7 +345,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "In 2016 werkten het Jane Goodall Institute (JGI), Global Forest Watch (GFW), Touchlab en Google samen om een ​​testversie van een mobiele app te maken om beschermde gebieden in Oeganda offline te bewaken. Na de succesvolle pilotfase creëerden GFW, JGI en Vizzuality Forest Watcher om toegang tot GFW-gegevens mogelijk te maken, zowel offline als in het veld. De app wordt momenteel onderhouden door GFW en 3 Sided Cube."
+                                "text": "In 2016 werkten het Jane Goodall Institute (JGI), Global Nature Watch (GNW), Touchlab en Google samen om een ​​testversie van een mobiele app te maken om beschermde gebieden in Oeganda offline te bewaken. Na de succesvolle pilotfase creëerden GNW, JGI en Vizzuality Forest Watcher om toegang tot GNW-gegevens mogelijk te maken, zowel offline als in het veld. De app wordt momenteel onderhouden door GNW en 3 Sided Cube."
                             }
                         },
                         "title": "Wie heeft Forest Watcher gemaakt?"
@@ -412,9 +412,9 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Global Forest Watch (GFW) biedt vooraf geladen verandering in bossen en contextuele gegevens over Forest Watcher. De vooraf geladen gegevens omvatten drie soorten waarschuwingen voor ontbossing (GLAD, GLAD-S2, RADD), VIIRS actieve waarschuwingen voor brand, jaarlijks verlies van bosbedekking en beschermde gebieden."
+                                "text": "Global Nature Watch (GNW) biedt vooraf geladen verandering in bossen en contextuele gegevens over Forest Watcher. De vooraf geladen gegevens omvatten drie soorten waarschuwingen voor ontbossing (GLAD, GLAD-S2, RADD), VIIRS actieve waarschuwingen voor brand, jaarlijks verlies van bosbedekking en beschermde gebieden."
                             },
-                            "footerText": "U kunt ook aanvullende contextuele lagen van GFW toevoegen, waaronder inheems land en gemeenschapsland van LandMark, en verschillende concessies en biodiversiteit gegevens, of u kunt uw eigen aangepaste contextuele lagen uploaden via de mobiele app. Forest Watcher Mobile ondersteunt de volgende bestandstypen voor uploaden: .json, .geojson, .topojson, .gpx, .zip, .kmz en .kml. Bij het uploaden van extra contextuele lagen heeft u de mogelijkheid om de gegevens voor offline gebruik of toegang tot de gegevens alleen online. Deze opties bieden meer flexibiliteit ten opzichte van de gegevens die op uw apparaat zijn opgeslagen. Ga voor meer informatie naar data.globalforestwatch.org.",
+                            "footerText": "U kunt ook aanvullende contextuele lagen van GNW toevoegen, waaronder inheems land en gemeenschapsland van LandMark, en verschillende concessies en biodiversiteit gegevens, of u kunt uw eigen aangepaste contextuele lagen uploaden via de mobiele app. Forest Watcher Mobile ondersteunt de volgende bestandstypen voor uploaden: .json, .geojson, .topojson, .gpx, .zip, .kmz en .kml. Bij het uploaden van extra contextuele lagen heeft u de mogelijkheid om de gegevens voor offline gebruik of toegang tot de gegevens alleen online. Deze opties bieden meer flexibiliteit ten opzichte van de gegevens die op uw apparaat zijn opgeslagen. Ga voor meer informatie naar data.globalforestwatch.org.",
                             "orderList": {
                                 "text1": "GLAD-waarschuwingen voor ontbossing: geproduceerd door het Global Land Analysis & Discovery (GLAD) Lab van de University of Maryland, elke 8 dagen bijgewerkt met een resolutie van 30 meter. Deze waarschuwingen gebruiken gegevens van Landsat 7- en 8-satellieten en identificeren gebieden met waarschijnlijk verlies van bosbedekking in de tropen.",
                                 "text2": "GLAD-S2-waarschuwingen voor ontbossing: Ook geproduceerd door het GLAD-lab, elke 5 dagen bijgewerkt met een resolutie van 10 meter. Deze waarschuwingen maken gebruik van gegevens van de Sentinel-2-satellieten van de European Space Agency om gebieden met waarschijnlijk verlies van primair bos te identificeren. Op het moment van de huidige release (juli 2021) zijn waarschuwingen beschikbaar voor het Amazonebekken.",
@@ -441,7 +441,7 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "De basiskaart van satellietbeelden van Global Forest Watch (GFW) wordt minder vaak bijgewerkt dan de waarschuwingsgegevens. Als zodanig kunt u waarschuwingen opmerken voor gebieden die nog steeds ongestoord op de basiskaart van satellietbeelden verschijnen. Om recentere satellietbeelden te bekijken, raden we u aan de tool Recente satellietbeelden te gebruiken die beschikbaar is op GFW. Het bezoeken van waarschuwingen in het veld is de meest nauwkeurige manier om veranderingen te verifiëren, maar het is ook meestal de duurste. Daarom raden we u aan om, indien mogelijk, de tool Recente satellietbeelden te gebruiken voordat u uw veldbezoek plant om vast te stellen wat de waarschijnlijke oorzaken van de storing zijn.",
+                                "text1": "De basiskaart van satellietbeelden van Global Nature Watch (GNW) wordt minder vaak bijgewerkt dan de waarschuwingsgegevens. Als zodanig kunt u waarschuwingen opmerken voor gebieden die nog steeds ongestoord op de basiskaart van satellietbeelden verschijnen. Om recentere satellietbeelden te bekijken, raden we u aan de tool Recente satellietbeelden te gebruiken die beschikbaar is op GNW. Het bezoeken van waarschuwingen in het veld is de meest nauwkeurige manier om veranderingen te verifiëren, maar het is ook meestal de duurste. Daarom raden we u aan om, indien mogelijk, de tool Recente satellietbeelden te gebruiken voordat u uw veldbezoek plant om vast te stellen wat de waarschijnlijke oorzaken van de storing zijn.",
                                 "text2": "Als alternatief kunt u ook uw eigen satellietbeelden en basiskaarten uploaden door naar de sectie Basemaps of Contextual Layers op de pagina Instellingen van de mobiele app te gaan en op de knop + in de rechterbovenhoek van de pagina te klikken."
                             }
                         },
@@ -470,10 +470,10 @@
                                 "text3": "Routes",
                                 "text4": "Niet-geüploade rapporten",
                                 "text5": "Downloaded Basiskaart Tiles",
-                                "text6": "Downloaded GFW Laag Tiles",
+                                "text6": "Downloaded GNW Laag Tiles",
                                 "text7": "Aangepaste basiskaarten",
                                 "text8": "Aangepaste contextuele lagen",
-                                "text9": "Geïmporteerde GFW-contextlagen"
+                                "text9": "Geïmporteerde GNW-contextlagen"
                             }
                         },
                         "title": "Hoe slaat de Forest Watcher-app mijn gegevens op?"
@@ -712,7 +712,7 @@
     "importLayer": {
         "gfw": {
             "add": "Laag toevoegen",
-            "allLayers": "Alle GFW Lagen (%{count})",
+            "allLayers": "Alle GNW Lagen (%{count})",
             "description": "Bekijk beschrijving",
             "downloadSubtitle": "Gegevens van de lagen worden gedownload voor offline gebruik",
             "downloadTitle": "Downloaden",
@@ -722,7 +722,7 @@
             "notYetDownloaded": "Niet gedownload",
             "onlineSubtitle": "Laag gegevens zijn alleen beschikbaar wanneer u online bent",
             "onlineTitle": "Alleen online toegang",
-            "title": "Voeg GFW-lagen toe"
+            "title": "Voeg GNW-lagen toe"
         }
     },
     "layers": {
@@ -774,7 +774,7 @@
         "facebookTitle": "Facebook",
         "failed": "Er is een fout opgetreden tijdens het inloggen / uitloggen",
         "googleTitle": "Google",
-        "introductionText": "Log in met een MyGFW-account",
+        "introductionText": "Log in met een MyGNW-account",
         "mustBeOnline": "Je moet online zijn om in te loggen",
         "signUp": "Inschrijven",
         "twitterTitle": "Twitter"
@@ -835,8 +835,8 @@
             },
             "customBasemaps": "Aangepaste basiskaart",
             "customLayers": "Aangepaste lagen",
-            "gfwBasemaps": "GFW Basiskaarten",
-            "gfwLayers": "GFW Lagen",
+            "gfwBasemaps": "GNW Basiskaarten",
+            "gfwLayers": "GNW Lagen",
             "importedReports": "Geïmporteerde rapporten",
             "importedRoutes": "Geïmporteerde routes",
             "layersHeading": "Lagen",
@@ -906,8 +906,8 @@
         "viirsAlert": "VIIRS waarschuwing"
     },
     "partners": {
-        "description": "Forest Watcher is gemaakt in samenwerking met het World Resources Institute Global forest Watch-programma, Vizzuality en het Jane Goodall Institute.",
-        "listOfPartners": "Bekijk alle Global Forest Watch partners."
+        "description": "Forest Watcher is gemaakt in samenwerking met het World Resources Institute Global Nature Watch-programma, Vizzuality en het Jane Goodall Institute.",
+        "listOfPartners": "Bekijk alle Global Nature Watch partners."
     },
     "report": {
         "addPicture": "Foto toevoegen",
@@ -1056,7 +1056,7 @@
         "basemaps": "Basiskaarten",
         "completeYourProfileOn": "Vul je profiel in op",
         "viewYourProfileOn": "Profiel bekijken op",
-        "myGfw": "mijn GFW",
+        "myGfw": "mijn GNW",
         "contextualLayers": "Contextuele Lagen",
         "coordinatesDecimal": "Decimal",
         "coordinatesDegrees": "Degrees",
@@ -1109,8 +1109,8 @@
             "customBasemaps": "Aangepaste basiskaarten",
             "customLayer": "Aangepaste contextuele laag",
             "customLayers": "Aangepaste contextuele lagen",
-            "gfwLayer": "Global Forest Watch Contextuele Laag",
-            "gfwLayers": "Global Forest Watch Contextuele Lagen",
+            "gfwLayer": "Global Nature Watch Contextuele Laag",
+            "gfwLayers": "Global Nature Watch Contextuele Lagen",
             "layers": "Lagen",
             "report": "Rapport",
             "reports": "Rapporten",
@@ -1198,7 +1198,7 @@
             "importBundle": "Importeren van Forest Watcher-databundel"
         },
         "invalidShapefile": "Fout bij uploaden van shapefile. Probeer een andere.",
-        "invalidBundle": "Fout bij importeren GFW-bundel."
+        "invalidBundle": "Fout bij importeren GNW-bundel."
     },
     "offline": {
         "bannerTitleOnline": "Online modus",
