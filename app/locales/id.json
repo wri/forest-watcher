@@ -103,7 +103,7 @@
         "title": "Hapus Akun",
         "heading": "Harap baca sebelum melanjutkan",
         "body1": "Akun Forest Watcher Anda dibagikan ke banyak aplikasi World Resource Institute (WRI). Ini termasuk: ",
-        "bullet1": "Forest Watcher\nGlobal Forest Watch (GFW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
+        "bullet1": "Forest Watcher\nGlobal Nature Watch (GNW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
         "body2": "Jika melanjutkan, Anda tak akan lagi dapat mengakses aplikasi-aplikasi ini melalui akun ini. Anda akan perlu mendaftar lagi jika ingin menggunakannya di masa mendatang.\n\nSelain itu, semua konten yang terkait dengan akun ini (di semua aplikasi) akan dihapus. Ini termasuk:",
         "bullet2": "Area perhatian\nLaporan\nRute\nLapisan Kontekstual\nLangganan\nDataset\nWidget",
         "footer": "Untuk daftar lengkap jenis konten, harap kunjungi https://resource-watch.github.io/doc-api/concepts.html#core-resources.",
@@ -255,9 +255,9 @@
             "oneAction": "Bagikan %{count} lapisan...",
             "successful": "Berhasil mengekspor lapisan!"
         },
-        "gfw": "Lapisan GFW",
+        "gfw": "Lapisan GNW",
         "import": {
-            "addGFW": "Tambahkan Lapisan Global Forest Watch",
+            "addGFW": "Tambahkan Lapisan Global Nature Watch",
             "choose": "Pilih jenis lapisan kontekstual",
             "chooseAnother": "Pilih Lainnya",
             "custom": "Lapisan Kontekstual Kustom",
@@ -318,9 +318,9 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Forest Watcher adalah aplikasi seluler yang dirancang untuk memudahkan akses luring terhadap data tentang perubahan hutan dari Global Forest Watch http://www.globalforestwatch.org/.",
-                                "text2": "Global Forest Watch (GFW) adalah sistem pemantauan dan lansiran hutan daring dinamis yang memberdayakan orang di mana pun untuk mengelola hutan dengan lebih baik. GFW menyatukan teknologi satelit, komputasi awan, dan data terbuka untuk memberikan informasi yang tepat waktu mengenai hutan kepada masyarakat di seluruh dunia.",
-                                "text3": "Forest Watcher menaruh informasi berharga dari GFW langsung ke tangan orang-orang yang memantau hutan di lapangan. Forest Watcher mengizinkan seseorang untuk melihat penggundulan hutan dan peringatan kebakaran pada perangkat seluler, navigasi ke lokasi lansiran secara luring, dan mengumpulkan informasi dan foto tentang apa yang mereka temukan.",
+                                "text1": "Forest Watcher adalah aplikasi seluler yang dirancang untuk memudahkan akses luring terhadap data tentang perubahan hutan dari Global Nature Watch http://www.globalnaturewatch.org/.",
+                                "text2": "Global Nature Watch (GNW) adalah sistem pemantauan dan lansiran hutan daring dinamis yang memberdayakan orang di mana pun untuk mengelola hutan dengan lebih baik. GNW menyatukan teknologi satelit, komputasi awan, dan data terbuka untuk memberikan informasi yang tepat waktu mengenai hutan kepada masyarakat di seluruh dunia.",
+                                "text3": "Forest Watcher menaruh informasi berharga dari GNW langsung ke tangan orang-orang yang memantau hutan di lapangan. Forest Watcher mengizinkan seseorang untuk melihat penggundulan hutan dan peringatan kebakaran pada perangkat seluler, navigasi ke lokasi lansiran secara luring, dan mengumpulkan informasi dan foto tentang apa yang mereka temukan.",
                                 "text4": "Aplikasi ini menyediakan solusi yang terjangkau dan mudah digunakan untuk: dengan cepat mengidentifikasi area untuk patroli hutan atau investigasi lapangan; mengumpulkan bukti tentang perubahan hutan dari permukaan; menggunakan data yang dikumpulkan untuk membuat manajemen berbasis bukti dan keputusan konservasi; dan memvalidasi produk penginderaan jarak jauh di lapangan.",
                                 "text5": "Secara spesifik, aplikasi ini memungkinkan pengguna untuk:"
                             },
@@ -345,7 +345,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Di 2016, Jane Goodall Institute (JGI), Global Forest Watch (GFW), Touchlab dan Google bermitra untuk menciptakan versi uji coba dari aplikasi seluler guna memantau area dilindungi di Uganda selagi offline. Mengikuti fase pilot yang berhasil, GFW, JGI dan Vizzuality menciptakan Forest Watcher untuk mengizinkan akses ke data GFW selagi offline dan di lapangan. Aplikasi ini saat ini dipelihara oleh GFW dan 3 Sided Cube."
+                                "text": "Di 2016, Jane Goodall Institute (JGI), Global Nature Watch (GNW), Touchlab dan Google bermitra untuk menciptakan versi uji coba dari aplikasi seluler guna memantau area dilindungi di Uganda selagi offline. Mengikuti fase pilot yang berhasil, GNW, JGI dan Vizzuality menciptakan Forest Watcher untuk mengizinkan akses ke data GNW selagi offline dan di lapangan. Aplikasi ini saat ini dipelihara oleh GNW dan 3 Sided Cube."
                             }
                         },
                         "title": "Siapa pencipta Forest Watcher?"
@@ -412,9 +412,9 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Global Forest Watch (GFW) menyediakan perubahan hutan yang dimuat sebelumnya dan data kontekstual di Forest Watcher. Data yang dimuat sebelumnya mencakup tiga jenis peringatan deforestasi (GLAD, GLAD-S2, RADD), peringatan kebakaran aktif VIIRS, kehilangan tutupan pohon tahunan, dan kawasan lindung."
+                                "text": "Global Nature Watch (GNW) menyediakan perubahan hutan yang dimuat sebelumnya dan data kontekstual di Forest Watcher. Data yang dimuat sebelumnya mencakup tiga jenis peringatan deforestasi (GLAD, GLAD-S2, RADD), peringatan kebakaran aktif VIIRS, kehilangan tutupan pohon tahunan, dan kawasan lindung."
                             },
-                            "footerText": "Anda juga dapat menambahkan lapisan kontekstual tambahan dari GFW, termasuk lahan adat dan masyarakat LandMark, serta berbagai data konsesi dan biodiversitas, atau Anda dapat mengunggah lapisan kontekstual kustom lewat aplikasi seluler. Forest Watcher Mobile mendukung jenis berikut untuk unggahan: .json, .geojson, .topojson, .gpx, .zip, .kmz dan .kml.\n\nSaat mengunggah lapisan kontekstual tambahan, Anda akan punya opsi mengunduh data untuk pemakaian offline atau mengakses data saat di online saja. Opsi-opsi ini menawarkan fleksibilitas lebih besar untuk data yang tersimpan di perangkat Anda.\n\nUntuk informasi lebih lanjut, kunjungi data.globalforestwatch.org.",
+                            "footerText": "Anda juga dapat menambahkan lapisan kontekstual tambahan dari GNW, termasuk lahan adat dan masyarakat LandMark, serta berbagai data konsesi dan biodiversitas, atau Anda dapat mengunggah lapisan kontekstual kustom lewat aplikasi seluler. Forest Watcher Mobile mendukung jenis berikut untuk unggahan: .json, .geojson, .topojson, .gpx, .zip, .kmz dan .kml.\n\nSaat mengunggah lapisan kontekstual tambahan, Anda akan punya opsi mengunduh data untuk pemakaian offline atau mengakses data saat di online saja. Opsi-opsi ini menawarkan fleksibilitas lebih besar untuk data yang tersimpan di perangkat Anda.\n\nUntuk informasi lebih lanjut, kunjungi data.globalforestwatch.org.",
                             "orderList": {
                                 "text1": "Peringatan deforestasi GLAD: Diproduksi oleh University of Maryland Global Land Analysis & Discovery (GLAD) Lab, diperbarui setiap 8 hari pada resolusi 30 meter. Peringatan ini menggunakan data dari satelit Landsat 7 dan 8 dan mengidentifikasi area yang kemungkinan kehilangan tutupan pohon di daerah tropis.",
                                 "text2": "Peringatan deforestasi GLAD-S2: Juga diproduksi oleh lab GLAD, diperbarui setiap 5 hari pada resolusi 10 meter. Peringatan ini menggunakan data dari satelit Sentinel-2 Badan Antariksa Eropa untuk mengidentifikasi area yang kemungkinan kehilangan hutan primer. Pada saat rilis saat ini (Juli 2021), peringatan tersedia untuk Amazon Basin.",
@@ -441,7 +441,7 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Pembaruan peta dasar citra satelit yang disediakan oleh Global Forest Watch (GFW) dilakukan lebih jarang daripada pembaruan data peringatan. Oleh karena itu, Anda mungkin akan melihat adanya peringatan untuk area-area yang masih tampak tidak terganggu pada peta dasar citra satelit. Untuk melihat citra satelit terkini, Anda kami sarankan menggunakan alat Recent Satellite Imagery yang tersedia di GFW. Mengunjungi peringatan di lapangan adalah cara terakurat untuk memverifikasi perubahan, namun cara ini biasanya juga yang paling berisiko. Oleh karena itu, Anda kami sarankan untuk menggunakan alat Recent Satellite Imagery jika memungkinkan sebelum merencanakan kunjungan lapangan untuk mengidentifikasi apa yang mungkin menjadi pemicu terjadinya gangguan tersebut.",
+                                "text1": "Pembaruan peta dasar citra satelit yang disediakan oleh Global Nature Watch (GNW) dilakukan lebih jarang daripada pembaruan data peringatan. Oleh karena itu, Anda mungkin akan melihat adanya peringatan untuk area-area yang masih tampak tidak terganggu pada peta dasar citra satelit. Untuk melihat citra satelit terkini, Anda kami sarankan menggunakan alat Recent Satellite Imagery yang tersedia di GNW. Mengunjungi peringatan di lapangan adalah cara terakurat untuk memverifikasi perubahan, namun cara ini biasanya juga yang paling berisiko. Oleh karena itu, Anda kami sarankan untuk menggunakan alat Recent Satellite Imagery jika memungkinkan sebelum merencanakan kunjungan lapangan untuk mengidentifikasi apa yang mungkin menjadi pemicu terjadinya gangguan tersebut.",
                                 "text2": "Atau, Anda juga dapat mengunggah citra satelit dan peta dasar sendiri dengan pergi ke bagian Peta Dasar atau Lapisan Kontekstual di halaman Pengaturan pada aplikasi seluler lalu mengklik tombol + di kanan atas laman."
                             }
                         },
@@ -470,10 +470,10 @@
                                 "text3": "Rute",
                                 "text4": "Laporan yang Tidak Diunggah",
                                 "text5": "Ubin Peta Dasar Unduhan",
-                                "text6": "Ubin Lapisan GFW Unduhan",
+                                "text6": "Ubin Lapisan GNW Unduhan",
                                 "text7": "Peta Dasar Kustom",
                                 "text8": "Lapisan Kontekstual Kustom",
-                                "text9": "Lapisan Kontekstual GFW Impor"
+                                "text9": "Lapisan Kontekstual GNW Impor"
                             }
                         },
                         "title": "Bagaimana cara aplikasi Forest Watcher menyimpan data saya?"
@@ -712,7 +712,7 @@
     "importLayer": {
         "gfw": {
             "add": "Tambah Lapisan",
-            "allLayers": "Semua Lapisan GFW (%{count})",
+            "allLayers": "Semua Lapisan GNW (%{count})",
             "description": "Lihat Deskripsi",
             "downloadSubtitle": "Data lapisan akan diunduh untuk pemakaian offline",
             "downloadTitle": "Unduh",
@@ -722,7 +722,7 @@
             "notYetDownloaded": "Tidak diunduh",
             "onlineSubtitle": "Data lapisan hanya akan tersedia saat online",
             "onlineTitle": "Akses Daring Saja",
-            "title": "Tambah Lapisan GFW"
+            "title": "Tambah Lapisan GNW"
         }
     },
     "layers": {
@@ -774,7 +774,7 @@
         "facebookTitle": "Facebook",
         "failed": "Terjadi eror selama masuk/keluar",
         "googleTitle": "Google",
-        "introductionText": "Masuk menggunakan akun MyGFW",
+        "introductionText": "Masuk menggunakan akun MyGNW",
         "mustBeOnline": "Anda harus online untuk masuk",
         "signUp": "Daftar",
         "twitterTitle": "Twitter"
@@ -835,8 +835,8 @@
             },
             "customBasemaps": "Peta Dasar Kustom",
             "customLayers": "Lapisan Kustom",
-            "gfwBasemaps": "Peta Dasar GFW",
-            "gfwLayers": "Lapisan GFW",
+            "gfwBasemaps": "Peta Dasar GNW",
+            "gfwLayers": "Lapisan GNW",
             "importedReports": "Laporan Impor",
             "importedRoutes": "Rute Impor",
             "layersHeading": "Lapisan",
@@ -906,8 +906,8 @@
         "viirsAlert": "Peringatan VIIRS"
     },
     "partners": {
-        "description": "Forest Watcher dibuat dengan kolaborasi antara Program Global Forest Watch dari World Resources Institute, Vizzuality, dan Jane Goodall Institute.",
-        "listOfPartners": "Lihat semua mitra Global Forest Watch."
+        "description": "Forest Watcher dibuat dengan kolaborasi antara Program Global Nature Watch dari World Resources Institute, Vizzuality, dan Jane Goodall Institute.",
+        "listOfPartners": "Lihat semua mitra Global Nature Watch."
     },
     "report": {
         "addPicture": "Tambah Gambar",
@@ -1056,7 +1056,7 @@
         "basemaps": "Peta Dasar",
         "completeYourProfileOn": "Selesaikan profil Anda di",
         "viewYourProfileOn": "Lihat profil Anda di",
-        "myGfw": "GFW-ku",
+        "myGfw": "GNW-ku",
         "contextualLayers": "Lapisan Kontekstual",
         "coordinatesDecimal": "Desimal",
         "coordinatesDegrees": "Derajat",
@@ -1109,8 +1109,8 @@
             "customBasemaps": "Peta Dasar Kustom",
             "customLayer": "Lapisan Kontekstual Kustom",
             "customLayers": "Lapisan Kontekstual Kustom",
-            "gfwLayer": "Lapisan Kontekstual Global Forest Watch",
-            "gfwLayers": "Lapisan Kontekstual Global Forest Watch",
+            "gfwLayer": "Lapisan Kontekstual Global Nature Watch",
+            "gfwLayers": "Lapisan Kontekstual Global Nature Watch",
             "layers": "Lapisan",
             "report": "Lapor",
             "reports": "Laporan",
@@ -1198,7 +1198,7 @@
             "importBundle": "Impor dari Bundel Data Forest Watcher"
         },
         "invalidShapefile": "Eror saat mengunggah shapefile. Harap coba shapefile lainnya.",
-        "invalidBundle": "Eror saat mengimpor GFW Bundle."
+        "invalidBundle": "Eror saat mengimpor GNW Bundle."
     },
     "offline": {
         "bannerTitleOnline": "Moda Daring",

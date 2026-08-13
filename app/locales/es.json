@@ -103,7 +103,7 @@
         "title": "Eliminar su cuenta",
         "heading": "Lea antes de continuar",
         "body1": "Su cuenta de Forest Watcher se comparte en muchas aplicaciones del Instituto de Recursos Mundiales (WRI, por sus siglas en inglés). Entre estas se incluyen:",
-        "bullet1": "Forest Watcher\nGlobal Forest Watch (GFW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
+        "bullet1": "Forest Watcher\nGlobal Nature Watch (GNW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
         "body2": "Si continúa, ya no podrá acceder a estas aplicaciones con esta cuenta. Tendrá que registrarse nuevamente si desea utilizarlas en el futuro.\n\nAdemás, se eliminará todo el contenido asociado con esta cuenta (en todas las aplicaciones). Esto incluye:",
         "bullet2": "Áreas de interés\nInformes\nRutas\nCapas contextuales\nSuscripciones\nConjuntos de datos\nMódulos interactivos",
         "footer": "Visite https://resource-watch.github.io/doc-api/concepts.html#core-resources para obtener una lista completa de los tipos de contenido.",
@@ -255,9 +255,9 @@
             "oneAction": "Compartir %{count} capas...",
             "successful": "¡La exportación de capas ha sido un éxito!"
         },
-        "gfw": "Capas de GFW",
+        "gfw": "Capas de GNW",
         "import": {
-            "addGFW": "Añadir la capa de Global Forest Watch",
+            "addGFW": "Añadir la capa de Global Nature Watch",
             "choose": "Elija el tipo de capa contextual",
             "chooseAnother": "Elija otro",
             "custom": "Capa contextual personalizada",
@@ -318,9 +318,9 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Forest Watcher es una aplicación móvil diseñada para permitir un acceso fácil y sin necesidad de conexión a Internet a los datos sobre el cambio forestal de Global Forest Watch: http://www.globalforestwatch.org/.",
-                                "text2": "Global Forest Watch (GFW) es un sistema de alerta y monitorización forestal dinámico en línea que permite a la gente de todas partes gestionar mejor los bosques. GFW aúna tecnología de satélite, computación en la nube y datos abiertos para proporcionar información puntual sobre los bosques a comunidades de todo el mundo.",
-                                "text3": "Forest Watcher pone la valiosa información de GFW directamente en manos de la gente que monitoriza los bosques sobre el terreno. Forest Watcher permite que cualquiera vea alertas de deforestación e incendios en un dispositivo móvil, navegue a la ubicación de la alerta sin conexión a Internet y recoja información y fotos sobre lo que descubra.",
+                                "text1": "Forest Watcher es una aplicación móvil diseñada para permitir un acceso fácil y sin necesidad de conexión a Internet a los datos sobre el cambio forestal de Global Nature Watch: http://www.globalnaturewatch.org/.",
+                                "text2": "Global Nature Watch (GNW) es un sistema de alerta y monitorización forestal dinámico en línea que permite a la gente de todas partes gestionar mejor los bosques. GNW aúna tecnología de satélite, computación en la nube y datos abiertos para proporcionar información puntual sobre los bosques a comunidades de todo el mundo.",
+                                "text3": "Forest Watcher pone la valiosa información de GNW directamente en manos de la gente que monitoriza los bosques sobre el terreno. Forest Watcher permite que cualquiera vea alertas de deforestación e incendios en un dispositivo móvil, navegue a la ubicación de la alerta sin conexión a Internet y recoja información y fotos sobre lo que descubra.",
                                 "text4": "Esta aplicación proporciona una solución asequible y fácil de usar para: identificar rápidamente áreas para patrullas forestales o investigaciones sobre el terreno; recoger evidencias sobre cambios forestales desde el suelo; utilizar los datos recogidos para tomar decisiones de gestión y conservación basadas en evidencias y validar productos de detección remota sobre el terreno.",
                                 "text5": "Específicamente, esta aplicación permite a los usuarios:"
                             },
@@ -345,7 +345,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "En 2016, el Jane Goodall Institute (JGI), Global Forest Watch (GFW), Touchlab y Google se asociaron para crear una versión de prueba de una aplicación móvil con la que supervisar las zonas protegidas de Uganda mientras están sin conexión. Tras el éxito de la fase piloto, GFW, JGI y Vizzuality crearon Forest Watcher para permitir el acceso a los datos de GFW mientras están desconectados y sobre el terreno. Actualmente, la aplicación la mantienen GFW y 3 Sided Cube."
+                                "text": "En 2016, el Jane Goodall Institute (JGI), Global Nature Watch (GNW), Touchlab y Google se asociaron para crear una versión de prueba de una aplicación móvil con la que supervisar las zonas protegidas de Uganda mientras están sin conexión. Tras el éxito de la fase piloto, GNW, JGI y Vizzuality crearon Forest Watcher para permitir el acceso a los datos de GNW mientras están desconectados y sobre el terreno. Actualmente, la aplicación la mantienen GNW y 3 Sided Cube."
                             }
                         },
                         "title": "¿Quién creó Forest Watcher?"
@@ -412,9 +412,9 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Global Forest Watch (GFW) proporciona datos previamente cargados sobre el cambio forestal y el contexto en Forest Watcher. Los datos previamente cargados incluyen tres tipos de alertas de deforestación (GLAD, GLAD-S2, RADD), alertas de incendios activos VIIRS, pérdida anual de cobertura arbórea y áreas protegidas.\n"
+                                "text": "Global Nature Watch (GNW) proporciona datos previamente cargados sobre el cambio forestal y el contexto en Forest Watcher. Los datos previamente cargados incluyen tres tipos de alertas de deforestación (GLAD, GLAD-S2, RADD), alertas de incendios activos VIIRS, pérdida anual de cobertura arbórea y áreas protegidas.\n"
                             },
-                            "footerText": "También puede añadir otras capas contextuales de GFW, incluidas las tierras indígenas y comunitarias de LandMark y diversas concesiones y datos sobre la biodiversidad, o puede cargar sus propias capas contextuales personalizadas a través de la aplicación móvil. Forest Watcher Mobile admite los siguientes tipos de archivos para la carga: .json, .geojson, .topojson, .gpx, .zip, .kmz y .kml.\n\nAl subir más capas contextuales, tendrá la opción de descargar los datos para su uso sin conexión o acceder a los datos únicamente en línea. Estas opciones ofrecen una mayor flexibilidad sobre los datos almacenados en su dispositivo.\n\nPara obtener más información, visite data.globalforestwatch.org.",
+                            "footerText": "También puede añadir otras capas contextuales de GNW, incluidas las tierras indígenas y comunitarias de LandMark y diversas concesiones y datos sobre la biodiversidad, o puede cargar sus propias capas contextuales personalizadas a través de la aplicación móvil. Forest Watcher Mobile admite los siguientes tipos de archivos para la carga: .json, .geojson, .topojson, .gpx, .zip, .kmz y .kml.\n\nAl subir más capas contextuales, tendrá la opción de descargar los datos para su uso sin conexión o acceder a los datos únicamente en línea. Estas opciones ofrecen una mayor flexibilidad sobre los datos almacenados en su dispositivo.\n\nPara obtener más información, visite data.globalforestwatch.org.",
                             "orderList": {
                                 "text1": "Alertas de deforestación GLAD: producidas por el Laboratorio de Análisis y Descubrimiento Global de la Tierra (GLAD) de la Universidad de Maryland, se actualizan cada 8 días con una resolución de 30 metros. Estas alertas utilizan datos de los satélites Landsat 7 y 8 e identifican las zonas de probable pérdida de la cubierta forestal en los trópicos.",
                                 "text2": "Alertas de deforestación GLAD-S2: también producidas por el laboratorio GLAD, actualizadas cada cinco días con una resolución de diez metros. Estas alertas utilizan los datos de los satélites Sentinel-2 de la Agencia Espacial Europea para identificar las zonas de probable pérdida de bosque primario. En el momento de la publicación actual (julio de 2021), las alertas están disponibles para la cuenca del Amazonas.\n",
@@ -441,7 +441,7 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "El mapa base de imágenes satelitales proporcionado por Global Forest Watch (GFW) se actualiza con menos frecuencia que los datos de alerta. Por lo tanto, es posible que note alertas de zonas que todavía aparecen inalteradas en el mapa base de imágenes satelitales. Para ver imágenes satelitales más recientes, le recomendamos que utilice la herramienta de Imágenes satelitales recientes disponible en GFW. Visitar las alertas sobre el terreno es la forma más precisa de verificar el cambio, pero también suele ser la más costosa. Por lo tanto, recomendamos que utilice la herramienta de imágenes satelitales recientes cuando sea posible antes de planear su visita sobre el terreno para identificar cuáles son las probables causas de la perturbación.",
+                                "text1": "El mapa base de imágenes satelitales proporcionado por Global Nature Watch (GNW) se actualiza con menos frecuencia que los datos de alerta. Por lo tanto, es posible que note alertas de zonas que todavía aparecen inalteradas en el mapa base de imágenes satelitales. Para ver imágenes satelitales más recientes, le recomendamos que utilice la herramienta de Imágenes satelitales recientes disponible en GNW. Visitar las alertas sobre el terreno es la forma más precisa de verificar el cambio, pero también suele ser la más costosa. Por lo tanto, recomendamos que utilice la herramienta de imágenes satelitales recientes cuando sea posible antes de planear su visita sobre el terreno para identificar cuáles son las probables causas de la perturbación.",
                                 "text2": "También puede subir sus propias imágenes de satélite y mapas base yendo a la sección de «Mapas base» o «Capas de contexto» en la página de «Ajustes» de la aplicación móvil y haciendo clic en el botón «+» ubicado en la parte superior derecha de la página."
                             }
                         },
@@ -470,10 +470,10 @@
                                 "text3": "Rutas",
                                 "text4": "Informes no subidos",
                                 "text5": "Mosaicos del mapa base descargados",
-                                "text6": "Placas de la capa GFW descargadas",
+                                "text6": "Placas de la capa GNW descargadas",
                                 "text7": "Mapas base personalizados",
                                 "text8": "Capas de contexto personalizadas",
-                                "text9": "Capas contextuales GFW importadas"
+                                "text9": "Capas contextuales GNW importadas"
                             }
                         },
                         "title": "¿Cómo almacena mis datos la aplicación Forest Watcher?"
@@ -712,7 +712,7 @@
     "importLayer": {
         "gfw": {
             "add": "Añadir capa",
-            "allLayers": "Todas las capas de GFW (%{count})",
+            "allLayers": "Todas las capas de GNW (%{count})",
             "description": "Ver descripción",
             "downloadSubtitle": "Los datos de las capas se descargarán para su uso sin una conexión a Internet",
             "downloadTitle": "Descargar",
@@ -722,7 +722,7 @@
             "notYetDownloaded": "No descargado",
             "onlineSubtitle": "Los datos de las capas solo estarán disponibles cuando estén en línea",
             "onlineTitle": "Solo acceso en línea",
-            "title": "Añadir capas GFW"
+            "title": "Añadir capas GNW"
         }
     },
     "layers": {
@@ -774,7 +774,7 @@
         "facebookTitle": "Facebook",
         "failed": "Se ha producido un error durante el inicio o cierre de sesión",
         "googleTitle": "Google",
-        "introductionText": "Iniciar sesión con una cuenta de MyGFW",
+        "introductionText": "Iniciar sesión con una cuenta de MyGNW",
         "mustBeOnline": "Debe estar conectado para iniciar sesión",
         "signUp": "Registrarse",
         "twitterTitle": "Twitter"
@@ -835,8 +835,8 @@
             },
             "customBasemaps": "Mapas base personalizados",
             "customLayers": "Capas personalizadas",
-            "gfwBasemaps": "Mapas base de GFW ",
-            "gfwLayers": "Capas GFW ",
+            "gfwBasemaps": "Mapas base de GNW ",
+            "gfwLayers": "Capas GNW ",
             "importedReports": "Informes importados",
             "importedRoutes": "Rutas importadas",
             "layersHeading": "Capas",
@@ -906,8 +906,8 @@
         "viirsAlert": "Alerta VIIRS"
     },
     "partners": {
-        "description": "Forest Watcher ha sido creado de forma colaborativa por el Global Forest Watch Program del Instituto de Recursos Mundial, Vizzuality y el Instituto Jane Goodall.",
-        "listOfPartners": "Conozca todos los partners de Global Forest Watch."
+        "description": "Forest Watcher ha sido creado de forma colaborativa por el Global Nature Watch Program del Instituto de Recursos Mundial, Vizzuality y el Instituto Jane Goodall.",
+        "listOfPartners": "Conozca todos los partners de Global Nature Watch."
     },
     "report": {
         "addPicture": "Añadir imagen",
@@ -1056,7 +1056,7 @@
         "basemaps": "Mapas de base",
         "completeYourProfileOn": "Completar el perfil en",
         "viewYourProfileOn": "Ver tu perfil en",
-        "myGfw": "mi GFW",
+        "myGfw": "mi GNW",
         "contextualLayers": "Capas contextuales",
         "coordinatesDecimal": "Decimal",
         "coordinatesDegrees": "Grados",
@@ -1109,8 +1109,8 @@
             "customBasemaps": "Mapas base personalizados",
             "customLayer": "Capa contextual personalizada",
             "customLayers": "Capas contextuales personalizadas",
-            "gfwLayer": "Capa contextual de Global Forest Watch",
-            "gfwLayers": "Capas contextuales de Global Forest Watch ",
+            "gfwLayer": "Capa contextual de Global Nature Watch",
+            "gfwLayers": "Capas contextuales de Global Nature Watch",
             "layers": "Capas",
             "report": "Reportar",
             "reports": "Informes",
@@ -1198,7 +1198,7 @@
             "importBundle": "Importar desde el paquete de datos de Forest Watcher"
         },
         "invalidShapefile": "Se ha producido un error al subir el archivo shapefile. Intente con otro.",
-        "invalidBundle": "Se ha producido un error al importar el paquete GFW."
+        "invalidBundle": "Se ha producido un error al importar el paquete GNW."
     },
     "offline": {
         "bannerTitleOnline": "Modo en línea",

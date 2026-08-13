@@ -103,7 +103,7 @@
         "title": "Foano ny kaontinao",
         "heading": "Mba vakio alohan'ny hanohizanao",
         "body1": "Ny kaonty Forest Watcher-nao dia mifandray amin'ny app World Resource Institute marobe. Anisan'izany ny:",
-        "bullet1": "Forest Watcher Global Forest Watcher ( GFW)  MapBuilder  Resource Watch  Partnership for Resilience & Preparedness ( PREPdata)",
+        "bullet1": "Forest Watcher\nGlobal Nature Watch (GNW)\nMapBuilder\nResource Watch\nPartnership for Resilience & Preparedness (PREPdata)",
         "body2": "Raha manohy ianao, dia tsy ho afaka hampiasa ireto app ireto intsony amin'ity kaonty ity. Mila misoratra anarana indray ianao raha te hampiasa azy ireto amin'ny manaraka.\n\nAnkoatr'izay, ny tahirin-kevitra rehetra mifandray amin'ity kaonty ity ( amin'ny app rehetra) dia ho fafana avokoa. Anisan'izany ny:",
         "bullet2": "Faritra mahaliana\nTatitra\nLalana\nSosona miovaova\nFamandrihana\nAntontan-kevitra\n",
         "footer": "Raha te hahazo ny lisitr'ireo karazana tahirin-kevitra dia tsidiho ny https://resource-watch.github.io/doc-api/concepts.html#core-resources",
@@ -255,9 +255,9 @@
             "oneAction": "Zarao ireo tongoa %{count} ...",
             "successful": "Tontosa ny famoahana tongoa!"
         },
-        "gfw": "Tongoa GFW",
+        "gfw": "Tongoa GNW",
         "import": {
-            "addGFW": "Hanampy Tongoa Global Forest Watch",
+            "addGFW": "Hanampy Tongoa Global Nature Watch",
             "choose": "Hisafidy karazana tongoa araka ny zava-misy",
             "chooseAnother": "Hisafidy Hafa",
             "custom": "Tongoa Araka Ny Zava-misy Mifanaraka Amin'izay Ilaina",
@@ -318,9 +318,9 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Appli finday ny Forest Watcher, novolavolaina mba hahazoana mora foana, na rehefa tsisy connection aza, ny angona momba ny fiovan’ny toetry ny ala avy ao amin'ny Global Forest Watch http://www.globalforestwatch.org/.",
-                                "text2": "Fombafomba mavitrika rehefa misy connection fanaraha-maso sy fanairana ny Global Forest Watch (GFW), ahafahan'ny olona na aiza na aiza misy azy mitantana tsaratsara kokoa ny ala. Miaraka ampiasain'ny GFW ny teknolojian'ny zanabolana, ny habaka informatika, ary ny angona misokatra hanomezana vaovao ara-potoana mahakasika ny ala ho an'ny vondron'olona maneran-tany.",
-                                "text3": "Mametraka torohay manan-danja mivantana avy amin'ny GFW eo an-tànan'ny olona manara-maso ny ala eny an-toerana ny Forest Watcher. Ahafahan'ny olona rehetra mahita ny fandripahana ala sy ny fanairana doro-tanety amin'ny finday ny Forest Watcher, mandeha any amin'ny toerana misy ny fanairana na rehefa tsisy connection aza, manangona ny torohay sy sary mahakasika izay hitany.",
+                                "text1": "Appli finday ny Forest Watcher, novolavolaina mba hahazoana mora foana, na rehefa tsisy connection aza, ny angona momba ny fiovan’ny toetry ny ala avy ao amin'ny Global Nature Watch http://www.globalnaturewatch.org/.",
+                                "text2": "Fombafomba mavitrika rehefa misy connection fanaraha-maso sy fanairana ny Global Nature Watch (GNW), ahafahan'ny olona na aiza na aiza misy azy mitantana tsaratsara kokoa ny ala. Miaraka ampiasain'ny GNW ny teknolojian'ny zanabolana, ny habaka informatika, ary ny angona misokatra hanomezana vaovao ara-potoana mahakasika ny ala ho an'ny vondron'olona maneran-tany.",
+                                "text3": "Mametraka torohay manan-danja mivantana avy amin'ny GNW eo an-tànan'ny olona manara-maso ny ala eny an-toerana ny Forest Watcher. Ahafahan'ny olona rehetra mahita ny fandripahana ala sy ny fanairana doro-tanety amin'ny finday ny Forest Watcher, mandeha any amin'ny toerana misy ny fanairana na rehefa tsisy connection aza, manangona ny torohay sy sary mahakasika izay hitany.",
                                 "text4": "Manome vahaolana takatry ny fahefa-mividin’ny tsirairay sy mora ampiasaina ity appli ity mba: hamantarana haingana ny faritra ho safoina ho an’ireo mpiambina sy mpanadihady eny an-toerana; hanangonana ireo porofo momba ny fiovaovan’ny toetoetry ny ala eny an-toerana ; handraisana fanapaha-kevitra momba ny fitantanana sy fikajiana ny ala miainga amin'ny zavatra voamarina; ary hanamarinana ny fahombiazanan’ireo fitaovam-panaraha-maso ampitain-davitra.",
                                 "text5": "Amin’ny antsipiriany, ity appli ity dia ahafahan’ny mpampiasa azy:"
                             },
@@ -345,7 +345,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Tamin'ny taona 2016, niara-niombon'antoka Jane Goodall Institute (JGI), Global Forest Watch (GFW) sy Touchlab ary Google hamorona appli hoan’ny finday hanaraha-maso ireo faritra arovana any Oganda na tsisy connection aza. Rehefa nahomby ny andrana dia namorona ny Forest Watcher i GFW sy JGI ary Vizzuality ahafahana miditra amin'ny angona-n’ny GFW na rehefa tsisy connection sy eny an-tsaha aza. GFW sy 3 Sided Cube no misahana ny appli ankehitriny."
+                                "text": "Tamin'ny taona 2016, niara-niombon'antoka Jane Goodall Institute (JGI), Global Nature Watch (GNW) sy Touchlab ary Google hamorona appli hoan’ny finday hanaraha-maso ireo faritra arovana any Oganda na tsisy connection aza. Rehefa nahomby ny andrana dia namorona ny Forest Watcher i GNW sy JGI ary Vizzuality ahafahana miditra amin'ny angona-n’ny GNW na rehefa tsisy connection sy eny an-tsaha aza. GNW sy 3 Sided Cube no misahana ny appli ankehitriny."
                             }
                         },
                         "title": "Iza no namorona ny Forest Watcher?"
@@ -412,9 +412,9 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Manome ny fiovan'ny ala sy angona mifanaraka amin’ny zava-misy nofenoina mialoha ao anatin'ny Forest Watcher ny Global Forest Watch (GFW). Ao anatin’ny angona nofenoina mialoha dia misy karazana fandripahana ala miisa telo (GLAD, GLAD-S2, RADD), fanairana fisiana doro tanety VIIRS ary fahaverezana faritra rakotr’ala isan-taona ary ireo faritra arovana. Jereo etsy ambany ny angona momban’ny fanairana fandripahana ny ala sy ny VIIRS fanairana fisiana doro tanety ary ny fahaverezana faritra rakotr’ala isan-taona."
+                                "text": "Manome ny fiovan'ny ala sy angona mifanaraka amin’ny zava-misy nofenoina mialoha ao anatin'ny Forest Watcher ny Global Nature Watch (GNW). Ao anatin’ny angona nofenoina mialoha dia misy karazana fandripahana ala miisa telo (GLAD, GLAD-S2, RADD), fanairana fisiana doro tanety VIIRS ary fahaverezana faritra rakotr’ala isan-taona ary ireo faritra arovana. Jereo etsy ambany ny angona momban’ny fanairana fandripahana ny ala sy ny VIIRS fanairana fisiana doro tanety ary ny fahaverezana faritra rakotr’ala isan-taona."
                             },
-                            "footerText": "Azonao atao koa ny manampy Tongoa Mifanaraka amin’ny zava-misy fanampiny avy ao amin'ny GFW, ohatra ireo tany misy Mari-Toerana an'ny tompon-tany sy an'ny vondrom-bahoaka, ireo angona momba ny concessions samy hafa sy momba ny harena voajanahary isan-karazany. Azonao atao koa ny mampiditra Tongoa Mifanaraka amin’ny zava-misy anao manokana amin’ny alalan’ny appli finday. Ireto ny karazana raki-takila zakan'ny Forest Watcher Mobile ampidirina: .json, .geojson, .topojson, .gpx, .zip, .kmz ary .kml.\n\nRehefa mampiditra Tongoa Mifanaraka amin’ny zava-misy fanampiny ianao dia afaka misafidy na haka ho tahiry azo ampiasaina na rehefa tsisy connection na hiditra amin’ny angona rehefa misy connection ihany. Moramora kokoa ny fampiasana ny angona voatahiry ao amin'ny findainao rehefa mampiasa ireto safidy ireto. \n\nRaha mila fanazavana fanampiny, azafady tsidiho ny data.globalforestwatch.org.",
+                            "footerText": "Azonao atao koa ny manampy Tongoa Mifanaraka amin’ny zava-misy fanampiny avy ao amin'ny GNW, ohatra ireo tany misy Mari-Toerana an'ny tompon-tany sy an'ny vondrom-bahoaka, ireo angona momba ny concessions samy hafa sy momba ny harena voajanahary isan-karazany. Azonao atao koa ny mampiditra Tongoa Mifanaraka amin’ny zava-misy anao manokana amin’ny alalan’ny appli finday. Ireto ny karazana raki-takila zakan'ny Forest Watcher Mobile ampidirina: .json, .geojson, .topojson, .gpx, .zip, .kmz ary .kml.\n\nRehefa mampiditra Tongoa Mifanaraka amin’ny zava-misy fanampiny ianao dia afaka misafidy na haka ho tahiry azo ampiasaina na rehefa tsisy connection na hiditra amin’ny angona rehefa misy connection ihany. Moramora kokoa ny fampiasana ny angona voatahiry ao amin'ny findainao rehefa mampiasa ireto safidy ireto. \n\nRaha mila fanazavana fanampiny, azafady tsidiho ny data.globalforestwatch.org.",
                             "orderList": {
                                 "text1": "GLAD fanairana fandripahana ala: novokarin'ny University of Maryland Global Land Analysis & Discovery (GLAD) Lab, ahitsy ara-potoana isaky ny 8 andro amin'ny kalitaon-tsary alaina avy eny amin’ny 30 metatra. Mampiseho isan-kerinandro ny faritra mety nisy fiovan’ny ala. Ireo fanairana ireo dia mampiasa angona azo avy amin’ny satelita Landasat 7 sy 8 ary mampiseho ny toerana ahiana nisy fahaverezana rakotr’ala ao amin’ny faritry ny tropika.",
                                 "text2": "GLAD-S2 fanairana fandripahana ala: vokarin’ny GLAD lab ihany koa, ahitsy ara-potoana isaky ny 5 andro amin’ny kalitaon-tsary alaina avy eny amin’ny 10 metatra. Ireto fanairana ireto dia mampiasa angona avy amin’ny satelita European Space Agency’s Sentinel-2 ary mampiseho ny toerana ahiana nisy fahaverezan’ny ala. Amin’izao fotoana famoahana vokatra izao (Jolay 2021) dia fanairana momba ny kamorin’ny Amazona no hita ao.",
@@ -441,7 +441,7 @@
                     {
                         "content": {
                             "description": {
-                                "text1": "Tsy ahitsy ara-potoana matetika manaraka ny angona fanairana ny Sarintany Fototra avy amin'ny zanabolana omen’ny Global Forest Watch (GFW). Arak’izany, mety hahatsikaritra fanairana amin'ny faritra izay hita ho tsy voakitika akory ny sary azo amin’ny zanabolana eo amin'ny sarintany fototra. Raha te hahita ny sary azo farany avy amin'ny zanabolana, ampiasao ny fitaovana Recent Satellite Imagery hita ao amin'ny GFW. Ny fijerena eny an-toerana ny fanairana no fomba tsara indrindra hanamarinana ny fiovana, saingy izay koa ny fomba lafo indrindra. Noho izany, alohan'ny hiheverana ny hidinana eny an-toerana hahafantarana hoe inona marina ireo mety ho mitarika ny fikorontanana, hampiasao aloha raha azo atao ny fitaovana Recent Satellite Imagery.",
+                                "text1": "Tsy ahitsy ara-potoana matetika manaraka ny angona fanairana ny Sarintany Fototra avy amin'ny zanabolana omen’ny Global Nature Watch (GNW). Arak’izany, mety hahatsikaritra fanairana amin'ny faritra izay hita ho tsy voakitika akory ny sary azo amin’ny zanabolana eo amin'ny sarintany fototra. Raha te hahita ny sary azo farany avy amin'ny zanabolana, ampiasao ny fitaovana Recent Satellite Imagery hita ao amin'ny GNW. Ny fijerena eny an-toerana ny fanairana no fomba tsara indrindra hanamarinana ny fiovana, saingy izay koa ny fomba lafo indrindra. Noho izany, alohan'ny hiheverana ny hidinana eny an-toerana hahafantarana hoe inona marina ireo mety ho mitarika ny fikorontanana, hampiasao aloha raha azo atao ny fitaovana Recent Satellite Imagery.",
                                 "text2": "Raha tsy izany, azonao atao koa ny mampiditra ho anao manokana sary sy sarintany fototra avy amin’ny zanabolana amin'ny fitetezana ny Sarintany Fototra na ny section Tongoa Mifanaraka amin’ny zava-misy eo amin'ny pejy Lazaova amin'ny appli-n'ny finday dia tsindrina ny bokotra + ery ambony an-kavanan'ny pejy."
                             }
                         },
@@ -470,10 +470,10 @@
                                 "text3": "Làlana",
                                 "text4": "Tatitra tsy tafiditra ho tahiry",
                                 "text5": "Taila Sarintany Fototra nalaina ho tahiry",
-                                "text6": "Taila Tongoa GFW nalaina ho tahiry",
+                                "text6": "Taila Tongoa GNW nalaina ho tahiry",
                                 "text7": "Sarintany Fototra Nahitsy araka izay ilaina",
                                 "text8": "Tongoa Mifanaraka amin’ny zava-misy sy Nahitsy araka izay ilaina",
-                                "text9": "Tongoa GFW Mifanaraka amin’ny zava-misy nampidirina"
+                                "text9": "Tongoa GNW Mifanaraka amin’ny zava-misy nampidirina"
                             }
                         },
                         "title": "Ahoana no fomba itehirizan'ny appli Forest Watcher ny angoko?"
@@ -712,7 +712,7 @@
     "importLayer": {
         "gfw": {
             "add": "Hanampy tongoa",
-            "allLayers": "Ny tongoa GFW Rehetra (%{count})",
+            "allLayers": "Ny tongoa GNW Rehetra (%{count})",
             "description": "Hijery ny Fanoritana",
             "downloadSubtitle": "Haka ireo angona mba hampiasaina amin’ny fotoana tsy misy aterineto",
             "downloadTitle": "Haka angona",
@@ -722,7 +722,7 @@
             "notYetDownloaded": "Tsy azo",
             "onlineSubtitle": "Amin’ny fotoana isian’ny aterineto ihany no ho azo ampiasaina ny angona momba ny Tongoa",
             "onlineTitle": "Tsy mety raha tsy misy aterineto",
-            "title": "Hanampy tongoa GFW"
+            "title": "Hanampy tongoa GNW"
         }
     },
     "layers": {
@@ -774,7 +774,7 @@
         "facebookTitle": "Facebook",
         "failed": "Nisy Olana nandritra ny fidirana/fialana",
         "googleTitle": "Google",
-        "introductionText": "Hiditra amin’ny alalan’ny kaonty MyGFW",
+        "introductionText": "Hiditra amin’ny alalan’ny kaonty MyGNW",
         "mustBeOnline": "Tsy Maintsy manana aterineto ianao vao tafiditra",
         "signUp": "Hisoratra Anarana",
         "twitterTitle": "Twitter"
@@ -835,8 +835,8 @@
             },
             "customBasemaps": "Sarintany fototra Mifanaraka amin’izay Ilaina",
             "customLayers": "Tongoa Mifanaraka amin’izay Ilaina",
-            "gfwBasemaps": "Sarintany fototra GFW",
-            "gfwLayers": "Tongoa GFW",
+            "gfwBasemaps": "Sarintany fototra GNW",
+            "gfwLayers": "Tongoa GNW",
             "importedReports": "Tatitra Nampidirina",
             "importedRoutes": "Làlana Nampidirina",
             "layersHeading": "Tongoa",
@@ -906,7 +906,7 @@
         "viirsAlert": "Fanairana VIIRS"
     },
     "partners": {
-        "description": "Fiaraha-miasa teo amin’ny Fandaharanasa Global Forest Watch izay an’ny World Resources Institute, ny Vizzuality, ary nyJane Goodall Institute no nahafahana namorona ny \"Forest Watcher\".",
+        "description": "Fiaraha-miasa teo amin’ny Fandaharanasa Global Nature Watch izay an’ny World Resources Institute, ny Vizzuality, ary nyJane Goodall Institute no nahafahana namorona ny \"Forest Watcher\".",
         "listOfPartners": "Hijery ny mpiara-miasa amin’ny GlobalForest Watch rehetra."
     },
     "report": {
@@ -1056,7 +1056,7 @@
         "basemaps": "Sarintany Fototra",
         "completeYourProfileOn": "Fenoy ny mombamomba anao ao amin’ny",
         "viewYourProfileOn": "Jereo ny mombamomba anao amin'ny",
-        "myGfw": "ny GFW",
+        "myGfw": "ny GNW",
         "contextualLayers": "Tongoa Mifanaraka amin’ny Zava-misy",
         "coordinatesDecimal": "Decimal",
         "coordinatesDegrees": "Degrees",
@@ -1109,8 +1109,8 @@
             "customBasemaps": "Sarintany fototra Mifanaraka amin’Izay Ilaina (maro)",
             "customLayer": "Tongoa Araka Amin’ny Zava-misy Mifanaraka Amin’izay Ilaina (tokana)",
             "customLayers": "Tongoa Araka Amin’ny Zava-misy Mifanaraka Amin’izay Ilaina (maro)",
-            "gfwLayer": "Tongoa Mifanaraka Amin’ny Zava-misy an’ny Global Forest Watch (tokana)",
-            "gfwLayers": "Tongoa Mifanaraka Amin’ny Zava-misy an’ny Global Forest Watch (maro)",
+            "gfwLayer": "Tongoa Mifanaraka Amin’ny Zava-misy an’ny Global Nature Watch (tokana)",
+            "gfwLayers": "Tongoa Mifanaraka Amin’ny Zava-misy an’ny Global Nature Watch (maro)",
             "layers": "Tongoa",
             "report": "Tatitra(tokana)",
             "reports": "Tatitra(maro)",
@@ -1198,7 +1198,7 @@
             "importBundle": "Manafatra antontan-kevitra avy amin'ny Forest Watcher Data Bundle"
         },
         "invalidShapefile": "Fahadisoana teo am-pikirakirana shapefile. Mba manandrama iray hafa",
-        "invalidBundle": "Fahadisoana rehefa nanafatra GFW Bundle"
+        "invalidBundle": "Fahadisoana rehefa nanafatra GNW Bundle"
     },
     "offline": {
         "bannerTitleOnline": "Fisian'ny aterineto",

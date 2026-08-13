@@ -9,11 +9,9 @@ import List from 'components/common/list';
 import styles from './styles';
 import Theme from 'config/theme';
 
-const tscLogo = require('assets/3sc_logo.jpeg');
 const wriLogo = require('assets/wri_logo.png');
 const jgiLogo = require('assets/jgi_logo.png');
 const gfwLogo = require('assets/gfw_logo.png');
-const vizzualityLogo = require('assets/vizzuality_logo.png');
 
 class Partners extends Component<{}> {
   partners: Array<{ text: string, image: number, url: string, functionOnPress: string => void }>;
@@ -22,27 +20,15 @@ class Partners extends Component<{}> {
     super();
     this.partners = [
       {
-        text: 'Global Forest Watch',
+        text: 'Global Nature Watch',
         image: gfwLogo,
-        url: 'http://www.globalforestwatch.org/',
+        url: 'http://www.globalnaturewatch.org/',
         functionOnPress: this.handleLink
       },
       {
         text: 'World Resources Institute',
         image: wriLogo,
         url: 'http://www.wri.org/',
-        functionOnPress: this.handleLink
-      },
-      {
-        text: '3 Sided Cube',
-        image: tscLogo,
-        url: 'https://3sidedcube.com/',
-        functionOnPress: this.handleLink
-      },
-      {
-        text: 'Vizzuality',
-        image: vizzualityLogo,
-        url: 'http://www.vizzuality.com/',
         functionOnPress: this.handleLink
       },
       {
@@ -83,7 +69,7 @@ class Partners extends Component<{}> {
           <Text style={styles.partnerText}>{i18n.t('partners.description')}</Text>
           <Text
             style={styles.partnerText}
-            onPress={() => this.handleLink('http://www.globalforestwatch.org/about/the-gfw-partnership')}
+            onPress={() => this.handleLink('http://www.globalnaturewatch.org/about/the-gfw-partnership')}
           >
             {i18n.t('partners.listOfPartners')}
           </Text>
