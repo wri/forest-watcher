@@ -67,12 +67,6 @@ class Partners extends Component<{}> {
       >
         <View style={styles.partner}>
           <Text style={styles.partnerText}>{i18n.t('partners.description')}</Text>
-          <Text
-            style={styles.partnerText}
-            onPress={() => this.handleLink('http://www.globalnaturewatch.org/about/the-gfw-partnership')}
-          >
-            {i18n.t('partners.listOfPartners')}
-          </Text>
         </View>
         <List content={this.partners} bigSeparation={false}>
           {}
