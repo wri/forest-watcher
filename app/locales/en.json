@@ -744,7 +744,7 @@
         "treeCoverLoss2019": "Tree Cover Loss (2019)",
         "treeCoverLoss2020": "Tree Cover Loss (2020)",
         "treeCoverLoss2021": "Tree Cover Loss (2021)",
-        "wdpa": "Protected Areas (Vector Tiles)",
+        "wdpa": "Protected Areas (Vector Tiles)"
     },
     "locationPermissions": {
         "enablePermissions": "Enable Permissions",

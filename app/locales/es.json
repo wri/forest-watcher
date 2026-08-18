@@ -744,7 +744,7 @@
         "treeCoverLoss2019": "Perdida Cobertura Arbórea (2019)",
         "treeCoverLoss2020": "Pérdida Cobertura Arbórea (2020)",
         "treeCoverLoss2021": "Pérdida Cobertura Arbórea (2021)",
-        "wdpa": "Zonas protegidas (mosaicos vectoriales)",
+        "wdpa": "Zonas protegidas (mosaicos vectoriales)"
     },
     "locationPermissions": {
         "enablePermissions": "Activar los permisos",

@@ -744,7 +744,7 @@
         "treeCoverLoss2019": "Perte de la couvert forestier (2019)",
         "treeCoverLoss2020": "Perte de la couvert forestier (2020)",
         "treeCoverLoss2021": "Perte de la couvert forestier (2021)",
-        "wdpa": "Zones protégées (tuiles vectorielles)",
+        "wdpa": "Zones protégées (tuiles vectorielles)"
     },
     "locationPermissions": {
         "enablePermissions": "Activer les autorisations",
