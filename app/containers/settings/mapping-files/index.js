@@ -17,7 +17,7 @@ import { deleteLayer, renameLayer } from 'redux-modules/layers';
 import { deleteMapboxOfflinePacks, importGFWContent } from 'redux-modules/layers/downloadLayer';
 import { unselectDeletedBasemap } from 'redux-modules/layerSettings';
 
-import { GFW_BASEMAPS } from 'config/constants';
+import { GFW_BASEMAPS, HIDDEN_GFW_CONTEXTUAL_LAYER_IDS } from 'config/constants';
 
 type OwnProps = {|
   +componentId: string,
@@ -31,6 +31,7 @@ function mapStateToProps(state: State, ownProps: OwnProps) {
   if (mappingFileType === 'contextual_layer') {
     const importedGFWLayers = state.layers.imported.filter(layer => layer.type === mappingFileType && !layer.isCustom);
     baseFiles = baseFiles.concat(importedGFWLayers);
+    baseFiles = baseFiles.filter(layer => !HIDDEN_GFW_CONTEXTUAL_LAYER_IDS.includes(layer.id));
   }
 
   const importedFiles: Array<Layer> = state.layers.imported.filter(

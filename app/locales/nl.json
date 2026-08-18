@@ -730,7 +730,6 @@
         "biodiversitySignificance": "Significatie van biodiversiteit - 2016",
         "indonesiaForestArea": "Indonesië bosgebied",
         "landmarks": "Inheemse en gemeenschapsgebieden",
-        "managedForests": "Beheerd Bos",
         "mining": "Mijnbouw",
         "miningConcessions": "Mijnbouw concessies",
         "oilPalm": "Olie palm",
@@ -746,7 +745,6 @@
         "treeCoverLoss2020": "Kronen dak verlies (2020)",
         "treeCoverLoss2021": "kronen dak verlies (2021)",
         "wdpa": "Beschermde gebieden (Vector Tiles)",
-        "woodFiber": "houtvezel"
     },
     "locationPermissions": {
         "enablePermissions": "Schakel toestemming aan",

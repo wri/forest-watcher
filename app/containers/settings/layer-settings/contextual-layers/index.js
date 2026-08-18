@@ -12,6 +12,7 @@ import {
 } from 'redux-modules/layerSettings';
 
 import type { Layer } from 'types/layers.types';
+import { HIDDEN_GFW_CONTEXTUAL_LAYER_IDS } from 'config/constants';
 
 type OwnProps = {|
   +componentId: string,
@@ -22,6 +23,7 @@ function mapStateToProps(state: State, ownProps: OwnProps) {
   let baseFiles: Array<Layer> = state.layers.data || [];
   const importedGFWLayers = state.layers.imported.filter(layer => !layer.isCustom && layer.type === 'contextual_layer');
   baseFiles = baseFiles.concat(importedGFWLayers);
+  baseFiles = baseFiles.filter(layer => !HIDDEN_GFW_CONTEXTUAL_LAYER_IDS.includes(layer.id));
   const importedFiles: Array<Layer> = state.layers.imported.filter(
     layer => layer.isCustom && layer.type === 'contextual_layer'
   );
