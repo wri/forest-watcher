@@ -230,7 +230,8 @@
         "syncingNotice": "De app synchroniseert gegevens. U kunt doorgaan met uw actie nadat de synchronisatie is voltooid!"
     },
     "contactUs": {
-        "description": "Vragen of feedback? Email mailto:forestwatcher@wri.org"
+        "description": "Laat een vraag, opmerking, verzoek of feedback achter door het https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen.",
+        "linkText": "formulier"
     },
     "contextualLayers": {
         "delete": {
@@ -307,6 +308,7 @@
         "done": "Gedaan"
     },
     "faq": {
+        "formLinkText": "formulier",
         "alert_settings": {
             "deforestation": {
                 "title": "Welke meldingstypes zijn er beschikbaar?"
@@ -520,7 +522,7 @@
                                 "text2": "Forest Watcher-web ondersteunt URL's tiles.",
                                 "text3": "Aangepaste bestandstypen die worden ondersteund in Forest Watcher Mobile staan ​​hieronder vermeld."
                             },
-                            "footerText": "De aanbevolen maximale bestandsgrootte is 1 MB, alles wat groter is, werkt mogelijk niet correct. Complexe vormen kunnen ook problemen opleveren en aangepaste stijlen en afbeeldingen kunnen worden verwijderd. Neem contact met ons op via forestwatcher@wri.org als je vragen hebt over het uploadproces.",
+                            "footerText": "De aanbevolen maximale bestandsgrootte is 1 MB, alles wat groter is, werkt mogelijk niet correct. Complexe vormen kunnen ook problemen opleveren en aangepaste stijlen en afbeeldingen kunnen worden verwijderd. Neem contact met ons op door dit https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen als je vragen hebt over het uploadproces.",
                             "orderList": {
                                 "text1": "GeoJSON (met .geojson of .json bestand extensie)",
                                 "text2": "TopoJSON (met .topojson of .json bestand extensies)",
@@ -554,11 +556,11 @@
                                     "text": "Ik zie geen waarschuwingsgegevens"
                                 },
                                 "order2": {
-                                    "description": "Als de app crasht, open je hem opnieuw. Als het meerdere keren crasht, stuur dan een e-mail naar mailto:forestwatcher@wri.org en vermeld informatie over uw apparaatmodel en wat u deed in de app toen het crashte.",
+                                    "description": "Als de app crasht, open je hem opnieuw. Als het meerdere keren crasht, neem dan contact met ons op door dit https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen en vermeld informatie over uw apparaatmodel en wat u deed in de app toen het crashte.",
                                     "text": "De app loopt vast"
                                 },
                                 "order3": {
-                                    "description": "De locatie- en navigatiefuncties zijn afhankelijk van de interne GPS van uw apparaat. Controleer of de GPS (vaak \"location services\" genoemd) is ingeschakeld in de apparaat instellingen. Het GPS-signaal kan binnenshuis zwak zijn, dus als je binnen of onder een dak bent, probeer dan naar buiten te gaan. Als het nog steeds niet werkt, stuur dan een e-mail naar forestwatcher@wri.org om ons te vertellen welk apparaat model u gebruikt en welke app-versie (te vinden onderaan de \"Settings page\"). GPS van mobiele telefoons is meestal niet zo nauwkeurig als zelfstandige GPS-apparaten, dus u kunt ook de coördinaten van de waarschuwing invoeren in een GPS-apparaat als back-up als u over een beschikt.",
+                                    "description": "De locatie- en navigatiefuncties zijn afhankelijk van de interne GPS van uw apparaat. Controleer of de GPS (vaak \"location services\" genoemd) is ingeschakeld in de apparaat instellingen. Het GPS-signaal kan binnenshuis zwak zijn, dus als je binnen of onder een dak bent, probeer dan naar buiten te gaan. Als het nog steeds niet werkt, neem dan contact met ons op door dit https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen om ons te vertellen welk apparaat model u gebruikt en welke app-versie (te vinden onderaan de \"Settings page\"). GPS van mobiele telefoons is meestal niet zo nauwkeurig als zelfstandige GPS-apparaten, dus u kunt ook de coördinaten van de waarschuwing invoeren in een GPS-apparaat als back-up als u over een beschikt.",
                                     "text": "Ik kan het kompas / mijn locatie niet zien"
                                 },
                                 "order4": {
@@ -588,7 +590,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "We zijn ook altijd op zoek om de app te verbeteren om aan de gebruikersbehoeften te voldoen. Neem contact met ons op via forestwatcher@wri.org als er andere functies zijn die nuttig zouden kunnen zijn."
+                                "text": "We zijn ook altijd op zoek om de app te verbeteren om aan de gebruikersbehoeften te voldoen. Neem contact met ons op door dit https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen als er andere functies zijn die nuttig zouden kunnen zijn."
                             }
                         },
                         "title": "Ik heb een geweldig idee om de app te verbeteren. Wat moet ik doen?"
@@ -596,7 +598,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Neem contact met ons op voor feedback of vragen door een e-mail te sturen mailto:forestwatcher@wri.org."
+                                "text": "Neem contact met ons op door dit https://globalnaturewatch.zendesk.com/hc/en-us/requests/new in te vullen."
                             }
                         },
                         "title": "Hoe krijg ik ondersteuning?"

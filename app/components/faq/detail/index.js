@@ -2,12 +2,24 @@ import React from 'react';
 import Hyperlink from 'react-native-hyperlink';
 import PropTypes from 'prop-types';
 import { View, ScrollView, Text } from 'react-native';
+import i18n from 'i18next';
 
 import Theme from 'config/theme';
 import styles from './styles';
 
 function FaqDetail(props) {
   const { description, orderList, orderListLetters, footerText } = props.contentFaq;
+
+  const getLinkText = url => {
+    if (url.includes('zendesk.com')) {
+      return i18n.t('faq.formLinkText', { defaultValue: 'form' });
+    }
+    if (url === 'mailto:forestwatcher@wri.org') {
+      return 'forestwatcher@wri.org';
+    }
+    return url;
+  };
+
   return (
     <View style={[styles.container, { paddingTop: 0 }]}>
       <ScrollView
@@ -25,7 +37,7 @@ function FaqDetail(props) {
                 key={key}
                 linkDefault
                 linkStyle={Theme.link}
-                linkText={url => (url === 'mailto:forestwatcher@wri.org' ? 'forestwatcher@wri.org' : url)}
+                linkText={getLinkText}
               >
                 <Text style={styles.faqText} selectable>
                   {text}
@@ -37,7 +49,7 @@ function FaqDetail(props) {
             Object.values(orderList).map((text, key) => (
               <View key={key} style={description === '' ? styles.faqListNoPadding : styles.faqList}>
                 <View style={styles.faqDotList} />
-                <Hyperlink linkDefault linkStyle={Theme.link}>
+                <Hyperlink linkDefault linkStyle={Theme.link} linkText={getLinkText}>
                   <Text style={styles.faqText} selectable>
                     {text}
                   </Text>
@@ -50,7 +62,7 @@ function FaqDetail(props) {
               <View key={key}>
                 <View style={styles.faqListLetter}>
                   <Text style={styles.faqText}>{String.fromCharCode(97 + (key % 27))}. </Text>
-                  <Hyperlink linkDefault linkStyle={Theme.link}>
+                  <Hyperlink linkDefault linkStyle={Theme.link} linkText={getLinkText}>
                     <Text style={styles.faqText} selectable>
                       {data.text}
                     </Text>
@@ -61,7 +73,7 @@ function FaqDetail(props) {
                   <Hyperlink
                     linkDefault
                     linkStyle={Theme.link}
-                    linkText={url => (url === 'mailto:forestwatcher@wri.org' ? 'forestwatcher@wri.org' : url)}
+                    linkText={getLinkText}
                   >
                     <Text style={styles.faqText} selectable>
                       {data.description}
@@ -72,7 +84,7 @@ function FaqDetail(props) {
             ))}
 
           {footerText && (
-            <Hyperlink linkDefault linkStyle={Theme.link}>
+            <Hyperlink linkDefault linkStyle={Theme.link} linkText={getLinkText}>
               <Text style={styles.faqText} selectable>
                 {footerText}
               </Text>

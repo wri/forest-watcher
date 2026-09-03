@@ -230,7 +230,8 @@
         "syncingNotice": "La aplicación está sincronizando datos. Puede continuar con su actividad cuando haya terminado."
     },
     "contactUs": {
-        "description": "¿Tienes preguntas o comentarios? Envíanos un correo a mailto:forestwatcher@wri.org"
+        "description": "Deja una pregunta, comentario, solicitud o comentario completando el https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
+        "linkText": "formulario"
     },
     "contextualLayers": {
         "delete": {
@@ -307,6 +308,7 @@
         "done": "Listo"
     },
     "faq": {
+        "formLinkText": "formulario",
         "alert_settings": {
             "deforestation": {
                 "title": "¿Qué tipos de alertas están disponibles?"
@@ -520,7 +522,7 @@
                                 "text2": "La web de Forest Watcher admite URL de mosaicos.",
                                 "text3": "A continuación se enumeran los tipos de archivos personalizados que se admiten en Forest Watcher Mobile."
                             },
-                            "footerText": "El tamaño máximo de archivo recomendado es de 1 MB, y cualquier cosa de mayor tamaño puede no funcionar correctamente. Las formas complejas también pueden plantear problemas y es posible que se eliminen los estilos e imágenes personalizados. Póngase en contacto con nosotros en forestwatcher@wri.org si tiene alguna pregunta sobre el proceso de carga.",
+                            "footerText": "El tamaño máximo de archivo recomendado es de 1 MB, y cualquier cosa de mayor tamaño puede no funcionar correctamente. Las formas complejas también pueden plantear problemas y es posible que se eliminen los estilos e imágenes personalizados. Por favor, comunícate con nosotros completando este https://globalnaturewatch.zendesk.com/hc/en-us/requests/new si tiene alguna pregunta sobre el proceso de carga.",
                             "orderList": {
                                 "text1": "GeoJSON (con extensiones de archivo .geojson o .json)",
                                 "text2": "TopoJSON (con extensiones de archivo .topojson o .json)",
@@ -554,11 +556,11 @@
                                     "text": "No veo datos de alertas"
                                 },
                                 "order2": {
-                                    "description": "Si la aplicación se bloquea, vuelve a abrirla. Si se bloquea múltiples veces, por favor, envía un correo electrónico a mailto:forestwatcher@wri.org e incluye la información sobre el modelo de tu dispositivo móvil y sobre lo que estabas haciendo con la aplicación cuando se bloqueó.",
+                                    "description": "Si la aplicación se bloquea, vuelve a abrirla. Si se bloquea múltiples veces, por favor, comunícate con nosotros completando este https://globalnaturewatch.zendesk.com/hc/en-us/requests/new e incluye la información sobre el modelo de tu dispositivo móvil y sobre lo que estabas haciendo con la aplicación cuando se bloqueó.",
                                     "text": "La aplicación se bloquea"
                                 },
                                 "order3": {
-                                    "description": "Las funciones de localización y navegación se basan en el GPS interno del dispositivo. Compruebe que el GPS (a menudo denominado \"servicios de localización\") esté activado en la configuración del dispositivo. La señal de GPS puede ser débil en interiores, por lo que si está en un espacio cerrado o bajo un techo, intente salir al exterior. Si sigue sin funcionar, envíenos un mensaje de correo electrónico a forestwatcher@wri.org contándonos el modelo de dispositivo que utiliza y la versión de la aplicación (que se encuentra en la parte inferior de la página de configuración). Los GPS de los teléfonos móviles no suelen ser tan precisos como los dispositivos GPS independientes, por lo que es posible que también desee introducir las coordenadas de la alerta en un dispositivo GPS como copia de seguridad si tiene uno disponible.",
+                                    "description": "Las funciones de localización y navegación se basan en el GPS interno del dispositivo. Compruebe que el GPS (a menudo denominado \"servicios de localización\") esté activado en la configuración del dispositivo. La señal de GPS puede ser débil en interiores, por lo que si está en un espacio cerrado o bajo un techo, intente salir al exterior. Si sigue sin funcionar, por favor, comunícate con nosotros completando este https://globalnaturewatch.zendesk.com/hc/en-us/requests/new contándonos el modelo de dispositivo que utiliza y la versión de la aplicación (que se encuentra en la parte inferior de la página de configuración). Los GPS de los teléfonos móviles no suelen ser tan precisos como los dispositivos GPS independientes, por lo que es posible que también desee introducir las coordenadas de la alerta en un dispositivo GPS como copia de seguridad si tiene uno disponible.",
                                     "text": "No puedo ver la brújula/mi ubicación"
                                 },
                                 "order4": {
@@ -588,7 +590,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Siempre estamos en busca de mejorar la aplicación para satisfacer las necesidades de los usuarios. Póngase en contacto con nosotros a través del correo electrónico forestwatcher@wri.org si cree que hay otras características que podrían ser útiles."
+                                "text": "Siempre estamos en busca de mejorar la aplicación para satisfacer las necesidades de los usuarios. Por favor, comunícate con nosotros completando este https://globalnaturewatch.zendesk.com/hc/en-us/requests/new si cree que hay otras características que podrían ser útiles."
                             }
                         },
                         "title": "Tengo una gran idea para mejorar la aplicación. ¿Qué debo hacer?"
@@ -596,7 +598,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Contacta con nosotros para enviarnos tus comentarios o preguntas en el correo electrónico mailto:forestwatcher@wri.org."
+                                "text": "Por favor, comunícate con nosotros completando este https://globalnaturewatch.zendesk.com/hc/en-us/requests/new."
                             }
                         },
                         "title": "¿Cómo consigo ayuda?"

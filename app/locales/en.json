@@ -230,7 +230,8 @@
         "syncingNotice": "The app is syncing data. You can continue with your action after the syncing is finished!"
     },
     "contactUs": {
-        "description": "Questions or feedback? Email mailto:forestwatcher@wri.org"
+        "description": "Leave a question, comment, request, or feedback by completing the https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
+        "linkText": "form"
     },
     "contextualLayers": {
         "delete": {
@@ -307,6 +308,7 @@
         "done": "Done"
     },
     "faq": {
+        "formLinkText": "form",
         "alert_settings": {
             "deforestation": {
                 "title": "What alert types are available?"
@@ -520,7 +522,7 @@
                                 "text2": "Forest Watcher web supports tile URLs.",
                                 "text3": "Custom file types supported in Forest Watcher Mobile are listed below."
                             },
-                            "footerText": "The recommended maximum file size is 1 MB, anything larger may not work properly. Complex shapes can also have issues and custom styling and images may be removed. Please contact us at forestwatcher@wri.org if you have any questions about the upload process.",
+                            "footerText": "The recommended maximum file size is 1 MB, anything larger may not work properly. Complex shapes can also have issues and custom styling and images may be removed. Please contact us by filling out this https://globalnaturewatch.zendesk.com/hc/en-us/requests/new if you have any questions about the upload process.",
                             "orderList": {
                                 "text1": "GeoJSON (with .geojson or .json file extensions)",
                                 "text2": "TopoJSON (with .topojson or .json file extensions)",
@@ -554,11 +556,11 @@
                                     "text": "I don’t see any alert data"
                                 },
                                 "order2": {
-                                    "description": "If the app crashes, open it again. If it crashes multiple times, please send an email to mailto:forestwatcher@wri.org and include information about your device model and what you were doing in the app when it crashed.",
+                                    "description": "If the app crashes, open it again. If it crashes multiple times, please contact us by filling out this https://globalnaturewatch.zendesk.com/hc/en-us/requests/new and include information about your device model and what you were doing in the app when it crashed.",
                                     "text": "The app crashes"
                                 },
                                 "order3": {
-                                    "description": "The location and navigation features rely on your device’s internal GPS. Check that the GPS (often called “location services”) is turned on in your device settings. The GPS signal can be weak indoors, so if you are inside or under a roof, try going outside. If it still doesn’t work, please email forestwatcher@wri.org telling us what device model you are using and which app version (found at the bottom of the Settings page). Cell phone GPS are usually not as accurate as standalone GPS devices, so you may also want to input the coordinates of the alert into a GPS device as backup if you have one available.",
+                                    "description": "The location and navigation features rely on your device’s internal GPS. Check that the GPS (often called “location services”) is turned on in your device settings. The GPS signal can be weak indoors, so if you are inside or under a roof, try going outside. If it still doesn’t work, please contact us by filling out this https://globalnaturewatch.zendesk.com/hc/en-us/requests/new telling us what device model you are using and which app version (found at the bottom of the Settings page). Cell phone GPS are usually not as accurate as standalone GPS devices, so you may also want to input the coordinates of the alert into a GPS device as backup if you have one available.",
                                     "text": "I can’t see the compass/my location"
                                 },
                                 "order4": {
@@ -588,7 +590,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "We are also always looking to improve the app to meet user needs. Please contact us at forestwatcher@wri.org if there are other features that would be helpful."
+                                "text": "We are also always looking to improve the app to meet user needs. Please contact us by filling out this https://globalnaturewatch.zendesk.com/hc/en-us/requests/new if there are other features that would be helpful."
                             }
                         },
                         "title": "I have a great idea to improve the app. What should I do?"
@@ -596,7 +598,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Contact us with feedback or questions by emailing mailto:forestwatcher@wri.org."
+                                "text": "Please contact us by filling out this https://globalnaturewatch.zendesk.com/hc/en-us/requests/new."
                             }
                         },
                         "title": "How do I get support?"
