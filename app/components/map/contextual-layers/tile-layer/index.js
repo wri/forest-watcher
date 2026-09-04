@@ -22,13 +22,19 @@ type Props = {
 // because they're served per-user via the /contextual-layer/ endpoint rather than the hardcoded GFW_CONTEXTUAL_LAYERS list.
 // dataAPI vector tile URLs look like https://tiles.globalforestwatch.org/{dataset}/latest/default/{z}/{x}/{y}.pbf,
 // and their MVT source-layer name matches the dataset slug in that first path segment.
-const DATA_API_DATASET_URL_REGEX = /^https?:\/\/[^/]+\/([a-z][a-z0-9_-]{2,})\//;
+const DATA_API_DATASET_URL_REGEX = /^https?:\/\/tiles\.globalforestwatch\.org\/([a-z][a-z0-9_-]{2,})\//;
 
 const dataAPIDatasetForURL = (url: ?string): ?string => {
-  if (!url || !url.endsWith('.pbf')) {
+  if (!url) {
     return null;
   }
-  return url.match(DATA_API_DATASET_URL_REGEX)?.[1];
+
+  const urlWithoutQuery = url.split(/[?#]/)[0];
+  if (!urlWithoutQuery.endsWith('.pbf')) {
+    return null;
+  }
+
+  return urlWithoutQuery.match(DATA_API_DATASET_URL_REGEX)?.[1];
 };
 
 const dataAPIVectorTileMetadata = (sourceLayer: string): ContextualLayerRenderSpec => ({
