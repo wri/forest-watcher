@@ -230,7 +230,8 @@
         "syncingNotice": "Ny rindrambaiko dia eo am-pandrindrana ny tahirin-kevitra. Azonao atao ny manohy ny asanao rehefa vita ny fandrindrana! "
     },
     "contactUs": {
-        "description": "Fanontaniana sa Fanehoan-kevitra? Mandefasa mailaka any amin'ny mailto:forestwatcher@wri.org"
+        "description": "Tsy hitanao izay tadiavinao ao amin'ny Ivon-toeram-pahalalana? Mametraha fanontaniana, fanehoan-kevitra, fangatahana na tamberin-kevitra amin'ny famenoana ny taratasy: https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
+        "linkText": "taratasy"
     },
     "contextualLayers": {
         "delete": {
@@ -307,6 +308,7 @@
         "done": "Vita"
     },
     "faq": {
+        "formLinkText": "taratasy",
         "alert_settings": {
             "deforestation": {
                 "title": "Inona no karazana fanairana misy ao"
@@ -520,7 +522,7 @@
                                 "text2": "Mahazaka taila URL ny Tranonkala Forest Watcher.",
                                 "text3": "Ireo voatanisa eo ambany ireo ny karazana raki-takila mifanaraka amin’izay ilaina zakan’ny Forest Watcher ho an'ny Finday."
                             },
-                            "footerText": "1 MB raha be indrindra ny raki-takila tsara ampidirina, ny mihoatra izay dia mety tsy hety tsara. Mety hiteraka olana ihany koa ny endrika diso sarotra loatra, mety ho voafafa ny style sy ny sary nahitsy araka izay ilaina. Raha mila fanazavana fanampiny momba ny fombafomba fampidirana ho tahiry, mifandraisa aminay azafady: forestwatcher@wri.org.",
+                            "footerText": "1 MB raha be indrindra ny raki-takila tsara ampidirina, ny mihoatra izay dia mety tsy hety tsara. Mety hiteraka olana ihany koa ny endrika diso sarotra loatra, mety ho voafafa ny style sy ny sary nahitsy araka izay ilaina. Raha mila fanazavana fanampiny momba ny fombafomba fampidirana ho tahiry, mifandraisa aminay azafady amin'ny famenoana ity https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
                             "orderList": {
                                 "text1": "GeoJSON (sy fanitarana raki-takila .geojson na .json)",
                                 "text2": "TopoJSON (sy fanitarana raki-takila .topojson na .json)",
@@ -554,11 +556,11 @@
                                     "text": "Tsy mahita angona fanairana aho"
                                 },
                                 "order2": {
-                                    "description": "Raha mikatso ny appli dia avereno sokafana indray. Raha mbola mikatso imbetsaka, dia mandefasa mailaka any amin'ny: forestwatcher@wri.org, lazao ny môdelin'ny fitaovanao sy izay nataonao tamin'ny appli tamin’ny fotoana nampikatso azy.",
+                                    "description": "Raha mikatso ny appli dia avereno sokafana indray. Raha mbola mikatso imbetsaka, mifandraisa aminay azafady amin'ny famenoana ity https://globalnaturewatch.zendesk.com/hc/en-us/requests/new, lazao ny môdelin'ny fitaovanao sy izay nataonao tamin'ny appli tamin’ny fotoana nampikatso azy.",
                                     "text": "Mikatso ny appli"
                                 },
                                 "order3": {
-                                    "description": "Miankina amin'ny fandehanan'ny GPS anatin’ny fitaovanao ny mikasika ny fanoroana toerana sy ny fandehandehananao. Hamarino ao amin’ny Lazaovan’ny fitaovanao fa nalefa ny GPS (matetika antsoina hoe \"serivisy fanoroana toerana\"). Mety ho ambany ny mari-pamantaran’ny GPS ao anaty trano, ka raha ao anaty trano ianao na ambanin'ny tafo dia andramo mivoaka any ivelany. Raha mbola tsy mandeha ihany dia andefaso mailaka azafady forestwatcher@wri.org ka lazao aminay ny môdelin’ny fitaovana sy ny karazana appli ampiasainao (jereo eo amin'ny farany ambanin'ny pejy Lazaova). Matetika ny GPS-amin'ny finday dia tsy tena marina toy ny fitaovana tena GPS mahaleo tena, aleo mampiditra ireo mpandrindra ny fanairana ao amin’ny fitaovana tena GPS raha toa ka manana iray ianao.",
+                                    "description": "Miankina amin'ny fandehanan'ny GPS anatin’ny fitaovanao ny mikasika ny fanoroana toerana sy ny fandehandehananao. Hamarino ao amin’ny Lazaovan’ny fitaovanao fa nalefa ny GPS (matetika antsoina hoe \"serivisy fanoroana toerana\"). Mety ho ambany ny mari-pamantaran’ny GPS ao anaty trano, ka raha ao anaty trano ianao na ambanin'ny tafo dia andramo mivoaka any ivelany. Raha mbola tsy mandeha ihany dia mifandraisa aminay azafady amin'ny famenoana ity https://globalnaturewatch.zendesk.com/hc/en-us/requests/new ka lazao aminay ny môdelin’ny fitaovana sy ny karazana appli ampiasainao (jereo eo amin'ny farany ambanin'ny pejy Lazaova). Matetika ny GPS-amin'ny finday dia tsy tena marina toy ny fitaovana tena GPS mahaleo tena, aleo mampiditra ireo mpandrindra ny fanairana ao amin’ny fitaovana tena GPS raha toa ka manana iray ianao.",
                                     "text": "Tsy hitako ny tondroavaratra / ny fanoroana ny toerana misy ahy"
                                 },
                                 "order4": {
@@ -588,7 +590,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Mitady hevitra hanatsarana hatrany ny appli izahay mba hamaly ny ilain'ny mpampiasa. Azafady, raha misy toetoetra hafa mety hanampy, mifandraisa aminay: forestwatcher@wri.org."
+                                "text": "Mitady hevitra hanatsarana hatrany ny appli izahay mba hamaly ny ilain'ny mpampiasa. Azafady, raha misy toetoetra hafa mety hanampy, mifandraisa aminay amin'ny famenoana ity https://globalnaturewatch.zendesk.com/hc/en-us/requests/new."
                             }
                         },
                         "title": "Manan-kevitra lehibe hanatsarana ny appli aho. Inona no tokony hataoko?"
@@ -596,7 +598,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Mandefasa mailaka aminay miaraka amin’ny tamberin-kevitra na fanontaniana: forestwatcher@wri.org."
+                                "text": "Mifandraisa aminay azafady amin'ny famenoana ity https://globalnaturewatch.zendesk.com/hc/en-us/requests/new."
                             }
                         },
                         "title": "Ahoana no fomba ahazoako fanampiana?"

@@ -230,7 +230,8 @@
         "syncingNotice": "Aplikasi sedang menyinkronkan data. Anda dapat melanjutkan tindakan Anda setelah sinkronisasi selesai!"
     },
     "contactUs": {
-        "description": "Pertanyaan atau masukan? Surel mailto: forestwatcher@wri.org"
+        "description": "Tidak menemukan apa yang Anda cari di Pusat Bantuan kami? Tinggalkan pertanyaan, komentar, permintaan, atau masukan dengan mengisi formulir: https://globalnaturewatch.zendesk.com/hc/id/requests/new.",
+        "linkText": "formulir"
     },
     "contextualLayers": {
         "delete": {
@@ -307,6 +308,7 @@
         "done": "Selesai"
     },
     "faq": {
+        "formLinkText": "formulir ini",
         "alert_settings": {
             "deforestation": {
                 "title": "Apa jenis peringatan yang tersedia?"
@@ -520,7 +522,7 @@
                                 "text2": "Forest Watcher web mendukung URL ubin.",
                                 "text3": "Berikut jenis-jenis berkas kustom yang didukung di Forest Watcher Mobile."
                             },
-                            "footerText": "Ukuran berkas maksimal yang disarankan adalah 1 MB, ukuran di atas itu mungkin menyebabkan aplikasi tidak berfungsi dengan benar. Bentuk-bentuk kompleks juga dapat bermasalah dan gaya serta gambar kustom dapat hilang. Harap hubungi kami di forestwatcher@wri.org jika Anda punya pertanyaan seputar proses unggah.",
+                            "footerText": "Ukuran berkas maksimal yang disarankan adalah 1 MB, ukuran di atas itu mungkin menyebabkan aplikasi tidak berfungsi dengan benar. Bentuk-bentuk kompleks juga dapat bermasalah dan gaya serta gambar kustom dapat hilang. Harap hubungi kami dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new jika Anda punya pertanyaan seputar proses unggah.",
                             "orderList": {
                                 "text1": "GeoJSON (dengan ekstensi berkas .geojson atau .json)",
                                 "text2": "TopoJSON (dengan ekstensi berkas .topojson atau .json)",
@@ -554,11 +556,11 @@
                                     "text": "Saya tidak melihat data lansiran"
                                 },
                                 "order2": {
-                                    "description": "Jika aplikasi bertabrakan, buka sekali lagi. Jika bertabrakan berkali-kali, kirim surel ke mailto:forestwatcher@wri.org dan sertakan informasi tentang model perangkat Anda dan apa yang Anda lakukan di aplikasi saat bertabrakan.",
+                                    "description": "Jika aplikasi bertabrakan, buka sekali lagi. Jika bertabrakan berkali-kali, silakan hubungi kami dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new dan sertakan informasi tentang model perangkat Anda dan apa yang Anda lakukan di aplikasi saat bertabrakan.",
                                     "text": "Aplikasi bertabrakan"
                                 },
                                 "order3": {
-                                    "description": "Fitur lokasi dan navigasi bergantung pada GPS internal perangkat Anda. Periksa apakah GPS (sering disebut \"layanan lokasi\") sudah dinyalakan di pengaturan perangkat Anda. Sinyal GPS mungkin lemah di dalam ruang, jadi jika Anda berada di dalam ruang atau di bawah atap, cobalah keluar. Jika masih belum bekerja, silakan kirim surel ke forestwatcher@wri.org untuk memberi tahu kami model perangkat dan versi aplikasi (terdapat pada bagian bawah laman Pengaturan) yang Anda gunakan. GPS ponsel biasanya tidak seakurat GPS mandiri, sehingga Anda mungkin perlu memasukkan koordinat peringatan ke perangkat GPS sebagai cadangan jika punya.",
+                                    "description": "Fitur lokasi dan navigasi bergantung pada GPS internal perangkat Anda. Periksa apakah GPS (sering disebut \"layanan lokasi\") sudah dinyalakan di pengaturan perangkat Anda. Sinyal GPS mungkin lemah di dalam ruang, jadi jika Anda berada di dalam ruang atau di bawah atap, cobalah keluar. Jika masih belum bekerja, silakan hubungi kami dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new untuk memberi tahu kami model perangkat dan versi aplikasi (terdapat pada bagian bawah laman Pengaturan) yang Anda gunakan. GPS ponsel biasanya tidak seakurat GPS mandiri, sehingga Anda mungkin perlu memasukkan koordinat peringatan ke perangkat GPS sebagai cadangan jika punya.",
                                     "text": "Saya tidak bisa melihat kompas/lokasi saya"
                                 },
                                 "order4": {
@@ -588,7 +590,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Kami selalu berupaya meningkatkan aplikasi ini agar dapat memenuhi kebutuhan pengguna. Silakan hubungi kami di forestwatcher@wri.org jika ada fitur-fitur lain yang mungkin dapat membantu."
+                                "text": "Kami selalu berupaya meningkatkan aplikasi ini agar dapat memenuhi kebutuhan pengguna. Silakan hubungi kami dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new jika ada fitur-fitur lain yang mungkin dapat membantu."
                             }
                         },
                         "title": "Saya punya ide bagus untuk memutakhirkan aplikasi. Apa yang sebaiknya saya lakukan?"
@@ -596,7 +598,7 @@
                     {
                         "content": {
                             "description": {
-                                "text": "Hubungi kami dengan umpan balik atau pertanyaan melalui surel ke mailto:forestwatcher@wri.org."
+                                "text": "Harap hubungi kami dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new."
                             }
                         },
                         "title": "Bagaimana saya mendapatkan bantuan?"
