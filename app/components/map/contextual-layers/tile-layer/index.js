@@ -18,15 +18,47 @@ type Props = {
   +layerCache: LayersCacheStatus
 };
 
+// Fallback for layers migrated from carto to the GFW dataAPI, which aren't in GFW_CONTEXTUAL_LAYERS_METADATA
+// because they're served per-user via the /contextual-layer/ endpoint rather than the hardcoded GFW_CONTEXTUAL_LAYERS list.
+// dataAPI vector tile URLs look like https://tiles.globalforestwatch.org/{dataset}/latest/default/{z}/{x}/{y}.pbf,
+// and their MVT source-layer name matches the dataset slug in that first path segment.
+const DATA_API_DATASET_URL_REGEX = /^https?:\/\/tiles\.globalforestwatch\.org\/([a-z][a-z0-9_-]{2,})\//;
+
+const dataAPIDatasetForURL = (url: ?string): ?string => {
+  if (!url) {
+    return null;
+  }
+
+  const urlWithoutQuery = url.split(/[?#]/)[0];
+  if (!urlWithoutQuery.endsWith('.pbf')) {
+    return null;
+  }
+
+  return urlWithoutQuery.match(DATA_API_DATASET_URL_REGEX)?.[1];
+};
+
+const dataAPIVectorTileMetadata = (sourceLayer: string): ContextualLayerRenderSpec => ({
+  isShareable: false,
+  tileFormat: 'vector',
+  // Vector layers default to a black fill if unset, so a color must always be provided here
+  vectorMapLayers: [
+    {
+      paint: { 'fill-color': '#3FBF7F', 'fill-opacity': 0.5 },
+      'source-layer': sourceLayer,
+      type: 'fill'
+    }
+  ]
+});
+
 // Renders all active imported contextual layers in settings
 export default class TileContextualLayer extends Component<Props> {
   render: () => null | React$Element<any> = () => {
     const { featureId, layer, layerCache, isOfflineMode } = this.props;
 
-    const layerMetadata: ContextualLayerRenderSpec = GFW_CONTEXTUAL_LAYERS_METADATA[layer.id] ?? {
-      isShareable: false,
-      tileFormat: 'raster'
-    };
+    const dataAPIDataset = dataAPIDatasetForURL(layer.url);
+    const layerMetadata: ContextualLayerRenderSpec =
+      GFW_CONTEXTUAL_LAYERS_METADATA[layer.id] ??
+      (dataAPIDataset ? dataAPIVectorTileMetadata(dataAPIDataset) : { isShareable: false, tileFormat: 'raster' });
 
     const tileURLTemplates = [];
 
