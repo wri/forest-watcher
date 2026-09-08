@@ -11,7 +11,7 @@ import Theme from 'config/theme';
 
 const wriLogo = require('assets/wri_logo.png');
 const jgiLogo = require('assets/jgi_logo.png');
-const gfwLogo = require('assets/gfw_logo.png');
+const gnwLogo = require('assets/gnw_logo.png');
 
 class Partners extends Component<{}> {
   partners: Array<{ text: string, image: number, url: string, functionOnPress: string => void }>;
@@ -21,7 +21,7 @@ class Partners extends Component<{}> {
     this.partners = [
       {
         text: 'Global Nature Watch',
-        image: gfwLogo,
+        image: gnwLogo,
         url: 'http://www.globalnaturewatch.org/',
         functionOnPress: this.handleLink
       },
