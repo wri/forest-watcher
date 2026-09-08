@@ -230,8 +230,8 @@
         "syncingNotice": "Aplikasi sedang menyinkronkan data. Anda dapat melanjutkan tindakan Anda setelah sinkronisasi selesai!"
     },
     "contactUs": {
-        "description": "Tinggalkan pertanyaan, komentar, permintaan, atau masukan dengan mengisi https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
-        "linkText": "formulir ini"
+        "description": "Tidak menemukan apa yang Anda cari di Pusat Bantuan kami? Tinggalkan pertanyaan, komentar, permintaan, atau masukan dengan mengisi formulir: https://globalnaturewatch.zendesk.com/hc/id/requests/new.",
+        "linkText": "formulir"
     },
     "contextualLayers": {
         "delete": {

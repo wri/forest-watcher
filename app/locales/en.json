@@ -230,7 +230,7 @@
         "syncingNotice": "The app is syncing data. You can continue with your action after the syncing is finished!"
     },
     "contactUs": {
-        "description": "Leave a question, comment, request, or feedback by completing the https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
+        "description": "Didn't find what you were looking for in our Help Center? Leave a question, comment, request, or feedback by completing the https://globalnaturewatch.zendesk.com/hc/en-us/requests/new.",
         "linkText": "form"
     },
     "contextualLayers": {

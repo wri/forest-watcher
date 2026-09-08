@@ -14,9 +14,6 @@ function FaqDetail(props) {
     if (url.includes('zendesk.com')) {
       return i18n.t('faq.formLinkText', { defaultValue: 'form' });
     }
-    if (url === 'mailto:forestwatcher@wri.org') {
-      return 'forestwatcher@wri.org';
-    }
     return url;
   };
 

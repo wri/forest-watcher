@@ -21,9 +21,7 @@ class ContactUs extends Component<{}> {
           linkDefault
           linkStyle={Theme.link}
           linkText={url =>
-            url.includes('zendesk.com') || url === 'mailto:forestwatcher@wri.org'
-              ? i18n.t('contactUs.linkText')
-              : url
+            url.includes('zendesk.com') ? i18n.t('contactUs.linkText') : url
           }
         >
           <Text style={styles.contactUsText} selectable>
