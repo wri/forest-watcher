@@ -10,6 +10,8 @@ The following ones are included in the app by default:
 
 There is also some GFW layers available in `/settings/layers` page
 - oilPalm
+- managedForests
+- woodFiber
 - mining
 
 You can find the GFW layers configuration on the wri carto account in the `fw_contextual_layers` table.
