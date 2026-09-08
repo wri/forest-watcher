@@ -230,7 +230,7 @@
         "syncingNotice": "La aplicación está sincronizando datos. Puede continuar con su actividad cuando haya terminado."
     },
     "contactUs": {
-        "description": "¿No encontraste lo que buscabas en nuestro Centro de ayuda? Deja una pregunta, comentario, solicitud o comentarios completando el formulario: https://globalnaturewatch.zendesk.com/hc/es-419/requests/new.",
+        "description": "¿No encontraste lo que buscabas en nuestro Centro de ayuda? Deja una pregunta, comentario, o solicitud completando el formulario: https://globalnaturewatch.zendesk.com/hc/es-419/requests/new.",
         "linkText": "formulario"
     },
     "contextualLayers": {
