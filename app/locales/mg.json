@@ -730,6 +730,7 @@
         "biodiversitySignificance": "Lanjan’ny ala sy karazan-javaboary – 2016",
         "indonesiaForestArea": "Faritry ny ala any Indonezia",
         "landmarks": "Tanin’ny Mponina sy ny Fiarahamonina",
+        "managedForests": "Ala Voatantana",
         "mining": "Fitrandrahana Harena an-kibon’ny tany",
         "miningConcessions": "Tobim-Pitrandrahana Harena an-kibon’ny tany",
         "oilPalm": "Menakanapalma",
@@ -744,7 +745,8 @@
         "treeCoverLoss2019": "Fahaverezan’ny rakotra Ala (2019)",
         "treeCoverLoss2020": "Fahaverezan’ny rakotra Ala (2020)",
         "treeCoverLoss2021": "Fahaverezan’ny rakotra Ala (2021)",
-        "wdpa": "Faritra arovana (Amin’ny endrika Tailana \"Vecteur\")"
+        "wdpa": "Faritra arovana (Amin’ny endrika Tailana \"Vecteur\")",
+        "woodFiber": "Kofehin-kazo"
     },
     "locationPermissions": {
         "enablePermissions": "Hanome alalana",

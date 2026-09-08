@@ -788,9 +788,6 @@ export const GFW_FORGOT_PASSWORD_LINK = `${Config.API_AUTH}/auth/reset-password`
 
 export const LAST_WHATS_NEW_VERSION = '3.0.0';
 
-// Legacy contextual layers that should not be shown in UI lists.
-export const HIDDEN_GFW_CONTEXTUAL_LAYER_IDS = ['51aad76b-e884-44e0-82a4-d3b2f87a052d', '82229960-13c2-4810-84e7-bdd4812d4578'];
-
 export default {
   areas: AREAS,
   basemaps: GFW_BASEMAPS,

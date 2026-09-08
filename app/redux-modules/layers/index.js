@@ -18,7 +18,6 @@ import { invalidateIncompleteLayerDownloads, deleteRegionFromProgress } from 're
 import { trackImportedContent } from 'helpers/analytics';
 
 import deleteLayerFiles from 'helpers/layer-store/deleteLayerFiles';
-import { HIDDEN_GFW_CONTEXTUAL_LAYER_IDS } from 'config/constants';
 
 import { importLayerFile } from 'helpers/layer-store/import/importLayerFile';
 import { decreaseAppSynced } from '../app';
@@ -73,7 +72,6 @@ export default function reducer(state: LayersState = initialState, action: Layer
       return { ...state, synced: false, syncing: true };
     case GET_LAYERS_COMMIT: {
       const typedPayload = [...action.payload]
-        .filter(layer => !HIDDEN_GFW_CONTEXTUAL_LAYER_IDS.includes(layer.id))
         .map(layer => {
         const mutableLayer = { ...layer };
         mutableLayer.type = 'contextual_layer';
