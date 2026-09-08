@@ -745,12 +745,8 @@
         "treeCoverLoss2019": "Perda de cobertura arbórea (2019)",
         "treeCoverLoss2020": "Perda de cobertura arbórea (2020)",
         "treeCoverLoss2021": "Perda de cobertura arbórea (2021)",
-<<<<<<< HEAD
-        "wdpa": "Áreas Protegidas (Mosaicos de Vetor)"
-=======
         "wdpa": "Áreas Protegidas (Mosaicos de Vetor)",
         "woodFiber": "Fibra de Madeira"
->>>>>>> 3078f5bf (Roll back removal of 2 layers based on Layer ID, matching FW Contextual Layers spreadsheet)
     },
     "locationPermissions": {
         "enablePermissions": "Dar permissões",
