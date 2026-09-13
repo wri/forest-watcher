@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import type { Dispatch, State } from 'types/store.types';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { Platform, View, Text, Image, TouchableHighlight } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { connect } from 'react-redux';
 import ActionButton from 'components/common/action-button';
@@ -71,13 +71,15 @@ const OfflineModal = (props: Props) => {
             opacity: 1,
             borderTopRightRadius: 10,
             borderTopLeftRadius: 10,
-            padding: 24,
+            paddingTop: 15,
+            paddingBottom: Platform.OS === 'ios' ? 40 : 60,
+            paddingHorizontal: 25,
             alignItems: 'center'
           }}
         >
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 18,
               fontFamily: Theme.font,
               color: Theme.colors.turtleGreen,
               alignSelf: 'flex-end'
@@ -93,7 +95,7 @@ const OfflineModal = (props: Props) => {
           <Text style={styles.offlineSubTitle}>{content.subtitle}</Text>
           <ActionButton
             disabled={!netInfo.isConnected}
-            style={{ height: 48, marginTop: 28, alignSelf: 'stretch' }}
+            style={{ height: 50, marginTop: 20, alignSelf: 'stretch' }}
             noIcon
             onPress={() => {
               if (netInfo.isConnected) {

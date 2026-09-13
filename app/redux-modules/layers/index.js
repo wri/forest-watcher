@@ -71,7 +71,8 @@ export default function reducer(state: LayersState = initialState, action: Layer
     case GET_LAYERS_REQUEST:
       return { ...state, synced: false, syncing: true };
     case GET_LAYERS_COMMIT: {
-      const typedPayload = [...action.payload].map(layer => {
+      const typedPayload = [...action.payload]
+        .map(layer => {
         const mutableLayer = { ...layer };
         mutableLayer.type = 'contextual_layer';
 

@@ -6,9 +6,8 @@ export default StyleSheet.create({
     flexDirection: 'row-reverse', // See jsx comment to understand better
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    marginHorizontal: 24,
-    marginBottom: 16,
-    paddingBottom: 16
+    marginHorizontal: 20,
+    marginBottom: 65,
   },
   buttonPanelTray: {
     height: 56
