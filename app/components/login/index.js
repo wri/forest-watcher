@@ -268,7 +268,6 @@ class Login extends PureComponent<Props, State> {
           source={{ uri: this.state.webViewUrl }}
           javaScriptEnabled
           domStorageEnabled
-          decelerationRate="normal"
           onLoadEnd={this.onLoadEnd}
           onNavigationStateChange={this.onNavigationStateChange}
           startInLoadingState
