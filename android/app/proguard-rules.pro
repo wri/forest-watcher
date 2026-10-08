@@ -16,3 +16,10 @@
 #   public *;
 #}
 
+# --- Mapbox 9.0.0: optional classes not on classpath, safe to ignore ---
+-dontwarn com.mapbox.android.core.**
+
+# --- Keep line numbers for readable crash reports (Sentry / Play Console) ---
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
+
