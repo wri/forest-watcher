@@ -24,6 +24,23 @@
 -keep class com.facebook.react.devsupport.** { *; }
 -keep class com.facebook.soloader.** { *; }
 
+# --- OkHttp/Okio: reflection-based provider lookup breaks under R8 ---
+-keep class okhttp3.** { *; }
+-keep class okio.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
+
+# --- react-native-config: reads BuildConfig fields via reflection ---
+-keep class com.forestwatcher.BuildConfig { *; }
+-keepclassmembers class * {
+    public static <fields>;
+}
+
+# --- Realm: loads native binary via reflection/JNI ---
+-keep class io.realm.** { *; }
+-keep class * extends io.realm.RealmObject
+-dontwarn io.realm.**
+
 # --- Keep line numbers for readable crash reports (Sentry / Play Console) ---
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
