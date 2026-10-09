@@ -19,6 +19,11 @@
 # --- Mapbox 9.0.0: optional classes not on classpath, safe to ignore ---
 -dontwarn com.mapbox.android.core.**
 
+# --- React Native 0.79: devsupport classes referenced via JNI/SoLoader ---
+# CxxInspectorPackagerConnection is looked up by name from libreact_devsupportjni.so
+-keep class com.facebook.react.devsupport.** { *; }
+-keep class com.facebook.soloader.** { *; }
+
 # --- Keep line numbers for readable crash reports (Sentry / Play Console) ---
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
